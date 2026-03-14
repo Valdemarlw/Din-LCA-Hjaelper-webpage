@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
 import { Phone, Mail, Send } from "lucide-react";
@@ -43,6 +44,16 @@ export function ContactPage() {
 
   return (
     <motion.div {...pageTransition}>
+      <Helmet>
+        <title>Kontakt Din LCA Hjælper — Få tilbud på LCA-beregning</title>
+        <meta name="description" content="Bestil LCA-beregning til dit byggeprojekt. Send os dine tegninger og få et tilbud inden for 24 timer. Ring +45 29 89 99 99 eller skriv direkte." />
+        <link rel="canonical" href="https://dinlcahjælper.dk/kontakt" />
+        <meta property="og:title" content="Kontakt Din LCA Hjælper — Få tilbud på LCA-beregning" />
+        <meta property="og:description" content="Send os dine tegninger og få et tilbud inden for 24 timer. Vi håndterer LCA-beregningen fra start til slut." />
+        <meta property="og:url" content="https://dinlcahjælper.dk/kontakt" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="da_DK" />
+      </Helmet>
       <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/20 py-20 md:py-28 lg:py-32">
         <div className="absolute right-0 top-1/4 translate-x-1/3 w-[350px] h-[350px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-6xl px-5 md:px-8">

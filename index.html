@@ -9,18 +9,121 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Din LCA Hjælper",
-      "description": "Specialiseret i LCA-beregning for byggeri. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport.",
-      "url": "https://dinlcahjælper.dk",
-      "telephone": "+4529899999",
-      "email": "valdemar.wernblad@dinlcahjælper.dk",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "DK"
-      },
-      "priceRange": "Fra 3.500 kr",
-      "areaServed": "DK"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://dinlcahjælper.dk/#business",
+          "name": "Din LCA Hjælper",
+          "description": "Specialiseret i LCA-beregning for byggeri. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport.",
+          "url": "https://dinlcahjælper.dk",
+          "telephone": "+4529899999",
+          "email": "valdemar.wernblad@dinlcahjælper.dk",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DK"
+          },
+          "priceRange": "Fra 3.500 kr",
+          "areaServed": "DK",
+          "sameAs": [
+            "https://a45lca.dk"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dinlcahjælper.dk/#website",
+          "name": "Din LCA Hjælper",
+          "url": "https://dinlcahjælper.dk",
+          "publisher": { "@id": "https://dinlcahjælper.dk/#business" }
+        },
+        {
+          "@type": "Service",
+          "name": "LCA-beregning",
+          "description": "Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18. Inkluderer hotspot-analyse, materialeoptimering og opdatering ved færdigmelding.",
+          "provider": { "@id": "https://dinlcahjælper.dk/#business" },
+          "areaServed": "DK",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "DKK",
+            "price": "3500",
+            "description": "Fra 3.500 kr — afhænger af projektets størrelse og kompleksitet"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "A45 dokumentation",
+          "description": "Platform til dokumentation af A4- og A5-faserne i byggeriet. Automatisk dataindsamling fra leverandører og underentreprenører med realtids CO₂-dashboard.",
+          "provider": { "@id": "https://dinlcahjælper.dk/#business" },
+          "areaServed": "DK",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "DKK",
+            "price": "0",
+            "description": "Inkluderet i LCA-beregning"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://dinlcahjælper.dk/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Hvad er en LCA-beregning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkning over hele dets levetid — fra materialeproduktion til nedrivning. Beregningen er lovpligtig efter BR18 og dokumenterer bl.a. CO₂-udledning pr. m² pr. år. Resultatet afleveres som en rapport til kommunen sammen med færdigmeldingen."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvornår er LCA-beregning lovpligtigt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Alle nye opvarmede byggerier skal have en LCA-beregning uanset størrelse. For uopvarmede bygninger gælder kravet ved arealer over 50 m², og for tilbygninger over 250 m². Kravet følger af BR18 og skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvad koster en LCA-beregning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vores priser starter fra 3.500 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvor lang tid tager en LCA-beregning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "En typisk LCA-beregning tager 1-2 uger fra vi modtager det nødvendige projektmateriale. Ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi anbefaler at involvere os så tidligt som muligt, så materialevalgene kan bygge på LCA-resultaterne."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvad er A4- og A5-faserne i LCA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A4 dækker transport af materialer til byggepladsen, og A5 dækker spild og affald under selve opførelsen. Disse faser kræver data fra leverandører og underentreprenører. Vores A45-platform gør det nemt at indsamle og dokumentere disse data automatisk."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvad er grænseværdien for CO₂ i BR18?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fra 1. juli 2025 gælder differentierede grænseværdier afhængigt af bygningstype: sommerhuse under 150 m² skal holde 4,0 kg CO₂e/m²/år, enfamiliehuse og rækkehuse 6,7, etageboliger og kontor 7,5, og øvrigt nybyggeri 8,0. Derudover er der en separat grænse for byggeprocessen (A4+A5) på 1,5 kg CO₂e/m²/år for alle typer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kan I hjælpe med både bolig og erhverv?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, vi håndterer LCA-beregninger for alle bygningstyper — bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
   </head>

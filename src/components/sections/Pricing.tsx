@@ -57,7 +57,7 @@ export function Pricing() {
         <div className="mt-10 rounded-2xl border border-border bg-white p-8 md:p-10 shadow-sm">
           <div className="flex items-baseline justify-center gap-1">
             <span className="text-sm text-muted font-medium">Fra</span>
-            <span className="text-5xl md:text-6xl font-bold text-navy tracking-tight">
+            <span className="text-5xl md:text-6xl font-bold text-navy tracking-tight" aria-label="Fra 3.500 kr">
               <PriceCounter inView={isInView} />
             </span>
             <span className="text-xl text-navy font-medium">kr</span>

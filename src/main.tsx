@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/HomePage";
@@ -9,14 +10,16 @@ import { ContactPage } from "./pages/ContactPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/om-os" element={<AboutPage />} />
-          <Route path="/kontakt" element={<ContactPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/om-os" element={<AboutPage />} />
+            <Route path="/kontakt" element={<ContactPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>
 );

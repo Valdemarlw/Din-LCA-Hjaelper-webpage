@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { pageTransition, fadeUp } from "../lib/animations";
 import { Button } from "../components/ui/Button";
@@ -5,6 +6,16 @@ import { Button } from "../components/ui/Button";
 export function AboutPage() {
   return (
     <motion.div {...pageTransition}>
+      <Helmet>
+        <title>Om Din LCA Hjælper — LCA-specialist for byggeri i Danmark</title>
+        <meta name="description" content="Bag Din LCA Hjælper står Valdemar Løvschal Wernblad — specialiseret LCA-rådgiver med erfaring fra projekter fra 80 til 3.000 m². Vi gør LCA-beregning nemt og pålideligt." />
+        <link rel="canonical" href="https://dinlcahjælper.dk/om-os" />
+        <meta property="og:title" content="Om Din LCA Hjælper — LCA-specialist for byggeri" />
+        <meta property="og:description" content="Specialiseret LCA-rådgiver i Danmark med erfaring fra bolig, erhverv og industri. Fra 80 til 3.000 m²." />
+        <meta property="og:url" content="https://dinlcahjælper.dk/om-os" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="da_DK" />
+      </Helmet>
       <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 py-20 md:py-28 lg:py-32">
         <div className="absolute left-0 top-1/3 -translate-x-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-6xl px-5 md:px-8">
