@@ -20,4 +20,30 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://dinlcahjælper.dk/sitemap.xml
+
+# AI Discovery Files
+# llms.txt: https://dinlcahjælper.dk/llms.txt
+# llms-full.txt: https://dinlcahjælper.dk/llms-full.txt
+# ai.txt: https://dinlcahjælper.dk/ai.txt

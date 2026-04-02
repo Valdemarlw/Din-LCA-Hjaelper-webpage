@@ -1,0 +1,62 @@
+# Din LCA Hjælper
+
+> Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 3.500 kr inkl. A45-dokumentation.
+
+Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, ingeniører og rådgivere i hele Danmark. Alle kunder får adgang til A45-platformen (a45lca.dk) til dokumentation af transport- og byggepladsfaserne (A4+A5).
+
+## Services
+
+- [LCA-beregning — Forside](https://dinlcahjælper.dk/): Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18
+- [Om os](https://dinlcahjælper.dk/om-os): Om Valdemar Løvschal Wernblad og Din LCA Hjælper
+- [Kontakt og tilbud](https://dinlcahjælper.dk/kontakt): Få tilbud på LCA-beregning inden for 24 timer
+
+## Contact
+
+- Telefon: +45 29 89 99 99
+- Email: valdemar.wernblad@dinlcahjælper.dk
+- CVR: 45 80 00 59
+- Område: Danmark (hele landet)
+
+## What We Do
+
+- LCA-beregning for bolig, erhverv og industri (projekter fra 80 til 3.000 m²)
+- Hotspot-analyse: identificerer de mest CO₂-tunge bygningsdele
+- Materialeoptimering: forslag til alternative materialer hvis grænseværdien er i fare
+- Opdatering ved færdigmelding med faktiske mængder
+- A4+A5 dokumentation via A45-platformen (a45lca.dk)
+- Rådgivning om BR18 grænseværdier og klimakrav
+
+## Pricing
+
+- Priser fra 3.500 kr inkl. adgang til A45-platformen
+- Endelig pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper
+- Fast tilbud inden for 24 timer efter modtagelse af tegninger
+
+## Process
+
+1. Kunden sender tegninger og projektmateriale
+2. Vi vurderer omfanget og sender et klart tilbud
+3. Tidlig LCA-beregning med hotspot-analyse og materialeoptimering
+4. A45-platformen sættes op til dokumentation af A4- og A5-moduler
+5. Beregningen opdateres med faktiske mængder fra det færdige byggeri
+6. Myndighedsklar rapport klar til kommunen
+
+## What We Do Not Do
+
+- Vi er ikke en certificeringsordning og udsteder ikke DGNB- eller Svanemærke-certificeringer
+- Vi udfører ikke energirammeberegninger (Be18/energimærkning)
+- Vi yder ikke juridisk rådgivning om byggelovgivning
+- Vi udfører ikke konstruktionsberegninger eller statik
+
+## FAQ
+
+- Hvad er en LCA-beregning? En livscyklusvurdering der opgør et byggeris samlede miljøpåvirkning over hele dets levetid. Lovpligtig efter BR18.
+- Hvornår er LCA-beregning lovpligtigt? Alle nye opvarmede byggerier uanset størrelse. Uopvarmede over 50 m². Tilbygninger over 250 m².
+- Hvad koster det? Fra 3.500 kr inkl. A45-adgang. Send tegninger for fast tilbud inden 24 timer.
+- Hvor lang tid tager det? Typisk 1-2 uger fra modtagelse af projektmateriale.
+- Hvad er A4- og A5-faserne? A4 = transport til byggeplads. A5 = spild og affald under opførelse. A45-platformen dokumenterer begge automatisk.
+- Hvad er CO₂-grænseværdierne i BR18? Fra 1. juli 2025: sommerhuse <150 m² = 4,0 kg CO₂e/m²/år, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0.
+
+## Optional
+
+- [A45-platformen](https://a45lca.dk): Platform til A4/A5-dokumentation i byggeriet

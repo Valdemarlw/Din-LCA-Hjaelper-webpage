@@ -5,16 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Din LCA Hjælper — Vi håndterer LCA-beregningen, så du kan fokusere på projektet. Fra 3.500 kr inkl. A45 adgang." />
-    <title>Din LCA Hjælper — LCA-beregning for arkitekter</title>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "LocalBusiness",
+          "@type": ["ProfessionalService", "LocalBusiness"],
           "@id": "https://dinlcahjælper.dk/#business",
           "name": "Din LCA Hjælper",
-          "description": "Specialiseret i LCA-beregning for byggeri. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport.",
+          "description": "Specialiseret i LCA-beregning for byggeri efter BR18. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport for bolig, erhverv og industri i hele Danmark.",
           "url": "https://dinlcahjælper.dk",
           "telephone": "+4529899999",
           "email": "valdemar.wernblad@dinlcahjælper.dk",
@@ -23,9 +22,78 @@
             "addressCountry": "DK"
           },
           "priceRange": "Fra 3.500 kr",
-          "areaServed": "DK",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Danmark"
+          },
+          "founder": { "@id": "https://dinlcahjælper.dk/#person" },
           "sameAs": [
             "https://a45lca.dk"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "LCA-ydelser",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "LCA-beregning",
+                  "description": "Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18"
+                },
+                "priceCurrency": "DKK",
+                "price": "3500",
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "priceCurrency": "DKK",
+                  "price": "3500",
+                  "description": "Fra 3.500 kr — afhænger af projektets størrelse og kompleksitet"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hotspot-analyse",
+                  "description": "Identificerer de mest CO₂-tunge bygningsdele"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Materialeoptimering",
+                  "description": "Forslag til alternative materialer hvis CO₂-grænseværdien er i fare"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "A45 dokumentation",
+                  "description": "Platform til dokumentation af A4- og A5-faserne i byggeriet med automatisk dataindsamling"
+                },
+                "priceCurrency": "DKK",
+                "price": "0",
+                "description": "Inkluderet i LCA-beregning"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://dinlcahjælper.dk/#person",
+          "name": "Valdemar Løvschal Wernblad",
+          "jobTitle": "LCA-rådgiver",
+          "worksFor": { "@id": "https://dinlcahjælper.dk/#business" },
+          "knowsAbout": [
+            "LCA-beregning",
+            "Livscyklusvurdering",
+            "BR18",
+            "Bæredygtigt byggeri",
+            "CO₂-beregning for bygninger",
+            "A4 og A5 dokumentation",
+            "Miljøpåvirkning fra byggeri"
           ]
         },
         {
@@ -33,33 +101,20 @@
           "@id": "https://dinlcahjælper.dk/#website",
           "name": "Din LCA Hjælper",
           "url": "https://dinlcahjælper.dk",
+          "inLanguage": "da",
           "publisher": { "@id": "https://dinlcahjælper.dk/#business" }
         },
         {
-          "@type": "Service",
-          "name": "LCA-beregning",
-          "description": "Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18. Inkluderer hotspot-analyse, materialeoptimering og opdatering ved færdigmelding.",
-          "provider": { "@id": "https://dinlcahjælper.dk/#business" },
-          "areaServed": "DK",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "DKK",
-            "price": "3500",
-            "description": "Fra 3.500 kr — afhænger af projektets størrelse og kompleksitet"
-          }
-        },
-        {
-          "@type": "Service",
-          "name": "A45 dokumentation",
-          "description": "Platform til dokumentation af A4- og A5-faserne i byggeriet. Automatisk dataindsamling fra leverandører og underentreprenører med realtids CO₂-dashboard.",
-          "provider": { "@id": "https://dinlcahjælper.dk/#business" },
-          "areaServed": "DK",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "DKK",
-            "price": "0",
-            "description": "Inkluderet i LCA-beregning"
-          }
+          "@type": "BreadcrumbList",
+          "@id": "https://dinlcahjælper.dk/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Forside",
+              "item": "https://dinlcahjælper.dk/"
+            }
+          ]
         },
         {
           "@type": "FAQPage",
@@ -119,6 +174,30 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Ja, vi håndterer LCA-beregninger for alle bygningstyper — bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvem bør lave min LCA-beregning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "En LCA-beregning bør udføres af en specialist med erfaring i BR18-kravene og de relevante beregningsværktøjer. Din LCA Hjælper er specialiseret udelukkende i LCA for byggeri, hvilket sikrer præcise beregninger og myndighedsklar dokumentation. Vi anbefaler at vælge en rådgiver der inkluderer opdatering ved færdigmelding, da mange projekter ellers ender med en rapport der ikke matcher det faktisk byggede."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hvad skal jeg kigge efter i en LCA-rådgiver?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kig efter erfaring med din bygningstype, inkludering af hotspot-analyse og materialeoptimering, samt om de tilbyder opdatering ved færdigmelding. Det er også vigtigt at rådgiveren kan dokumentere A4- og A5-faserne, da disse ofte overses men er lovpligtige. Hos Din LCA Hjælper er alt dette inkluderet — sammen med adgang til A45-platformen."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kan jeg få LCA-beregning hurtigt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. En typisk LCA-beregning tager 1-2 uger, men ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi tilbyder fast tilbud inden for 24 timer efter modtagelse af tegninger. Kontakt os på +45 29 89 99 99 eller via kontaktformularen."
               }
             }
           ]

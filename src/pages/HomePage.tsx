@@ -13,7 +13,7 @@ export function HomePage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Din LCA Hjælper — LCA-beregning for arkitekter | Fra 3.500 kr</title>
+        <title>LCA-beregning fra 3.500 kr — Din LCA Hjælper</title>
         <meta name="description" content="Professionel LCA-beregning til byggeri fra 3.500 kr. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport efter BR18. Inkl. A45 dokumentation." />
         <link rel="canonical" href="https://dinlcahjælper.dk/" />
         <meta property="og:title" content="Din LCA Hjælper — LCA-beregning der bare virker" />

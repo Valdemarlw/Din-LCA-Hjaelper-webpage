@@ -6,15 +6,15 @@ export function Footer() {
     <footer className="bg-bg-alt border-t border-border">
       <div className="mx-auto max-w-6xl px-5 md:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
+          {/* Brand & Entity */}
           <div>
             <Link to="/" className="text-navy font-bold text-lg">
               DIN LCA HJÆLPER
             </Link>
             <p className="mt-3 text-sm text-muted">
-              Specialiseret i LCA-beregning for byggeri
+              Specialiseret i LCA-beregning for byggeri efter BR18. Vi betjener arkitekter og rådgivere i hele Danmark med myndighedsklar dokumentation for bolig, erhverv og industri.
             </p>
-            <p className="mt-2 text-xs text-muted">CVR: 45 80 00 59</p>
+            <p className="mt-2 text-xs text-muted">CVR: 45 80 00 59 · Valdemar Løvschal Wernblad</p>
           </div>
 
           {/* Links */}

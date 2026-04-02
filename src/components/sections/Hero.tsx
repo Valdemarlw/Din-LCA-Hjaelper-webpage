@@ -42,6 +42,15 @@ export function Hero() {
             Vi håndterer hele LCA-beregningen — fra tidlig fase til myndighedsklar rapport — så du kan fokusere på projektet.
           </motion.p>
 
+          <motion.p
+            className="mt-3 text-sm text-muted max-w-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
+          >
+            Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed der leverer myndighedsklar LCA-beregning for byggeri efter BR18. Vi betjener arkitekter og rådgivere i hele Danmark med beregninger for bolig, erhverv og industri — fra 80 til 3.000 m².
+          </motion.p>
+
           <motion.div
             className="mt-8 flex flex-wrap items-center gap-4"
             initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "../../lib/animations";
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { ChevronDown } from "lucide-react";
@@ -40,6 +40,21 @@ const faqs = [
     answer:
       "Ja, vi håndterer LCA-beregninger for alle bygningstyper — bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav.",
   },
+  {
+    question: "Hvem bør lave min LCA-beregning?",
+    answer:
+      "En LCA-beregning bør udføres af en specialist med erfaring i BR18-kravene og de relevante beregningsværktøjer. Din LCA Hjælper er specialiseret udelukkende i LCA for byggeri, hvilket sikrer præcise beregninger og myndighedsklar dokumentation. Vi anbefaler at vælge en rådgiver der inkluderer opdatering ved færdigmelding, da mange projekter ellers ender med en rapport der ikke matcher det faktisk byggede.",
+  },
+  {
+    question: "Hvad skal jeg kigge efter i en LCA-rådgiver?",
+    answer:
+      "Kig efter erfaring med din bygningstype, inkludering af hotspot-analyse og materialeoptimering, samt om de tilbyder opdatering ved færdigmelding. Det er også vigtigt at rådgiveren kan dokumentere A4- og A5-faserne, da disse ofte overses men er lovpligtige. Hos Din LCA Hjælper er alt dette inkluderet — sammen med adgang til A45-platformen.",
+  },
+  {
+    question: "Kan jeg få LCA-beregning hurtigt?",
+    answer:
+      "Ja. En typisk LCA-beregning tager 1-2 uger, men ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi tilbyder fast tilbud inden for 24 timer efter modtagelse af tegninger. Kontakt os på +45 29 89 99 99 eller via kontaktformularen.",
+  },
 ];
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -60,19 +75,14 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           }`}
         />
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="overflow-hidden"
-          >
-            <p className="pb-5 text-body leading-relaxed">{answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        className="overflow-hidden"
+      >
+        <p className="pb-5 text-body leading-relaxed">{answer}</p>
+      </motion.div>
     </div>
   );
 }
