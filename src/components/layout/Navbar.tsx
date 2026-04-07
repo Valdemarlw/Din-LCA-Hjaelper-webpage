@@ -11,9 +11,20 @@ export function Navbar() {
   const location = useLocation();
 
   const links = [
+    { to: "/viden", label: "Viden", alsoPaths: ["/blog", "/lca-beregning", "/referenceprojekter"] },
     { to: "/om-os", label: "Om os" },
     { to: "/kontakt", label: "Kontakt" },
-  ];
+  ] as const;
+
+  function isActive(link: typeof links[number]) {
+    if (location.pathname === link.to || location.pathname.startsWith(link.to + "/")) return true;
+    if ("alsoPaths" in link) {
+      return link.alsoPaths.some(
+        (p) => location.pathname === p || location.pathname.startsWith(p + "/")
+      );
+    }
+    return false;
+  }
 
   return (
     <header
@@ -35,7 +46,7 @@ export function Navbar() {
               key={link.to}
               to={link.to}
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary" : "text-navy"
+                isActive(link) ? "text-primary" : "text-navy"
               }`}
             >
               {link.label}
@@ -71,7 +82,7 @@ export function Navbar() {
                   key={link.to}
                   to={link.to}
                   className={`text-base font-medium py-2 ${
-                    location.pathname === link.to ? "text-primary" : "text-navy"
+                    isActive(link) ? "text-primary" : "text-navy"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >

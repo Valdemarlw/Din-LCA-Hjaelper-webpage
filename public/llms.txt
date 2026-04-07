@@ -10,6 +10,14 @@ Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, i
 - [Om os](https://dinlcahjælper.dk/om-os): Om Valdemar Løvschal Wernblad og Din LCA Hjælper
 - [Kontakt og tilbud](https://dinlcahjælper.dk/kontakt): Få tilbud på LCA-beregning inden for 24 timer
 
+## Viden (Blog)
+
+- [Hvad er en LCA-beregning? Alt du skal vide](https://dinlcahjælper.dk/blog/hvad-er-lca-beregning): Komplet guide til LCA-beregning for byggeri — hvad det er, hvornår det er lovpligtigt, og hvordan processen foregår
+- [Nye klimakrav 2025](https://dinlcahjælper.dk/blog/klimakrav-2025): De nye differentierede CO₂-grænseværdier fra juli 2025 og hvad de betyder for dit byggeri
+- [A4 og A5 dokumentation](https://dinlcahjælper.dk/blog/a4-a5-dokumentation): Transport og byggeproces i LCA — hvad A4/A5 dækker, hvorfor det er lovpligtigt, og hvordan A45-platformen hjælper
+- [LCA for sommerhuse](https://dinlcahjælper.dk/blog/lca-sommerhuse): Udfordringer og løsninger for sommerhuse med den strenge grænse på 4,0 kg CO₂e/m²/år
+- [Grænseværdier for CO₂ i byggeri](https://dinlcahjælper.dk/blog/graensevaerdier-co2): Komplet oversigt over BR18-grænseværdier for alle bygningstyper
+
 ## Contact
 
 - Telefon: +45 29 89 99 99
@@ -50,12 +58,58 @@ Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, i
 
 ## FAQ
 
+Komplet FAQ: [https://dinlcahjælper.dk/faq](https://dinlcahjælper.dk/faq)
+
 - Hvad er en LCA-beregning? En livscyklusvurdering der opgør et byggeris samlede miljøpåvirkning over hele dets levetid. Lovpligtig efter BR18.
-- Hvornår er LCA-beregning lovpligtigt? Alle nye opvarmede byggerier uanset størrelse. Uopvarmede over 50 m². Tilbygninger over 250 m².
+- Hvornår er LCA-beregning lovpligtigt? Fra 1. juli 2025 for stort set alt nybyggeri og større tilbygninger. Undtaget: uopvarmede <50 m², boligtilbygninger <250 m², transportable konstruktioner, landbrugsbygninger, renoveringer.
 - Hvad koster det? Fra 3.500 kr inkl. A45-adgang. Send tegninger for fast tilbud inden 24 timer.
 - Hvor lang tid tager det? Typisk 1-2 uger fra modtagelse af projektmateriale.
-- Hvad er A4- og A5-faserne? A4 = transport til byggeplads. A5 = spild og affald under opførelse. A45-platformen dokumenterer begge automatisk.
-- Hvad er CO₂-grænseværdierne i BR18? Fra 1. juli 2025: sommerhuse <150 m² = 4,0 kg CO₂e/m²/år, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0.
+- Hvad er A4- og A5-faserne? A4 = transport til byggeplads. A5 = energi/brændstof/spild/affald under opførelse. Separat grænseværdi 1,5 kg CO₂e/m²/år. A45-platformen dokumenterer begge automatisk.
+- Hvad er CO₂-grænseværdierne i BR18? Fra 1. juli 2025: sommerhuse <150 m² = 4,0, enfamiliehuse/rækkehuse = 6,7, etageboliger/kontor/lager = 7,5, øvrigt (skoler/institutioner) = 8,0 kg CO₂e/m²/år. Plus separat byggeprocessgrænse på 1,5.
+- Hvad er en EPD? En tredjepartsverificeret miljøvaredeklaration (DS/EN 15804) der dokumenterer et produkts klimapåvirkning. Giver mere præcise data end generiske standardværdier.
+- Hvad er en hotspot-analyse? En analyse der identificerer de bygningsdele med størst klimapåvirkning, så materialevalgene kan optimeres målrettet.
+- Hvad er betragtningsperioden? Den fastsatte tidsramme på 50 år som LCA-beregningen opgøres over i BR18.
+- Hvad sker der uden LCA ved færdigmelding? Kommunen kan nægte ibrugtagningstilladelse. Byggeriet betragtes som ulovligt.
+
+## LCA-ordbog
+
+- [LCA-ordbog — Alle begreber](https://dinlcahjælper.dk/ordbog): Ordliste med 20 centrale LCA-begreber forklaret for byggeri i Danmark
+- [EPD (Environmental Product Declaration)](https://dinlcahjælper.dk/ordbog/epd): Frivillig, tredjepartsverificeret miljøvaredeklaration efter DS/EN 15804
+- [Grænseværdi](https://dinlcahjælper.dk/ordbog/graensevaerdi): Maksimalt tilladte CO₂-udledning pr. m² pr. år efter BR18
+- [Hotspot-analyse](https://dinlcahjælper.dk/ordbog/hotspot-analyse): Rangerer bygningsdele efter klimapåvirkning for målrettet optimering
+- [BR18 (Bygningsreglementet 2018)](https://dinlcahjælper.dk/ordbog/br18): Det danske bygningsreglement med LCA-krav og CO₂-grænseværdier
+- [Modul A1-A3 (Produktionsfasen)](https://dinlcahjælper.dk/ordbog/modul-a1-a3): Råmaterialer, transport til fabrik og fremstilling af byggematerialer
+- [Modul A4 (Transport til byggeplads)](https://dinlcahjælper.dk/ordbog/modul-a4): Transport af materialer og tungt materiel til byggepladsen
+- [Modul A5 (Opførelse og montering)](https://dinlcahjælper.dk/ordbog/modul-a5): Energiforbrug, materialespild og byggeaffald på byggepladsen
+- [Modul B4 (Udskiftning)](https://dinlcahjælper.dk/ordbog/modul-b4): Udskiftning af bygningsdele med kortere levetid end 50 år
+- [Modul B6 (Driftsenergi)](https://dinlcahjælper.dk/ordbog/modul-b6): Energiforbrug til opvarmning, køling, ventilation og belysning
+- [Modul C3-C4 (Endt levetid)](https://dinlcahjælper.dk/ordbog/modul-c3-c4): Affaldsbehandling og bortskaffelse af byggematerialer
+- [Modul D (Genanvendelsespotentiale)](https://dinlcahjælper.dk/ordbog/modul-d): Potentielle klimagevinster ved genbrug og genanvendelse
+- [Generiske data](https://dinlcahjælper.dk/ordbog/generiske-data): Konservative gennemsnitsværdier fra BR18 bilag 2
+- [Produktspecifikke data](https://dinlcahjælper.dk/ordbog/produktspecifikke-data): Præcise klimadata fra EPD'er for konkrete produkter
+- [Betragtningsperiode](https://dinlcahjælper.dk/ordbog/betragtningsperiode): Den standardiserede tidsramme på 50 år for LCA-beregning
+- [GWP (Global Warming Potential)](https://dinlcahjælper.dk/ordbog/gwp): Miljøpåvirkningsindikatoren der måles i CO₂-ækvivalenter
+- [CO₂-ækvivalenter](https://dinlcahjælper.dk/ordbog/co2-aekvivalenter): Fælles enhed for alle drivhusgassers klimaeffekt
+- [Etageareal (LCA-referenceareal)](https://dinlcahjælper.dk/ordbog/etageareal): Modificeret referenceareal brugt til beregning af kg CO₂e/m²/år
+- [EN 15978](https://dinlcahjælper.dk/ordbog/en-15978): Europæisk standard for bygnings-LCA med 17 livscyklusmoduler
+- [LCAbyg](https://dinlcahjælper.dk/ordbog/lcabyg): Gratis beregningsprogram til bygnings-LCA fra BUILD/Aalborg Universitet
+- [DGNB](https://dinlcahjælper.dk/ordbog/dgnb): Frivillig bæredygtighedscertificering (sølv, guld, platin)
+
+## LCA-beregning efter bygningstype
+
+- [Enfamiliehuse](https://dinlcahjælper.dk/lca-beregning/enfamiliehus): LCA-beregning for enfamiliehuse, rækkehuse og stuehuse. Grænseværdi 6,7 kg CO₂e/m²/år.
+- [Sommerhuse](https://dinlcahjælper.dk/lca-beregning/sommerhus): LCA-beregning for sommerhuse og ferieboliger. Grænseværdi 4,0 (under 150 m²) eller 6,7 (over 150 m²).
+- [Erhverv og kontor](https://dinlcahjælper.dk/lca-beregning/erhverv): LCA-beregning for kontorer, handel, lager og erhvervsbyggeri. Grænseværdi 7,5 kg CO₂e/m²/år.
+
+## Sammenligninger
+
+- [Din LCA Hjælper vs. LCAbyg](https://dinlcahjælper.dk/sammenligninger/din-lca-hjaelper-vs-lcabyg): Hvornår LCAbyg-DIY giver mening, og hvornår det er bedre at få hjælp. Pris, tid, læringskurve sammenlignet.
+
+## Referenceprojekter
+
+- [Sommerhus i Knebel](https://dinlcahjælper.dk/referenceprojekter/agavevej-4a): Fra 5,87 til 3,538 kg CO₂e/m²/år — 40% reduktion med produktspecifikke EPD'er. Grænse 4,0.
+- [Kold lagerhal i Randers](https://dinlcahjælper.dk/referenceprojekter/lagerhal-laesovej-randers): 600 m² uopvarmet lagerhal. Resultat 6,307 vs. grænse 7,5 — 16% margin.
+- [Lagerhal og kontor i Esbjerg](https://dinlcahjælper.dk/referenceprojekter/he-bluhmesvej-67): To erhvervsbygninger (1.296 + 1.299 m²). Bestod begge med EPD-dokumentation under tidspres.
 
 ## Optional
 

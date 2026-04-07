@@ -6,6 +6,7 @@ import { Problem } from "../components/sections/Problem";
 import { Services } from "../components/sections/Services";
 import { Process } from "../components/sections/Process";
 import { Pricing } from "../components/sections/Pricing";
+import { References } from "../components/sections/References";
 import { FAQ } from "../components/sections/FAQ";
 import { FinalCTA } from "../components/sections/FinalCTA";
 
@@ -27,6 +28,7 @@ export function HomePage() {
       <Services />
       <Process />
       <Pricing />
+      <References />
       <FAQ />
       <FinalCTA />
     </motion.div>

@@ -1,61 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "../../lib/animations";
 import { SectionWrapper } from "../ui/SectionWrapper";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { getHomepageFaqs } from "../../data/faqs";
 
-const faqs = [
-  {
-    question: "Hvad er en LCA-beregning?",
-    answer:
-      "En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkning over hele dets levetid — fra materialeproduktion til nedrivning. Beregningen er lovpligtig efter BR18 og dokumenterer bl.a. CO₂-udledning pr. m² pr. år. Resultatet afleveres som en rapport til kommunen sammen med færdigmeldingen.",
-  },
-  {
-    question: "Hvornår er LCA-beregning lovpligtigt?",
-    answer:
-      "Alle nye opvarmede byggerier skal have en LCA-beregning uanset størrelse. For uopvarmede bygninger gælder kravet ved arealer over 50 m², og for tilbygninger over 250 m². Kravet følger af BR18 og skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse.",
-  },
-  {
-    question: "Hvad koster en LCA-beregning?",
-    answer:
-      "Vores priser starter fra 3.500 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
-  },
-  {
-    question: "Hvor lang tid tager en LCA-beregning?",
-    answer:
-      "En typisk LCA-beregning tager 1-2 uger fra vi modtager det nødvendige projektmateriale. Ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi anbefaler at involvere os så tidligt som muligt, så materialevalgene kan bygge på LCA-resultaterne.",
-  },
-  {
-    question: "Hvad er A4- og A5-faserne i LCA?",
-    answer:
-      "A4 dækker transport af materialer til byggepladsen, og A5 dækker spild og affald under selve opførelsen. Disse faser kræver data fra leverandører og underentreprenører. Vores A45-platform gør det nemt at indsamle og dokumentere disse data automatisk.",
-  },
-  {
-    question: "Hvad er grænseværdien for CO₂ i BR18?",
-    answer:
-      "Fra 1. juli 2025 gælder differentierede grænseværdier afhængigt af bygningstype: sommerhuse under 150 m² skal holde 4,0 kg CO₂e/m²/år, enfamiliehuse og rækkehuse 6,7, etageboliger og kontor 7,5, og øvrigt nybyggeri 8,0. Derudover er der en separat grænse for byggeprocessen (A4+A5) på 1,5 kg CO₂e/m²/år for alle typer.",
-  },
-  {
-    question: "Kan I hjælpe med både bolig og erhverv?",
-    answer:
-      "Ja, vi håndterer LCA-beregninger for alle bygningstyper — bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav.",
-  },
-  {
-    question: "Hvem bør lave min LCA-beregning?",
-    answer:
-      "En LCA-beregning bør udføres af en specialist med erfaring i BR18-kravene og de relevante beregningsværktøjer. Din LCA Hjælper er specialiseret udelukkende i LCA for byggeri, hvilket sikrer præcise beregninger og myndighedsklar dokumentation. Vi anbefaler at vælge en rådgiver der inkluderer opdatering ved færdigmelding, da mange projekter ellers ender med en rapport der ikke matcher det faktisk byggede.",
-  },
-  {
-    question: "Hvad skal jeg kigge efter i en LCA-rådgiver?",
-    answer:
-      "Kig efter erfaring med din bygningstype, inkludering af hotspot-analyse og materialeoptimering, samt om de tilbyder opdatering ved færdigmelding. Det er også vigtigt at rådgiveren kan dokumentere A4- og A5-faserne, da disse ofte overses men er lovpligtige. Hos Din LCA Hjælper er alt dette inkluderet — sammen med adgang til A45-platformen.",
-  },
-  {
-    question: "Kan jeg få LCA-beregning hurtigt?",
-    answer:
-      "Ja. En typisk LCA-beregning tager 1-2 uger, men ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi tilbyder fast tilbud inden for 24 timer efter modtagelse af tegninger. Kontakt os på +45 29 89 99 99 eller via kontaktformularen.",
-  },
-];
+const faqs = getHomepageFaqs();
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
@@ -117,6 +68,21 @@ export function FAQ() {
               <FAQItem question={faq.question} answer={faq.answer} />
             </motion.div>
           ))}
+        </motion.div>
+        <motion.div
+          className="mt-8 text-center"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <Link
+            to="/faq"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
+          >
+            Se alle spørgsmål
+            <ArrowRight size={14} />
+          </Link>
         </motion.div>
       </div>
     </SectionWrapper>

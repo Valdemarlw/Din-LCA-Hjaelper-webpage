@@ -12,7 +12,49 @@ import { preview } from "vite";
 import { writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 
-const ROUTES = ["/", "/om-os", "/kontakt"];
+const ROUTES = [
+  "/",
+  "/om-os",
+  "/kontakt",
+  "/viden",
+  "/blog",
+  "/blog/hvad-er-lca-beregning",
+  "/blog/klimakrav-2025",
+  "/blog/a4-a5-dokumentation",
+  "/blog/lca-sommerhuse",
+  "/blog/graensevaerdier-co2",
+  "/lca-beregning",
+  "/lca-beregning/enfamiliehus",
+  "/lca-beregning/sommerhus",
+  "/lca-beregning/erhverv",
+  "/referenceprojekter",
+  "/referenceprojekter/agavevej-4a",
+  "/referenceprojekter/lagerhal-laesovej-randers",
+  "/referenceprojekter/he-bluhmesvej-67",
+  "/faq",
+  "/ordbog",
+  "/ordbog/epd",
+  "/ordbog/graensevaerdi",
+  "/ordbog/hotspot-analyse",
+  "/ordbog/br18",
+  "/ordbog/modul-a1-a3",
+  "/ordbog/modul-a4",
+  "/ordbog/modul-a5",
+  "/ordbog/modul-b4",
+  "/ordbog/modul-b6",
+  "/ordbog/modul-c3-c4",
+  "/ordbog/modul-d",
+  "/ordbog/generiske-data",
+  "/ordbog/produktspecifikke-data",
+  "/ordbog/betragtningsperiode",
+  "/ordbog/gwp",
+  "/ordbog/co2-aekvivalenter",
+  "/ordbog/etageareal",
+  "/ordbog/en-15978",
+  "/ordbog/lcabyg",
+  "/ordbog/dgnb",
+  "/sammenligninger/din-lca-hjaelper-vs-lcabyg",
+];
 const DIST = join(import.meta.dirname, "..", "dist");
 
 async function prerender() {

@@ -120,6 +120,85 @@ Kontaktformular tilgængelig med felter: Navn, Email, Telefon, Projekttype (Boli
 
 ---
 
+## Viden / Blog (dinlcahjælper.dk/blog)
+
+### Hvad er en LCA-beregning? Alt du skal vide
+En LCA-beregning (livscyklusvurdering) opgør et byggeris CO₂-udledning over en 50-årig betragtningsperiode. Hovedgrænseværdien dækker modulerne A1-A3, B4, B6 og C3-C4, mens byggeprocessen (A4+A5) har sin egen grænse. Beregningen er lovpligtig for alt nybyggeri i Danmark efter BR18. Artiklen dækker hvad en LCA indeholder, hvornår det er lovpligtigt, processen fra tegninger til myndighedsklar rapport, priser (fra 3.500 kr), og hvornår man bør starte.
+
+### Nye klimakrav 2025: Hvad betyder det for dit byggeri?
+Fra 1. juli 2025 gælder nye differentierede grænseværdier: sommerhuse <150 m² = 4,0 kg CO₂e/m²/år, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0. Derudover en separat A4+A5-grænse på 1,5. Stramning fra tidligere ensartet grænse på 12,0. Artiklen gennemgår ændringerne og konsekvenserne for hvert bygningstype.
+
+### A4 og A5: Dokumentation af byggeprocessens CO₂
+A4 dækker transport af materialer til byggepladsen, A5 dækker spild og affald under opførelsen. Fra juli 2025 er der en separat grænse på 1,5 kg CO₂e/m²/år. Data indsamles fra leverandører og entreprenører. A45-platformen (a45lca.dk) automatiserer indsamling via AI-baseret faktura-parsing, realtids-dashboard, rollebaseret adgang og ét-klik eksport.
+
+### LCA-beregning for sommerhuse — udfordringer og løsninger
+Sommerhuse under 150 m² har den strengeste grænseværdi: 4,0 kg CO₂e/m²/år. Udfordringer: betonfundamenter, tunge ydervægge, tagkonstruktioner. Løsninger: lette trækonstruktioner, skruefundamenter, mineraluld/træfiberisolering, lokale materialer. Typisk CO₂-fordeling: fundament 25-35%, ydervægge 20-30%, tag 15-25%.
+
+### Grænseværdier for CO₂ i byggeri: Komplet oversigt
+Referencetabel med alle BR18-grænseværdier fra juli 2025: sommerhuse <150 m² = 4,0, enfamiliehuse/rækkehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0, A4+A5 samlet = 1,5 kg CO₂e/m²/år. Hovedgrænsen dækker modulerne A1-A3, B4, B6, C3-C4. Historisk sammenligning (2023-2025: 12,0 kun for bygninger over 1.000 m², under 1.000 m² kun dokumentationskrav, før 2023: ingen krav). Typiske hotspots og optimeringsmuligheder.
+
+---
+
+## LCA-ordbog (dinlcahjælper.dk/ordbog)
+
+Ordliste med 20 centrale begreber inden for LCA-beregning for byggeri i Danmark:
+
+- **EPD (Environmental Product Declaration):** Frivillig, tredjepartsverificeret miljøvaredeklaration efter DS/EN 15804. Dokumenterer en byggevares klimapåvirkning. Gyldig i 5 år. Giver mere præcise data end generiske værdier.
+- **Grænseværdi:** Maksimalt tilladte CO₂-udledning pr. m² pr. år. Fra juli 2025: sommerhuse <150 m² = 4,0, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0 kg CO₂e/m²/år. Separat grænse for byggeproces (A4+A5) på 1,5.
+- **Hotspot-analyse:** Rangerer bygningsdele efter klimapåvirkning. Viser hvor optimering giver størst effekt.
+- **BR18:** Bygningsreglementet 2018. Stiller krav om LCA-beregning og CO₂-grænseværdier for nybyggeri.
+- **Modul A1-A3 (Produktionsfasen):** Udvinding af råmaterialer (A1), transport til fabrik (A2), fremstilling (A3). Typisk største enkeltpost i klimaregnskabet.
+- **Modul A4 (Transport til byggeplads):** Transport af materialer og tungt materiel fra fabrik/forhandler til byggepladsen. Indgår i separat grænseværdi (1,5 kg).
+- **Modul A5 (Opførelse):** Energiforbrug, materialespild, byggeaffald og bortkørsel på byggepladsen. Indgår i separat grænseværdi (1,5 kg).
+- **Modul B4 (Udskiftning):** Klimapåvirkning ved udskiftning af bygningsdele med levetid under 50 år. Beregnes som ny produktion (A1-A3) + affaldsbehandling (C3-C4).
+- **Modul B6 (Driftsenergi):** Energiforbrug til opvarmning, køling, ventilation, varmt brugsvand og belysning over 50 år. Sættes til 0 for uopvarmede bygninger.
+- **Modul C3-C4 (Endt levetid):** C3 = forbehandling af affald, C4 = endelig bortskaffelse/deponi. C1 (nedrivning) og C2 (transport) medregnes ikke.
+- **Modul D (Genanvendelsespotentiale):** Potentielle klimagevinster ved genbrug/genanvendelse i næste livscyklus. Skal deklareres men tæller IKKE i grænseværdien.
+- **Generiske data:** Konservative gennemsnitsværdier fra BR18 bilag 2, tabel 7. Bevidst sat højt. Bruges når EPD mangler.
+- **Produktspecifikke data:** Data fra EPD'er for konkrete produkter. Næsten altid lavere end generiske værdier.
+- **Betragtningsperiode:** Fast tidsramme på 50 år fra færdigmelding. Bruges i alle BR18 LCA-beregninger.
+- **GWP (Global Warming Potential):** Miljøpåvirkningsindikator der måler opvarmningspotentiale i kg CO₂-ækvivalenter. Den eneste lovpligtige indikator i BR18.
+- **CO₂-ækvivalenter (CO₂e):** Fælles enhed der samler alle drivhusgasser (CO₂, metan, lattergas m.fl.) til ét tal. Enhed: kg CO₂e/m²/år.
+- **Etageareal (LCA-referenceareal):** Modificeret areal fra BBR. Kældre 100%, udestuer/integrerede garager 50%, integrerede carporte/overdækninger og udvendige trapper 25%. Fritliggende uopvarmede bygninger under 50 m² er fritaget helt.
+- **EN 15978:** Europæisk standard for bygnings-LCA. Definerer 5 faser med 17 moduler. BR18 baserer sine krav på denne standard.
+- **LCAbyg:** Gratis beregningsprogram fra BUILD (Aalborg Universitet). Indeholder generiske data og EPD-import. Det mest brugte LCA-værktøj i Danmark.
+- **DGNB:** Frivillig bæredygtighedscertificering (sølv/guld/platin). Vurderer bygninger helhedsorienteret. Bredere end BR18's klimakrav.
+
+---
+
+## LCA-beregning efter bygningstype (dinlcahjælper.dk/lca-beregning)
+
+### Enfamiliehuse
+Grænseværdi: 6,7 kg CO₂e/m²/år (gælder stuehuse, fritliggende enfamiliehuse, rækkehuse, kædehuse, dobbelthuse, samt ferieboliger over 150 m²). A4+A5-grænse: 1,5. Tilbygninger under 250 m² er fritaget. Typiske hotspots: fundament/terrændæk, ydervægge, tagkonstruktion.
+
+### Sommerhuse
+Grænseværdi: 4,0 kg CO₂e/m²/år for sommerhuse, campinghytter og ferieboliger under 150 m². Ferieboliger over 150 m² følger 6,7-grænsen. A4+A5-grænse: 1,5. Strengeste krav i BR18. Kræver typisk lette trækonstruktioner og alternative funderingsløsninger. Tilbygninger under 250 m² er fritaget.
+
+### Erhverv og kontor
+Grænseværdi: 7,5 kg CO₂e/m²/år for kontorer, handel, lager og lignende. A4+A5-grænse: 1,5. Uopvarmede lagerbygninger over 50 m² er også omfattet. Ingen bagatelgrænse for tilbygninger (gælder uanset størrelse). Typiske hotspots: bærende betonkonstruktioner, facadeløsninger, parkeringskældre.
+
+---
+
+## Referenceprojekter
+
+### Sommerhus i Knebel — fra 47% over grænsen til godkendt
+Bygningstype: Sommerhus under 150 m². Grænseværdi: 4,0 kg CO₂e/m²/år. Første beregning: 5,87. Endeligt resultat: 3,538. Reduktion: 40%. Status: Bestået. Hotspot-analyse viste, at tagpap (43%), terrændæk (19%) og fundamenter (10%) stod for 72% af CO₂-aftrykket. Løsningen: produktspecifikke EPD'er fra faktiske producenter erstattede generiske Tabel 7-værdier — uden designændringer.
+
+### Kold lagerhal i Randers — stål og beton under kontrol
+Bygningstype: Lagerhal (uopvarmet). Etageareal: 600 m². Grænseværdi: 7,5 kg CO₂e/m²/år. Resultat: 6,307. Margin: 16% under. Status: Bestået. Stålsøjler og -bjælker stod for 30% af aftrykket. Terrændæk (22%) og fundamenter (20%) bidrog med yderligere 42%. Tidlig beregning gav bygherren et klart beslutningsgrundlag inden bestilling af stålspær.
+
+### Lagerhal og kontor i Esbjerg — LCA under tidspres
+Bygningstype: Lagerhal og kontor (erhverv). To separate bygninger. Bygning 1 (lagerhal): 1.296 m², resultat 6,84. Bygning 2 (kontor): 1.299 m², resultat 6,18. Grænseværdi: 7,5. Status: Begge bestået. Byggeriet var allerede i gang da LCA'en blev bestilt — fokus lå udelukkende på EPD-dokumentation af valgte materialer. Margin på kun 0,66 for lagerhallen understregede vigtigheden af produktspecifikke EPD'er.
+
+---
+
+## Sammenligninger (dinlcahjælper.dk/sammenligninger)
+
+### Din LCA Hjælper vs. LCAbyg
+LCAbyg er det officielle, gratis bygnings-LCA-værktøj fra BUILD ved Aalborg Universitet og dækker BR18-beregningen, men de nye A4/A5-krav fra juli 2025 kræver supplerende dataark ved siden af programmet. Læringskurven er reel: 20-40 timer før første pålidelige beregning. Din LCA Hjælper bruger selv LCAbyg, men håndterer hele processen for dig fra 3.500 kr inkl. A45-platformen til A4/A5. LCAbyg passer til tegnestuer med 4+ LCA-projekter om året og en intern LCA-ansvarlig. Din LCA Hjælper passer til tegnestuer med 1-3 projekter om året, hvor LCA ligger uden for kerneforretningen, eller hvor deadline kommer for tæt på til oplæring. Sammenligningen dækker pris, tid, læringskurve, hotspot-analyse, EPD-håndtering, A4/A5-dokumentation og opdatering ved færdigmelding. URL: dinlcahjælper.dk/sammenligninger/din-lca-hjaelper-vs-lcabyg
+
+---
+
 ## Virksomhedsoplysninger
 
 - **Virksomhed:** Din LCA Hjælper

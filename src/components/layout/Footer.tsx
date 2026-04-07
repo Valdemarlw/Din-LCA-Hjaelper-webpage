@@ -17,10 +17,28 @@ export function Footer() {
             <p className="mt-2 text-xs text-muted">CVR: 45 80 00 59 · Valdemar Løvschal Wernblad</p>
           </div>
 
-          {/* Links */}
+          {/* Viden */}
           <div>
-            <h3 className="text-sm font-semibold text-navy mb-3">Sider</h3>
+            <h3 className="text-sm font-semibold text-navy mb-3">Viden</h3>
             <div className="flex flex-col gap-2">
+              <Link to="/blog" className="text-sm text-muted hover:text-primary transition-colors">
+                Artikler
+              </Link>
+              <Link to="/lca-beregning" className="text-sm text-muted hover:text-primary transition-colors">
+                Bygningstyper
+              </Link>
+              <Link to="/referenceprojekter" className="text-sm text-muted hover:text-primary transition-colors">
+                Referenceprojekter
+              </Link>
+              <Link to="/ordbog" className="text-sm text-muted hover:text-primary transition-colors">
+                LCA-ordbog
+              </Link>
+              <Link to="/sammenligninger/din-lca-hjaelper-vs-lcabyg" className="text-sm text-muted hover:text-primary transition-colors">
+                vs. LCAbyg
+              </Link>
+              <Link to="/faq" className="text-sm text-muted hover:text-primary transition-colors">
+                FAQ
+              </Link>
               <Link to="/om-os" className="text-sm text-muted hover:text-primary transition-colors">
                 Om os
               </Link>
