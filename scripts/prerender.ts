@@ -69,27 +69,65 @@ async function prerender() {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  for (const route of ROUTES) {
+  // Render "/" last. It overwrites dist/index.html, which the preview server
+  // uses as the SPA fallback for not-yet-prerendered routes. Rendering it early
+  // bakes the homepage's <head> (canonical "/", og:url "/") into every later route.
+  const orderedRoutes = [...ROUTES.filter((r) => r !== "/"), "/"];
+
+  const failed: string[] = [];
+
+  for (const route of orderedRoutes) {
     const url = `${origin}${route}`;
     console.log(`Rendering ${route}...`);
 
-    await page.goto(url, { waitUntil: "networkidle" });
+    try {
+      // "domcontentloaded" + the explicit waits below. "networkidle" is flaky
+      // (it needs 500ms of zero network requests; fonts/animation polling can
+      // prevent that and abort the whole build) and isn't needed once we wait
+      // for React mount + helmet head-flush directly.
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
 
-    // Wait for React to mount
-    await page.waitForSelector("#root > *", { timeout: 10000 });
+      // Wait for React to mount
+      await page.waitForSelector("#root > *", { timeout: 15000 });
 
-    // Get the full HTML
-    let html = await page.content();
+      // Wait for react-helmet-async to flush the <head>. Helmet applies title +
+      // canonical + og tags together a tick after mount; capturing before that
+      // bakes empty titles and the homepage fallback canonical into the output.
+      // Waiting until the canonical reflects THIS route guarantees the whole
+      // head (incl. title) has been reconciled for the route.
+      await page
+        .waitForFunction(
+          (expectedPath) => {
+            const c = document.querySelector('link[rel="canonical"]');
+            if (!c) return false;
+            const href = c.getAttribute("href") || "";
+            return expectedPath === "/" ? /dinlcahj.*\/$/.test(href) : href.includes(expectedPath);
+          },
+          route,
+          { timeout: 10000 }
+        )
+        .catch(() => {
+          console.warn(`  ! canonical did not settle for ${route} — capturing anyway`);
+        });
+      // Small settle so any remaining head tags from the same flush land.
+      await page.waitForTimeout(200);
 
-    // Remove the module script tag so the static HTML is self-contained
-    // but keep it so the SPA still hydrates for interactive users
-    // Just ensure the content is there for crawlers
+      const html = await page.content();
 
-    // Write to the correct location
-    const dir = route === "/" ? DIST : join(DIST, route.slice(1));
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, "index.html"), html, "utf-8");
-    console.log(`  → wrote ${join(dir, "index.html")}`);
+      // Write to the correct location
+      const dir = route === "/" ? DIST : join(DIST, route.slice(1));
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(join(dir, "index.html"), html, "utf-8");
+      console.log(`  → wrote ${join(dir, "index.html")}`);
+    } catch (err) {
+      failed.push(route);
+      console.warn(`  ! FAILED ${route}: ${(err as Error).message.split("\n")[0]}`);
+    }
+  }
+
+  if (failed.length) {
+    console.error(`\n${failed.length}/${orderedRoutes.length} route(s) failed: ${failed.join(", ")}`);
+    process.exitCode = 1;
   }
 
   await browser.close();

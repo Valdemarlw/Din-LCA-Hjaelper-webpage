@@ -63,7 +63,7 @@ export function ReferenceProjectPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{project.title} — Din LCA Hjælper</title>
+        <title>{`${project.title} — Din LCA Hjælper`}</title>
         <meta name="description" content={project.description} />
         <link rel="canonical" href={`https://dinlcahjælper.dk/referenceprojekter/${project.slug}`} />
         <meta property="og:title" content={`${project.title} — Din LCA Hjælper`} />

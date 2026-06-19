@@ -88,7 +88,7 @@ export function BlogPostPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{post.title} — Din LCA Hjælper</title>
+        <title>{`${post.title} — Din LCA Hjælper`}</title>
         <meta name="description" content={post.description} />
         <link
           rel="canonical"

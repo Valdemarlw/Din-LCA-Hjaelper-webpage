@@ -63,7 +63,7 @@ export function ProjectTypePage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{pt.title} — Din LCA Hjælper</title>
+        <title>{`${pt.title} — Din LCA Hjælper`}</title>
         <meta name="description" content={pt.description} />
         <link rel="canonical" href={`https://dinlcahjælper.dk/lca-beregning/${pt.slug}`} />
         <meta property="og:title" content={`${pt.title} — Din LCA Hjælper`} />

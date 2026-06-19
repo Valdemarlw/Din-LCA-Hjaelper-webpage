@@ -97,7 +97,7 @@ export function ComparisonPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{comparison.metaTitle} | Din LCA Hjælper</title>
+        <title>{`${comparison.metaTitle} | Din LCA Hjælper`}</title>
         <meta name="description" content={comparison.metaDescription} />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={comparison.metaTitle} />

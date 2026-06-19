@@ -89,9 +89,7 @@ export function GlossaryTermPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>
-          {term.term} — LCA-ordbog | Din LCA Hjælper
-        </title>
+        <title>{`${term.term} — LCA-ordbog | Din LCA Hjælper`}</title>
         <meta name="description" content={term.shortDefinition} />
         <link
           rel="canonical"
