@@ -55,7 +55,7 @@ Rækkefølge i `evaluateBR18`:
 Værktøjet er bevidst holdt simpelt (vejledende, med disclaimer). Følgende håndteres IKKE i v1 og er kandidater til v2:
 1. **Renovering med samtidig tilbygning.** v1 har ingen "renovering"-input (det undgår netop fejlen hvor renovering maskerer en pligtig tilbygning). Hvis "renovering" tilføjes senere, SKAL der spørges eksplicit "udvider du det opvarmede areal?" før konklusion.
 2. **Blandet anvendelse (§298 stk.4).** Kun én bygningstype pr. beregning. Bør tilføje arealvægtet gennemsnit eller et hårdt "kontakt rådgiver"-stop frem for ét potentielt forkert tal.
-3. **Sommerhus 150 m²-knæk** måles på opvarmet m² i v1; §298's split går strengt på etageareal/referenceareal (§455, med modifikationer). Edge i 140-160 m²-båndet — dækket af "vejledende"-disclaimer, men kan præciseres.
+3. ~~Sommerhus 150 m²-knæk~~ **VERIFICERET KORREKT** (2026-06-21): knækket måles på opvarmet etageareal, præcis som verbatim §298 stk.1 kræver ("opvarmet etageareal mindre end 150 m²"). Tidligere antaget at være en referenceareal-edge — afkræftet af lovteksten. Ingen ændring nødvendig.
 4. **BBR-auto-mapping** (110/150/160/540 mv.) ikke implementeret; kategori vælges manuelt. Hvis auto-map tilføjes, markér usikre koder som vejledende.
 5. **Energitillæg (§260) / særlige forhold (§298 stk.8)** ikke modelleret — for detaljeret til selvbetjening; flag "kontakt rådgiver".
 6. **Type→pris-bucket-mapping** (etagebolig/institution/parkeringshus → kontor/lager) er en effort-proxy i `prisTypeFor`; re-tunes efter faktiske timer. Prismodel er PROVISORISK til fresh-eyes 29/6.
