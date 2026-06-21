@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Hvilken grænseværdi gælder for mit byggeri?",
     answer:
-      "Grænseværdien afhænger af bygningstypen (kg CO₂-eq/m²/år): sommerhuse under 150 m² 4,0; sommerhuse over 150 m², enfamiliehuse og række-/kæde-/dobbelthuse 6,7; etageboliger, kontor, handel og lager 7,5; øvrigt byggeri som skoler og institutioner 8,0. Byggeprocessen (A4+A5) har en separat grænse på 1,5 for alle typer.",
+      "Grænseværdien afhænger af bygningstypen (kg CO₂-eq/m²/år): sommerhuse under 150 m² 4,0; sommerhuse fra 150 m², enfamiliehuse og række-/kæde-/dobbelthuse 6,7; etageboliger, kontor, handel og lager 7,5; øvrigt byggeri som skoler og institutioner 8,0. Byggeprocessen (A4+A5) har en separat grænse på 1,5 for alle typer.",
   },
   {
     question: "Er min tilbygning omfattet af LCA-kravet?",

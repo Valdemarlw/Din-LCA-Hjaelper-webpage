@@ -122,6 +122,11 @@ export function BR18Checker() {
               onChange={(e) => setM2input(e.target.value)}
               className={`mt-1.5 ${inputCls}`}
             />
+            {uopvarmet && (
+              <p className="mt-1.5 text-xs text-muted">
+                For uopvarmet byggeri: angiv det samlede etageareal (ikke kun opvarmet areal).
+              </p>
+            )}
           </div>
 
           {/* Særlige forhold — vist direkte (valgfrit) */}
@@ -220,7 +225,9 @@ export function BR18Checker() {
                   </dl>
                 )}
 
-                <p className="mt-4 text-sm text-muted leading-relaxed">{resultat.b6Metode}</p>
+                {(resultat.status === "lovpligtig" || resultat.status === "kun_dokumentation") && (
+                  <p className="mt-4 text-sm text-muted leading-relaxed">{resultat.b6Metode}</p>
+                )}
 
                 <p className="mt-4 text-body leading-relaxed">{resultat.naesteSkridt}</p>
 
