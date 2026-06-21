@@ -54,6 +54,7 @@ const ROUTES = [
   "/ordbog/lcabyg",
   "/ordbog/dgnb",
   "/sammenligninger/din-lca-hjaelper-vs-lcabyg",
+  "/vaerktoejer/br18-tjekker",
 ];
 const DIST = join(import.meta.dirname, "..", "dist");
 

@@ -12,6 +12,7 @@ export function Navbar() {
 
   const links = [
     { to: "/viden", label: "Viden", alsoPaths: ["/blog", "/lca-beregning", "/referenceprojekter"] },
+    { to: "/vaerktoejer/br18-tjekker", label: "Værktøjer" },
     { to: "/om-os", label: "Om os" },
     { to: "/kontakt", label: "Kontakt" },
   ] as const;
