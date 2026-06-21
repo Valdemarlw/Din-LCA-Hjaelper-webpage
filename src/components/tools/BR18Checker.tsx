@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ClipboardCheck, FileText, CheckCircle2, ChevronDown } from "lucide-react";
+import { ClipboardCheck, FileText, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/Button";
 import {
   evaluateBR18,
@@ -51,7 +51,6 @@ export function BR18Checker() {
   const [m2input, setM2input] = useState("");
   const [uopvarmet, setUopvarmet] = useState(false);
   const [samfundskritisk, setSamfundskritisk] = useState(false);
-  const [avanceret, setAvanceret] = useState(false);
 
   const m2 = parseInt(m2input, 10);
   const harAreal = Number.isFinite(m2) && m2 > 0;
@@ -125,44 +124,37 @@ export function BR18Checker() {
             />
           </div>
 
-          <label className="flex items-start gap-2.5 cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={uopvarmet}
-              onChange={(e) => setUopvarmet(e.target.checked)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
-            />
-            <span className="text-sm text-body">Bygningen er uopvarmet</span>
-          </label>
+          {/* Særlige forhold — vist direkte (valgfrit) */}
+          <div className="space-y-3 border-t border-border pt-4">
+            <p className="text-sm font-medium text-navy">
+              Særlige forhold <span className="font-normal text-muted">(valgfrit)</span>
+            </p>
 
-          {/* Avanceret */}
-          <div className="border-t border-border pt-4">
-            <button
-              type="button"
-              onClick={() => setAvanceret(!avanceret)}
-              className="flex items-center gap-1.5 text-sm font-medium text-muted hover:text-primary transition-colors"
-              aria-expanded={avanceret}
-            >
-              Avanceret
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${avanceret ? "rotate-180" : ""}`}
+            <label className="flex items-start gap-2.5 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={uopvarmet}
+                onChange={(e) => setUopvarmet(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
               />
-            </button>
-            {avanceret && (
-              <label className="mt-3 flex items-start gap-2.5 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={samfundskritisk}
-                  onChange={(e) => setSamfundskritisk(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
-                />
-                <span className="text-sm text-body">
-                  Samfundskritisk / industriproduktion (hospital, fængsel, energi-, vand- eller
-                  affaldsforsyning, industriproduktion, forsvar)
+              <span className="text-sm text-body">Bygningen er uopvarmet</span>
+            </label>
+
+            <label className="flex items-start gap-2.5 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={samfundskritisk}
+                onChange={(e) => setSamfundskritisk(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
+              />
+              <span className="text-sm text-body">
+                Samfundskritisk byggeri / industriproduktion
+                <span className="mt-0.5 block text-xs text-muted">
+                  Fx hospital, fængsel, energi-, vand- eller affaldsforsyning, industri, forsvar —
+                  undtaget fra grænseværdi
                 </span>
-              </label>
-            )}
+              </span>
+            </label>
           </div>
         </div>
       </div>

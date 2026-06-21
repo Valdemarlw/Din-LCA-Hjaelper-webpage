@@ -34,6 +34,11 @@ describe("beregnPris", () => {
     expect(beregnPris("enfamiliehus", 60)).toMatchObject({ komplet: 4700, direkte: 4000 });
   });
 
+  it("gulvet 4.000 gælder også Komplet-prisen (ikke kun Direkte)", () => {
+    // 10 m² enfamiliehus: raw 3.700 -> løftes til gulvet 4.000
+    expect(beregnPris("enfamiliehus", 10)).toMatchObject({ komplet: 4000, direkte: 4000 });
+  });
+
   it("sommerhus = enfamiliehus (paritet)", () => {
     expect(beregnPris("sommerhus", 94)).toEqual(beregnPris("enfamiliehus", 94));
     // Ternedalen 94 m² sommerhus -> 5.400

@@ -3,7 +3,8 @@ import { beregnPris, formatKr, type PrisType } from "../../lib/pris";
 
 /**
  * Pris-estimat-blok. Deler input (pris-type + m²) med BR18-checkeren.
- * Framing-regel: ALDRIG "kr per m²" — driveren er omfang/kompleksitet.
+ * Anker på den billigere basispris (kunden leverer mængderne); mængdeudtræk
+ * er et tilvalg der lægges oveni. Framing-regel: ALDRIG "kr per m²".
  */
 export function PrisEstimat({
   prisType,
@@ -14,7 +15,7 @@ export function PrisEstimat({
   m2: number;
   frivillig?: boolean;
 }) {
-  const [direkte, setDirekte] = useState(false);
+  const [medMaengdeudtraek, setMedMaengdeudtraek] = useState(false);
   const res = beregnPris(prisType, m2);
 
   if (res.type === "individuelt") {
@@ -30,7 +31,10 @@ export function PrisEstimat({
     );
   }
 
-  const pris = direkte ? res.direkte : res.komplet;
+  // Add-on = forskellen mellem fuld service (Komplet) og basis (Direkte).
+  // Nær gulvet kan den være mindre end 1.000.
+  const addOn = res.komplet - res.direkte;
+  const pris = medMaengdeudtraek ? res.komplet : res.direkte;
 
   return (
     <div className="mt-6 rounded-xl border border-border bg-white p-5">
@@ -46,22 +50,26 @@ export function PrisEstimat({
         <span className="text-sm text-muted">ekskl. moms</span>
       </p>
 
-      <label className="mt-4 flex items-start gap-2.5 cursor-pointer select-none">
-        <input
-          type="checkbox"
-          checked={direkte}
-          onChange={(e) => setDirekte(e.target.checked)}
-          className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
-        />
-        <span className="text-sm text-body">
-          Jeg leverer selv et struktureret mængdeudtræk (LCA Direkte, −1.000 kr)
-        </span>
-      </label>
+      {addOn > 0 && (
+        <label className="mt-4 flex items-start gap-2.5 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={medMaengdeudtraek}
+            onChange={(e) => setMedMaengdeudtraek(e.target.checked)}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
+          />
+          <span className="text-sm text-body">
+            Lad os trække mængderne ud for dig{" "}
+            <span className="text-muted">(+{formatKr(addOn)} kr)</span>
+          </span>
+        </label>
+      )}
 
       <p className="mt-4 text-xs text-muted leading-relaxed">
-        Prisen afhænger af projektets omfang og kompleksitet (antal konstruktioner og
-        grænseværdikrav), ikke af arealet alene. Estimatet er vejledende — du får et fast tilbud,
-        når vi har set tegningerne.
+        Basisprisen forudsætter, at du selv leverer strukturerede mængder (fx Revit-model eller
+        mængdeliste). Har du ikke det, laver vi mængdeudtrækket for dig. Prisen afhænger af
+        projektets omfang og kompleksitet (antal konstruktioner og grænseværdikrav), ikke af
+        arealet alene — estimatet er vejledende.
       </p>
     </div>
   );

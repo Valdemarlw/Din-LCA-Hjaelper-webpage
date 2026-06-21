@@ -57,9 +57,10 @@ export function beregnPris(prisType: PrisType, m2: number): PrisResultat {
     k.grundpris +
     k.sats1 * Math.min(m2, k.knaek) +
     k.sats2 * Math.max(0, m2 - k.knaek);
-  const komplet = rundTil100(raw);
+  // Gulvet gælder ALTID — også Komplet-prisen (jf. pris-formel.md).
+  const komplet = Math.max(rundTil100(raw), GULV);
 
-  // Loftet tjekkes altid på Komplet-prisen (den fulde opgave).
+  // Loftet tjekkes på Komplet-prisen (den fulde opgave).
   if (komplet > k.loft) return { type: "individuelt" };
 
   const direkte = Math.max(komplet - DIREKTE_RABAT, GULV);
