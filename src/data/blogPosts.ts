@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Tallene er vejledende. Den faktiske pris afhænger af, hvor mange konstruktionstyper projektet har, og hvilke grænseværdikrav der gælder. Brug vores [BR18-tjekker](/vaerktoejer/br18-tjekker) for at få et hurtigt prisestimat for netop dit projekt, eller [send tegningerne](/kontakt) og få et fast tilbud inden 24 timer.",
+        text: "Tallene er vejledende. Den faktiske pris afhænger af, hvor mange konstruktionstyper projektet har, og hvilke grænseværdikrav der gælder. Brug vores [BR18-tjekker](/vaerktoejer/br18-tjekker) for at få et hurtigt prisestimat for netop dit projekt, eller [send tegningerne](/kontakt) og få et fast tilbud inden 24 timer. Er du i tvivl, om dit projekt overhovedet skal have en LCA, så se [hvornår en LCA-beregning er lovpligtig](/blog/hvornaar-er-lca-lovpligtig).",
       },
       {
         type: "heading2",
@@ -305,7 +305,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Er du i tvivl, om dit byggeri er omfattet? Vores [BR18-tjekker](/vaerktoejer/br18-tjekker) giver dig svaret på sekunder: vælg bygningstype, angiv om det er nybyggeri eller tilbygning, og indtast det opvarmede areal. Værktøjet fortæller, om en LCA er lovpligtig, hvilken grænseværdi der gælder, og hvad en beregning vil koste. Er du stadig i tvivl om afgrænsningen, er du velkommen til at [kontakte os](/kontakt) uforpligtende.",
+        text: "Er du i tvivl, om dit byggeri er omfattet? Vores [BR18-tjekker](/vaerktoejer/br18-tjekker) giver dig svaret på sekunder: vælg bygningstype, angiv om det er nybyggeri eller tilbygning, og indtast det opvarmede areal. Værktøjet fortæller, om en LCA er lovpligtig, hvilken grænseværdi der gælder, og [hvad en beregning vil koste](/blog/lca-beregning-pris). Er du stadig i tvivl om afgrænsningen, er du velkommen til at [kontakte os](/kontakt) uforpligtende.",
       },
     ],
     faqs: [
