@@ -89,7 +89,7 @@ export function GlossaryTermPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${term.term} — LCA-ordbog | Din LCA Hjælper`}</title>
+        <title>{`${term.term} | LCA-ordbog | Din LCA Hjælper`}</title>
         <meta name="description" content={term.shortDefinition} />
         <link
           rel="canonical"
@@ -97,7 +97,7 @@ export function GlossaryTermPage() {
         />
         <meta
           property="og:title"
-          content={`${term.term} — LCA-ordbog | Din LCA Hjælper`}
+          content={`${term.term} | LCA-ordbog | Din LCA Hjælper`}
         />
         <meta property="og:description" content={term.shortDefinition} />
         <meta
@@ -267,8 +267,8 @@ export function GlossaryTermPage() {
                 Har du brug for en LCA-beregning?
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Vi håndterer hele processen — fra tidlig fase til myndighedsklar
-                rapport. Priser fra 3.500 kr.
+                Vi håndterer hele processen, fra tidlig fase til myndighedsklar
+                rapport. Priser fra 4.000 kr.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

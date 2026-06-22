@@ -18,7 +18,7 @@ export function Pricing() {
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-navy">Gennemsigtig pris</h2>
         <p className="mt-4 text-lg text-muted">
-          Prisen afhænger af projektets omfang og kompleksitet — antallet af konstruktioner og
+          Prisen afhænger af projektets omfang og kompleksitet, antallet af konstruktioner og
           hvilke grænseværdikrav der gælder. Få et vejledende estimat på sekunder med vores
           BR18-tjekker.
         </p>

@@ -7,10 +7,10 @@ export function AboutPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Om Din LCA Hjælper — LCA-specialist for byggeri i Danmark</title>
-        <meta name="description" content="Bag Din LCA Hjælper står Valdemar Løvschal Wernblad — specialiseret LCA-rådgiver med erfaring fra projekter fra 80 til 3.000 m². Vi gør LCA-beregning nemt og pålideligt." />
+        <title>Om Din LCA Hjælper, LCA-specialist for byggeri i Danmark</title>
+        <meta name="description" content="Bag Din LCA Hjælper står Valdemar Løvschal Wernblad, specialiseret LCA-rådgiver med erfaring fra projekter fra 80 til 3.000 m². Vi gør LCA-beregning nemt og pålideligt." />
         <link rel="canonical" href="https://dinlcahjælper.dk/om-os" />
-        <meta property="og:title" content="Om Din LCA Hjælper — LCA-specialist for byggeri" />
+        <meta property="og:title" content="Om Din LCA Hjælper, LCA-specialist for byggeri" />
         <meta property="og:description" content="Specialiseret LCA-rådgiver i Danmark med erfaring fra bolig, erhverv og industri. Fra 80 til 3.000 m²." />
         <meta property="og:url" content="https://dinlcahjælper.dk/om-os" />
         <meta property="og:type" content="website" />
@@ -36,7 +36,7 @@ export function AboutPage() {
             animate="visible"
           >
             <p>
-              Bag Din LCA Hjælper står Valdemar Løvschal Wernblad — specialiseret i
+              Bag Din LCA Hjælper står Valdemar Løvschal Wernblad, specialiseret i
               LCA-beregning for byggeri. Med erfaring fra projekter i størrelser fra
               80 til 3.000 m² hjælper vi arkitekter og rådgivere med at navigere
               BR18s klimakrav, så de kan fokusere på det, de er bedst til.
@@ -44,7 +44,7 @@ export function AboutPage() {
 
             <p>
               Vi tror på, at LCA-beregning ikke behøver at være kompliceret. Derfor
-              håndterer vi hele processen — fra gennemgang af tegninger og tidlig
+              håndterer vi hele processen, fra gennemgang af tegninger og tidlig
               beregning til myndighedsklar rapport. Vores mål er at gøre det nemt,
               gennemsigtigt og pålideligt, uanset om det drejer sig om bolig, erhverv
               eller industri.
@@ -60,7 +60,7 @@ export function AboutPage() {
               >
                 A45
               </a>{" "}
-              — en platform til dokumentation af A4 og A5 faser i byggeriet. Alle
+             , en platform til dokumentation af A4 og A5 faser i byggeriet. Alle
               vores kunder får automatisk adgang til A45, fordi vi mener det hører
               med i en komplet LCA-løsning.
             </p>

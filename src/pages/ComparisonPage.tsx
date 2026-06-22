@@ -229,7 +229,7 @@ export function ComparisonPage() {
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
                 Send tegninger og konstruktionsbeskrivelser, så får du et fast
-                tilbud inden 24 timer. Priser fra 3.500 kr.
+                tilbud inden 24 timer. Priser fra 4.000 kr.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

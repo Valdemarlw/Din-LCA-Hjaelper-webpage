@@ -129,7 +129,7 @@ export function BR18Checker() {
             )}
           </div>
 
-          {/* Særlige forhold — vist direkte (valgfrit) */}
+          {/* Særlige forhold, vist direkte (valgfrit) */}
           <div className="space-y-3 border-t border-border pt-4">
             <p className="text-sm font-medium text-navy">
               Særlige forhold <span className="font-normal text-muted">(valgfrit)</span>
@@ -155,8 +155,8 @@ export function BR18Checker() {
               <span className="text-sm text-body">
                 Samfundskritisk byggeri / industriproduktion
                 <span className="mt-0.5 block text-xs text-muted">
-                  Fx hospital, fængsel, energi-, vand- eller affaldsforsyning, industri, forsvar —
-                  undtaget fra grænseværdi
+                  Fx hospital, fængsel, energi-, vand- eller affaldsforsyning, industri, forsvar.
+                  Undtaget fra grænseværdi
                 </span>
               </span>
             </label>
@@ -169,7 +169,7 @@ export function BR18Checker() {
         {!resultat ? (
           <div className="flex h-full min-h-[280px] items-center justify-center rounded-2xl border border-dashed border-border bg-bg-alt/50 p-8 text-center">
             <p className="text-muted">
-              Indtast et opvarmet areal for at se, om dit projekt skal have en LCA-beregning — og
+              Indtast et opvarmet areal for at se, om dit projekt skal have en LCA-beregning, og
               hvad det koster.
             </p>
           </div>

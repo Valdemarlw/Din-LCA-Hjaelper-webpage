@@ -45,10 +45,10 @@ export function ContactPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Kontakt Din LCA Hjælper — Få tilbud på LCA-beregning</title>
+        <title>Kontakt Din LCA Hjælper, Få tilbud på LCA-beregning</title>
         <meta name="description" content="Bestil LCA-beregning til dit byggeprojekt. Send os dine tegninger og få et tilbud inden for 24 timer. Ring +45 29 89 99 99 eller skriv direkte." />
         <link rel="canonical" href="https://dinlcahjælper.dk/kontakt" />
-        <meta property="og:title" content="Kontakt Din LCA Hjælper — Få tilbud på LCA-beregning" />
+        <meta property="og:title" content="Kontakt Din LCA Hjælper, Få tilbud på LCA-beregning" />
         <meta property="og:description" content="Send os dine tegninger og få et tilbud inden for 24 timer. Vi håndterer LCA-beregningen fra start til slut." />
         <meta property="og:url" content="https://dinlcahjælper.dk/kontakt" />
         <meta property="og:type" content="website" />
@@ -63,7 +63,7 @@ export function ContactPage() {
             initial="hidden"
             animate="visible"
           >
-            {/* Left — Intro + contact */}
+            {/* Left, Intro + contact */}
             <motion.div variants={fadeUp}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
                 Kontakt os
@@ -107,7 +107,7 @@ export function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Right — Form */}
+            {/* Right, Form */}
             <motion.div variants={fadeUp}>
               {submitted ? (
                 <div className="rounded-2xl border border-border bg-bg-alt p-8 md:p-10 text-center">

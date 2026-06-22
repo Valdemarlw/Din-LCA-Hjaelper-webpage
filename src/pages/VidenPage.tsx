@@ -33,13 +33,13 @@ export function VidenPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Viden om LCA-beregning — Din LCA Hjælper</title>
+        <title>Viden om LCA-beregning | Din LCA Hjælper</title>
         <meta
           name="description"
           content="Artikler, bygningstyper og guides om LCA-beregning for byggeri i Danmark. Lær om klimakrav, grænseværdier og LCA-processen."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/viden" />
-        <meta property="og:title" content="Viden om LCA-beregning — Din LCA Hjælper" />
+        <meta property="og:title" content="Viden om LCA-beregning | Din LCA Hjælper" />
         <meta property="og:description" content="Artikler, bygningstyper og guides om LCA-beregning for byggeri i Danmark." />
         <meta property="og:url" content="https://dinlcahjælper.dk/viden" />
         <meta property="og:type" content="website" />

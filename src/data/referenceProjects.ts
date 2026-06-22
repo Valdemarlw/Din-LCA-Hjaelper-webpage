@@ -22,9 +22,9 @@ export const referenceProjects: ReferenceProject[] = [
   // ─── Sommerhus i Knebel ───
   {
     slug: "agavevej-4a",
-    title: "Sommerhus i Knebel — fra 47% over grænsen til godkendt",
+    title: "Sommerhus i Knebel: fra 47% over grænsen til godkendt",
     description:
-      "Et sommerhus under 150 m² startede med 5,87 kg CO₂e/m²/år — 47% over grænsen på 4,0. Med hotspot-analyse og produktspecifikke EPD'er landede resultatet på 3,538. En reduktion på 40% uden designændringer.",
+      "Et sommerhus under 150 m² startede med 5,87 kg CO₂e/m²/år, 47% over grænsen på 4,0. Med hotspot-analyse og produktspecifikke EPD'er landede resultatet på 3,538. En reduktion på 40% uden designændringer.",
     type: "Sommerhus under 150 m²",
     location: "Knebel, Djursland",
     graensevaerdi: "4,0",
@@ -49,7 +49,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Den første LCA-beregning viste 5,87 — hele 47% over grænsen. Projektet kunne ikke godkendes uden ændringer.",
+        text: "Den første LCA-beregning viste 5,87, hele 47% over grænsen. Projektet kunne ikke godkendes uden ændringer.",
       },
       {
         type: "heading2",
@@ -70,7 +70,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Taget var den klare synder. Tagpappen — overpap og underpap i bitumen — stod alene for 43% af det samlede CO₂-regnskab. Med udskiftning over 50 år (modul B4) fordoblede bidraget sig næsten.",
+        text: "Taget var den klare synder. Tagpappen, overpap og underpap i bitumen, stod alene for 43% af det samlede CO₂-regnskab. Med udskiftning over 50 år (modul B4) fordoblede bidraget sig næsten.",
       },
       {
         type: "heading2",
@@ -82,7 +82,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Det betyder, at der reelt var \"mere bygning\" end referencearealet afspejlede — og CO₂-budgettet blev tilsvarende strammere.",
+        text: "Det betyder, at der reelt var \"mere bygning\" end referencearealet afspejlede, og CO₂-budgettet blev tilsvarende strammere.",
       },
       {
         type: "heading2",
@@ -116,7 +116,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "En reduktion på 40% — uden at ændre projektets design eller konstruktion. Forskellen lå udelukkende i at dokumentere de faktiske materialer med produktspecifikke EPD'er og optimere de største hotspots.",
+        text: "En reduktion på 40%, uden at ændre projektets design eller konstruktion. Forskellen lå udelukkende i at dokumentere de faktiske materialer med produktspecifikke EPD'er og optimere de største hotspots.",
       },
       {
         type: "heading2",
@@ -128,7 +128,7 @@ export const referenceProjects: ReferenceProject[] = [
           "Generiske værdier er konservative. Tabel 7-værdierne har sikkerhedsmarginer indlagt. Produktspecifikke EPD'er afspejler virkeligheden og kan sænke resultatet markant.",
           "Hotspot-analysen er afgørende. Ved at fokusere indsatsen på de 3 største bidragsydere (tag, terrændæk, fundament) fik vi størst effekt med mindst mulig ændring.",
           "Sommerhuse kræver tidlig LCA. Med en grænse på 4,0 er der ikke meget plads til fejl. Jo tidligere beregningen laves, jo flere muligheder er der for at justere.",
-          "A4/A5-dokumentation hører med. Projektet brugte [A45-platformen](https://a45lca.dk) til at indsamle transportdata og spilddata løbende under byggeriet — så den separate A4+A5-grænse på 1,5 også blev overholdt.",
+          "A4/A5-dokumentation hører med. Projektet brugte [A45-platformen](https://a45lca.dk) til at indsamle transportdata og spilddata løbende under byggeriet, så den separate A4+A5-grænse på 1,5 også blev overholdt.",
         ],
       },
     ],
@@ -136,7 +136,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         question: "Hvad kostede LCA-optimeringen for dette sommerhus?",
         answer:
-          "Prisen for LCA-beregning starter fra 3.500 kr inkl. adgang til A45-platformen. Optimeringen med produktspecifikke EPD'er er en del af vores standardydelse — vi finder altid de bedste dokumenterede værdier for dine materialer.",
+          "Prisen for LCA-beregning starter fra 4.000 kr inkl. adgang til A45-platformen. Optimeringen med produktspecifikke EPD'er er en del af vores standardydelse, vi finder altid de bedste dokumenterede værdier for dine materialer.",
       },
       {
         question: "Kan alle sommerhuse optimeres så meget?",
@@ -149,7 +149,7 @@ export const referenceProjects: ReferenceProject[] = [
   // ─── Lagerhal i Randers ───
   {
     slug: "lagerhal-laesovej-randers",
-    title: "Kold lagerhal i Randers — stål og beton under kontrol",
+    title: "Kold lagerhal i Randers: stål og beton under kontrol",
     description:
       "En uopvarmet lagerhal på 600 m² med stålspær og betondæk bestod LCA-kravet med 16% margin. Resultatet: 6,307 vs. grænsen 7,5 kg CO₂e/m²/år.",
     type: "Lagerhal (uopvarmet)",
@@ -171,11 +171,11 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Bygherren stod med en kold lagerhal på 600 m², der skulle have byggetilladelse. Byggeriet var simpelt — stålspær, metalplader og et betondæk — men BR18 kræver LCA-dokumentation uanset bygningens kompleksitet.",
+        text: "Bygherren stod med en kold lagerhal på 600 m², der skulle have byggetilladelse. Byggeriet var simpelt, stålspær, metalplader og et betondæk, men BR18 kræver LCA-dokumentation uanset bygningens kompleksitet.",
       },
       {
         type: "paragraph",
-        text: "Udfordringen var dobbelt: For det første var stålspærene endnu ikke bestilt, så deres præcise klimaaftryk var ukendt. For det andet kan simple industribygninger med meget stål og beton overraske, fordi netop de materialer har høj CO₂-belastning pr. kg — og der er ingen isolering eller lette materialer til at \"fortynde\" aftrykket.",
+        text: "Udfordringen var dobbelt: For det første var stålspærene endnu ikke bestilt, så deres præcise klimaaftryk var ukendt. For det andet kan simple industribygninger med meget stål og beton overraske, fordi netop de materialer har høj CO₂-belastning pr. kg, og der er ingen isolering eller lette materialer til at \"fortynde\" aftrykket.",
       },
       {
         type: "paragraph",
@@ -200,11 +200,11 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Stålet var den største post. Søjler og bjælker alene stod for næsten en tredjedel af hele bygningens CO₂-aftryk — udelukkende fra produktionsfasen (A1-3). Det er typisk for industribygninger, hvor den bærende stålkonstruktion udgør en markant andel af den samlede materialemasse.",
+        text: "Stålet var den største post. Søjler og bjælker alene stod for næsten en tredjedel af hele bygningens CO₂-aftryk, udelukkende fra produktionsfasen (A1-3). Det er typisk for industribygninger, hvor den bærende stålkonstruktion udgør en markant andel af den samlede materialemasse.",
       },
       {
         type: "paragraph",
-        text: "Beton fyldte mere end forventet. Terrændæk og fundamenter bidrog tilsammen med 42%. Selvom konstruktionerne er relativt simple — 120 mm fiberarmeret beton på 250 mm stabilgrus — giver de store arealer (575 m² terrændæk, 110 lbm fundament) et betydeligt samlet volumen beton.",
+        text: "Beton fyldte mere end forventet. Terrændæk og fundamenter bidrog tilsammen med 42%. Selvom konstruktionerne er relativt simple, 120 mm fiberarmeret beton på 250 mm stabilgrus, giver de store arealer (575 m² terrændæk, 110 lbm fundament) et betydeligt samlet volumen beton.",
       },
       {
         type: "paragraph",
@@ -221,9 +221,9 @@ export const referenceProjects: ReferenceProject[] = [
       {
         type: "list",
         items: [
-          "Stålspær med standardværdier: Fordi stålspærene ikke var bestilt endnu, beregnede vi med generiske værdier for konstruktionsstål. Det gav bygherren et konservativt estimat at forholde sig til — og en klar besked om, at valget af stålleverandør kan flytte resultatet mærkbart.",
+          "Stålspær med standardværdier: Fordi stålspærene ikke var bestilt endnu, beregnede vi med generiske værdier for konstruktionsstål. Det gav bygherren et konservativt estimat at forholde sig til, og en klar besked om, at valget af stålleverandør kan flytte resultatet mærkbart.",
           "Konstruktionsdata fra leverandør: Bygherren leverede produktdata direkte fra Stark, inklusiv åsetømmer, beslag, skruer og metalplader. Det betød, at vi kunne modellere den faktiske konstruktion frem for at gætte.",
-          "Ingen energi i beregningen: Bygningen er kold og uopvarmet, så driftsenergien (B6) udgik. Det forenklede beregningen, men fjernede samtidig en \"buffer\" — al klimapåvirkning kommer fra materialerne alene.",
+          "Ingen energi i beregningen: Bygningen er kold og uopvarmet, så driftsenergien (B6) udgik. Det forenklede beregningen, men fjernede samtidig en \"buffer\", al klimapåvirkning kommer fra materialerne alene.",
         ],
       },
       {
@@ -232,7 +232,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Projektet bestod med 16% margin. Det er nok til at give tryghed, men ikke så meget, at man kan ignorere materialevalgene i udførelsesfasen. Når stålspærene bestilles og de faktiske EPD'er kendes, opdateres beregningen — og marginen kan enten vokse eller skrumpe.",
+        text: "Projektet bestod med 16% margin. Det er nok til at give tryghed, men ikke så meget, at man kan ignorere materialevalgene i udførelsesfasen. Når stålspærene bestilles og de faktiske EPD'er kendes, opdateres beregningen, og marginen kan enten vokse eller skrumpe.",
       },
       {
         type: "heading2",
@@ -243,7 +243,7 @@ export const referenceProjects: ReferenceProject[] = [
         items: [
           "Simple bygninger er ikke altid simple LCA-sager. En kold lagerhal uden isolering lyder ukompliceret, men stål og beton dominerer CO₂-regnskabet og kan presse resultatet tættere på grænsen, end du forventer.",
           "Tidlig LCA afslører, hvor valget af leverandør tæller. Når stålet alene står for 30% af aftrykket, kan forskellen mellem to stålleverandørers EPD'er flytte resultatet markant.",
-          "Hotspot-analysen er en handlingsplan. Bygherren ved nu præcis, hvilke materialer der kræver opmærksomhed — og hvilke der er ubetydelige for det samlede resultat.",
+          "Hotspot-analysen er en handlingsplan. Bygherren ved nu præcis, hvilke materialer der kræver opmærksomhed, og hvilke der er ubetydelige for det samlede resultat.",
           "[A45-platformen](https://a45lca.dk) blev sat op til A4/A5-dokumentation, så bygherren kunne indsamle transportdata fra leverandørerne, efterhånden som materialerne blev leveret.",
         ],
       },
@@ -265,9 +265,9 @@ export const referenceProjects: ReferenceProject[] = [
   // ─── Lagerhal og kontor i Esbjerg ───
   {
     slug: "he-bluhmesvej-67",
-    title: "Lagerhal og kontor i Esbjerg — LCA under tidspres",
+    title: "Lagerhal og kontor i Esbjerg: LCA under tidspres",
     description:
-      "To erhvervsbygninger — lagerhal (1.296 m²) og kontor (1.299 m²) — bestod begge LCA-kravet. Byggeriet var allerede i gang, så fokus lå på EPD-dokumentation af de valgte materialer.",
+      "To erhvervsbygninger, lagerhal (1.296 m²) og kontor (1.299 m²), bestod begge LCA-kravet. Byggeriet var allerede i gang, så fokus lå på EPD-dokumentation af de valgte materialer.",
     type: "Lagerhal og kontor (erhverv)",
     location: "Esbjerg",
     etageareal: "1.296 + 1.299 m²",
@@ -287,15 +287,15 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Entreprenøren henvendte sig med et kombineret lager- og kontorprojekt i Esbjerg — to separate bygninger med vidt forskellige konstruktioner. Lagerhallen var en stålkonstruktion med sandwich-paneler, mens kontordelen var en mere traditionel konstruktion med beton og mineraluld.",
+        text: "Entreprenøren henvendte sig med et kombineret lager- og kontorprojekt i Esbjerg, to separate bygninger med vidt forskellige konstruktioner. Lagerhallen var en stålkonstruktion med sandwich-paneler, mens kontordelen var en mere traditionel konstruktion med beton og mineraluld.",
       },
       {
         type: "paragraph",
-        text: "Det særlige ved dette projekt var, at byggeriet allerede var gået i gang, da LCA-beregningen blev bestilt. Det skabte et tidspres, som normalt ikke er der: materialerne var valgt, bestilt og i nogle tilfælde allerede monteret. Der var ikke plads til at skifte konstruktioner — beregningen skulle dokumentere det, der faktisk blev bygget.",
+        text: "Det særlige ved dette projekt var, at byggeriet allerede var gået i gang, da LCA-beregningen blev bestilt. Det skabte et tidspres, som normalt ikke er der: materialerne var valgt, bestilt og i nogle tilfælde allerede monteret. Der var ikke plads til at skifte konstruktioner, beregningen skulle dokumentere det, der faktisk blev bygget.",
       },
       {
         type: "paragraph",
-        text: "Det betød, at hele forløbet handlede om at skaffe produktspecifikke EPD'er til de materialer, der allerede var på vej ind i bygningen. Uden EPD'er ville beregningen falde tilbage på generiske Tabel 7-værdier, som typisk er mere konservative — og med et resultat tæt på grænsen ville det kunne betyde forskellen mellem bestået og ikke bestået.",
+        text: "Det betød, at hele forløbet handlede om at skaffe produktspecifikke EPD'er til de materialer, der allerede var på vej ind i bygningen. Uden EPD'er ville beregningen falde tilbage på generiske Tabel 7-værdier, som typisk er mere konservative, og med et resultat tæt på grænsen ville det kunne betyde forskellen mellem bestået og ikke bestået.",
       },
       {
         type: "heading2",
@@ -338,7 +338,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Ydervæggene — sandwich-paneler med mineraluld — bidrog med 11%, hvilket er relativt lavt for den type bygning.",
+        text: "Ydervæggene, sandwich-paneler med mineraluld, bidrog med 11%, hvilket er relativt lavt for den type bygning.",
       },
       {
         type: "heading2",
@@ -352,7 +352,7 @@ export const referenceProjects: ReferenceProject[] = [
         type: "list",
         items: [
           "Sandwich-paneler: Entreprenøren brugte Balex sandwich-paneler med mineraluldskerne. Vi indhentede producentens EPD, som dokumenterede lavere klimaaftryk end den generiske Tabel 7-værdi for tilsvarende paneler.",
-          "Beton og fundamenter: Produktspecifikke EPD'er fra betonleverandøren erstattede de generiske værdier. For fundamenter og terrændæk — som tilsammen udgjorde 43% af aftrykket — var dette den vigtigste enkeltstående indsats.",
+          "Beton og fundamenter: Produktspecifikke EPD'er fra betonleverandøren erstattede de generiske værdier. For fundamenter og terrændæk, som tilsammen udgjorde 43% af aftrykket, var dette den vigtigste enkeltstående indsats.",
           "Systematisk EPD-indsamling: Fordi byggeriet kørte parallelt, koordinerede vi løbende med entreprenøren for at indhente EPD'er, efterhånden som leverandørerne blev valgt. Det krævede tæt kommunikation og hurtig opfølgning.",
           "A4/A5 via A45: [A45-platformen](https://a45lca.dk) var afgørende for at holde styr på transportdata og spilddata fra to samtidige byggepladser. Entreprenøren og leverandørerne uploadede følgesedler direkte i platformen, så dokumentationen fulgte med i realtid.",
         ],
@@ -373,7 +373,7 @@ export const referenceProjects: ReferenceProject[] = [
       },
       {
         type: "paragraph",
-        text: "Begge bygninger bestod — men med en margin på kun 0,66 for lagerhallen. Det understreger, at projektet ikke havde meget plads at give af, og at de produktspecifikke EPD'er var afgørende for at komme under grænsen.",
+        text: "Begge bygninger bestod, men med en margin på kun 0,66 for lagerhallen. Det understreger, at projektet ikke havde meget plads at give af, og at de produktspecifikke EPD'er var afgørende for at komme under grænsen.",
       },
       {
         type: "heading2",
@@ -382,7 +382,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         type: "list",
         items: [
-          "Start LCA-beregningen tidligt. Da byggeriet her var startet før LCA'en, var der ingen mulighed for at ændre konstruktioner. Det eneste redskab var EPD-dokumentation — og det var kun lige nok. Havde beregningen været lavet før byggestart, kunne man have optimeret de største hotspots og fået en større margin.",
+          "Start LCA-beregningen tidligt. Da byggeriet her var startet før LCA'en, var der ingen mulighed for at ændre konstruktioner. Det eneste redskab var EPD-dokumentation, og det var kun lige nok. Havde beregningen været lavet før byggestart, kunne man have optimeret de største hotspots og fået en større margin.",
           "EPD'er er ikke bare \"nice to have\". Med en margin på 0,66 kg CO₂e/m²/år ville Bygning 1 sandsynligvis ikke have bestået med rene Tabel 7-værdier. Produktspecifikke EPD'er var forskellen mellem godkendt og ikke godkendt.",
           "Erhvervsbyggeri har sin egen dynamik. Store etagearealer med lavt opvarmet areal, stålkonstruktioner og sandwich-paneler giver en anden hotspot-profil end boligbyggeri. Terrændæk og fundamenter dominerer, fordi hallens grundplan er stort i forhold til klimaskærmen.",
           "To bygninger = dobbelt kompleksitet. Med forskellige konstruktioner i lager- og kontordelen skal hver bygning beregnes separat. Det kræver mere data, flere EPD'er og tættere koordinering med entreprenøren.",
@@ -393,7 +393,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         question: "Kan man stadig bestå LCA, selvom byggeriet allerede er i gang?",
         answer:
-          "Ja, men mulighederne er begrænsede. Når konstruktionerne er fastlagt, handler det udelukkende om at dokumentere de valgte materialer med produktspecifikke EPD'er. Det kan være nok — som i dette projekt — men marginen bliver typisk mindre, end hvis LCA'en var lavet tidligt nok til at optimere.",
+          "Ja, men mulighederne er begrænsede. Når konstruktionerne er fastlagt, handler det udelukkende om at dokumentere de valgte materialer med produktspecifikke EPD'er. Det kan være nok, som i dette projekt, men marginen bliver typisk mindre, end hvis LCA'en var lavet tidligt nok til at optimere.",
       },
       {
         question: "Hvad koster LCA for to erhvervsbygninger?",

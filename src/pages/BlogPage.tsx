@@ -9,13 +9,13 @@ export function BlogPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Viden om LCA-beregning — Din LCA Hjælper</title>
+        <title>Viden om LCA-beregning | Din LCA Hjælper</title>
         <meta
           name="description"
           content="Artikler og guides om LCA-beregning for byggeri i Danmark. Lær om klimakrav, grænseværdier, A4/A5-dokumentation og meget mere."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/blog" />
-        <meta property="og:title" content="Viden om LCA-beregning — Din LCA Hjælper" />
+        <meta property="og:title" content="Viden om LCA-beregning | Din LCA Hjælper" />
         <meta
           property="og:description"
           content="Artikler og guides om LCA-beregning for byggeri i Danmark."
@@ -112,7 +112,7 @@ export function BlogPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              Artikler er på vej — kom snart tilbage.
+              Artikler er på vej, kom snart tilbage.
             </motion.p>
           )}
         </div>

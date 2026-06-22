@@ -8,13 +8,13 @@ const painPoints = [
     icon: AlertTriangle,
     title: "Det er lovpligtigt",
     description:
-      "Alle nye opvarmede byggerier kræver en LCA-beregning efter BR18 — uanset størrelse. For uopvarmede bygninger over 50 m² og tilbygninger over 250 m² gælder kravet også. Uden den, ingen ibrugtagningstilladelse.",
+      "Alle nye opvarmede byggerier kræver en LCA-beregning efter BR18, uanset størrelse. For uopvarmede bygninger over 50 m² og tilbygninger over 250 m² gælder kravet også. Uden den, ingen ibrugtagningstilladelse.",
   },
   {
     icon: BookOpen,
     title: "Det kræver specialviden",
     description:
-      "En korrekt LCA kræver faglig indsigt i materialer, konstruktioner og lovkrav — samt kendskab til de rette beregningsværktøjer og hvordan de bruges. Det er ikke noget man bare lige gør.",
+      "En korrekt LCA kræver faglig indsigt i materialer, konstruktioner og lovkrav, samt kendskab til de rette beregningsværktøjer og hvordan de bruges. Det er ikke noget man bare lige gør.",
   },
   {
     icon: Clock,

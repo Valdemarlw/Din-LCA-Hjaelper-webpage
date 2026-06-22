@@ -88,13 +88,13 @@ export function BlogPostPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${post.title} — Din LCA Hjælper`}</title>
+        <title>{`${post.title} | Din LCA Hjælper`}</title>
         <meta name="description" content={post.description} />
         <link
           rel="canonical"
           href={`https://dinlcahjælper.dk/blog/${post.slug}`}
         />
-        <meta property="og:title" content={`${post.title} — Din LCA Hjælper`} />
+        <meta property="og:title" content={`${post.title} | Din LCA Hjælper`} />
         <meta property="og:description" content={post.description} />
         <meta
           property="og:url"
@@ -223,8 +223,8 @@ export function BlogPostPage() {
                 Har du brug for en LCA-beregning?
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Vi håndterer hele processen — fra tidlig fase til myndighedsklar
-                rapport. Priser fra 3.500 kr.
+                Vi håndterer hele processen, fra tidlig fase til myndighedsklar
+                rapport. Priser fra 4.000 kr.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

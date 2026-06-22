@@ -9,13 +9,13 @@ export function ProjectTypesPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>LCA-beregning efter bygningstype — Din LCA Hjælper</title>
+        <title>LCA-beregning efter bygningstype | Din LCA Hjælper</title>
         <meta
           name="description"
-          content="LCA-beregning for alle bygningstyper: enfamiliehuse, sommerhuse, erhverv og mere. Se grænseværdier og få tilbud. Fra 3.500 kr."
+          content="LCA-beregning for alle bygningstyper: enfamiliehuse, sommerhuse, erhverv og mere. Se grænseværdier og få tilbud. Fra 4.000 kr."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/lca-beregning" />
-        <meta property="og:title" content="LCA-beregning efter bygningstype — Din LCA Hjælper" />
+        <meta property="og:title" content="LCA-beregning efter bygningstype | Din LCA Hjælper" />
         <meta property="og:description" content="LCA-beregning for alle bygningstyper. Se grænseværdier og få tilbud." />
         <meta property="og:url" content="https://dinlcahjælper.dk/lca-beregning" />
         <meta property="og:type" content="website" />

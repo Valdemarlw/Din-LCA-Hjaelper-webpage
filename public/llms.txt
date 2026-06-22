@@ -1,20 +1,20 @@
 # Din LCA Hjælper
 
-> Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 3.500 kr inkl. A45-dokumentation.
+> Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 4.000 kr inkl. A45-dokumentation.
 
 Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, ingeniører og rådgivere i hele Danmark. Alle kunder får adgang til A45-platformen (a45lca.dk) til dokumentation af transport- og byggepladsfaserne (A4+A5).
 
 ## Services
 
-- [LCA-beregning — Forside](https://dinlcahjælper.dk/): Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18
+- [LCA-beregning, Forside](https://dinlcahjælper.dk/): Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18
 - [Om os](https://dinlcahjælper.dk/om-os): Om Valdemar Løvschal Wernblad og Din LCA Hjælper
 - [Kontakt og tilbud](https://dinlcahjælper.dk/kontakt): Få tilbud på LCA-beregning inden for 24 timer
 
 ## Viden (Blog)
 
-- [Hvad er en LCA-beregning? Alt du skal vide](https://dinlcahjælper.dk/blog/hvad-er-lca-beregning): Komplet guide til LCA-beregning for byggeri — hvad det er, hvornår det er lovpligtigt, og hvordan processen foregår
+- [Hvad er en LCA-beregning? Alt du skal vide](https://dinlcahjælper.dk/blog/hvad-er-lca-beregning): Komplet guide til LCA-beregning for byggeri, hvad det er, hvornår det er lovpligtigt, og hvordan processen foregår
 - [Nye klimakrav 2025](https://dinlcahjælper.dk/blog/klimakrav-2025): De nye differentierede CO₂-grænseværdier fra juli 2025 og hvad de betyder for dit byggeri
-- [A4 og A5 dokumentation](https://dinlcahjælper.dk/blog/a4-a5-dokumentation): Transport og byggeproces i LCA — hvad A4/A5 dækker, hvorfor det er lovpligtigt, og hvordan A45-platformen hjælper
+- [A4 og A5 dokumentation](https://dinlcahjælper.dk/blog/a4-a5-dokumentation): Transport og byggeproces i LCA, hvad A4/A5 dækker, hvorfor det er lovpligtigt, og hvordan A45-platformen hjælper
 - [LCA for sommerhuse](https://dinlcahjælper.dk/blog/lca-sommerhuse): Udfordringer og løsninger for sommerhuse med den strenge grænse på 4,0 kg CO₂e/m²/år
 - [Grænseværdier for CO₂ i byggeri](https://dinlcahjælper.dk/blog/graensevaerdier-co2): Komplet oversigt over BR18-grænseværdier for alle bygningstyper
 - [Hvad koster en LCA-beregning?](https://dinlcahjælper.dk/blog/lca-beregning-pris): Vejledende priser for bolig, sommerhus og erhverv, hvad der påvirker prisen (omfang og kompleksitet), og forskellen på LCA Komplet og LCA Direkte
@@ -39,7 +39,7 @@ Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, i
 
 ## Pricing
 
-- Priser fra 3.500 kr inkl. adgang til A45-platformen
+- Priser fra 4.000 kr inkl. adgang til A45-platformen
 - Endelig pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper
 - Fast tilbud inden for 24 timer efter modtagelse af tegninger
 
@@ -65,7 +65,7 @@ Komplet FAQ: [https://dinlcahjælper.dk/faq](https://dinlcahjælper.dk/faq)
 
 - Hvad er en LCA-beregning? En livscyklusvurdering der opgør et byggeris samlede miljøpåvirkning over hele dets levetid. Lovpligtig efter BR18.
 - Hvornår er LCA-beregning lovpligtigt? Fra 1. juli 2025 for stort set alt nybyggeri og større tilbygninger. Undtaget: uopvarmede <50 m², boligtilbygninger <250 m², transportable konstruktioner, landbrugsbygninger, renoveringer.
-- Hvad koster det? Fra 3.500 kr inkl. A45-adgang. Send tegninger for fast tilbud inden 24 timer.
+- Hvad koster det? Fra 4.000 kr inkl. A45-adgang. Send tegninger for fast tilbud inden 24 timer.
 - Hvor lang tid tager det? Typisk 1-2 uger fra modtagelse af projektmateriale.
 - Hvad er A4- og A5-faserne? A4 = transport til byggeplads. A5 = energi/brændstof/spild/affald under opførelse. Separat grænseværdi 1,5 kg CO₂e/m²/år. A45-platformen dokumenterer begge automatisk.
 - Hvad er CO₂-grænseværdierne i BR18? Fra 1. juli 2025: sommerhuse <150 m² = 4,0, enfamiliehuse/rækkehuse = 6,7, etageboliger/kontor/lager = 7,5, øvrigt (skoler/institutioner) = 8,0 kg CO₂e/m²/år. Plus separat byggeprocessgrænse på 1,5.
@@ -76,7 +76,7 @@ Komplet FAQ: [https://dinlcahjælper.dk/faq](https://dinlcahjælper.dk/faq)
 
 ## LCA-ordbog
 
-- [LCA-ordbog — Alle begreber](https://dinlcahjælper.dk/ordbog): Ordliste med 20 centrale LCA-begreber forklaret for byggeri i Danmark
+- [LCA-ordbog, Alle begreber](https://dinlcahjælper.dk/ordbog): Ordliste med 20 centrale LCA-begreber forklaret for byggeri i Danmark
 - [EPD (Environmental Product Declaration)](https://dinlcahjælper.dk/ordbog/epd): Frivillig, tredjepartsverificeret miljøvaredeklaration efter DS/EN 15804
 - [Grænseværdi](https://dinlcahjælper.dk/ordbog/graensevaerdi): Maksimalt tilladte CO₂-udledning pr. m² pr. år efter BR18
 - [Hotspot-analyse](https://dinlcahjælper.dk/ordbog/hotspot-analyse): Rangerer bygningsdele efter klimapåvirkning for målrettet optimering
@@ -110,8 +110,8 @@ Komplet FAQ: [https://dinlcahjælper.dk/faq](https://dinlcahjælper.dk/faq)
 
 ## Referenceprojekter
 
-- [Sommerhus i Knebel](https://dinlcahjælper.dk/referenceprojekter/agavevej-4a): Fra 5,87 til 3,538 kg CO₂e/m²/år — 40% reduktion med produktspecifikke EPD'er. Grænse 4,0.
-- [Kold lagerhal i Randers](https://dinlcahjælper.dk/referenceprojekter/lagerhal-laesovej-randers): 600 m² uopvarmet lagerhal. Resultat 6,307 vs. grænse 7,5 — 16% margin.
+- [Sommerhus i Knebel](https://dinlcahjælper.dk/referenceprojekter/agavevej-4a): Fra 5,87 til 3,538 kg CO₂e/m²/år, 40% reduktion med produktspecifikke EPD'er. Grænse 4,0.
+- [Kold lagerhal i Randers](https://dinlcahjælper.dk/referenceprojekter/lagerhal-laesovej-randers): 600 m² uopvarmet lagerhal. Resultat 6,307 vs. grænse 7,5, 16% margin.
 - [Lagerhal og kontor i Esbjerg](https://dinlcahjælper.dk/referenceprojekter/he-bluhmesvej-67): To erhvervsbygninger (1.296 + 1.299 m²). Bestod begge med EPD-dokumentation under tidspres.
 
 ## Optional

@@ -19,13 +19,13 @@ export function ReferenceProjectsPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Referenceprojekter — Din LCA Hjælper</title>
+        <title>Referenceprojekter | Din LCA Hjælper</title>
         <meta
           name="description"
           content="Se vores LCA-referenceprojekter: sommerhuse, lagerhaller og erhvervsbyggeri. Rigtige projekter med hotspot-analyser, EPD-optimering og dokumenterede resultater."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/referenceprojekter" />
-        <meta property="og:title" content="Referenceprojekter — Din LCA Hjælper" />
+        <meta property="og:title" content="Referenceprojekter | Din LCA Hjælper" />
         <meta property="og:description" content="Se vores LCA-referenceprojekter med dokumenterede resultater fra rigtige byggeprojekter." />
         <meta property="og:url" content="https://dinlcahjælper.dk/referenceprojekter" />
         <meta property="og:type" content="website" />

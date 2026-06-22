@@ -63,10 +63,10 @@ export function ReferenceProjectPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${project.title} — Din LCA Hjælper`}</title>
+        <title>{`${project.title} | Din LCA Hjælper`}</title>
         <meta name="description" content={project.description} />
         <link rel="canonical" href={`https://dinlcahjælper.dk/referenceprojekter/${project.slug}`} />
-        <meta property="og:title" content={`${project.title} — Din LCA Hjælper`} />
+        <meta property="og:title" content={`${project.title} | Din LCA Hjælper`} />
         <meta property="og:description" content={project.description} />
         <meta property="og:url" content={`https://dinlcahjælper.dk/referenceprojekter/${project.slug}`} />
         <meta property="og:type" content="article" />
@@ -89,7 +89,7 @@ export function ReferenceProjectPage() {
                 <li aria-hidden="true">/</li>
                 <li><Link to="/referenceprojekter" className="hover:text-primary transition-colors">Referenceprojekter</Link></li>
                 <li aria-hidden="true">/</li>
-                <li className="text-navy font-medium truncate max-w-[200px]">{project.title.split(" — ")[0]}</li>
+                <li className="text-navy font-medium truncate max-w-[200px]">{project.title.split(", ")[0]}</li>
               </ol>
             </nav>
 
@@ -194,7 +194,7 @@ export function ReferenceProjectPage() {
                 Har du et lignende projekt?
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Send os dine tegninger, så laver vi en tidlig LCA-beregning med hotspot-analyse. Priser fra 3.500 kr.
+                Send os dine tegninger, så laver vi en tidlig LCA-beregning med hotspot-analyse. Priser fra 4.000 kr.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

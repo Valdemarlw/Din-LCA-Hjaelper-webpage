@@ -25,7 +25,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "EPD står for Environmental Product Declaration — på dansk miljøvaredeklaration. Det er en frivillig, tredjepartsverificeret rapport, der dokumenterer en byggevares miljømæssige påvirkninger og ressourceforbrug over hele dens livscyklus.",
+        text: "EPD står for Environmental Product Declaration, på dansk miljøvaredeklaration. Det er en frivillig, tredjepartsverificeret rapport, der dokumenterer en byggevares miljømæssige påvirkninger og ressourceforbrug over hele dens livscyklus.",
       },
       {
         type: "paragraph",
@@ -41,7 +41,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Det betyder, at skiftet fra generiske data til EPD-dokumenterede produkter kan give en markant forbedring af bygningens klimaregnskab — uden at ændre selve materialevalgene. Se vores case fra [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor EPD'er reducerede resultatet med 40%.",
+        text: "Det betyder, at skiftet fra generiske data til EPD-dokumenterede produkter kan give en markant forbedring af bygningens klimaregnskab, uden at ændre selve materialevalgene. Se vores case fra [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor EPD'er reducerede resultatet med 40%.",
       },
       {
         type: "heading2",
@@ -169,7 +169,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "En hotspot-analyse er et værktøj i [LCA-beregningen](/blog/hvad-er-lca-beregning), der rangerer bygningsdelene efter størrelsen af deres klimapåvirkning. Formålet er hurtigt at synliggøre de elementer — fx fundament, etagedæk eller facadeisolering — som bidrager allermest til projektets samlede CO₂-regnskab.",
+        text: "En hotspot-analyse er et værktøj i [LCA-beregningen](/blog/hvad-er-lca-beregning), der rangerer bygningsdelene efter størrelsen af deres klimapåvirkning. Formålet er hurtigt at synliggøre de elementer, fx fundament, etagedæk eller facadeisolering, som bidrager allermest til projektets samlede CO₂-regnskab.",
       },
       {
         type: "heading2",
@@ -189,7 +189,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Hotspot-analysen bør laves tidligt i projektet — helst i designfasen — så materialevalgene stadig kan ændres. Hos Din LCA Hjælper inkluderer vi altid en hotspot-analyse som en del af den tidlige LCA-screening.",
+        text: "Hotspot-analysen bør laves tidligt i projektet, helst i designfasen, så materialevalgene stadig kan ændres. Hos Din LCA Hjælper inkluderer vi altid en hotspot-analyse som en del af den tidlige LCA-screening.",
       },
     ],
     faqs: [
@@ -220,7 +220,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "BR18 (Bygningsreglementet 2018) er det gældende danske bygningsreglement, der fastsætter de tekniske krav til byggeri i Danmark. Reglementet dækker alt fra konstruktion og brand til energi og indeklima — og siden 2023 også klimakrav i form af lovpligtig [LCA-beregning](/blog/hvad-er-lca-beregning).",
+        text: "BR18 (Bygningsreglementet 2018) er det gældende danske bygningsreglement, der fastsætter de tekniske krav til byggeri i Danmark. Reglementet dækker alt fra konstruktion og brand til energi og indeklima, og siden 2023 også klimakrav i form af lovpligtig [LCA-beregning](/blog/hvad-er-lca-beregning).",
       },
       {
         type: "heading2",
@@ -283,7 +283,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Modul A1-A3 er de tre første moduler i en bygnings livscyklus efter [EN 15978](/ordbog/en-15978). Tilsammen udgør de produktionsfasen — fra råmaterialeudvinding til det færdige byggeprodukt forlader fabrikken.",
+        text: "Modul A1-A3 er de tre første moduler i en bygnings livscyklus efter [EN 15978](/ordbog/en-15978). Tilsammen udgør de produktionsfasen, fra råmaterialeudvinding til det færdige byggeprodukt forlader fabrikken.",
       },
       {
         type: "heading3",
@@ -303,7 +303,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Modul A1-A3 er typisk den største enkeltpost i en bygnings klimaregnskab og indgår direkte i [grænseværdien](/ordbog/graensevaerdi). Det er ofte her, en [hotspot-analyse](/ordbog/hotspot-analyse) viser det største optimeringspotentiale — eksempelvis ved at vælge byggematerialer med lavere CO₂-aftryk dokumenteret via [EPD'er](/ordbog/epd).",
+        text: "Modul A1-A3 er typisk den største enkeltpost i en bygnings klimaregnskab og indgår direkte i [grænseværdien](/ordbog/graensevaerdi). Det er ofte her, en [hotspot-analyse](/ordbog/hotspot-analyse) viser det største optimeringspotentiale, eksempelvis ved at vælge byggematerialer med lavere CO₂-aftryk dokumenteret via [EPD'er](/ordbog/epd).",
       },
       {
         type: "paragraph",
@@ -555,7 +555,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "C3 opgør klimapåvirkningen fra affaldsbehandling og forbehandling forud for genbrug eller genanvendelse — fx sortering, knusning eller oparbejdning af byggematerialer.",
+        text: "C3 opgør klimapåvirkningen fra affaldsbehandling og forbehandling forud for genbrug eller genanvendelse, fx sortering, knusning eller oparbejdning af byggematerialer.",
       },
       {
         type: "heading3",
@@ -563,7 +563,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "C4 opgør klimapåvirkningen fra den endelige bortskaffelse af affald, som ikke genanvendes — typisk deponi eller forbrænding.",
+        text: "C4 opgør klimapåvirkningen fra den endelige bortskaffelse af affald, som ikke genanvendes, typisk deponi eller forbrænding.",
       },
       {
         type: "heading2",
@@ -603,7 +603,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Modul D ligger uden for bygningens egentlige systemgrænse i [EN 15978](/ordbog/en-15978). Det angiver de potentielle miljømæssige gevinster (eller belastninger), der opstår i den næste livscyklus — fx når byggematerialer kan genbruges, genanvendes eller forbrændes til energiindvinding.",
+        text: "Modul D ligger uden for bygningens egentlige systemgrænse i [EN 15978](/ordbog/en-15978). Det angiver de potentielle miljømæssige gevinster (eller belastninger), der opstår i den næste livscyklus, fx når byggematerialer kan genbruges, genanvendes eller forbrændes til energiindvinding.",
       },
       {
         type: "heading2",
@@ -673,7 +673,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Forskellen kan være betydelig. I vores [referenceprojekt fra Knebel](/referenceprojekter/agavevej-4a) gik resultatet fra 5,87 til 3,538 kg CO₂e/m²/år — en reduktion på 40% — alene ved at erstatte generiske data med produktspecifikke EPD'er for de mest klimatunge poster.",
+        text: "Forskellen kan være betydelig. I vores [referenceprojekt fra Knebel](/referenceprojekter/agavevej-4a) gik resultatet fra 5,87 til 3,538 kg CO₂e/m²/år, en reduktion på 40%, alene ved at erstatte generiske data med produktspecifikke EPD'er for de mest klimatunge poster.",
       },
     ],
     faqs: [
@@ -766,7 +766,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Den faste periode sikrer, at alle klimaberegninger på tværs af byggerier i Danmark kan sammenlignes direkte. Den bruges uanset, om bygningens faktiske forventede levetid er længere — fx 80 eller 100 år.",
+        text: "Den faste periode sikrer, at alle klimaberegninger på tværs af byggerier i Danmark kan sammenlignes direkte. Den bruges uanset, om bygningens faktiske forventede levetid er længere, fx 80 eller 100 år.",
       },
       {
         type: "heading2",
@@ -819,7 +819,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "GWP måles i enheden kg [CO₂-ækvivalenter](/ordbog/co2-aekvivalenter) (CO₂e). Det kaldes ækvivalenter, fordi andre drivhusgasser end kuldioxid — fx metan og lattergas — omregnes og vægtes, så deres opvarmende effekt svarer til effekten af CO₂.",
+        text: "GWP måles i enheden kg [CO₂-ækvivalenter](/ordbog/co2-aekvivalenter) (CO₂e). Det kaldes ækvivalenter, fordi andre drivhusgasser end kuldioxid, fx metan og lattergas, omregnes og vægtes, så deres opvarmende effekt svarer til effekten af CO₂.",
       },
       {
         type: "heading2",
@@ -867,7 +867,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "I [BR18](/ordbog/br18) måles bygningens klimapåvirkning i enheden kg CO₂e/m²/år — kilogram CO₂-ækvivalenter pr. kvadratmeter [etageareal](/ordbog/etageareal) pr. år. Denne enhed bruges til at sammenligne resultatet med de gældende [grænseværdier](/ordbog/graensevaerdi).",
+        text: "I [BR18](/ordbog/br18) måles bygningens klimapåvirkning i enheden kg CO₂e/m²/år, kilogram CO₂-ækvivalenter pr. kvadratmeter [etageareal](/ordbog/etageareal) pr. år. Denne enhed bruges til at sammenligne resultatet med de gældende [grænseværdier](/ordbog/graensevaerdi).",
       },
       {
         type: "heading2",
@@ -882,7 +882,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       {
         question: "Hvorfor hedder det ækvivalenter og ikke bare CO₂?",
         answer:
-          "Fordi enheden inkluderer alle drivhusgasser — ikke kun CO₂. Metan, lattergas og andre gasser omregnes til deres CO₂-ækvivalent ud fra, hvor meget de bidrager til den globale opvarmning.",
+          "Fordi enheden inkluderer alle drivhusgasser, ikke kun CO₂. Metan, lattergas og andre gasser omregnes til deres CO₂-ækvivalent ud fra, hvor meget de bidrager til den globale opvarmning.",
       },
     ],
     relatedTerms: [
@@ -1027,7 +1027,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "LCAbyg er udviklet og vedligeholdes af BUILD — Institut for Byggeri, By og Miljø under Aalborg Universitet. Det er det officielle beregningsværktøj, der understøtter BR18's LCA-krav.",
+        text: "LCAbyg er udviklet og vedligeholdes af BUILD, Institut for Byggeri, By og Miljø under Aalborg Universitet. Det er det officielle beregningsværktøj, der understøtter BR18's LCA-krav.",
       },
       {
         type: "heading2",
@@ -1065,7 +1065,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "dgnb",
     term: "DGNB",
     shortDefinition:
-      "DGNB er en frivillig bæredygtighedscertificering (sølv, guld, platin), der vurderer bygninger helhedsorienteret ud fra miljø, sociale og økonomiske aspekter — bredere end BR18's klimakrav.",
+      "DGNB er en frivillig bæredygtighedscertificering (sølv, guld, platin), der vurderer bygninger helhedsorienteret ud fra miljø, sociale og økonomiske aspekter, bredere end BR18's klimakrav.",
     content: [
       {
         type: "heading2",
@@ -1081,7 +1081,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Mens [BR18](/ordbog/br18) kun stiller et lovpligtigt minimumskrav for klimapåvirkning målt i [CO₂-ækvivalenter](/ordbog/co2-aekvivalenter), kigger DGNB bredere på miljøkriterier — herunder biodiversitet, miljøfarlige stoffer og indeklima. I nyere DGNB-versioner (fra 2023) er BR18's CO₂-krav et indbygget minimumskrav.",
+        text: "Mens [BR18](/ordbog/br18) kun stiller et lovpligtigt minimumskrav for klimapåvirkning målt i [CO₂-ækvivalenter](/ordbog/co2-aekvivalenter), kigger DGNB bredere på miljøkriterier, herunder biodiversitet, miljøfarlige stoffer og indeklima. I nyere DGNB-versioner (fra 2023) er BR18's CO₂-krav et indbygget minimumskrav.",
       },
       {
         type: "heading2",
@@ -1089,7 +1089,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "DGNB er relevant for bygherrer, der ønsker at dokumentere bæredygtighed ud over lovkravene — typisk ved større erhvervs- og boligprojekter. Certificeringen belønner projekter, der ligger markant under [grænseværdierne](/ordbog/graensevaerdi) i BR18.",
+        text: "DGNB er relevant for bygherrer, der ønsker at dokumentere bæredygtighed ud over lovkravene, typisk ved større erhvervs- og boligprojekter. Certificeringen belønner projekter, der ligger markant under [grænseværdierne](/ordbog/graensevaerdi) i BR18.",
       },
       {
         type: "paragraph",

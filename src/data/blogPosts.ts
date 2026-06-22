@@ -517,10 +517,10 @@ export const blogPosts: BlogPost[] = [
       {
         type: "list",
         items: [
-          "Alle nye opvarmede byggerier — uanset størrelse",
+          "Alle nye opvarmede byggerier, uanset størrelse",
           "Uopvarmede bygninger over 50 m²",
-          "Tilbygninger til etageboliger, kontorer og institutioner — uanset størrelse",
-          "Tilbygninger til enfamiliehuse, rækkehuse og sommerhuse — over 250 m²",
+          "Tilbygninger til etageboliger, kontorer og institutioner, uanset størrelse",
+          "Tilbygninger til enfamiliehuse, rækkehuse og sommerhuse, over 250 m²",
         ],
       },
       {
@@ -542,7 +542,7 @@ export const blogPosts: BlogPost[] = [
           "Tidlig beregning: En foreløbig LCA baseret på projekterede materialer og mængder",
           "[Hotspot-analyse](/ordbog/hotspot-analyse): Identifikation af de bygningsdele der bidrager mest til CO₂-udledningen",
           "Materialeoptimering: Forslag til alternative materialer hvis grænseværdien er i fare",
-          "A4/A5-dokumentation: Indsamling af data for transport og byggeproces — læs mere om [A4 og A5 faserne](/blog/a4-a5-dokumentation)",
+          "A4/A5-dokumentation: Indsamling af data for transport og byggeproces, læs mere om [A4 og A5 faserne](/blog/a4-a5-dokumentation)",
           "Opdatering ved færdigmelding: Beregningen justeres med faktiske mængder fra det færdige byggeri",
           "Myndighedsklar rapport: Endelig dokumentation klar til aflevering til kommunen",
         ],
@@ -561,7 +561,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Til sammenligning ligger de fleste konkurrenter højere — især de store rådgivende ingeniørfirmaer. Vores priser er lave fordi vi er specialiseret udelukkende i LCA for byggeri, hvilket giver lavere overhead og en mere fokuseret proces.",
+        text: "Til sammenligning ligger de fleste konkurrenter højere, især de store rådgivende ingeniørfirmaer. Vores priser er lave fordi vi er specialiseret udelukkende i LCA for byggeri, hvilket giver lavere overhead og en mere fokuseret proces.",
       },
       {
         type: "heading2",
@@ -569,11 +569,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Jo tidligere, jo bedre. En tidlig LCA-beregning giver dig mulighed for at optimere materialevalg inden de er fastlåste. Mange bygherrer og arkitekter oplever at materialerne i tidlig fase overskrider grænseværdien — og det er langt billigere at ændre materialer på tegnebrættet end på byggepladsen.",
+        text: "Jo tidligere, jo bedre. En tidlig LCA-beregning giver dig mulighed for at optimere materialevalg inden de er fastlåste. Mange bygherrer og arkitekter oplever at materialerne i tidlig fase overskrider grænseværdien, og det er langt billigere at ændre materialer på tegnebrættet end på byggepladsen.",
       },
       {
         type: "paragraph",
-        text: "Med de [nye klimakrav fra 2025](/blog/klimakrav-2025) er grænseværdierne strammet for flere bygningstyper. Det gør den tidlige beregning endnu vigtigere — særligt for [sommerhuse](/blog/lca-sommerhuse), som har de strengeste krav.",
+        text: "Med de [nye klimakrav fra 2025](/blog/klimakrav-2025) er grænseværdierne strammet for flere bygningstyper. Det gør den tidlige beregning endnu vigtigere, særligt for [sommerhuse](/blog/lca-sommerhuse), som har de strengeste krav.",
       },
       {
         type: "heading2",
@@ -588,12 +588,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Kan jeg lave min egen LCA-beregning?",
         answer:
-          "Teknisk set ja — der findes self-service værktøjer som LCAbyg. Men en korrekt LCA kræver faglig indsigt i materialer, konstruktioner og BR18-kravene. Fejl i beregningen kan betyde at rapporten ikke godkendes ved færdigmelding, hvilket forsinker hele byggesagen.",
+          "Teknisk set ja, der findes self-service værktøjer som LCAbyg. Men en korrekt LCA kræver faglig indsigt i materialer, konstruktioner og BR18-kravene. Fejl i beregningen kan betyde at rapporten ikke godkendes ved færdigmelding, hvilket forsinker hele byggesagen.",
       },
       {
         question: "Hvad sker der hvis min LCA overskrider grænseværdien?",
         answer:
-          "Hvis beregningen viser overskridelse, skal der foretages materialeændringer eller konstruktionstilpasninger inden færdigmelding. Derfor er en tidlig hotspot-analyse vigtig — den identificerer præcis hvilke bygningsdele der skal optimeres.",
+          "Hvis beregningen viser overskridelse, skal der foretages materialeændringer eller konstruktionstilpasninger inden færdigmelding. Derfor er en tidlig hotspot-analyse vigtig, den identificerer præcis hvilke bygningsdele der skal optimeres.",
       },
       {
         question: "Skal LCA-beregningen opdateres efter byggeriet?",
@@ -603,7 +603,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad er forskellen på LCA og energirammeberegning?",
         answer:
-          "Energirammeberegningen dokumenterer bygningens energiforbrug under drift (opvarmning, køling, ventilation). LCA-beregningen dækker den samlede miljøpåvirkning over hele levetiden — inkl. materialeproduktion, transport, byggeproces og nedrivning. Begge er lovpligtige efter BR18, men det er to separate beregninger.",
+          "Energirammeberegningen dokumenterer bygningens energiforbrug under drift (opvarmning, køling, ventilation). LCA-beregningen dækker den samlede miljøpåvirkning over hele levetiden, inkl. materialeproduktion, transport, byggeproces og nedrivning. Begge er lovpligtige efter BR18, men det er to separate beregninger.",
       },
     ],
   },
@@ -631,7 +631,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "De differentierede grænseværdier er opdelt efter bygningstype. Her er en oversigt — se også vores [komplette guide til grænseværdier](/blog/graensevaerdier-co2) for detaljer:",
+        text: "De differentierede grænseværdier er opdelt efter bygningstype. Her er en oversigt, se også vores [komplette guide til grænseværdier](/blog/graensevaerdier-co2) for detaljer:",
       },
       {
         type: "table",
@@ -641,7 +641,7 @@ export const blogPosts: BlogPost[] = [
           ["Enfamiliehuse og rækkehuse", "6,7"],
           ["Etageboliger og kontorer", "7,5"],
           ["Øvrigt nybyggeri", "8,0"],
-          ["Byggeproces (A4+A5) — alle typer", "1,5"],
+          ["Byggeproces (A4+A5), alle typer", "1,5"],
         ],
       },
       {
@@ -670,7 +670,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Med en grænseværdi på kun 4,0 kg CO₂e/m²/år er [sommerhuse](/blog/lca-sommerhuse) den bygningstype med de strengeste krav. Det skyldes bl.a. at sommerhuse typisk har et relativt lille opvarmet areal, men stadig kræver fundamenter, tag og ydervægge. Materialevalg er her helt afgørende — tunge konstruktioner i beton kan hurtigt overskride grænsen.",
+        text: "Med en grænseværdi på kun 4,0 kg CO₂e/m²/år er [sommerhuse](/blog/lca-sommerhuse) den bygningstype med de strengeste krav. Det skyldes bl.a. at sommerhuse typisk har et relativt lille opvarmet areal, men stadig kræver fundamenter, tag og ydervægge. Materialevalg er her helt afgørende, tunge konstruktioner i beton kan hurtigt overskride grænsen.",
       },
       {
         type: "heading3",
@@ -678,7 +678,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Grænsen på 6,7 kg CO₂e/m²/år er opnåelig for de fleste projekter med gennemtænkte materialevalg. Men det kræver opmærksomhed — særligt fundamenter, ydervægge og tagkonstruktioner er typiske hotspots. En tidlig [LCA-beregning](/blog/hvad-er-lca-beregning) gør det muligt at optimere inden materialerne er fastlåste.",
+        text: "Grænsen på 6,7 kg CO₂e/m²/år er opnåelig for de fleste projekter med gennemtænkte materialevalg. Men det kræver opmærksomhed, særligt fundamenter, ydervægge og tagkonstruktioner er typiske hotspots. En tidlig [LCA-beregning](/blog/hvad-er-lca-beregning) gør det muligt at optimere inden materialerne er fastlåste.",
       },
       {
         type: "heading3",
@@ -707,9 +707,9 @@ export const blogPosts: BlogPost[] = [
       {
         type: "list",
         items: [
-          "Start LCA-beregningen tidligt — gerne i skitsefasen, så materialevalgene kan optimeres",
+          "Start LCA-beregningen tidligt, gerne i skitsefasen, så materialevalgene kan optimeres",
           "Bestil en [hotspot-analyse](/ordbog/hotspot-analyse) for at identificere de mest CO₂-tunge bygningsdele",
-          "Planlæg A4/A5-dokumentation fra byggeriets start — det er lettere at indsamle data løbende end bagefter",
+          "Planlæg A4/A5-dokumentation fra byggeriets start, det er lettere at indsamle data løbende end bagefter",
           "Overvej alternative materialer til de tunge konstruktioner (fundament, ydervægge, tag)",
         ],
       },
@@ -727,7 +727,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad sker der hvis mit byggeri overskrider den nye grænse?",
         answer:
-          "Hvis LCA-beregningen viser overskridelse af grænseværdien, kan byggeriet ikke få ibrugtagningstilladelse. Materialerne skal ændres og beregningen opdateres. Derfor er en tidlig beregning med hotspot-analyse afgørende — det er langt billigere at ændre materialer på tegnebrættet end på byggepladsen.",
+          "Hvis LCA-beregningen viser overskridelse af grænseværdien, kan byggeriet ikke få ibrugtagningstilladelse. Materialerne skal ændres og beregningen opdateres. Derfor er en tidlig beregning med hotspot-analyse afgørende, det er langt billigere at ændre materialer på tegnebrættet end på byggepladsen.",
       },
       {
         question:
@@ -753,7 +753,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "For mange arkitekter og bygherrer er A4/A5 den mest udfordrende del af LCA-beregningen, fordi den kræver data fra leverandører og entreprenører — data som ofte ikke er tilgængelig uden en struktureret indsamlingsproces.",
+        text: "For mange arkitekter og bygherrer er A4/A5 den mest udfordrende del af LCA-beregningen, fordi den kræver data fra leverandører og entreprenører, data som ofte ikke er tilgængelig uden en struktureret indsamlingsproces.",
       },
       {
         type: "heading2",
@@ -793,7 +793,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Bemærk at vandforbrug på byggepladsen er undtaget fra A5, og maskiner under 1 ton er helt fritaget fra klimaregnskabet. A5-data kræver typisk input fra hovedentreprenøren og underentreprenørerne. Det er her de fleste projekter møder udfordringer — mange entreprenører er ikke vant til at registrere og rapportere disse data systematisk.",
+        text: "Bemærk at vandforbrug på byggepladsen er undtaget fra A5, og maskiner under 1 ton er helt fritaget fra klimaregnskabet. A5-data kræver typisk input fra hovedentreprenøren og underentreprenørerne. Det er her de fleste projekter møder udfordringer, mange entreprenører er ikke vant til at registrere og rapportere disse data systematisk.",
       },
       {
         type: "heading2",
@@ -801,7 +801,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Med de [nye klimakrav fra 2025](/blog/klimakrav-2025) er der indført en separat grænseværdi for byggeprocessen. Grænsen er 1,5 kg CO₂e/m²/år for A4+A5 samlet — uanset bygningstype. Det betyder at dokumentation af transport og byggeproces nu er et selvstændigt krav, adskilt fra den samlede LCA-grænseværdi.",
+        text: "Med de [nye klimakrav fra 2025](/blog/klimakrav-2025) er der indført en separat grænseværdi for byggeprocessen. Grænsen er 1,5 kg CO₂e/m²/år for A4+A5 samlet, uanset bygningstype. Det betyder at dokumentation af transport og byggeproces nu er et selvstændigt krav, adskilt fra den samlede LCA-grænseværdi.",
       },
       {
         type: "paragraph",
@@ -820,7 +820,7 @@ export const blogPosts: BlogPost[] = [
         items: [
           "Leverandører har ikke altid transportdata klar i et brugbart format",
           "Entreprenører registrerer sjældent spild og affald systematisk",
-          "Data skal indsamles løbende under byggeriet — ikke først ved færdigmelding",
+          "Data skal indsamles løbende under byggeriet, ikke først ved færdigmelding",
           "Mange aktører er involveret, og koordinering tager tid",
         ],
       },
@@ -839,7 +839,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "list",
         items: [
-          "Uploade fakturaer og følgesedler — AI'en udtrækker transportdata automatisk",
+          "Uploade fakturaer og følgesedler, AI'en udtrækker transportdata automatisk",
           "Tracke CO₂-forbrug i realtid mod BR18-grænseværdien via et dashboard",
           "Invitere underentreprenører og leverandører med rollebaseret adgang",
           "Eksportere myndighedsklar BR18-rapport med ét klik",
@@ -847,7 +847,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Alle kunder hos Din LCA Hjælper får automatisk adgang til A45 som del af deres LCA-beregning. Vi mener A4/A5-dokumentation hører med i en komplet [LCA-løsning](/blog/hvad-er-lca-beregning) — det skal ikke være en ekstra hovedpine.",
+        text: "Alle kunder hos Din LCA Hjælper får automatisk adgang til A45 som del af deres LCA-beregning. Vi mener A4/A5-dokumentation hører med i en komplet [LCA-løsning](/blog/hvad-er-lca-beregning), det skal ikke være en ekstra hovedpine.",
       },
       {
         type: "heading2",
@@ -855,7 +855,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Planlæg A4/A5-dokumentation fra byggeriets start — det er langt nemmere at indsamle data løbende end at rekonstruere det bagefter. I vores [referenceprojekt fra Esbjerg](/referenceprojekter/he-bluhmesvej-67) blev LCA'en bestilt efter byggestart, og EPD-dokumentation var det eneste redskab til at komme under grænsen. [Kontakt os](/kontakt) for at høre mere om hvordan vi håndterer A4/A5 som del af din LCA-beregning.",
+        text: "Planlæg A4/A5-dokumentation fra byggeriets start, det er langt nemmere at indsamle data løbende end at rekonstruere det bagefter. I vores [referenceprojekt fra Esbjerg](/referenceprojekter/he-bluhmesvej-67) blev LCA'en bestilt efter byggestart, og EPD-dokumentation var det eneste redskab til at komme under grænsen. [Kontakt os](/kontakt) for at høre mere om hvordan vi håndterer A4/A5 som del af din LCA-beregning.",
       },
     ],
     faqs: [
@@ -867,7 +867,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvornår skal A4/A5-data indsamles?",
         answer:
-          "Løbende under hele byggeprocessen. Transportdata (A4) registreres ved levering af materialer. Spilddata (A5) registreres under opførelsen. Start fra første leverance — det er svært at rekonstruere data bagefter.",
+          "Løbende under hele byggeprocessen. Transportdata (A4) registreres ved levering af materialer. Spilddata (A5) registreres under opførelsen. Start fra første leverance, det er svært at rekonstruere data bagefter.",
       },
       {
         question: "Hvem er ansvarlig for at levere A4/A5-data?",
@@ -885,7 +885,7 @@ export const blogPosts: BlogPost[] = [
   // ─── Post 4: LCA-beregning for sommerhuse ───
   {
     slug: "lca-sommerhuse",
-    title: "LCA-beregning for sommerhuse — udfordringer og løsninger",
+    title: "LCA-beregning for sommerhuse: udfordringer og løsninger",
     description:
       "Sommerhuse har den strengeste CO₂-grænseværdi i BR18 på kun 4,0 kg CO₂e/m²/år. Læs om udfordringerne og hvordan du overholder kravet.",
     date: "2026-04-02",
@@ -917,7 +917,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Betonfundamenter er ofte den største CO₂-synder i sommerhuse. Et traditionelt terrændæk med armeringsstål og betonplade kan alene bruge en stor del af det tilladte CO₂-budget. Alternative fundamenttyper — som skruefundamenter eller lette funderingsløsninger — kan reducere udledningen markant.",
+        text: "Betonfundamenter er ofte den største CO₂-synder i sommerhuse. Et traditionelt terrændæk med armeringsstål og betonplade kan alene bruge en stor del af det tilladte CO₂-budget. Alternative fundamenttyper, som skruefundamenter eller lette funderingsløsninger, kan reducere udledningen markant.",
       },
       {
         type: "heading3",
@@ -925,7 +925,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Tunge ydervægge i mursten eller beton er problematiske ved den lave grænse. Lette trækonstruktioner med minerauld- eller træfiberisolering klarer sig typisk bedre i LCA-beregningen. Valget af isoleringsmateriale har også betydning — EPS/XPS (polystyren) har en højere CO₂-profil end f.eks. mineraluld.",
+        text: "Tunge ydervægge i mursten eller beton er problematiske ved den lave grænse. Lette trækonstruktioner med minerauld- eller træfiberisolering klarer sig typisk bedre i LCA-beregningen. Valget af isoleringsmateriale har også betydning, EPS/XPS (polystyren) har en højere CO₂-profil end f.eks. mineraluld.",
       },
       {
         type: "heading3",
@@ -942,12 +942,12 @@ export const blogPosts: BlogPost[] = [
       {
         type: "list",
         items: [
-          "Start med en tidlig [LCA-beregning](/blog/hvad-er-lca-beregning) — gerne allerede i skitsefasen, så du kan optimere inden materialerne er fastlåste",
+          "Start med en tidlig [LCA-beregning](/blog/hvad-er-lca-beregning), gerne allerede i skitsefasen, så du kan optimere inden materialerne er fastlåste",
           "Brug en [hotspot-analyse](/ordbog/hotspot-analyse) til at identificere de 2-3 bygningsdele der bidrager mest til CO₂",
           "Overvej lette konstruktioner: Træ i stedet for beton, skruefundament i stedet for støbt fundament",
           "Vælg isoleringsmaterialer med lav CO₂-profil (mineraluld, træfiber)",
-          "Anvend lokale materialer hvor muligt — det reducerer transportbidraget i [A4-fasen](/blog/a4-a5-dokumentation)",
-          "Planlæg for lavt spild under opførelsen (A5) — præcis tilskæring og genanvendelse af materialer",
+          "Anvend lokale materialer hvor muligt, det reducerer transportbidraget i [A4-fasen](/blog/a4-a5-dokumentation)",
+          "Planlæg for lavt spild under opførelsen (A5), præcis tilskæring og genanvendelse af materialer",
         ],
       },
       {
@@ -979,7 +979,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Hos Din LCA Hjælper har vi erfaring med sommerhusprojekter og kender de specifikke udfordringer ved den lave grænseværdi. Alle kunder får adgang til [A45-platformen](https://a45lca.dk) til A4/A5-dokumentation som del af beregningen. Se vores [service for sommerhuse](/lca-beregning/sommerhus) for de præcise krav, eller [kontakt os](/kontakt) for et tilbud. Priser fra 3.500 kr.",
+        text: "Hos Din LCA Hjælper har vi erfaring med sommerhusprojekter og kender de specifikke udfordringer ved den lave grænseværdi. Alle kunder får adgang til [A45-platformen](https://a45lca.dk) til A4/A5-dokumentation som del af beregningen. Se vores [service for sommerhuse](/lca-beregning/sommerhus) for de præcise krav, eller [kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr.",
       },
     ],
     faqs: [
@@ -996,7 +996,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad koster en LCA-beregning for et sommerhus?",
         answer:
-          "Prisen afhænger af projektets kompleksitet, men starter typisk fra 3.500 kr inkl. A45-adgang. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
+          "Prisen afhænger af projektets kompleksitet, men starter typisk fra 4.000 kr inkl. A45-adgang. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
       },
     ],
   },
@@ -1033,7 +1033,7 @@ export const blogPosts: BlogPost[] = [
           [
             "Sommerhuse under 150 m² opvarmet etageareal",
             "4,0",
-            "Strengeste krav — kræver lette konstruktioner",
+            "Strengeste krav, kræver lette konstruktioner",
           ],
           [
             "Enfamiliehuse, rækkehuse og stuehuse",
@@ -1141,7 +1141,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved præcis hvor du står — inden materialerne er bestilt. [Kontakt os](/kontakt) for et tilbud. Priser fra 3.500 kr inkl. A45-adgang.",
+        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved præcis hvor du står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr inkl. A45-adgang.",
       },
     ],
     faqs: [

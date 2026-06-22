@@ -18,7 +18,7 @@ export const comparisons: Comparison[] = [
   {
     slug: "din-lca-hjaelper-vs-lcabyg",
     title: "Din LCA Hjælper vs. LCAbyg: Hvornår bør du få hjælp?",
-    metaTitle: "Din LCA Hjælper vs. LCAbyg — Hvornår får du hjælp?",
+    metaTitle: "Din LCA Hjælper vs. LCAbyg: Hvornår får du hjælp?",
     metaDescription:
       "LCAbyg er gratis og dækker BR18, men har en stejl læringskurve. Sammenlign LCAbyg-DIY med Din LCA Hjælpers LCA-service. Pris, tid og hvornår hver løsning passer.",
     shortIntro:
@@ -50,7 +50,7 @@ export const comparisons: Comparison[] = [
           [
             "Pris",
             "0 kr (programmet er gratis). Dine egne timer er den reelle omkostning.",
-            "Fra 3.500 kr inkl. [A45-platformen](https://a45lca.dk) til [A4](/ordbog/modul-a4)/[A5](/ordbog/modul-a5)-dokumentation.",
+            "Fra 4.000 kr inkl. [A45-platformen](https://a45lca.dk) til [A4](/ordbog/modul-a4)/[A5](/ordbog/modul-a5)-dokumentation.",
           ],
           [
             "Tid for arkitekten",
@@ -135,7 +135,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "paragraph",
-        text: "Vi er udelukkende specialiseret i LCA for byggeri. Det giver lavere overhead end de store rådgivende ingeniørfirmaer og en proces, der er strømlinet til præcis denne opgave. Hver beregning indeholder hotspot-analyse, materialeforslag baseret på produktspecifikke EPD'er, A4/A5-dokumentation via A45-platformen og opdatering ved færdigmelding. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv), eller læs vores referenceprojekter — fx [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor produktspecifikke EPD'er trak resultatet ned med 40%.",
+        text: "Vi er udelukkende specialiseret i LCA for byggeri. Det giver lavere overhead end de store rådgivende ingeniørfirmaer og en proces, der er strømlinet til præcis denne opgave. Hver beregning indeholder hotspot-analyse, materialeforslag baseret på produktspecifikke EPD'er, A4/A5-dokumentation via A45-platformen og opdatering ved færdigmelding. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv), eller læs vores referenceprojekter, fx [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor produktspecifikke EPD'er trak resultatet ned med 40%.",
       },
       {
         type: "heading2",
@@ -150,7 +150,7 @@ export const comparisons: Comparison[] = [
       {
         question: "Bruger Din LCA Hjælper også LCAbyg?",
         answer:
-          "Ja. LCAbyg er det officielle danske beregningsværktøj, og vi bruger det i alle vores projekter. Forskellen er, at vi kender de små faldgruber og har en fast proces fra tegning til myndighedsklar rapport. Du sparer altså ikke på værktøjet — du sparer på den tid, det tager at blive god til at bruge det.",
+          "Ja. LCAbyg er det officielle danske beregningsværktøj, og vi bruger det i alle vores projekter. Forskellen er, at vi kender de små faldgruber og har en fast proces fra tegning til myndighedsklar rapport. Du sparer altså ikke på værktøjet, du sparer på den tid, det tager at blive god til at bruge det.",
       },
       {
         question: "Kan jeg starte i LCAbyg og overdrage projektet til jer senere?",
@@ -160,7 +160,7 @@ export const comparisons: Comparison[] = [
       {
         question: "Hvad koster det vs. min egen tid?",
         answer:
-          "Vores priser starter fra 3.500 kr for et standard enfamiliehus inkl. A45-platformen. Hvis din egen timepris er 800 kr, og en LCA-beregning tager dig 15-25 timer, koster din egen tid 12.000-20.000 kr — uden at tælle læringskurven for de første projekter med. Regn på det for dit eget projekt: hvor mange timer bruger du, og hvad er dine timer værd i et debiterbart projekt?",
+          "Vores priser starter fra 4.000 kr for et standard enfamiliehus inkl. A45-platformen. Hvis din egen timepris er 800 kr, og en LCA-beregning tager dig 15-25 timer, koster din egen tid 12.000-20.000 kr, uden at tælle læringskurven for de første projekter med. Regn på det for dit eget projekt: hvor mange timer bruger du, og hvad er dine timer værd i et debiterbart projekt?",
       },
       {
         question: "Hvad hvis jeg kun har ét enkelt projekt om året?",

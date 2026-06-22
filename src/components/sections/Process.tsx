@@ -16,7 +16,7 @@ const steps = [
     icon: Send,
     number: "01",
     title: "Send dit projekt",
-    description: "Tegninger, mængder og projektinfo — vi klarer resten.",
+    description: "Tegninger, mængder og projektinfo, vi klarer resten.",
   },
   {
     icon: FileCheck,
@@ -73,10 +73,10 @@ export function Process() {
       </div>
 
       <div ref={ref} className="relative">
-        {/* Vertical timeline connector — mobile only */}
+        {/* Vertical timeline connector, mobile only */}
         <div className="md:hidden absolute left-[27px] top-7 bottom-7 w-0.5 bg-primary/15" />
 
-        {/* Snake connector — desktop only */}
+        {/* Snake connector, desktop only */}
         <svg
           className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none"
           viewBox="0 0 100 100"

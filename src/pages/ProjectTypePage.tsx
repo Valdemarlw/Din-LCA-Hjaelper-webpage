@@ -63,10 +63,10 @@ export function ProjectTypePage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${pt.title} — Din LCA Hjælper`}</title>
+        <title>{`${pt.title} | Din LCA Hjælper`}</title>
         <meta name="description" content={pt.description} />
         <link rel="canonical" href={`https://dinlcahjælper.dk/lca-beregning/${pt.slug}`} />
-        <meta property="og:title" content={`${pt.title} — Din LCA Hjælper`} />
+        <meta property="og:title" content={`${pt.title} | Din LCA Hjælper`} />
         <meta property="og:description" content={pt.description} />
         <meta property="og:url" content={`https://dinlcahjælper.dk/lca-beregning/${pt.slug}`} />
         <meta property="og:type" content="website" />
@@ -180,7 +180,7 @@ export function ProjectTypePage() {
             <div className="mt-16 rounded-2xl bg-primary-light p-8 md:p-10 text-center">
               <h2 className="text-2xl font-semibold text-navy">Klar til at komme i gang?</h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. Priser fra 3.500 kr inkl. A45-adgang.
+                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. Priser fra 4.000 kr inkl. A45-adgang.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

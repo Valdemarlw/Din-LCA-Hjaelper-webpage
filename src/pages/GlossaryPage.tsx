@@ -47,7 +47,7 @@ export function GlossaryPage() {
   const definedTermSetSchema = {
     "@context": "https://schema.org",
     "@type": "DefinedTermSet",
-    name: "LCA-ordbog — Begreber i livscyklusvurdering for byggeri",
+    name: "LCA-ordbog, Begreber i livscyklusvurdering for byggeri",
     description:
       "Ordliste med 20 centrale begreber inden for LCA-beregning for byggeri i Danmark efter BR18.",
     url: "https://dinlcahjælper.dk/ordbog",
@@ -62,7 +62,7 @@ export function GlossaryPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>LCA-ordbog — Begreber i LCA-beregning | Din LCA Hjælper</title>
+        <title>LCA-ordbog, Begreber i LCA-beregning | Din LCA Hjælper</title>
         <meta
           name="description"
           content="Ordliste med 20 centrale LCA-begreber forklaret: EPD, grænseværdi, GWP, modul A1-A3, B4, B6, C3-C4, D og flere. Præcise definitioner for byggeri i Danmark."
@@ -70,7 +70,7 @@ export function GlossaryPage() {
         <link rel="canonical" href="https://dinlcahjælper.dk/ordbog" />
         <meta
           property="og:title"
-          content="LCA-ordbog — Begreber i LCA-beregning | Din LCA Hjælper"
+          content="LCA-ordbog, Begreber i LCA-beregning | Din LCA Hjælper"
         />
         <meta
           property="og:description"

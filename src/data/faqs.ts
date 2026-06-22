@@ -17,7 +17,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad er en LCA-beregning?",
         answer:
-          "En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkning over hele dets levetid — fra materialeproduktion til nedrivning. Beregningen er lovpligtig efter BR18 og dokumenterer bl.a. CO₂-udledning pr. m² pr. år. Resultatet afleveres som en rapport til kommunen sammen med færdigmeldingen.",
+          "En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkning over hele dets levetid, fra materialeproduktion til nedrivning. Beregningen er lovpligtig efter BR18 og dokumenterer bl.a. CO₂-udledning pr. m² pr. år. Resultatet afleveres som en rapport til kommunen sammen med færdigmeldingen.",
       },
       {
         question: "Hvad indeholder en LCA-rapport?",
@@ -27,7 +27,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad er forskellen på LCA-screening og fuld LCA?",
         answer:
-          "En LCA-screening er en tidlig beregning baseret på foreløbige projektdata, der giver et estimat af klimapåvirkningen og identificerer hotspots. En fuld LCA er den endelige beregning baseret på as-built data — altså de faktiske materialer og mængder i det færdige byggeri. Den fulde LCA er den, der indsendes til kommunen ved færdigmelding.",
+          "En LCA-screening er en tidlig beregning baseret på foreløbige projektdata, der giver et estimat af klimapåvirkningen og identificerer hotspots. En fuld LCA er den endelige beregning baseret på as-built data, altså de faktiske materialer og mængder i det færdige byggeri. Den fulde LCA er den, der indsendes til kommunen ved færdigmelding.",
       },
       {
         question: "Hvad er en betragtningsperiode?",
@@ -37,7 +37,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad er CO₂-ækvivalenter?",
         answer:
-          "CO₂-ækvivalenter (CO₂e) er en fælles enhed, der samler effekten af alle drivhusgasser — ikke kun CO₂, men også metan, lattergas m.fl. — til ét sammenligneligt tal. I LCA-beregninger måles bygningens klimapåvirkning i kg CO₂e/m²/år, som er den enhed grænseværdierne i BR18 er fastsat i.",
+          "CO₂-ækvivalenter (CO₂e) er en fælles enhed, der samler effekten af alle drivhusgasser, ikke kun CO₂, men også metan, lattergas m.fl., til ét sammenligneligt tal. I LCA-beregninger måles bygningens klimapåvirkning i kg CO₂e/m²/år, som er den enhed grænseværdierne i BR18 er fastsat i.",
       },
       {
         question: "Hvad er GWP (Global Warming Potential)?",
@@ -92,7 +92,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad koster en LCA-beregning?",
         answer:
-          "Vores priser starter fra 3.500 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
+          "Vores priser starter fra 4.000 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
       },
       {
         question: "Hvad påvirker prisen på en LCA-beregning?",
@@ -124,7 +124,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad skal jeg sende for at få et tilbud?",
         answer:
-          "Send os dine plantegninger, snit og eventuelt en materialebeskrivelse. Det behøver ikke være endelige tegninger — vi kan arbejde med foreløbigt materiale og opdatere undervejs. Vi giver et fast tilbud inden for 24 timer.",
+          "Send os dine plantegninger, snit og eventuelt en materialebeskrivelse. Det behøver ikke være endelige tegninger, vi kan arbejde med foreløbigt materiale og opdatere undervejs. Vi giver et fast tilbud inden for 24 timer.",
       },
       {
         question: "Hvornår i projektet bør jeg involvere en LCA-rådgiver?",
@@ -204,18 +204,18 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Kan I hjælpe med både bolig og erhverv?",
         answer:
-          "Ja, vi håndterer LCA-beregninger for alle bygningstyper — bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav.",
+          "Ja, vi håndterer LCA-beregninger for alle bygningstyper, bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav.",
       },
       {
         question: "Hvad er grænseværdien for sommerhuse?",
         answer:
-          "Sommerhuse og ferieboliger er den eneste bygningstype med størrelsesopdelt grænseværdi. Under 150 m² gælder en grænse på 4,0 kg CO₂e/m²/år, som er den strammeste i BR18. På 150 m² og derover gælder 6,7 — samme som helårshuse. Tilbygninger under 250 m² er fritaget.",
+          "Sommerhuse og ferieboliger er den eneste bygningstype med størrelsesopdelt grænseværdi. Under 150 m² gælder en grænse på 4,0 kg CO₂e/m²/år, som er den strammeste i BR18. På 150 m² og derover gælder 6,7, samme som helårshuse. Tilbygninger under 250 m² er fritaget.",
       },
       {
         question:
           "Hvad er reglerne for tilbygninger?",
         answer:
-          "For boliger (enfamiliehuse, rækkehuse, sommerhuse) gælder en bagatelgrænse: kun tilbygninger på 250 m² eller derover er omfattet af LCA-kravet. For erhverv og etageboliger (kontor, institutioner, handel) gælder der ingen bagatelgrænse — alle tilbygninger er omfattet og skal overholde samme grænseværdi som den bygningstype, de knytter sig til.",
+          "For boliger (enfamiliehuse, rækkehuse, sommerhuse) gælder en bagatelgrænse: kun tilbygninger på 250 m² eller derover er omfattet af LCA-kravet. For erhverv og etageboliger (kontor, institutioner, handel) gælder der ingen bagatelgrænse, alle tilbygninger er omfattet og skal overholde samme grænseværdi som den bygningstype, de knytter sig til.",
       },
       {
         question: "Gælder LCA-krav for uopvarmede bygninger?",
@@ -243,12 +243,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad skal jeg kigge efter i en LCA-rådgiver?",
         answer:
-          "Kig efter erfaring med din bygningstype, inkludering af hotspot-analyse og materialeoptimering, samt om de tilbyder opdatering ved færdigmelding. Det er også vigtigt at rådgiveren kan dokumentere A4- og A5-faserne, da disse ofte overses men er lovpligtige. Hos Din LCA Hjælper er alt dette inkluderet — sammen med adgang til A45-platformen.",
+          "Kig efter erfaring med din bygningstype, inkludering af hotspot-analyse og materialeoptimering, samt om de tilbyder opdatering ved færdigmelding. Det er også vigtigt at rådgiveren kan dokumentere A4- og A5-faserne, da disse ofte overses men er lovpligtige. Hos Din LCA Hjælper er alt dette inkluderet, sammen med adgang til A45-platformen.",
       },
       {
         question: "Hvad adskiller Din LCA Hjælper fra andre rådgivere?",
         answer:
-          "Vi er specialiseret udelukkende i LCA for byggeri — ikke energiberegning, DGNB eller andre ydelser. Det giver fokuseret ekspertise og konkurrencedygtige priser fra 3.500 kr. Alle beregninger inkluderer hotspot-analyse, materialeoptimering, A4/A5-dokumentation via A45-platformen og opdatering ved færdigmelding.",
+          "Vi er specialiseret udelukkende i LCA for byggeri, ikke energiberegning, DGNB eller andre ydelser. Det giver fokuseret ekspertise og konkurrencedygtige priser fra 4.000 kr. Alle beregninger inkluderer hotspot-analyse, materialeoptimering, A4/A5-dokumentation via A45-platformen og opdatering ved færdigmelding.",
       },
     ],
   },

@@ -13,7 +13,7 @@ const cases = [
     stat: "40%",
     statLabel: "CO₂-reduktion",
     description:
-      "Fra 47% over grænsen til godkendt — uden designændringer. Produktspecifikke EPD'er gjorde forskellen.",
+      "Fra 47% over grænsen til godkendt, uden designændringer. Produktspecifikke EPD'er gjorde forskellen.",
   },
   {
     slug: "lagerhal-laesovej-randers",
@@ -31,7 +31,7 @@ const cases = [
     stat: "2",
     statLabel: "bygninger bestået",
     description:
-      "LCA bestilt efter byggestart. EPD-dokumentation var det eneste redskab — og det var lige nok.",
+      "LCA bestilt efter byggestart. EPD-dokumentation var det eneste redskab, og det var lige nok.",
   },
 ];
 

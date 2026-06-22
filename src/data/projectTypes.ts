@@ -16,7 +16,7 @@ export const projectTypes: ProjectType[] = [
     slug: "enfamiliehus",
     title: "LCA-beregning for enfamiliehuse",
     description:
-      "Komplet LCA-beregning for enfamiliehuse, rækkehuse og stuehuse efter BR18. Grænseværdi 6,7 kg CO₂e/m²/år. Priser fra 3.500 kr.",
+      "Komplet LCA-beregning for enfamiliehuse, rækkehuse og stuehuse efter BR18. Grænseværdi 6,7 kg CO₂e/m²/år. Priser fra 4.000 kr.",
     grensevaerdi: "6,7",
     a45Grense: "1,5",
     content: [
@@ -89,7 +89,7 @@ export const projectTypes: ProjectType[] = [
       {
         question: "Hvad koster en LCA-beregning for et enfamiliehus?",
         answer:
-          "Prisen starter fra 3.500 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden 24 timer.",
       },
       {
         question: "Kan mit enfamiliehus i tegl overholde grænseværdien?",
@@ -110,7 +110,7 @@ export const projectTypes: ProjectType[] = [
     slug: "sommerhus",
     title: "LCA-beregning for sommerhuse",
     description:
-      "LCA-beregning for sommerhuse, campinghytter og ferieboliger. Grænseværdi 4,0 (under 150 m²) eller 6,7 (over 150 m²). Priser fra 3.500 kr.",
+      "LCA-beregning for sommerhuse, campinghytter og ferieboliger. Grænseværdi 4,0 (under 150 m²) eller 6,7 (over 150 m²). Priser fra 4.000 kr.",
     grensevaerdi: "4,0 / 6,7",
     a45Grense: "1,5",
     content: [
@@ -227,7 +227,7 @@ export const projectTypes: ProjectType[] = [
       {
         question: "Hvad koster en LCA-beregning for et sommerhus?",
         answer:
-          "Prisen starter fra 3.500 kr inkl. A45-adgang. Den endelige pris afhænger af projektets kompleksitet. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr inkl. A45-adgang. Den endelige pris afhænger af projektets kompleksitet. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
       },
     ],
   },
@@ -237,7 +237,7 @@ export const projectTypes: ProjectType[] = [
     slug: "erhverv",
     title: "LCA-beregning for erhverv og kontor",
     description:
-      "LCA-beregning for kontorbygninger, handel, lager og erhvervsbyggeri. Grænseværdi 7,5 kg CO₂e/m²/år. Priser fra 3.500 kr.",
+      "LCA-beregning for kontorbygninger, handel, lager og erhvervsbyggeri. Grænseværdi 7,5 kg CO₂e/m²/år. Priser fra 4.000 kr.",
     grensevaerdi: "7,5",
     a45Grense: "1,5",
     content: [
@@ -314,7 +314,7 @@ export const projectTypes: ProjectType[] = [
       {
         question: "Hvad koster en LCA-beregning for erhvervsbyggeri?",
         answer:
-          "Prisen starter fra 3.500 kr inkl. A45-adgang. Erhvervsprojekter er typisk mere komplekse end boliger, og prisen afhænger af areal, antal konstruktionstyper og kompleksitet. Send tegninger for et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr inkl. A45-adgang. Erhvervsprojekter er typisk mere komplekse end boliger, og prisen afhænger af areal, antal konstruktionstyper og kompleksitet. Send tegninger for et fast tilbud inden 24 timer.",
       },
       {
         question: "Gælder kravet også for uopvarmede haller og lagre?",

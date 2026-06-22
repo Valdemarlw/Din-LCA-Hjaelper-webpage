@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "Hvad koster en LCA-beregning?",
     answer:
-      "Prisen afhænger af projektets omfang og kompleksitet — antallet af konstruktioner og hvilke grænseværdikrav, der gælder. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr. ekskl. moms. Brug værktøjet til at få et vejledende estimat for netop dit projekt, eller send tegningerne og få et fast tilbud.",
+      "Prisen afhænger af projektets omfang og kompleksitet, antallet af konstruktioner og hvilke grænseværdikrav, der gælder. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr. ekskl. moms. Brug værktøjet til at få et vejledende estimat for netop dit projekt, eller send tegningerne og få et fast tilbud.",
   },
   {
     question: "Hvad er A4 og A5 i en LCA-beregning?",
@@ -101,13 +101,13 @@ export function BR18CheckerPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>BR18 LCA-tjekker — skal dit projekt have en LCA-beregning? | Din LCA Hjælper</title>
+        <title>BR18 LCA-tjekker, skal dit projekt have en LCA-beregning? | Din LCA Hjælper</title>
         <meta
           name="description"
           content="Gratis værktøj: find ud af, om dit byggeprojekt skal have en LCA-beregning efter BR18, hvilken grænseværdi der gælder, og hvad en beregning koster. Svar på sekunder."
         />
         <link rel="canonical" href={SITE + PATH} />
-        <meta property="og:title" content="BR18 LCA-tjekker — skal dit projekt have en LCA-beregning?" />
+        <meta property="og:title" content="BR18 LCA-tjekker, skal dit projekt have en LCA-beregning?" />
         <meta
           property="og:description"
           content="Gratis værktøj: er en LCA-beregning lovpligtig for dit projekt? Se grænseværdi og vejledende pris på sekunder."
@@ -140,7 +140,7 @@ export function BR18CheckerPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-body">
             Svar på tre spørgsmål og find ud af, om dit byggeri er omfattet af BR18's klimakrav,
-            hvilken grænseværdi der gælder — og hvad en beregning koster.
+            hvilken grænseværdi der gælder, og hvad en beregning koster.
           </p>
         </div>
       </section>

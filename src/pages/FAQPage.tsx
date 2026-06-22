@@ -75,7 +75,7 @@ export function FAQPage() {
     <motion.div {...pageTransition}>
       <Helmet>
         <title>
-          Ofte stillede spørgsmål om LCA-beregning — Din LCA Hjælper
+          Ofte stillede spørgsmål om LCA-beregning | Din LCA Hjælper
         </title>
         <meta
           name="description"
@@ -84,7 +84,7 @@ export function FAQPage() {
         <link rel="canonical" href="https://dinlcahjælper.dk/faq" />
         <meta
           property="og:title"
-          content="Ofte stillede spørgsmål om LCA-beregning — Din LCA Hjælper"
+          content="Ofte stillede spørgsmål om LCA-beregning | Din LCA Hjælper"
         />
         <meta
           property="og:description"
@@ -131,7 +131,7 @@ export function FAQPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Alt hvad du skal vide om LCA-beregning for byggeri i Danmark —
+            Alt hvad du skal vide om LCA-beregning for byggeri i Danmark:
             lovkrav, grænseværdier, priser, proces og materialer.
           </motion.p>
 

@@ -19,7 +19,7 @@ const services = [
   {
     icon: Lightbulb,
     title: "Materialeoptimering",
-    description: "Forslag til alternative materialer hvis grænseværdien er i fare — inden det bliver et problem.",
+    description: "Forslag til alternative materialer hvis grænseværdien er i fare, inden det bliver et problem.",
   },
   {
     icon: ClipboardCheck,
@@ -29,7 +29,7 @@ const services = [
   {
     icon: LayoutDashboard,
     title: "A45 dokumentation",
-    description: "A4- og A5-faserne kræver data fra leverandører og underentreprenører — og ofte har de ikke tallene klar. A45 platformen samler det hele ét sted, så du slipper for at jagte dokumentation.",
+    description: "A4- og A5-faserne kræver data fra leverandører og underentreprenører, og ofte har de ikke tallene klar. A45 platformen samler det hele ét sted, så du slipper for at jagte dokumentation.",
     highlighted: true,
   },
 ];
@@ -42,7 +42,7 @@ export function Services() {
           Det får du
         </h2>
         <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">
-          En komplet LCA-løsning fra start til slut — så du kan aflevere med ro i maven.
+          En komplet LCA-løsning fra start til slut, så du kan aflevere med ro i maven.
         </p>
       </div>
       <motion.div
@@ -88,7 +88,7 @@ export function Services() {
             </Card>
           </motion.div>
 
-          {/* A45 card — spans 2 cols on md+ */}
+          {/* A45 card, spans 2 cols on md+ */}
           <motion.div variants={fadeUp} className="md:col-span-2">
             <Card highlighted className="h-full">
               <div className="md:flex md:items-start md:gap-6">
@@ -104,7 +104,7 @@ export function Services() {
                   </div>
                   <p className="text-body leading-relaxed">{services[4].description}</p>
                   <ul className="mt-3 space-y-1.5 text-body text-sm leading-relaxed">
-                    <li>Upload fakturaer og følgesedler — AI'en udtrækker data automatisk</li>
+                    <li>Upload fakturaer og følgesedler, AI'en udtrækker data automatisk</li>
                     <li>Realtids-dashboard der tracker CO₂-forbrug mod BR18-grænseværdien</li>
                     <li>Invitér underentreprenører og leverandører med rollebaseret adgang</li>
                     <li>Ét-klik eksport af myndighedsklar BR18-rapport</li>

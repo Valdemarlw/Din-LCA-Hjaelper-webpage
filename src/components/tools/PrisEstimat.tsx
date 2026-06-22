@@ -39,7 +39,7 @@ export function PrisEstimat({
   return (
     <div className="mt-6 rounded-xl border border-border bg-white p-5">
       <p className="text-sm font-medium text-muted">
-        {frivillig ? "Frivillig beregning — vejledende pris" : "Vejledende pris"}
+        {frivillig ? "Frivillig beregning, vejledende pris" : "Vejledende pris"}
       </p>
       <p className="mt-1 flex items-baseline gap-1.5">
         <span className="text-sm text-muted">ca.</span>
@@ -69,7 +69,7 @@ export function PrisEstimat({
         Basisprisen forudsætter, at du selv leverer strukturerede mængder (fx Revit-model eller
         mængdeliste). Har du ikke det, laver vi mængdeudtrækket for dig. Prisen afhænger af
         projektets omfang og kompleksitet (antal konstruktioner og grænseværdikrav), ikke af
-        arealet alene — estimatet er vejledende.
+        arealet alene, estimatet er vejledende.
       </p>
     </div>
   );

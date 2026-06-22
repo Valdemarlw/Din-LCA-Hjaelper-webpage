@@ -17,12 +17,12 @@ export function FinalCTA() {
           Klar til at få styr på dit projekts LCA?
         </h2>
         <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">
-          Send os dine tegninger og få et tilbud — vi vender tilbage inden for 24 timer.
+          Send os dine tegninger og få et tilbud, vi vender tilbage inden for 24 timer.
         </p>
 
         <div className="mt-8">
           <Button to="/kontakt" variant="inverted">
-            Send tegninger — få pris
+            Send tegninger, få pris
           </Button>
         </div>
 
