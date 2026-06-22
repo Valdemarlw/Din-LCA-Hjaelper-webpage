@@ -82,7 +82,7 @@ export const projectTypes: ProjectType[] = [
       },
       {
         type: "paragraph",
-        text: "Den tidlige beregning og hotspot-analyse tager typisk 1-2 uger fra modtaget materiale. Selve LCA-forløbet løber dog hele vejen til færdigmelding, hvor vi opdaterer beregningen med faktiske mængder fra det færdige byggeri. Læs mere om [hvad en LCA-beregning indeholder](/blog/hvad-er-lca-beregning) eller se [alle grænseværdier](/blog/graensevaerdier-co2).",
+        text: "Den tidlige beregning og hotspot-analyse tager typisk 1-2 uger fra modtaget materiale. Selve LCA-forløbet løber dog hele vejen til færdigmelding, hvor vi opdaterer beregningen med faktiske mængder fra det færdige byggeri. Læs mere om [hvad en LCA-beregning indeholder](/blog/hvad-er-lca-beregning), se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) eller se [alle grænseværdier](/blog/graensevaerdier-co2).",
       },
     ],
     faqs: [

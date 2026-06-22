@@ -22,6 +22,448 @@ export type FAQ = {
 };
 
 export const blogPosts: BlogPost[] = [
+  // ─── Post: Hvad koster en LCA-beregning? (pris) ───
+  {
+    slug: "lca-beregning-pris",
+    title: "Hvad koster en LCA-beregning? Priser i 2026 og hvad der påvirker dem",
+    description:
+      "Hvad koster en LCA-beregning efter BR18? Vejledende priser for bolig, sommerhus og erhverv, hvad der driver prisen, og hvordan du får et fast tilbud inden 24 timer.",
+    date: "2026-06-22",
+    readingTime: "7 min",
+    content: [
+      {
+        type: "paragraph",
+        text: "Hvad en LCA-beregning koster afhænger af projektets omfang og kompleksitet, ikke af arealet alene. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms, mens et større erhvervsprojekt kan nå op til 12.500 kr. Store eller komplekse projekter får et individuelt tilbud. I denne artikel forklarer vi, hvad der driver prisen, hvad der er inkluderet, og hvordan du får en fast pris på dit projekt.",
+      },
+      {
+        type: "heading2",
+        text: "Hvad koster en LCA-beregning? Kort svar",
+      },
+      {
+        type: "paragraph",
+        text: "Her er et vejledende prisinterval pr. bygningstype for en komplet LCA-beregning. Alle priser er ekskl. moms:",
+      },
+      {
+        type: "table",
+        headers: ["Bygningstype", "Vejledende pris (komplet beregning)"],
+        rows: [
+          ["Sommerhus og fritidshus", "4.700-6.300 kr"],
+          ["Enfamiliehus og rækkehus", "5.000-7.000 kr"],
+          ["Lager og hal", "5.500-9.500 kr"],
+          ["Kontor, handel og etagebyggeri", "8.000-12.500 kr"],
+          ["Store eller komplekse projekter", "Individuelt tilbud"],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Tallene er vejledende. Den faktiske pris afhænger af, hvor mange konstruktionstyper projektet har, og hvilke grænseværdikrav der gælder. Brug vores [BR18-tjekker](/vaerktoejer/br18-tjekker) for at få et hurtigt prisestimat for netop dit projekt, eller [send tegningerne](/kontakt) og få et fast tilbud inden 24 timer.",
+      },
+      {
+        type: "heading2",
+        text: "Hvad bestemmer prisen på en LCA-beregning?",
+      },
+      {
+        type: "paragraph",
+        text: "Prisen følger arbejdsmængden, og arbejdsmængden bestemmes af, hvor sammensat byggeriet er. De vigtigste faktorer er:",
+      },
+      {
+        type: "list",
+        items: [
+          "Antal konstruktionstyper: Hver unik ydervæg, tagopbygning, dæk og fundament skal kortlægges, mappes til materialer og beregnes. Et hus med 17 forskellige lagopbygninger kræver mere arbejde end en simpel hal med fire.",
+          "Grænseværdikravet: Et sommerhus under 150 m² skal holde [4,0 kg CO₂e/m²/år](/blog/graensevaerdier-co2), den strammeste grænse i BR18. Det kræver mere optimering og flere [produktspecifikke EPD'er](/ordbog/produktspecifikke-data) end et erhvervsbyggeri med grænsen 7,5.",
+          "Bygningstype: Bolig, sommerhus, lager og kontor har forskellige standardpriser, fordi de typisk rummer forskelligt antal konstruktioner og forskellig kompleksitet.",
+          "Datagrundlag: En beregning udelukkende på [generiske data](/ordbog/generiske-data) er hurtigere end en, hvor vi finder og indlæser produktspecifikke EPD'er for at komme under grænsen.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Bemærk, at arealet i sig selv ikke afgør prisen. Et lille, lagtæt hus kan kræve mere arbejde end en stor, bar lagerhal. Derfor prissætter vi efter omfang og kompleksitet, ikke pr. kvadratmeter.",
+      },
+      {
+        type: "heading2",
+        text: "LCA Komplet eller LCA Direkte?",
+      },
+      {
+        type: "paragraph",
+        text: "Vi tilbyder to niveauer, så du kun betaler for det, du har brug for:",
+      },
+      {
+        type: "list",
+        items: [
+          "LCA Komplet: Vi håndterer hele beregningen, inklusive at trække mængderne ud af dine tegninger eller din Revit-model. Det passer til de fleste kunder.",
+          "LCA Direkte: Leverer du selv et struktureret mængdeudtræk, fx fra en Revit-model eller en mængdeliste, trækker vi det fra prisen. Du sparer omkring 1.000 kr, fordi vi springer mængdeopgørelsen over.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Begge niveauer indeholder den samme faglige beregning, [hotspot-analyse](/ordbog/hotspot-analyse) og myndighedsklare rapport. Forskellen er kun, hvem der laver mængdeopgørelsen.",
+      },
+      {
+        type: "heading2",
+        text: "Hvad er inkluderet i prisen?",
+      },
+      {
+        type: "paragraph",
+        text: "En LCA-beregning hos Din LCA Hjælper er en samlet løsning, ikke en stykpris pr. delydelse. Hver beregning indeholder:",
+      },
+      {
+        type: "list",
+        items: [
+          "Tidlig beregning med [hotspot-analyse](/ordbog/hotspot-analyse), der viser de mest CO₂-tunge bygningsdele",
+          "Materialeoptimering med konkrete forslag, hvis grænseværdien er i fare",
+          "[A4- og A5-dokumentation](/blog/a4-a5-dokumentation) via [A45-platformen](https://a45lca.dk), så byggeprocessen også er dækket",
+          "Opdatering ved færdigmelding med faktiske mængder, så rapporten matcher det byggede",
+          "Myndighedsklar rapport klar til kommunen",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Mange rådgivere tager ekstra for opdateringen ved færdigmelding. Hos os er den med i prisen, fordi en LCA-rapport skal afspejle det faktisk opførte byggeri for at blive godkendt.",
+      },
+      {
+        type: "heading2",
+        text: "Pris i forhold til at lave beregningen selv",
+      },
+      {
+        type: "paragraph",
+        text: "[LCAbyg](/ordbog/lcabyg) er gratis at hente, så i teorien koster en LCA-beregning ingenting, hvis du laver den selv. I praksis er din egen tid den reelle omkostning. En beregning tager typisk 15-30 timer, når du er rutineret, og betydeligt mere de første gange. Med en timepris på 800 kr svarer det til 12.000-24.000 kr i intern tid, før læringskurven er regnet med.",
+      },
+      {
+        type: "paragraph",
+        text: "Er du allerede gået i stå i LCAbyg, kan det betale sig at [få beregningen ud af hænderne](/blog/lcabyg-hjaelp-outsource). Vi har sammenlignet de to muligheder i detaljer i [Din LCA Hjælper vs. LCAbyg](/sammenligninger/din-lca-hjaelper-vs-lcabyg).",
+      },
+      {
+        type: "heading2",
+        text: "Hvorfor er vores priser lavere end de store ingeniørhuse?",
+      },
+      {
+        type: "paragraph",
+        text: "Vi laver udelukkende LCA for byggeri. Vi laver ikke energiberegning, statik eller [DGNB-certificering](/ordbog/dgnb). Den fokusering giver lavere overhead og en proces, der er strømlinet til præcis denne opgave. Det er grunden til, at vi kan holde priserne nede uden at gå på kompromis med kvaliteten. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv).",
+      },
+      {
+        type: "heading2",
+        text: "Få en fast pris på dit projekt",
+      },
+      {
+        type: "paragraph",
+        text: "Vil du vide, hvad netop dit byggeri koster? Brug [BR18-tjekkeren](/vaerktoejer/br18-tjekker) for et hurtigt estimat, eller [send dine tegninger](/kontakt), så får du et fast tilbud inden 24 timer. Du kender prisen, før du siger ja.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Hvad koster en LCA-beregning for et enfamiliehus?",
+        answer:
+          "For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. Den endelige pris afhænger af antallet af konstruktionstyper og projektets kompleksitet, ikke af arealet alene. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
+      },
+      {
+        question: "Er priserne inkl. eller ekskl. moms?",
+        answer:
+          "Alle vores priser er ekskl. moms. De fleste af vores kunder er erhvervskunder, der kan trække momsen fra, så det er prisen ekskl. moms, der er relevant for dem.",
+      },
+      {
+        question: "Hvad er forskellen på LCA Komplet og LCA Direkte?",
+        answer:
+          "LCA Komplet er den fulde løsning, hvor vi også trækker mængderne ud af dine tegninger. LCA Direkte er til dig, der selv leverer et struktureret mængdeudtræk, fx fra en Revit-model. Så trækker vi omkring 1.000 kr fra prisen. Den faglige beregning er den samme i begge tilfælde.",
+      },
+      {
+        question: "Er opdatering ved færdigmelding inkluderet i prisen?",
+        answer:
+          "Ja. Opdatering af beregningen med faktiske mængder ved færdigmelding er inkluderet. LCA-rapporten skal afspejle det faktisk opførte byggeri for at blive godkendt af kommunen, og derfor hører opdateringen med i en komplet løsning.",
+      },
+      {
+        question: "Hvorfor får jeg ikke en fast pris pr. kvadratmeter?",
+        answer:
+          "Fordi arealet ikke er det, der bestemmer arbejdet. To huse på samme størrelse kan kræve vidt forskellig indsats afhængigt af antallet af konstruktioner, og hvilken grænseværdi der gælder. Vi prissætter derfor efter projektets omfang og kompleksitet og giver dig altid en fast samlet pris på forhånd.",
+      },
+      {
+        question: "Hvad hvis mit projekt er meget stort eller komplekst?",
+        answer:
+          "Større eller særligt komplekse projekter håndterer vi manuelt og giver et individuelt tilbud. Send tegningerne, så ser vi på omfanget og vender tilbage med en fast pris inden 24 timer.",
+      },
+    ],
+  },
+
+  // ─── Post: Hvornår er en LCA-beregning lovpligtig? ───
+  {
+    slug: "hvornaar-er-lca-lovpligtig",
+    title: "Hvornår er en LCA-beregning lovpligtig? Bygningstyper og arealgrænser",
+    description:
+      "Skal dit byggeri have en LCA-beregning efter BR18? Se hvilke bygningstyper og arealgrænser der er omfattet, hvilke undtagelser der gælder, og hvad der sker, hvis beregningen mangler.",
+    date: "2026-06-22",
+    readingTime: "6 min",
+    content: [
+      {
+        type: "paragraph",
+        text: "En LCA-beregning er lovpligtig for stort set alt nybyggeri i Danmark efter [BR18](/ordbog/br18), og kravet gælder også de fleste tilbygninger. Men der findes vigtige undtagelser, og der er forskel på, om dit projekt skal lave en beregning, og om det skal overholde en grænseværdi. I denne artikel gennemgår vi reglerne bygningstype for bygningstype, og du kan tjekke dit eget projekt på sekunder med vores [BR18-tjekker](/vaerktoejer/br18-tjekker).",
+      },
+      {
+        type: "heading2",
+        text: "To krav, ikke ét: beregningspligt og grænseværdi",
+      },
+      {
+        type: "paragraph",
+        text: "BR18's klimakrav hviler på to paragraffer, og de skal holdes adskilt:",
+      },
+      {
+        type: "list",
+        items: [
+          "§ 297 er beregningspligten: kravet om overhovedet at lave en LCA og dokumentere den.",
+          "§ 298 er grænseværdien: det tal i kg CO₂e/m²/år, som beregningen skal holde sig under.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Forskellen har konsekvenser. Et byggeri kan være forpligtet til at lave en LCA, men være undtaget fra grænseværdien. Så skal du stadig levere beregningen, der er bare ikke et tal, den skal overholde. Det gælder blandt andet visse samfundskritiske bygninger, som vi vender tilbage til nedenfor.",
+      },
+      {
+        type: "heading2",
+        text: "Hvilke byggerier er omfattet?",
+      },
+      {
+        type: "paragraph",
+        text: "Som udgangspunkt skal der laves en LCA-beregning for:",
+      },
+      {
+        type: "list",
+        items: [
+          "Alt nyt opvarmet byggeri, uanset størrelse",
+          "Uopvarmede bygninger over 50 m² (fx lagerhaller og parkeringshuse)",
+          "Tilbygninger til erhverv og etageboliger, uanset størrelse",
+          "Tilbygninger til enfamiliehuse, rækkehuse og sommerhuse, men kun fra 250 m² opvarmet etageareal og opefter",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Bemærk, at der ikke længere er nogen 1.000 m²-grænse. Frem til 1. juli 2025 gjaldt grænseværdien kun for byggeri over 1.000 m², men den tærskel er afskaffet. I dag er stort set alt nybyggeri omfattet, uanset størrelse. Læs mere om [de nye klimakrav fra 2025](/blog/klimakrav-2025).",
+      },
+      {
+        type: "heading2",
+        text: "Grænseværdier efter bygningstype",
+      },
+      {
+        type: "paragraph",
+        text: "Hvis dit byggeri er omfattet af grænseværdien, afhænger kravet af bygningstypen. Fra 1. juli 2025 gælder:",
+      },
+      {
+        type: "table",
+        headers: ["Bygningstype", "Grænseværdi (kg CO₂e/m²/år)"],
+        rows: [
+          ["Sommerhuse under 150 m²", "4,0"],
+          ["Sommerhuse 150 m² og derover, enfamiliehuse, række-/kæde-/dobbelthuse", "6,7"],
+          ["Etageboliger, kontor, handel, lager", "7,5"],
+          ["Øvrigt nybyggeri (skoler, institutioner, p-huse)", "8,0"],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Derudover skal byggeprocessen ([A4](/ordbog/modul-a4) + [A5](/ordbog/modul-a5)) overholde en separat grænse på 1,5 kg CO₂e/m²/år for alle bygningstyper. Se den fulde [oversigt over grænseværdier](/blog/graensevaerdier-co2).",
+      },
+      {
+        type: "heading2",
+        text: "Hvad er undtaget?",
+      },
+      {
+        type: "paragraph",
+        text: "Følgende er helt fritaget for LCA-kravet:",
+      },
+      {
+        type: "list",
+        items: [
+          "Uopvarmede bygninger under 50 m²",
+          "Tilbygninger under 250 m² til enfamiliehuse, rækkehuse, stuehuse og sommerhuse",
+          "Transportable konstruktioner og midlertidige, flytbare pavilloner",
+          "Almindelige ombygninger og renoveringer af eksisterende byggeri",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "En vigtig nuance: undtagelsen for tilbygninger under 250 m² gælder kun boliger og ferieboliger. En tilbygning til et kontor eller en etagebolig er omfattet, uanset hvor lille den er.",
+      },
+      {
+        type: "heading2",
+        text: "Samfundskritiske bygninger: beregning uden grænseværdi",
+      },
+      {
+        type: "paragraph",
+        text: "Nogle bygningstyper skal lave og indsende en LCA, men er undtaget fra selve grænseværdien. Det gælder blandt andet industriproduktion med integreret produktionsapparat, energi-, vand- og affaldsforsyning, hospitaler, fængsler og forsvarets operative bygninger. For dem er der beregningspligt efter § 297, men intet tal at overholde efter § 298, og dermed intet optimeringskrav.",
+      },
+      {
+        type: "heading2",
+        text: "Hvad sker der, hvis LCA-beregningen mangler?",
+      },
+      {
+        type: "paragraph",
+        text: "LCA-dokumentationen kontrolleres ved færdigmelding. Mangler beregningen, eller overskrider den grænseværdien, kan kommunen nægte ibrugtagningstilladelse. Byggeriet betragtes som ulovligt, indtil forholdet er lovliggjort. Myndighederne fører tilsyn via stikprøver, og manglende eller fejlagtig dokumentation kan udløse bøde.",
+      },
+      {
+        type: "paragraph",
+        text: "Derfor er det afgørende at få afklaret kravet tidligt. Jo før du ved, om dit projekt er omfattet, og hvilken grænse der gælder, jo bedre kan [materialevalgene optimeres](/blog/hvad-er-lca-beregning), inden de er fastlåste.",
+      },
+      {
+        type: "heading2",
+        text: "Tjek dit eget projekt",
+      },
+      {
+        type: "paragraph",
+        text: "Er du i tvivl, om dit byggeri er omfattet? Vores [BR18-tjekker](/vaerktoejer/br18-tjekker) giver dig svaret på sekunder: vælg bygningstype, angiv om det er nybyggeri eller tilbygning, og indtast det opvarmede areal. Værktøjet fortæller, om en LCA er lovpligtig, hvilken grænseværdi der gælder, og hvad en beregning vil koste. Er du stadig i tvivl om afgrænsningen, er du velkommen til at [kontakte os](/kontakt) uforpligtende.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Er min tilbygning omfattet af LCA-kravet?",
+        answer:
+          "Tilbygninger til enfamiliehuse, rækkehuse og sommerhuse er undtaget, hvis de er under 250 m² opvarmet etageareal. Er tilbygningen 250 m² eller derover, er den omfattet. Tilbygninger til erhverv og etageboliger er omfattet uanset størrelse.",
+      },
+      {
+        question: "Gælder LCA-kravet for renovering?",
+        answer:
+          "Nej. Almindelige ombygninger og renoveringer af eksisterende byggeri er fritaget. Kravet gælder kun nybyggeri og tilbygninger over de nævnte bagatelgrænser.",
+      },
+      {
+        question: "Skal et uopvarmet lager have en LCA-beregning?",
+        answer:
+          "Ja, hvis det er over 50 m². Uopvarmede bygninger over 50 m² er omfattet og skal overholde grænseværdien 7,5 kg CO₂e/m²/år for et lager eller 8,0 for et parkeringshus. For uopvarmede bygninger sættes driftsenergien (B6) til 0 i beregningen. Uopvarmede bygninger under 50 m² er helt fritaget.",
+      },
+      {
+        question: "Er der stadig en 1.000 m²-grænse?",
+        answer:
+          "Nej. Frem til 1. juli 2025 gjaldt grænseværdien kun for byggeri over 1.000 m². Den tærskel er afskaffet. I dag er stort set alt nybyggeri omfattet, uanset størrelse.",
+      },
+      {
+        question: "Hvad sker der, hvis jeg ikke laver beregningen?",
+        answer:
+          "Så kan kommunen nægte ibrugtagningstilladelse ved færdigmelding, og byggeriet betragtes som ulovligt, indtil forholdet er lovliggjort. Manglende eller fejlagtig dokumentation kan desuden udløse bøde. Derfor er det en god idé at få kravet afklaret tidligt i projektet.",
+      },
+    ],
+  },
+
+  // ─── Post: Sidder du fast i LCAbyg? (hjælp / outsource) ───
+  {
+    slug: "lcabyg-hjaelp-outsource",
+    title: "Sidder du fast i LCAbyg? Sådan får du beregningen igennem til tiden",
+    description:
+      "LCAbyg har en stejl læringskurve, og mængdeopgørelse, EPD-import og A4/A5 er typiske faldgruber. Læs hvornår du bør kæmpe videre, og hvornår det betaler sig at outsource LCA-beregningen.",
+    date: "2026-06-22",
+    readingTime: "6 min",
+    content: [
+      {
+        type: "paragraph",
+        text: "[LCAbyg](/ordbog/lcabyg) er det gratis, statslige beregningsprogram til bygnings-LCA, og det er solidt. Men det har en stejl læringskurve, og mange arkitekter og rådgivere går i stå undervejs, typisk i mængdeopgørelsen, EPD-importen eller [A4/A5-dokumentationen](/blog/a4-a5-dokumentation). Hvis en byggetilladelse rykker tættere på, end oplæringen kan nå, er det ikke det rette tidspunkt at lære et nyt værktøj fra bunden. Her gennemgår vi de typiske steder, folk sidder fast, og hvornår det betaler sig at få hjælp.",
+      },
+      {
+        type: "heading2",
+        text: "Hvor folk typisk går i stå i LCAbyg",
+      },
+      {
+        type: "list",
+        items: [
+          "Mængdeopgørelsen: At få korrekte mængder ud af tegninger eller en Revit-model er det mest tidskrævende trin, og det er her, de fleste fejl opstår.",
+          "Materialemapping: At vælge de rigtige poster fra bygningsreglementets [generiske data](/ordbog/generiske-data) kræver kendskab til, hvordan konstruktioner er bygget op.",
+          "EPD-import: At finde, validere og indlæse [produktspecifikke EPD'er](/ordbog/produktspecifikke-data), som ofte er nødvendige for at komme under grænsen, er en disciplin i sig selv.",
+          "A4 og A5: Byggeprocessens [transport- og byggepladsdata](/blog/a4-a5-dokumentation) ligger ved siden af selve LCAbyg og kræver data fra leverandører og entreprenører.",
+          "Fejl, der ikke flagges: LCAbyg regner det, du indtaster. Programmet fortæller dig ikke, om en konstruktion er sat konceptuelt forkert op.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Ingen af delene er uoverkommelige. Men de tager tid at lære, og rutinen forsvinder igen mellem hvert projekt, hvis du kun har en håndfuld LCA-sager om året.",
+      },
+      {
+        type: "heading2",
+        text: "Kæmp videre eller giv opgaven fra dig?",
+      },
+      {
+        type: "paragraph",
+        text: "Det giver god mening at lave beregningen selv, hvis tegnestuen har en intern LCA-ansvarlig og nok projekter til at holde rutinen ved lige. Det er typisk tid at få hjælp, når:",
+      },
+      {
+        type: "list",
+        items: [
+          "Du har 1-3 LCA-projekter om året, og rutinen er væk mellem hver",
+          "Deadline for byggetilladelse er tættere på, end oplæringen kan nå",
+          "Du er allerede gået i stå i mængdeopgørelse, EPD-import eller A4/A5-data",
+          "Tegnestuens timer er bedre brugt på arkitektur end på at fejlfinde et beregningsværktøj",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Vi har lavet en grundig [sammenligning af at gøre det selv i LCAbyg vs. at få hjælp](/sammenligninger/din-lca-hjaelper-vs-lcabyg), hvis du vil se de to muligheder side om side.",
+      },
+      {
+        type: "heading2",
+        text: "Sådan fungerer det at outsource beregningen",
+      },
+      {
+        type: "paragraph",
+        text: "Du behøver ikke starte forfra. Vi kan tage over, uanset hvor langt du er:",
+      },
+      {
+        type: "list",
+        items: [
+          "Send dine tegninger og konstruktionsbeskrivelser, og din LCAbyg-fil, hvis du er gået i stå i en",
+          "Vi giver et fast tilbud inden 24 timer",
+          "Vi gennemgår dit udkast, retter eventuelle fejl i mængdeopgørelsen og fører projektet i mål",
+          "Du modtager både den myndighedsklare rapport og selve LCAbyg-filen, så du har fuld adgang bagefter",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Vi bruger selv LCAbyg i alle vores projekter. Du sparer altså ikke på værktøjet, du sparer på den tid, det tager at blive god til at bruge det.",
+      },
+      {
+        type: "heading2",
+        text: "Når deadline er tæt på",
+      },
+      {
+        type: "paragraph",
+        text: "Akut tidspres er en af de hyppigste grunde til, at folk kontakter os. Vores tidlige beregning med [hotspot-analyse](/ordbog/hotspot-analyse) tager typisk 1-2 uger fra modtaget materiale, og i tidlig fase kan vi levere en foreløbig beregning hurtigere. I vores [referenceprojekt fra Esbjerg](/referenceprojekter/he-bluhmesvej-67) blev LCA'en bestilt efter byggestart og kom alligevel i mål med EPD-dokumentation under tidspres.",
+      },
+      {
+        type: "heading2",
+        text: "Hvad koster det?",
+      },
+      {
+        type: "paragraph",
+        text: "En komplet beregning for et enfamiliehus ligger typisk omkring 5.000-7.000 kr ekskl. moms, og leverer du selv et struktureret mængdeudtræk, bliver det billigere. Sammenlign det med 15-30 timers eget arbejde i LCAbyg. Se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) for en fuld gennemgang, eller få et hurtigt estimat med [BR18-tjekkeren](/vaerktoejer/br18-tjekker).",
+      },
+      {
+        type: "heading2",
+        text: "Kom videre med din beregning",
+      },
+      {
+        type: "paragraph",
+        text: "Sidder du fast, eller vil du bare have LCA'en ud af hænderne? [Send os dine tegninger](/kontakt), og din LCAbyg-fil, hvis du har en, så får du et fast tilbud inden 24 timer og en beregning, der lever op til [BR18](/ordbog/br18).",
+      },
+    ],
+    faqs: [
+      {
+        question: "Kan I overtage en LCAbyg-fil, jeg er gået i stå i?",
+        answer:
+          "Ja. Hvis du er kørt fast i en LCAbyg-fil, kan vi tage over og færdiggøre beregningen. Vi gennemgår dit udkast, retter eventuelle fejl i mængdeopgørelsen og kører projektet i mål. Send filen sammen med tegningerne, så giver vi et fast tilbud inden 24 timer.",
+      },
+      {
+        question: "Får jeg LCAbyg-filen, så jeg kan rette i den selv?",
+        answer:
+          "Ja. Du modtager både den myndighedsklare rapport og selve LCAbyg-filen, så du har fuld adgang, hvis du selv vil justere materialer senere. Opdatering med faktiske mængder ved færdigmelding klarer vi normalt som en del af prisen.",
+      },
+      {
+        question: "Bruger I selv LCAbyg?",
+        answer:
+          "Ja. LCAbyg er det officielle danske beregningsværktøj, og vi bruger det i alle vores projekter. Forskellen er, at vi kender faldgruberne og har en fast proces fra tegning til myndighedsklar rapport.",
+      },
+      {
+        question: "Kan I nå det, hvis min deadline er tæt på?",
+        answer:
+          "Ofte ja. Den tidlige beregning tager typisk 1-2 uger fra modtaget materiale, og i tidlig fase kan vi levere en foreløbig beregning hurtigere. Kontakt os med din deadline, så siger vi ærligt, om vi kan nå det.",
+      },
+      {
+        question: "Hvad hvis jeg kun har ét projekt om året?",
+        answer:
+          "Så er det næsten altid bedst at få hjælp. Den tid, det tager at lære LCAbyg ordentligt, overstiger hurtigt prisen for en udført beregning, og rutinen forsvinder igen inden næste projekt.",
+      },
+    ],
+  },
+
   // ─── Post 1: Hvad er en LCA-beregning? ───
   {
     slug: "hvad-er-lca-beregning",
@@ -83,7 +525,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Beregningen skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse. Det betyder, at LCA-rapporten skal afspejle det faktisk byggede — ikke kun det projekterede. Derfor anbefaler vi at starte LCA-beregningen tidligt og [opdatere den ved færdigmelding](/kontakt).",
+        text: "Beregningen skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse. Det betyder, at LCA-rapporten skal afspejle det faktisk byggede, ikke kun det projekterede. Derfor anbefaler vi at starte LCA-beregningen tidligt og [opdatere den ved færdigmelding](/kontakt). Se den fulde gennemgang af [hvornår en LCA-beregning er lovpligtig](/blog/hvornaar-er-lca-lovpligtig).",
       },
       {
         type: "heading2",
@@ -115,7 +557,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Prisen for en LCA-beregning varierer afhængigt af projektets størrelse, kompleksitet og antal konstruktionstyper. Hos Din LCA Hjælper starter priserne fra 3.500 kr inkl. adgang til A45-platformen for A4/A5-dokumentation. Vi giver fast tilbud inden for 24 timer efter modtagelse af tegninger.",
+        text: "Prisen for en LCA-beregning afhænger af projektets omfang og kompleksitet, særligt antallet af konstruktionstyper og hvilket grænseværdikrav der gælder, ikke af arealet alene. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms inkl. adgang til A45-platformen for A4/A5-dokumentation. Vi giver fast tilbud inden for 24 timer efter modtagelse af tegninger. Se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) for en fuld gennemgang af priser og hvad der påvirker dem.",
       },
       {
         type: "paragraph",

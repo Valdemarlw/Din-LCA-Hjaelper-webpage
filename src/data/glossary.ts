@@ -154,7 +154,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "br18",
       "modul-a1-a3",
     ],
-    relatedBlogPosts: ["graensevaerdier-co2", "klimakrav-2025"],
+    relatedBlogPosts: ["graensevaerdier-co2", "hvornaar-er-lca-lovpligtig", "klimakrav-2025"],
   },
 
   {
@@ -268,7 +268,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "lcabyg",
       "epd",
     ],
-    relatedBlogPosts: ["klimakrav-2025", "graensevaerdier-co2"],
+    relatedBlogPosts: ["hvornaar-er-lca-lovpligtig", "klimakrav-2025", "graensevaerdier-co2"],
   },
 
   {
@@ -1058,7 +1058,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "en-15978",
       "graensevaerdi",
     ],
-    relatedBlogPosts: ["hvad-er-lca-beregning", "klimakrav-2025"],
+    relatedBlogPosts: ["lcabyg-hjaelp-outsource", "hvad-er-lca-beregning", "klimakrav-2025"],
   },
 
   {

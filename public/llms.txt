@@ -17,6 +17,9 @@ Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, i
 - [A4 og A5 dokumentation](https://dinlcahjælper.dk/blog/a4-a5-dokumentation): Transport og byggeproces i LCA — hvad A4/A5 dækker, hvorfor det er lovpligtigt, og hvordan A45-platformen hjælper
 - [LCA for sommerhuse](https://dinlcahjælper.dk/blog/lca-sommerhuse): Udfordringer og løsninger for sommerhuse med den strenge grænse på 4,0 kg CO₂e/m²/år
 - [Grænseværdier for CO₂ i byggeri](https://dinlcahjælper.dk/blog/graensevaerdier-co2): Komplet oversigt over BR18-grænseværdier for alle bygningstyper
+- [Hvad koster en LCA-beregning?](https://dinlcahjælper.dk/blog/lca-beregning-pris): Vejledende priser for bolig, sommerhus og erhverv, hvad der påvirker prisen (omfang og kompleksitet), og forskellen på LCA Komplet og LCA Direkte
+- [Hvornår er en LCA-beregning lovpligtig?](https://dinlcahjælper.dk/blog/hvornaar-er-lca-lovpligtig): Bygningstyper og arealgrænser, undtagelser, og forskellen på beregningspligt (§297) og grænseværdi (§298)
+- [Sidder du fast i LCAbyg?](https://dinlcahjælper.dk/blog/lcabyg-hjaelp-outsource): Typiske faldgruber i LCAbyg og hvornår det betaler sig at outsource LCA-beregningen
 
 ## Contact
 

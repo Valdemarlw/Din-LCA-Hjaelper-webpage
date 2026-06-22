@@ -137,6 +137,15 @@ Sommerhuse under 150 m² har den strengeste grænseværdi: 4,0 kg CO₂e/m²/år
 ### Grænseværdier for CO₂ i byggeri: Komplet oversigt
 Referencetabel med alle BR18-grænseværdier fra juli 2025: sommerhuse <150 m² = 4,0, enfamiliehuse/rækkehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0, A4+A5 samlet = 1,5 kg CO₂e/m²/år. Hovedgrænsen dækker modulerne A1-A3, B4, B6, C3-C4. Historisk sammenligning (2023-2025: 12,0 kun for bygninger over 1.000 m², under 1.000 m² kun dokumentationskrav, før 2023: ingen krav). Typiske hotspots og optimeringsmuligheder.
 
+### Hvad koster en LCA-beregning? Priser i 2026 og hvad der påvirker dem
+Vejledende priser ekskl. moms for en komplet beregning: sommerhus 4.700-6.300 kr, enfamiliehus 5.000-7.000 kr, lager/hal 5.500-9.500 kr, kontor/etage 8.000-12.500 kr, store eller komplekse projekter individuelt tilbud. Prisen afhænger af projektets omfang og kompleksitet (antal konstruktionstyper og grænseværdikrav), ikke af arealet alene. To niveauer: LCA Komplet (vi trækker mængderne ud af tegninger/Revit) og LCA Direkte (kunden leverer struktureret mængdeudtræk, ca. 1.000 kr billigere). Inkluderet: hotspot-analyse, materialeoptimering, A4/A5 via A45-platformen, opdatering ved færdigmelding og myndighedsklar rapport.
+
+### Hvornår er en LCA-beregning lovpligtig? Bygningstyper og arealgrænser
+Lovpligtig for stort set alt nybyggeri samt uopvarmede bygninger over 50 m². Tilbygninger til erhverv og etageboliger er omfattet uanset størrelse; tilbygninger til enfamiliehuse, rækkehuse og sommerhuse kun fra 250 m² opvarmet etageareal. Der er ingen 1.000 m²-grænse længere (afskaffet 1. juli 2025). Vigtig skelnen: §297 er beregningspligten, §298 er grænseværdien. Samfundskritiske bygninger (industriproduktion, energi-/vand-/affaldsforsyning, hospitaler, fængsler, forsvarets operative bygninger) skal beregne, men er undtaget grænseværdien. Helt undtaget: uopvarmet under 50 m², boligtilbygninger under 250 m², transportable og midlertidige konstruktioner samt renoveringer. Mangler beregningen, kan kommunen nægte ibrugtagningstilladelse.
+
+### Sidder du fast i LCAbyg? Sådan får du beregningen igennem til tiden
+Typiske faldgruber i LCAbyg: mængdeopgørelse, materialemapping, EPD-import, A4/A5-data og fejl der ikke flagges af programmet. Det betaler sig at få hjælp ved 1-3 projekter om året, ved tæt deadline, eller hvis man er gået i stå. Din LCA Hjælper kan overtage en påbegyndt LCAbyg-fil, rette fejl i mængdeopgørelsen og føre projektet i mål; kunden får både den myndighedsklare rapport og selve LCAbyg-filen. Vi bruger selv LCAbyg i alle projekter.
+
 ---
 
 ## LCA-ordbog (dinlcahjælper.dk/ordbog)

@@ -117,7 +117,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "paragraph",
-        text: "For mange små og mellemstore tegnestuer ligger LCA i en gråzone: nødvendigt for myndighederne, men for sjældent til at retfærdiggøre at en arkitekt bruger 20-40 timer på at lære LCAbyg fra bunden. Det er den situation, vi er bygget til.",
+        text: "For mange små og mellemstore tegnestuer ligger LCA i en gråzone: nødvendigt for myndighederne, men for sjældent til at retfærdiggøre at en arkitekt bruger 20-40 timer på at lære LCAbyg fra bunden. Det er den situation, vi er bygget til. Er du allerede gået i stå, så læs [hvordan du får beregningen igennem til tiden](/blog/lcabyg-hjaelp-outsource).",
       },
       {
         type: "list",
