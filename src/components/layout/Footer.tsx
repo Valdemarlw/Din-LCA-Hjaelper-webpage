@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail } from "lucide-react";
+import { track } from "../../lib/analytics";
 
 export function Footer() {
   return (
@@ -52,11 +53,19 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-navy mb-3">Kontakt</h3>
             <div className="flex flex-col gap-2">
-              <a href="tel:+4529899999" className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
+              <a
+                href="tel:+4529899999"
+                onClick={() => track("outbound_contact_clicked", { channel: "tel", location: "footer" })}
+                className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors"
+              >
                 <Phone size={14} />
                 +45 29 89 99 99
               </a>
-              <a href="mailto:valdemar.wernblad@dinlcahjælper.dk" className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors">
+              <a
+                href="mailto:valdemar.wernblad@dinlcahjælper.dk"
+                onClick={() => track("outbound_contact_clicked", { channel: "mail", location: "footer" })}
+                className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors"
+              >
                 <Mail size={14} />
                 valdemar.wernblad@dinlcahjælper.dk
               </a>
@@ -67,6 +76,10 @@ export function Footer() {
         <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} Din LCA Hjælper. Alle rettigheder forbeholdes.
+            {" · "}
+            <Link to="/privatlivspolitik" className="hover:text-primary transition-colors underline">
+              Privatlivspolitik
+            </Link>
           </p>
           <p className="text-xs text-muted">
             Powered by <a href="https://a45lca.dk" target="_blank" rel="noopener noreferrer" className="text-a45-green hover:underline font-medium">A45</a>

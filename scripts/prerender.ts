@@ -58,6 +58,7 @@ const ROUTES = [
   "/ordbog/dgnb",
   "/sammenligninger/din-lca-hjaelper-vs-lcabyg",
   "/vaerktoejer/br18-tjekker",
+  "/privatlivspolitik",
 ];
 const DIST = join(import.meta.dirname, "..", "dist");
 

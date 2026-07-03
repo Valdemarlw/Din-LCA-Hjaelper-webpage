@@ -38,8 +38,10 @@ export function Pricing() {
           </ul>
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
-            <Button to="/vaerktoejer/br18-tjekker">Estimér din pris</Button>
-            <Button to="/kontakt" variant="secondary">
+            <Button to="/vaerktoejer/br18-tjekker" analytics={{ location: "pricing_section_tool" }}>
+              Estimér din pris
+            </Button>
+            <Button to="/kontakt" variant="secondary" analytics={{ location: "pricing_section" }}>
               Send dine tegninger
             </Button>
           </div>

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
 import { Phone, Mail, Send } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import { track, arealBucket } from "../lib/analytics";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "80bd8607-2b37-4bfd-9ad3-184e93658aed";
@@ -12,6 +13,13 @@ export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(false);
+  const startedRef = useRef(false);
+
+  function handleFormStart() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    track("contact_form_started");
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,6 +28,10 @@ export function ContactPage() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const submitProps = {
+      project_type: String(data.get("project-type") || "ikke-valgt"),
+      areal: arealBucket(Number(data.get("area"))),
+    };
     data.append("access_key", WEB3FORMS_KEY);
     data.append("subject", "Ny forespørgsel fra dinlcahjælper.dk");
 
@@ -30,12 +42,15 @@ export function ContactPage() {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        track("contact_form_submitted", { result: "success", ...submitProps });
         setSubmitted(true);
         form.reset();
       } else {
+        track("contact_form_submitted", { result: "error", ...submitProps });
         setError(true);
       }
     } catch {
+      track("contact_form_submitted", { result: "error", ...submitProps });
       setError(true);
     } finally {
       setSubmitting(false);
@@ -76,6 +91,7 @@ export function ContactPage() {
               <div className="mt-8 space-y-4">
                 <a
                   href="tel:+4529899999"
+                  onClick={() => track("outbound_contact_clicked", { channel: "tel", location: "contact_page" })}
                   className="flex items-center gap-3 text-lg text-navy hover:text-primary transition-colors"
                 >
                   <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
@@ -85,6 +101,7 @@ export function ContactPage() {
                 </a>
                 <a
                   href="mailto:valdemar.wernblad@dinlcahjælper.dk"
+                  onClick={() => track("outbound_contact_clicked", { channel: "mail", location: "contact_page" })}
                   className="flex items-center gap-3 text-lg text-navy hover:text-primary transition-colors"
                 >
                   <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
@@ -99,6 +116,7 @@ export function ContactPage() {
                   <strong className="text-navy">Tegninger?</strong> Send dem gerne direkte til{" "}
                   <a
                     href="mailto:valdemar.wernblad@dinlcahjælper.dk"
+                    onClick={() => track("outbound_contact_clicked", { channel: "mail", location: "contact_page" })}
                     className="text-primary hover:underline"
                   >
                     valdemar.wernblad@dinlcahjælper.dk
@@ -124,6 +142,7 @@ export function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
+                  onFocusCapture={handleFormStart}
                   className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-sm space-y-5"
                 >
                   {/* Honeypot spam protection */}
@@ -235,7 +254,11 @@ export function ContactPage() {
                   {error && (
                     <p className="text-sm text-red-600 text-center">
                       Noget gik galt. Prøv igen, eller skriv direkte til{" "}
-                      <a href="mailto:valdemar.wernblad@dinlcahjælper.dk" className="underline">
+                      <a
+                        href="mailto:valdemar.wernblad@dinlcahjælper.dk"
+                        onClick={() => track("outbound_contact_clicked", { channel: "mail", location: "contact_page" })}
+                        className="underline"
+                      >
                         valdemar.wernblad@dinlcahjælper.dk
                       </a>
                     </p>

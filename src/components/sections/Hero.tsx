@@ -55,7 +55,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
             >
-              <Button to="/kontakt">Få et tilbud</Button>
+              <Button to="/kontakt" analytics={{ location: "hero" }}>Få et tilbud</Button>
               <div className="flex items-center gap-3">
                 <span className="text-2xl font-bold text-navy">Fra 4.000 kr</span>
                 <Badge>Inkl. A45</Badge>

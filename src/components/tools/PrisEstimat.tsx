@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { beregnPris, formatKr, type PrisType } from "../../lib/pris";
+import { track } from "../../lib/analytics";
 
 /**
  * Pris-estimat-blok. Deler input (pris-type + m²) med BR18-checkeren.
@@ -17,6 +18,16 @@ export function PrisEstimat({
 }) {
   const [medMaengdeudtraek, setMedMaengdeudtraek] = useState(false);
   const res = beregnPris(prisType, m2);
+
+  // Fire once per mount; the component only mounts when a price is first shown.
+  useEffect(() => {
+    track("price_estimate_shown", {
+      pris_type: prisType,
+      estimat: res.type === "individuelt" ? "individuelt" : "interval",
+      frivillig,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (res.type === "individuelt") {
     return (

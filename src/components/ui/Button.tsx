@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { track } from "../../lib/analytics";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -10,6 +11,8 @@ type ButtonProps = {
   className?: string;
   type?: "button" | "submit";
   onClick?: () => void;
+  /** When set, clicking fires a cta_clicked event with this location. */
+  analytics?: { location: string; label?: string };
 };
 
 export function Button({
@@ -20,7 +23,19 @@ export function Button({
   className = "",
   type = "button",
   onClick,
+  analytics,
 }: ButtonProps) {
+  const handleClick = () => {
+    if (analytics) {
+      track("cta_clicked", {
+        location: analytics.location,
+        label: analytics.label ?? (typeof children === "string" ? children : ""),
+        target: to ?? href ?? "",
+      });
+    }
+    onClick?.();
+  };
+
   const base =
     "inline-flex items-center justify-center rounded-[10px] px-6 py-3 text-base font-medium tracking-[-0.01em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
@@ -54,7 +69,7 @@ export function Button({
   if (to) {
     return (
       <motion.div {...motionProps} className="group inline-block">
-        <Link to={to} className={classes}>
+        <Link to={to} className={classes} onClick={handleClick}>
           {content}
         </Link>
       </motion.div>
@@ -63,7 +78,7 @@ export function Button({
 
   if (href) {
     return (
-      <motion.a href={href} className={`group ${classes}`} {...motionProps}>
+      <motion.a href={href} className={`group ${classes}`} onClick={handleClick} {...motionProps}>
         {content}
       </motion.a>
     );
@@ -73,7 +88,7 @@ export function Button({
     <motion.button
       type={type}
       className={`group ${classes}`}
-      onClick={onClick}
+      onClick={handleClick}
       {...motionProps}
     >
       {content}

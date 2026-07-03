@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { fadeUp } from "../../lib/animations";
 import { Button } from "../ui/Button";
 import { Phone, Mail } from "lucide-react";
+import { track } from "../../lib/analytics";
 
 export function FinalCTA() {
   return (
@@ -21,17 +22,25 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-8">
-          <Button to="/kontakt" variant="inverted">
+          <Button to="/kontakt" variant="inverted" analytics={{ location: "final_cta" }}>
             Send tegninger, få pris
           </Button>
         </div>
 
         <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6 text-white/60">
-          <a href="tel:+4529899999" className="flex items-center gap-2 hover:text-white transition-colors">
+          <a
+            href="tel:+4529899999"
+            onClick={() => track("outbound_contact_clicked", { channel: "tel", location: "final_cta" })}
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <Phone size={16} />
             +45 29 89 99 99
           </a>
-          <a href="mailto:valdemar.wernblad@dinlcahjælper.dk" className="flex items-center gap-2 hover:text-white transition-colors">
+          <a
+            href="mailto:valdemar.wernblad@dinlcahjælper.dk"
+            onClick={() => track("outbound_contact_clicked", { channel: "mail", location: "final_cta" })}
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <Mail size={16} />
             valdemar.wernblad@dinlcahjælper.dk
           </a>

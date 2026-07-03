@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ClipboardCheck, FileText, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/Button";
+import { track, arealBucket } from "../../lib/analytics";
 import {
   evaluateBR18,
   prisTypeFor,
@@ -57,6 +58,20 @@ export function BR18Checker() {
   const resultat = harAreal
     ? evaluateBR18({ bygningstype, byggeri, m2, uopvarmet, samfundskritisk })
     : null;
+
+  // Fires once per page view — the moment a visitor first gets a real answer.
+  const completedRef = useRef(false);
+  useEffect(() => {
+    if (resultat && !completedRef.current) {
+      completedRef.current = true;
+      track("br18_checker_completed", {
+        status: resultat.status,
+        bygningstype,
+        byggeri,
+        areal: arealBucket(m2),
+      });
+    }
+  }, [resultat, bygningstype, byggeri, m2]);
 
   return (
     <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
@@ -240,7 +255,9 @@ export function BR18Checker() {
                 )}
 
                 <div className="mt-6">
-                  <Button to="/kontakt">Få et fast tilbud</Button>
+                  <Button to="/kontakt" analytics={{ location: "br18_checker_result" }}>
+                    Få et fast tilbud
+                  </Button>
                 </div>
               </div>
             );

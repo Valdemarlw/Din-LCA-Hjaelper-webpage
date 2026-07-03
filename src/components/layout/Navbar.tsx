@@ -53,7 +53,7 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button to="/kontakt" variant="secondary" className="text-sm px-5 py-2.5">
+          <Button to="/kontakt" variant="secondary" className="text-sm px-5 py-2.5" analytics={{ location: "navbar" }}>
             Start din LCA
           </Button>
         </div>
@@ -90,7 +90,7 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Button to="/kontakt" variant="secondary" className="mt-2 w-full" onClick={() => setMobileOpen(false)}>
+              <Button to="/kontakt" variant="secondary" className="mt-2 w-full" onClick={() => setMobileOpen(false)} analytics={{ location: "navbar_mobile" }}>
                 Start din LCA
               </Button>
             </div>

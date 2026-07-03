@@ -19,6 +19,7 @@ import { GlossaryPage } from "./pages/GlossaryPage";
 import { GlossaryTermPage } from "./pages/GlossaryTermPage";
 import { ComparisonPage } from "./pages/ComparisonPage";
 import { BR18CheckerPage } from "./pages/BR18CheckerPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -41,6 +42,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/ordbog/:slug" element={<GlossaryTermPage />} />
             <Route path="/sammenligninger/:slug" element={<ComparisonPage />} />
             <Route path="/vaerktoejer/br18-tjekker" element={<BR18CheckerPage />} />
+            <Route path="/privatlivspolitik" element={<PrivacyPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
