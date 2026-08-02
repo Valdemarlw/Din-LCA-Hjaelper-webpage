@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
         items: [
           "Tidlig beregning med [hotspot-analyse](/ordbog/hotspot-analyse), der viser de mest CO₂-tunge bygningsdele",
           "Materialeoptimering med konkrete forslag, hvis grænseværdien er i fare",
-          "[A4- og A5-dokumentation](/blog/a4-a5-dokumentation) via [A45-platformen](https://a45lca.dk), så byggeprocessen også er dækket",
+          "[A4- og A5-beregning](/blog/a4-a5-dokumentation), så transport og byggeproces også er dækket",
           "Opdatering ved færdigmelding med faktiske mængder, så rapporten matcher det byggede",
           "Myndighedsklar rapport klar til kommunen",
         ],
@@ -557,7 +557,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Prisen for en LCA-beregning afhænger af projektets omfang og kompleksitet, særligt antallet af konstruktionstyper og hvilket grænseværdikrav der gælder, ikke af arealet alene. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms inkl. adgang til A45-platformen for A4/A5-dokumentation. Vi giver fast tilbud inden for 24 timer efter modtagelse af tegninger. Se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) for en fuld gennemgang af priser og hvad der påvirker dem.",
+        text: "Prisen for en LCA-beregning afhænger af projektets omfang og kompleksitet, særligt antallet af konstruktionstyper og hvilket grænseværdikrav der gælder, ikke af arealet alene. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. A4/A5-beregning og dokumentation er inkluderet. Vi giver fast tilbud inden for 24 timer efter modtagelse af tegninger. Se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) for en fuld gennemgang af priser og hvad der påvirker dem.",
       },
       {
         type: "paragraph",
@@ -581,7 +581,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Hos Din LCA Hjælper håndterer vi hele LCA-processen for dig. Vi er specialiseret udelukkende i LCA for byggeri og inkluderer altid hotspot-analyse, materialeoptimering og adgang til [A45-platformen](https://a45lca.dk) for A4/A5-dokumentation. Se vores [bygningstype-sider](/lca-beregning) for de specifikke krav til dit projekt, eller [kontakt os](/kontakt) for et uforpligtende tilbud.",
+        text: "Hos Din LCA Hjælper håndterer vi hele LCA-processen for dig. Hotspot-analyse, materialeoptimering og A4/A5-beregning er en del af opgaven. Se vores [bygningstype-sider](/lca-beregning) for de specifikke krav til dit projekt, eller [kontakt os](/kontakt) for et uforpligtende tilbud.",
       },
     ],
     faqs: [
@@ -698,7 +698,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Det betyder at dokumentation af A4- og A5-faserne nu er obligatorisk. Hos Din LCA Hjælper inkluderer vi altid adgang til [A45-platformen](https://a45lca.dk), som gør det nemt at indsamle transportdata fra leverandører og spilddata fra entreprenører.",
+        text: "Det betyder at dokumentation af A4- og A5-faserne nu er obligatorisk. Hos Din LCA Hjælper beregner vi transport og byggeproces som en del af LCA-opgaven og opdaterer den endelige rapport med de projektdata, der foreligger.",
       },
       {
         type: "heading2",
@@ -826,28 +826,28 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Det er præcis denne udfordring, A45-platformen er bygget til at løse.",
+        text: "Derfor bør det tidligt aftales, hvem der leverer hvilke oplysninger, og hvilke standardforudsætninger der kan bruges, indtil de faktiske data foreligger.",
       },
       {
         type: "heading2",
-        text: "A45: Automatiseret A4/A5-dokumentation",
+        text: "Sådan håndterer vi A4/A5",
       },
       {
         type: "paragraph",
-        text: "[A45](https://a45lca.dk) er en platform udviklet af Din LCA Hjælper specifikt til dokumentation af A4- og A5-faserne. Platformen gør det muligt at:",
+        text: "Vi regner A4 og A5 som en del af LCA-opgaven. Tidligt i projektet bruger vi de oplysninger, der findes, og dokumenterede standardforudsætninger for resten. Beregningen viser samtidig, hvilke projektdata der mangler før den endelige rapport:",
       },
       {
         type: "list",
         items: [
-          "Uploade fakturaer og følgesedler, AI'en udtrækker transportdata automatisk",
-          "Tracke CO₂-forbrug i realtid mod BR18-grænseværdien via et dashboard",
-          "Invitere underentreprenører og leverandører med rollebaseret adgang",
-          "Eksportere myndighedsklar BR18-rapport med ét klik",
+          "Transportafstande og transportmidler for de væsentlige materialer",
+          "Energiforbrug og brændstof på byggepladsen",
+          "Materialespild og bortkørsel af affald",
+          "Hvilke værdier der er målte, oplyste eller baseret på standardforudsætninger",
         ],
       },
       {
         type: "paragraph",
-        text: "Alle kunder hos Din LCA Hjælper får automatisk adgang til A45 som del af deres LCA-beregning. Vi mener A4/A5-dokumentation hører med i en komplet [LCA-løsning](/blog/hvad-er-lca-beregning), det skal ikke være en ekstra hovedpine.",
+        text: "Før den endelige rapport opdaterer vi beregningen med de projektdata, vi har fået fra kunden og entreprenøren. A4/A5-dokumentation er en del af den samlede [LCA-opgave](/blog/hvad-er-lca-beregning).",
       },
       {
         type: "heading2",
@@ -862,7 +862,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Kan A4/A5-data estimeres, eller skal de måles?",
         answer:
-          "Der kan bruges standardværdier som udgangspunkt, men myndighederne foretrækker projektspecifikke data. Jo mere præcise data, jo mere pålidelig beregning. Med A45-platformen kan du indsamle faktiske data løbende under byggeriet.",
+          "Ja. I den tidlige beregning kan dokumenterede standardværdier bruges, når de faktiske data endnu ikke findes. Før den endelige rapport opdaterer vi med de projektspecifikke oplysninger, der er tilgængelige.",
       },
       {
         question: "Hvornår skal A4/A5-data indsamles?",
@@ -872,7 +872,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvem er ansvarlig for at levere A4/A5-data?",
         answer:
-          "Bygherren har det overordnede ansvar for LCA-dokumentationen, men i praksis indsamles data fra leverandører og entreprenører. A45-platformen gør det nemt at invitere alle parter og indsamle data struktureret.",
+          "Bygherren har det overordnede ansvar for LCA-dokumentationen. I praksis kommer oplysningerne fra leverandører og entreprenører. Vi beskriver, hvilke data der mangler, og indarbejder dem i beregningen, når de foreligger.",
       },
       {
         question: "Tæller A4/A5 med i den samlede LCA-grænseværdi?",
@@ -979,7 +979,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Hos Din LCA Hjælper har vi erfaring med sommerhusprojekter og kender de specifikke udfordringer ved den lave grænseværdi. Alle kunder får adgang til [A45-platformen](https://a45lca.dk) til A4/A5-dokumentation som del af beregningen. Se vores [service for sommerhuse](/lca-beregning/sommerhus) for de præcise krav, eller [kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr.",
+        text: "Hos Din LCA Hjælper har vi erfaring med sommerhusprojekter og kender de specifikke udfordringer ved den lave grænseværdi. A4/A5-beregning og dokumentation er en del af opgaven. Se vores [service for sommerhuse](/lca-beregning/sommerhus) for de præcise krav, eller [kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr.",
       },
     ],
     faqs: [
@@ -996,7 +996,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad koster en LCA-beregning for et sommerhus?",
         answer:
-          "Prisen afhænger af projektets kompleksitet, men starter typisk fra 4.000 kr inkl. A45-adgang. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
+          "Prisen afhænger af projektets kompleksitet, men starter typisk fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
       },
     ],
   },
@@ -1141,7 +1141,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved præcis hvor du står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr inkl. A45-adgang.",
+        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved præcis hvor du står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr, inkl. A4/A5-beregning og dokumentation.",
       },
     ],
     faqs: [

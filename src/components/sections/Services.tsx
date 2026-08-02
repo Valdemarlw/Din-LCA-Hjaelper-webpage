@@ -3,7 +3,7 @@ import { staggerContainer, fadeUp } from "../../lib/animations";
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { Card } from "../ui/Card";
 import { Badge } from "../ui/Badge";
-import { FileText, Search, Lightbulb, ClipboardCheck, LayoutDashboard } from "lucide-react";
+import { FileText, Search, Lightbulb, ClipboardCheck, Truck } from "lucide-react";
 
 const services = [
   {
@@ -27,9 +27,9 @@ const services = [
     description: "Vi opdaterer beregningen med faktiske mængder, så rapporten matcher det byggede.",
   },
   {
-    icon: LayoutDashboard,
-    title: "A45 dokumentation",
-    description: "A4- og A5-faserne kræver data fra leverandører og underentreprenører, og ofte har de ikke tallene klar. A45 platformen samler det hele ét sted, så du slipper for at jagte dokumentation.",
+    icon: Truck,
+    title: "A4/A5-beregning",
+    description: "Vi beregner transport og byggeprocessen som en del af LCA'en. Mangler der faktiske data i den tidlige fase, dokumenterer vi forudsætningerne. Vi opdaterer den endelige rapport, når vi har de projektspecifikke oplysninger.",
     highlighted: true,
   },
 ];
@@ -88,26 +88,26 @@ export function Services() {
             </Card>
           </motion.div>
 
-          {/* A45 card, spans 2 cols on md+ */}
+          {/* A4/A5 card, spans 2 cols on md+ */}
           <motion.div variants={fadeUp} className="md:col-span-2">
             <Card highlighted className="h-full">
               <div className="md:flex md:items-start md:gap-6">
                 <div className="mb-4 md:mb-0 md:shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary">
-                  <LayoutDashboard size={24} />
+                  <Truck size={24} />
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="text-lg font-semibold text-navy">
                       {services[4].title}
                     </h3>
-                    <Badge>Inkl. A45</Badge>
+                    <Badge>Inkluderet</Badge>
                   </div>
                   <p className="text-body leading-relaxed">{services[4].description}</p>
                   <ul className="mt-3 space-y-1.5 text-body text-sm leading-relaxed">
-                    <li>Upload fakturaer og følgesedler, AI'en udtrækker data automatisk</li>
-                    <li>Realtids-dashboard der tracker CO₂-forbrug mod BR18-grænseværdien</li>
-                    <li>Invitér underentreprenører og leverandører med rollebaseret adgang</li>
-                    <li>Ét-klik eksport af myndighedsklar BR18-rapport</li>
+                    <li>A4: Transportafstande og transportmidler for materialer</li>
+                    <li>A5: Materialespild, energi og brændstof på byggepladsen</li>
+                    <li>Vi dokumenterer de foreløbige forudsætninger</li>
+                    <li>Vi opdaterer den endelige rapport med faktiske projektdata</li>
                   </ul>
                 </div>
               </div>

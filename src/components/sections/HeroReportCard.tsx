@@ -35,8 +35,8 @@ export function HeroReportCard() {
           </p>
           <h3 className="mt-1 text-lg font-bold text-navy">Enfamiliehus · 184 m²</h3>
         </div>
-        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-a45-green/10 px-2.5 py-1 text-xs font-medium text-a45-green">
-          <span className="h-1.5 w-1.5 rounded-full bg-a45-green" /> Godkendt
+        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-status-green/10 px-2.5 py-1 text-xs font-medium text-status-green">
+          <span className="h-1.5 w-1.5 rounded-full bg-status-green" /> Godkendt
         </span>
       </div>
 
@@ -70,7 +70,7 @@ export function HeroReportCard() {
             <span className="w-32 shrink-0 text-body">{b.label}</span>
             <div className="h-2 flex-1 overflow-hidden rounded-full bg-bg-alt">
               <div
-                className="h-full rounded-full bg-a45-green/70"
+                className="h-full rounded-full bg-status-green/70"
                 style={{ width: `${(b.value / maxVal) * 100}%` }}
               />
             </div>
@@ -83,7 +83,7 @@ export function HeroReportCard() {
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2">
-        {["BR18", "A1–A3", "EN 15804", "Inkl. A45"].map((t) => (
+        {["BR18", "A1–A3", "A4+A5", "EN 15804"].map((t) => (
           <span
             key={t}
             className="rounded-md bg-bg-alt px-2.5 py-1 text-xs font-medium text-muted"

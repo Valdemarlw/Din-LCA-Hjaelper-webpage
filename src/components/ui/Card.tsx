@@ -11,7 +11,7 @@ export function Card({ children, className = "", highlighted = false }: CardProp
     <motion.div
       className={`rounded-xl border bg-white p-6 md:p-8 ${
         highlighted
-          ? "border-a45-green/40 shadow-md"
+          ? "border-status-green/40 shadow-md"
           : "border-border"
       } ${className}`}
       whileHover={{

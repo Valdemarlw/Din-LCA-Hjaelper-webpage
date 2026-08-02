@@ -6,7 +6,7 @@ import {
   Send,
   FileCheck,
   BarChart3,
-  MonitorCog,
+  Truck,
   RefreshCw,
   FileOutput,
 } from "lucide-react";
@@ -31,11 +31,11 @@ const steps = [
     description: "LCA-beregning med hotspot-analyse og materialeoptimering.",
   },
   {
-    icon: MonitorCog,
+    icon: Truck,
     number: "04",
-    title: "Opsætning af A45",
+    title: "Beregning af A4+A5",
     description:
-      "A45 platformen sættes op til dokumentation af A4- og A5-moduler.",
+      "Vi beregner transport og byggeproces og noterer de data, der skal indsamles til den endelige rapport.",
   },
   {
     icon: RefreshCw,

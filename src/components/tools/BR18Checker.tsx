@@ -31,13 +31,13 @@ const TONE: Record<
     Icon: FileText,
   },
   undtaget_tilbygning: {
-    wrap: "border-a45-green/30 bg-a45-green/5",
-    iconWrap: "bg-a45-green/10 text-a45-green",
+    wrap: "border-status-green/30 bg-status-green/5",
+    iconWrap: "bg-status-green/10 text-status-green",
     Icon: CheckCircle2,
   },
   undtaget_helt: {
-    wrap: "border-a45-green/30 bg-a45-green/5",
-    iconWrap: "bg-a45-green/10 text-a45-green",
+    wrap: "border-status-green/30 bg-status-green/5",
+    iconWrap: "bg-status-green/10 text-status-green",
     Icon: CheckCircle2,
   },
 };

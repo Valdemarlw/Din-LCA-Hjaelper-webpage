@@ -9,7 +9,7 @@ const inclusions = [
   "Materialeforslag ved overskridelse af grænseværdi",
   "Opdatering ved færdigmelding med faktiske mængder",
   "Myndighedsklar rapport klar til kommunen",
-  "Adgang til A45 platformen til A4/A5 dokumentation",
+  "Beregning og dokumentation af A4/A5",
 ];
 
 export function Pricing() {
@@ -25,7 +25,7 @@ export function Pricing() {
 
         <div className="mt-10 rounded-2xl border border-border bg-white p-8 md:p-10 shadow-sm">
           <div className="flex justify-center">
-            <Badge>Inkl. A45 adgang</Badge>
+            <Badge>A4+A5 inkluderet</Badge>
           </div>
 
           <ul className="mt-8 space-y-3 text-left">

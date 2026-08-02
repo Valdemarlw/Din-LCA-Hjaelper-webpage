@@ -1,6 +1,6 @@
 # Din LCA Hjælper, Komplet indhold
 
-> Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 4.000 kr inkl. A45-dokumentation.
+> Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 4.000 kr, inkl. A4/A5-beregning og dokumentation.
 
 ---
 
@@ -8,7 +8,7 @@
 
 ### LCA-beregning der bare virker
 
-Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed der leverer myndighedsklar LCA-beregning for byggeri efter BR18. Vi håndterer hele processen fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 4.000 kr inkl. A45-dokumentation.
+Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed der leverer myndighedsklar LCA-beregning for byggeri efter BR18. Vi håndterer hele processen fra tidlig fase til færdigmelding for bolig, erhverv og industri. Priser fra 4.000 kr, inkl. A4/A5-beregning og dokumentation.
 
 Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, så du kan fokusere på projektet.
 
@@ -30,18 +30,18 @@ Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, 
 
 **Opdatering ved færdigmelding.** Vi opdaterer beregningen med faktiske mængder, så rapporten matcher det byggede.
 
-**A45 dokumentation (inkluderet).** A4- og A5-faserne kræver data fra leverandører og underentreprenører, og ofte har de ikke tallene klar. A45-platformen samler det hele ét sted, så du slipper for at jagte dokumentation. Funktioner:
-- Upload fakturaer og følgesedler, AI'en udtrækker data automatisk
-- Realtids-dashboard der tracker CO₂-forbrug mod BR18-grænseværdien
-- Invitér underentreprenører og leverandører med rollebaseret adgang
-- Ét-klik eksport af myndighedsklar BR18-rapport
+**A4/A5-beregning (inkluderet).** Vi beregner transport og byggeprocessen som en del af LCA'en. Mangler der faktiske data i den tidlige fase, dokumenterer vi forudsætningerne. Vi opdaterer den endelige rapport, når vi har de projektspecifikke oplysninger:
+- A4: Transportafstande og transportmidler for materialer
+- A5: Materialespild, energi og brændstof på byggepladsen
+- Vi dokumenterer de foreløbige forudsætninger
+- Vi opdaterer den endelige rapport med faktiske projektdata
 
 ### Sådan foregår det, seks trin fra projektstart til myndighedsklar dokumentation
 
 1. **Send dit projekt.** Tegninger, mængder og projektinfo, vi klarer resten.
 2. **Modtag tilbud.** Vi vurderer omfanget og sender et klart tilbud.
 3. **Tidlig beregning.** LCA-beregning med hotspot-analyse og materialeoptimering.
-4. **Opsætning af A45.** A45-platformen sættes op til dokumentation af A4- og A5-moduler.
+4. **Beregning af A4+A5.** Vi beregner transport og byggeproces og noterer de data, der skal indsamles til den endelige rapport.
 5. **Opdatering til as-built.** Beregningen opdateres med faktiske mængder fra det færdige byggeri.
 6. **Myndighedsklar rapport.** Opdateret dokumentation klar til kommunen.
 
@@ -55,7 +55,7 @@ Inkluderet i prisen:
 - Materialeforslag ved overskridelse af grænseværdi
 - Opdatering ved færdigmelding med faktiske mængder
 - Myndighedsklar rapport klar til kommunen
-- Adgang til A45-platformen til A4/A5-dokumentation
+- Beregning og dokumentation af A4/A5
 
 Send os dine tegninger, så giver vi en pris.
 
@@ -68,13 +68,13 @@ En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkn
 Alle nye opvarmede byggerier skal have en LCA-beregning uanset størrelse. For uopvarmede bygninger gælder kravet ved arealer over 50 m², og for tilbygninger over 250 m². Kravet følger af BR18 og skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse.
 
 **Hvad koster en LCA-beregning?**
-Vores priser starter fra 4.000 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.
+Vores priser starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.
 
 **Hvor lang tid tager en LCA-beregning?**
 En typisk LCA-beregning tager 1-2 uger fra vi modtager det nødvendige projektmateriale. Ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi anbefaler at involvere os så tidligt som muligt, så materialevalgene kan bygge på LCA-resultaterne.
 
 **Hvad er A4- og A5-faserne i LCA?**
-A4 dækker transport af materialer til byggepladsen, og A5 dækker spild og affald under selve opførelsen. Disse faser kræver data fra leverandører og underentreprenører. Vores A45-platform gør det nemt at indsamle og dokumentere disse data automatisk.
+A4 dækker transport af materialer til byggepladsen, og A5 dækker spild, affald og energiforbrug under opførelsen. Vi beregner begge som en del af LCA-opgaven. Når faktiske projektdata ikke findes tidligt, dokumenterer vi forudsætningerne og opdaterer den endelige rapport med de oplysninger, der foreligger.
 
 **Hvad er grænseværdien for CO₂ i BR18?**
 Fra 1. juli 2025 gælder differentierede grænseværdier afhængigt af bygningstype: sommerhuse under 150 m² skal holde 4,0 kg CO₂e/m²/år, enfamiliehuse og rækkehuse 6,7, etageboliger og kontor 7,5, og øvrigt nybyggeri 8,0. Derudover er der en separat grænse for byggeprocessen (A4+A5) på 1,5 kg CO₂e/m²/år for alle typer.
@@ -101,7 +101,7 @@ Bag Din LCA Hjælper står Valdemar Løvschal Wernblad, specialiseret i LCA-bere
 
 Vi tror på, at LCA-beregning ikke behøver at være kompliceret. Derfor håndterer vi hele processen, fra gennemgang af tegninger og tidlig beregning til myndighedsklar rapport. Vores mål er at gøre det nemt, gennemsigtigt og pålideligt, uanset om det drejer sig om bolig, erhverv eller industri.
 
-Bag Din LCA Hjælper står også A45 (a45lca.dk), en platform til dokumentation af A4 og A5 faser i byggeriet. Alle vores kunder får automatisk adgang til A45, fordi vi mener det hører med i en komplet LCA-løsning.
+Vi beregner også transport og byggeproces (A4+A5) som en del af opgaven. I den tidlige beregning dokumenterer vi eventuelle standardforudsætninger. Inden den endelige rapport opdaterer vi med de faktiske oplysninger, der er tilgængelige fra projektet.
 
 ---
 
@@ -129,7 +129,7 @@ En LCA-beregning (livscyklusvurdering) opgør et byggeris CO₂-udledning over e
 Fra 1. juli 2025 gælder nye differentierede grænseværdier: sommerhuse <150 m² = 4,0 kg CO₂e/m²/år, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0. Derudover en separat A4+A5-grænse på 1,5. Stramning fra tidligere ensartet grænse på 12,0. Artiklen gennemgår ændringerne og konsekvenserne for hvert bygningstype.
 
 ### A4 og A5: Dokumentation af byggeprocessens CO₂
-A4 dækker transport af materialer til byggepladsen, A5 dækker spild og affald under opførelsen. Fra juli 2025 er der en separat grænse på 1,5 kg CO₂e/m²/år. Data indsamles fra leverandører og entreprenører. A45-platformen (a45lca.dk) automatiserer indsamling via AI-baseret faktura-parsing, realtids-dashboard, rollebaseret adgang og ét-klik eksport.
+A4 dækker transport af materialer til byggepladsen, og A5 dækker spild, affald og energiforbrug under opførelsen. Fra juli 2025 er der en separat grænse på 1,5 kg CO₂e/m²/år. Tidligt i projektet bruger vi de oplysninger, der findes, og dokumenterede standardforudsætninger for resten. Før den endelige rapport opdaterer vi med de projektdata, vi har fået fra kunden og entreprenøren.
 
 ### LCA-beregning for sommerhuse: udfordringer og løsninger
 Sommerhuse under 150 m² har den strengeste grænseværdi: 4,0 kg CO₂e/m²/år. Udfordringer: betonfundamenter, tunge ydervægge, tagkonstruktioner. Løsninger: lette trækonstruktioner, skruefundamenter, mineraluld/træfiberisolering, lokale materialer. Typisk CO₂-fordeling: fundament 25-35%, ydervægge 20-30%, tag 15-25%.
@@ -138,7 +138,7 @@ Sommerhuse under 150 m² har den strengeste grænseværdi: 4,0 kg CO₂e/m²/år
 Referencetabel med alle BR18-grænseværdier fra juli 2025: sommerhuse <150 m² = 4,0, enfamiliehuse/rækkehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0, A4+A5 samlet = 1,5 kg CO₂e/m²/år. Hovedgrænsen dækker modulerne A1-A3, B4, B6, C3-C4. Historisk sammenligning (2023-2025: 12,0 kun for bygninger over 1.000 m², under 1.000 m² kun dokumentationskrav, før 2023: ingen krav). Typiske hotspots og optimeringsmuligheder.
 
 ### Hvad koster en LCA-beregning? Priser i 2026 og hvad der påvirker dem
-Vejledende priser ekskl. moms for en komplet beregning: sommerhus 4.700-6.300 kr, enfamiliehus 5.000-7.000 kr, lager/hal 5.500-9.500 kr, kontor/etage 8.000-12.500 kr, store eller komplekse projekter individuelt tilbud. Prisen afhænger af projektets omfang og kompleksitet (antal konstruktionstyper og grænseværdikrav), ikke af arealet alene. To niveauer: LCA Komplet (vi trækker mængderne ud af tegninger/Revit) og LCA Direkte (kunden leverer struktureret mængdeudtræk, ca. 1.000 kr billigere). Inkluderet: hotspot-analyse, materialeoptimering, A4/A5 via A45-platformen, opdatering ved færdigmelding og myndighedsklar rapport.
+Vejledende priser ekskl. moms for en komplet beregning: sommerhus 4.700-6.300 kr, enfamiliehus 5.000-7.000 kr, lager/hal 5.500-9.500 kr, kontor/etage 8.000-12.500 kr, store eller komplekse projekter individuelt tilbud. Prisen afhænger af projektets omfang og kompleksitet (antal konstruktionstyper og grænseværdikrav), ikke af arealet alene. To niveauer: LCA Komplet (vi trækker mængderne ud af tegninger/Revit) og LCA Direkte (kunden leverer struktureret mængdeudtræk, ca. 1.000 kr billigere). Inkluderet: hotspot-analyse, materialeoptimering, A4/A5-beregning, opdatering ved færdigmelding og myndighedsklar rapport.
 
 ### Hvornår er en LCA-beregning lovpligtig? Bygningstyper og arealgrænser
 Lovpligtig for stort set alt nybyggeri samt uopvarmede bygninger over 50 m². Tilbygninger til erhverv og etageboliger er omfattet uanset størrelse; tilbygninger til enfamiliehuse, rækkehuse og sommerhuse kun fra 250 m² opvarmet etageareal. Der er ingen 1.000 m²-grænse længere (afskaffet 1. juli 2025). Vigtig skelnen: §297 er beregningspligten, §298 er grænseværdien. Samfundskritiske bygninger (industriproduktion, energi-/vand-/affaldsforsyning, hospitaler, fængsler, forsvarets operative bygninger) skal beregne, men er undtaget grænseværdien. Helt undtaget: uopvarmet under 50 m², boligtilbygninger under 250 m², transportable og midlertidige konstruktioner samt renoveringer. Mangler beregningen, kan kommunen nægte ibrugtagningstilladelse.
@@ -204,7 +204,7 @@ Bygningstype: Lagerhal og kontor (erhverv). To separate bygninger. Bygning 1 (la
 ## Sammenligninger (dinlcahjælper.dk/sammenligninger)
 
 ### Din LCA Hjælper vs. LCAbyg
-LCAbyg er det officielle, gratis bygnings-LCA-værktøj fra BUILD ved Aalborg Universitet og dækker BR18-beregningen, men de nye A4/A5-krav fra juli 2025 kræver supplerende dataark ved siden af programmet. Læringskurven er reel: 20-40 timer før første pålidelige beregning. Din LCA Hjælper bruger selv LCAbyg, men håndterer hele processen for dig fra 4.000 kr inkl. A45-platformen til A4/A5. LCAbyg passer til tegnestuer med 4+ LCA-projekter om året og en intern LCA-ansvarlig. Din LCA Hjælper passer til tegnestuer med 1-3 projekter om året, hvor LCA ligger uden for kerneforretningen, eller hvor deadline kommer for tæt på til oplæring. Sammenligningen dækker pris, tid, læringskurve, hotspot-analyse, EPD-håndtering, A4/A5-dokumentation og opdatering ved færdigmelding. URL: dinlcahjælper.dk/sammenligninger/din-lca-hjaelper-vs-lcabyg
+LCAbyg er det officielle, gratis bygnings-LCA-værktøj fra BUILD ved Aalborg Universitet og dækker BR18-beregningen, men de nye A4/A5-krav fra juli 2025 kræver supplerende dataark ved siden af programmet. Læringskurven er reel: 20-40 timer før første pålidelige beregning. Din LCA Hjælper bruger selv LCAbyg, men håndterer hele processen for dig fra 4.000 kr, inkl. A4/A5-beregning og dokumentation. LCAbyg passer til tegnestuer med 4+ LCA-projekter om året og en intern LCA-ansvarlig. Din LCA Hjælper passer til tegnestuer med 1-3 projekter om året, hvor LCA ligger uden for kerneforretningen, eller hvor deadline kommer for tæt på til oplæring. Sammenligningen dækker pris, tid, læringskurve, hotspot-analyse, EPD-håndtering, A4/A5-dokumentation og opdatering ved færdigmelding. URL: dinlcahjælper.dk/sammenligninger/din-lca-hjaelper-vs-lcabyg
 
 ---
 
@@ -216,4 +216,4 @@ LCAbyg er det officielle, gratis bygnings-LCA-værktøj fra BUILD ved Aalborg Un
 - **Telefon:** +45 29 89 99 99
 - **Email:** valdemar.wernblad@dinlcahjælper.dk
 - **Serviceområde:** Hele Danmark
-- **Relateret platform:** A45 (a45lca.dk), A4/A5-dokumentation for byggeri
+- **A4/A5:** Beregning og dokumentation af transport og byggeproces er en del af LCA-opgaven

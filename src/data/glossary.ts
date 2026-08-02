@@ -358,7 +358,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "A4-dokumentation kræver oplysninger om transportafstande og transportform fra leverandører. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation) og hvordan A45-platformen gør dataindsamlingen enklere.",
+        text: "A4-dokumentation kræver oplysninger om transportafstande og transportform. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de projektdata, der foreligger. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation).",
       },
     ],
     faqs: [
@@ -410,7 +410,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "A5 kræver data fra underentreprenører om brændstofforbrug, el-forbrug og affaldsmængder. A45-platformen gør det nemt at indsamle disse data automatisk. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation).",
+        text: "A5 kræver oplysninger om brændstof, elforbrug og affaldsmængder fra byggepladsen. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de faktiske projektdata, der foreligger. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation).",
       },
     ],
     faqs: [

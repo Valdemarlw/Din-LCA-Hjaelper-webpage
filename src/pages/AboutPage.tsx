@@ -51,18 +51,10 @@ export function AboutPage() {
             </p>
 
             <p>
-              Bag Din LCA Hjælper står også{" "}
-              <a
-                href="https://a45lca.dk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary-hover underline underline-offset-2"
-              >
-                A45
-              </a>{" "}
-             , en platform til dokumentation af A4 og A5 faser i byggeriet. Alle
-              vores kunder får automatisk adgang til A45, fordi vi mener det hører
-              med i en komplet LCA-løsning.
+              Vi beregner også transport og byggeproces (A4+A5) som en del af
+              opgaven. I den tidlige beregning dokumenterer vi eventuelle
+              standardforudsætninger. Inden den endelige rapport opdaterer vi med
+              de faktiske oplysninger, der er tilgængelige fra projektet.
             </p>
           </motion.div>
 

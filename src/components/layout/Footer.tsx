@@ -64,12 +64,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-10 pt-6 border-t border-border flex items-center">
           <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} Din LCA Hjælper. Alle rettigheder forbeholdes.
-          </p>
-          <p className="text-xs text-muted">
-            Powered by <a href="https://a45lca.dk" target="_blank" rel="noopener noreferrer" className="text-a45-green hover:underline font-medium">A45</a>
           </p>
         </div>
       </div>

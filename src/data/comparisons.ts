@@ -50,7 +50,7 @@ export const comparisons: Comparison[] = [
           [
             "Pris",
             "0 kr (programmet er gratis). Dine egne timer er den reelle omkostning.",
-            "Fra 4.000 kr inkl. [A45-platformen](https://a45lca.dk) til [A4](/ordbog/modul-a4)/[A5](/ordbog/modul-a5)-dokumentation.",
+            "Fra 4.000 kr. Beregning og dokumentation af [A4](/ordbog/modul-a4)/[A5](/ordbog/modul-a5) er inkluderet.",
           ],
           [
             "Tid for arkitekten",
@@ -80,7 +80,7 @@ export const comparisons: Comparison[] = [
           [
             "A4/A5-dokumentation",
             "Skal etableres separat. Indsamling af leverandør- og entreprenørdata er ofte den største flaskehals.",
-            "A45-platformen er inkluderet og automatiserer dataindsamlingen.",
+            "Vi beregner A4/A5, dokumenterer forudsætningerne og opdaterer med faktiske projektdata før den endelige rapport.",
           ],
           [
             "Opdatering ved færdigmelding",
@@ -135,7 +135,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "paragraph",
-        text: "Vi er udelukkende specialiseret i LCA for byggeri. Det giver lavere overhead end de store rådgivende ingeniørfirmaer og en proces, der er strømlinet til præcis denne opgave. Hver beregning indeholder hotspot-analyse, materialeforslag baseret på produktspecifikke EPD'er, A4/A5-dokumentation via A45-platformen og opdatering ved færdigmelding. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv), eller læs vores referenceprojekter, fx [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor produktspecifikke EPD'er trak resultatet ned med 40%.",
+        text: "Vi er udelukkende specialiseret i LCA for byggeri. Det giver lavere overhead end de store rådgivende ingeniørfirmaer og en fast proces til præcis denne opgave. Hver beregning indeholder hotspot-analyse, materialeforslag baseret på produktspecifikke EPD'er, A4/A5-beregning og opdatering ved færdigmelding. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv), eller læs vores referenceprojekter, fx [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor produktspecifikke EPD'er trak resultatet ned med 40%.",
       },
       {
         type: "heading2",
@@ -160,7 +160,7 @@ export const comparisons: Comparison[] = [
       {
         question: "Hvad koster det vs. min egen tid?",
         answer:
-          "Vores priser starter fra 4.000 kr for et standard enfamiliehus inkl. A45-platformen. Hvis din egen timepris er 800 kr, og en LCA-beregning tager dig 15-25 timer, koster din egen tid 12.000-20.000 kr, uden at tælle læringskurven for de første projekter med. Regn på det for dit eget projekt: hvor mange timer bruger du, og hvad er dine timer værd i et debiterbart projekt?",
+          "Vores priser starter fra 4.000 kr for et standard enfamiliehus, inkl. A4/A5-beregning og dokumentation. Hvis din egen timepris er 800 kr, og en LCA-beregning tager dig 15-25 timer, koster din egen tid 12.000-20.000 kr, uden at tælle læringskurven for de første projekter med. Regn på det for dit eget projekt: hvor mange timer bruger du, og hvad er dine timer værd i et debiterbart projekt?",
       },
       {
         question: "Hvad hvis jeg kun har ét enkelt projekt om året?",

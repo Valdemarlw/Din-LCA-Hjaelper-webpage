@@ -92,7 +92,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad koster en LCA-beregning?",
         answer:
-          "Vores priser starter fra 4.000 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
+          "Vores priser starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
       },
       {
         question: "Hvad påvirker prisen på en LCA-beregning?",
@@ -107,7 +107,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad er inkluderet i jeres LCA-beregning?",
         answer:
-          "En LCA-beregning hos os inkluderer: tidlig screening med hotspot-analyse, materialeoptimering med konkrete besparelsesforslag, A4/A5-dokumentation via A45-platformen, opdatering ved færdigmelding med as-built data, og myndighedsklar rapport til kommunen.",
+          "En LCA-beregning hos os inkluderer tidlig screening med hotspot-analyse, materialeoptimering med konkrete besparelsesforslag, A4/A5-beregning, opdatering ved færdigmelding og en myndighedsklar rapport til kommunen.",
       },
     ],
   },
@@ -186,12 +186,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvordan dokumenterer man A4/A5-data?",
         answer:
-          "A4/A5-data kræver information fra leverandører og underentreprenører om transportafstande, brændstofforbrug på byggepladsen og materialespild. Vores A45-platform gør det nemt at indsamle disse data automatisk ved at sende forespørgsler direkte til de relevante parter og samle dokumentationen ét sted.",
+          "A4/A5-data omfatter blandt andet transportafstande, transportmidler, brændstofforbrug på byggepladsen og materialespild. Vi dokumenterer de oplysninger og forudsætninger, der indgår i den tidlige beregning, og opdaterer med faktiske projektdata før den endelige rapport.",
       },
       {
-        question: "Hvad er A45-platformen?",
+        question: "Hvordan håndterer I A4/A5 i et projekt?",
         answer:
-          "A45-platformen er vores digitale værktøj til indsamling og dokumentation af A4- og A5-data. Platformen sender automatiserede forespørgsler til leverandører og underentreprenører og samler transportdata, brændstofforbrug og spilddata ét sted. Adgang til A45 er inkluderet i alle vores LCA-beregninger.",
+          "Vi beregner A4 og A5 som en del af LCA-opgaven. Hvis de faktiske data ikke findes i den tidlige fase, bruger vi dokumenterede standardforudsætninger og beskriver, hvilke oplysninger der mangler. Før den endelige rapport opdaterer vi med de projektdata, vi har fået fra kunden og entreprenøren.",
       },
     ],
   },
@@ -243,12 +243,12 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad skal jeg kigge efter i en LCA-rådgiver?",
         answer:
-          "Kig efter erfaring med din bygningstype, inkludering af hotspot-analyse og materialeoptimering, samt om de tilbyder opdatering ved færdigmelding. Det er også vigtigt at rådgiveren kan dokumentere A4- og A5-faserne, da disse ofte overses men er lovpligtige. Hos Din LCA Hjælper er alt dette inkluderet, sammen med adgang til A45-platformen.",
+          "Kig efter erfaring med din bygningstype, hotspot-analyse, materialeoptimering og opdatering ved færdigmelding. Rådgiveren skal også kunne dokumentere A4 og A5. Hos Din LCA Hjælper er hele forløbet inkluderet.",
       },
       {
         question: "Hvad adskiller Din LCA Hjælper fra andre rådgivere?",
         answer:
-          "Vi er specialiseret udelukkende i LCA for byggeri, ikke energiberegning, DGNB eller andre ydelser. Det giver fokuseret ekspertise og konkurrencedygtige priser fra 4.000 kr. Alle beregninger inkluderer hotspot-analyse, materialeoptimering, A4/A5-dokumentation via A45-platformen og opdatering ved færdigmelding.",
+          "Vi er specialiseret udelukkende i LCA for byggeri, ikke energiberegning, DGNB eller andre ydelser. Det giver en fast proces og priser fra 4.000 kr. Alle beregninger inkluderer hotspot-analyse, materialeoptimering, A4/A5-beregning og opdatering ved færdigmelding.",
       },
     ],
   },

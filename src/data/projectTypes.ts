@@ -5,7 +5,7 @@ export type ProjectType = {
   title: string;
   description: string;
   grensevaerdi: string;
-  a45Grense: string;
+  a4a5Grense: string;
   content: BlogSection[];
   faqs: FAQ[];
 };
@@ -18,7 +18,7 @@ export const projectTypes: ProjectType[] = [
     description:
       "Komplet LCA-beregning for enfamiliehuse, rækkehuse og stuehuse efter BR18. Grænseværdi 6,7 kg CO₂e/m²/år. Priser fra 4.000 kr.",
     grensevaerdi: "6,7",
-    a45Grense: "1,5",
+    a4a5Grense: "1,5",
     content: [
       {
         type: "paragraph",
@@ -75,7 +75,7 @@ export const projectTypes: ProjectType[] = [
           "Send tegninger og konstruktionsbeskrivelser til os",
           "Vi giver fast tilbud inden 24 timer",
           "Tidlig LCA-beregning med [hotspot-analyse](/blog/hvad-er-lca-beregning) og materialeforslag",
-          "A45-platformen sættes op til [A4/A5-dokumentation](/blog/a4-a5-dokumentation)",
+          "Vi beregner [A4/A5](/blog/a4-a5-dokumentation) og beskriver de data, der mangler til den endelige rapport",
           "Beregningen opdateres med faktiske mængder ved færdigmelding",
           "Myndighedsklar rapport klar til kommunen",
         ],
@@ -89,7 +89,7 @@ export const projectTypes: ProjectType[] = [
       {
         question: "Hvad koster en LCA-beregning for et enfamiliehus?",
         answer:
-          "Prisen starter fra 4.000 kr inkl. adgang til A45-platformen. Den endelige pris afhænger af projektets størrelse og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Den endelige pris afhænger af projektets størrelse og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden 24 timer.",
       },
       {
         question: "Kan mit enfamiliehus i tegl overholde grænseværdien?",
@@ -112,7 +112,7 @@ export const projectTypes: ProjectType[] = [
     description:
       "LCA-beregning for sommerhuse, campinghytter og ferieboliger. Grænseværdi 4,0 (under 150 m²) eller 6,7 (over 150 m²). Priser fra 4.000 kr.",
     grensevaerdi: "4,0 / 6,7",
-    a45Grense: "1,5",
+    a4a5Grense: "1,5",
     content: [
       {
         type: "paragraph",
@@ -180,7 +180,7 @@ export const projectTypes: ProjectType[] = [
           "Send tegninger og konstruktionsbeskrivelser til os",
           "Vi giver fast tilbud inden 24 timer",
           "Tidlig LCA-beregning med [hotspot-analyse](/blog/hvad-er-lca-beregning) og materialeforslag",
-          "A45-platformen sættes op til [A4/A5-dokumentation](/blog/a4-a5-dokumentation)",
+          "Vi beregner [A4/A5](/blog/a4-a5-dokumentation) og beskriver de data, der mangler til den endelige rapport",
           "Beregningen opdateres med faktiske mængder ved færdigmelding",
           "Myndighedsklar rapport klar til kommunen",
         ],
@@ -227,7 +227,7 @@ export const projectTypes: ProjectType[] = [
       {
         question: "Hvad koster en LCA-beregning for et sommerhus?",
         answer:
-          "Prisen starter fra 4.000 kr inkl. A45-adgang. Den endelige pris afhænger af projektets kompleksitet. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Den endelige pris afhænger af projektets kompleksitet. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
       },
     ],
   },
@@ -239,7 +239,7 @@ export const projectTypes: ProjectType[] = [
     description:
       "LCA-beregning for kontorbygninger, handel, lager og erhvervsbyggeri. Grænseværdi 7,5 kg CO₂e/m²/år. Priser fra 4.000 kr.",
     grensevaerdi: "7,5",
-    a45Grense: "1,5",
+    a4a5Grense: "1,5",
     content: [
       {
         type: "paragraph",
@@ -300,7 +300,7 @@ export const projectTypes: ProjectType[] = [
           "Send tegninger og konstruktionsbeskrivelser",
           "Vi giver fast tilbud inden 24 timer",
           "Tidlig LCA-beregning med [hotspot-analyse](/blog/hvad-er-lca-beregning)",
-          "A45-platformen sættes op til [A4/A5-dokumentation](/blog/a4-a5-dokumentation)",
+          "Vi beregner [A4/A5](/blog/a4-a5-dokumentation) og beskriver de data, der mangler til den endelige rapport",
           "Beregningen opdateres med faktiske mængder ved færdigmelding",
           "Myndighedsklar rapport klar til kommunen",
         ],
@@ -314,7 +314,7 @@ export const projectTypes: ProjectType[] = [
       {
         question: "Hvad koster en LCA-beregning for erhvervsbyggeri?",
         answer:
-          "Prisen starter fra 4.000 kr inkl. A45-adgang. Erhvervsprojekter er typisk mere komplekse end boliger, og prisen afhænger af areal, antal konstruktionstyper og kompleksitet. Send tegninger for et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Erhvervsprojekter er typisk mere komplekse end boliger, og prisen afhænger af areal, antal konstruktionstyper og kompleksitet. Send tegninger for et fast tilbud inden 24 timer.",
       },
       {
         question: "Gælder kravet også for uopvarmede haller og lagre?",

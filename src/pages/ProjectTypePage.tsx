@@ -111,7 +111,7 @@ export function ProjectTypePage() {
                 Grænseværdi: {pt.grensevaerdi} kg CO₂e/m²/år
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-bg-alt px-3 py-1 text-sm font-medium text-muted">
-                A4+A5: {pt.a45Grense}
+                A4+A5: {pt.a4a5Grense}
               </span>
             </motion.div>
           </div>
@@ -180,7 +180,7 @@ export function ProjectTypePage() {
             <div className="mt-16 rounded-2xl bg-primary-light p-8 md:p-10 text-center">
               <h2 className="text-2xl font-semibold text-navy">Klar til at komme i gang?</h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. Priser fra 4.000 kr inkl. A45-adgang.
+                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. Priser fra 4.000 kr. A4/A5 er inkluderet.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

@@ -128,7 +128,6 @@ export const referenceProjects: ReferenceProject[] = [
           "Generiske værdier er konservative. Tabel 7-værdierne har sikkerhedsmarginer indlagt. Produktspecifikke EPD'er afspejler virkeligheden og kan sænke resultatet markant.",
           "Hotspot-analysen er afgørende. Ved at fokusere indsatsen på de 3 største bidragsydere (tag, terrændæk, fundament) fik vi størst effekt med mindst mulig ændring.",
           "Sommerhuse kræver tidlig LCA. Med en grænse på 4,0 er der ikke meget plads til fejl. Jo tidligere beregningen laves, jo flere muligheder er der for at justere.",
-          "A4/A5-dokumentation hører med. Projektet brugte [A45-platformen](https://a45lca.dk) til at indsamle transportdata og spilddata løbende under byggeriet, så den separate A4+A5-grænse på 1,5 også blev overholdt.",
         ],
       },
     ],
@@ -136,7 +135,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         question: "Hvad kostede LCA-optimeringen for dette sommerhus?",
         answer:
-          "Prisen for LCA-beregning starter fra 4.000 kr inkl. adgang til A45-platformen. Optimeringen med produktspecifikke EPD'er er en del af vores standardydelse, vi finder altid de bedste dokumenterede værdier for dine materialer.",
+          "Prisen for LCA-beregning starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Optimering med produktspecifikke EPD'er er en del af vores standardydelse.",
       },
       {
         question: "Kan alle sommerhuse optimeres så meget?",
@@ -244,7 +243,6 @@ export const referenceProjects: ReferenceProject[] = [
           "Simple bygninger er ikke altid simple LCA-sager. En kold lagerhal uden isolering lyder ukompliceret, men stål og beton dominerer CO₂-regnskabet og kan presse resultatet tættere på grænsen, end du forventer.",
           "Tidlig LCA afslører, hvor valget af leverandør tæller. Når stålet alene står for 30% af aftrykket, kan forskellen mellem to stålleverandørers EPD'er flytte resultatet markant.",
           "Hotspot-analysen er en handlingsplan. Bygherren ved nu præcis, hvilke materialer der kræver opmærksomhed, og hvilke der er ubetydelige for det samlede resultat.",
-          "[A45-platformen](https://a45lca.dk) blev sat op til A4/A5-dokumentation, så bygherren kunne indsamle transportdata fra leverandørerne, efterhånden som materialerne blev leveret.",
         ],
       },
     ],
@@ -257,7 +255,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         question: "Hvad koster en LCA-beregning for en lagerhal?",
         answer:
-          "Prisen starter fra 4.000 kr inkl. A45-adgang. Industri- og erhvervsprojekter er typisk lidt mere komplekse end boliger. Send tegninger for et fast tilbud inden 24 timer.",
+          "Prisen starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Industri- og erhvervsprojekter er typisk lidt mere komplekse end boliger. Send tegninger for et fast tilbud inden 24 timer.",
       },
     ],
   },
@@ -354,7 +352,6 @@ export const referenceProjects: ReferenceProject[] = [
           "Sandwich-paneler: Entreprenøren brugte Balex sandwich-paneler med mineraluldskerne. Vi indhentede producentens EPD, som dokumenterede lavere klimaaftryk end den generiske Tabel 7-værdi for tilsvarende paneler.",
           "Beton og fundamenter: Produktspecifikke EPD'er fra betonleverandøren erstattede de generiske værdier. For fundamenter og terrændæk, som tilsammen udgjorde 43% af aftrykket, var dette den vigtigste enkeltstående indsats.",
           "Systematisk EPD-indsamling: Fordi byggeriet kørte parallelt, koordinerede vi løbende med entreprenøren for at indhente EPD'er, efterhånden som leverandørerne blev valgt. Det krævede tæt kommunikation og hurtig opfølgning.",
-          "A4/A5 via A45: [A45-platformen](https://a45lca.dk) var afgørende for at holde styr på transportdata og spilddata fra to samtidige byggepladser. Entreprenøren og leverandørerne uploadede følgesedler direkte i platformen, så dokumentationen fulgte med i realtid.",
         ],
       },
       {
