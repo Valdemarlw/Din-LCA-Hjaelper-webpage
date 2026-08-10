@@ -12,7 +12,7 @@ export function ProjectTypesPage() {
         <title>LCA-beregning efter bygningstype | Din LCA Hjælper</title>
         <meta
           name="description"
-          content="LCA-beregning for alle bygningstyper: enfamiliehuse, sommerhuse, erhverv og mere. Se grænseværdier og få tilbud. Fra 4.000 kr."
+          content="LCA-beregning for enfamiliehuse, sommerhuse, rækkehuse og erhverv. Se grænseværdier og få et fast tilbud. Enfamiliehuse typisk 5.000-7.000 kr. ekskl. moms."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/lca-beregning" />
         <meta property="og:title" content="LCA-beregning efter bygningstype | Din LCA Hjælper" />

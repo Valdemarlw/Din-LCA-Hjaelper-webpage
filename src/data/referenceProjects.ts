@@ -135,7 +135,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         question: "Hvad kostede LCA-optimeringen for dette sommerhus?",
         answer:
-          "Prisen for LCA-beregning starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Optimering med produktspecifikke EPD'er er en del af vores standardydelse.",
+          "En komplet beregning for et typisk enfamiliehus eller sommerhus koster 5.000-7.000 kr ekskl. moms. A4/A5-beregning og dokumentation er inkluderet. Optimering med produktspecifikke EPD'er er en del af vores standardydelse.",
       },
       {
         question: "Kan alle sommerhuse optimeres så meget?",
@@ -255,7 +255,7 @@ export const referenceProjects: ReferenceProject[] = [
       {
         question: "Hvad koster en LCA-beregning for en lagerhal?",
         answer:
-          "Prisen starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Industri- og erhvervsprojekter er typisk lidt mere komplekse end boliger. Send tegninger for et fast tilbud inden 24 timer.",
+          "A4/A5-beregning og dokumentation er inkluderet. Industri- og erhvervsprojekter prissættes efter omfang og kompleksitet. Send tegninger for et fast tilbud inden 24 timer.",
       },
     ],
   },

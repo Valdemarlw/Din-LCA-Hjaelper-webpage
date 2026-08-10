@@ -44,4 +44,9 @@ describe("beregnPris", () => {
     // Ternedalen 94 m² sommerhus -> 5.400
     expect(beregnPris("sommerhus", 94)).toMatchObject({ komplet: 5400 });
   });
+
+  it("rækkehus prissættes altid manuelt", () => {
+    expect(beregnPris("raekkehus", 100)).toEqual({ type: "individuelt" });
+    expect(beregnPris("raekkehus", 500)).toEqual({ type: "individuelt" });
+  });
 });

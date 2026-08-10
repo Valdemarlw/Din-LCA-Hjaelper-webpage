@@ -2,13 +2,14 @@
  * DLH pris-lommeregner — ren logik (ingen UI, ingen backend).
  *
  * Kanonisk kilde: vault .claude/skills/dlh-tilbud/references/pris-formel.md
- * (knæk-model besluttet 2026-06-21, PROVISORISK indtil fresh-eyes 29/6).
+ * (knæk-model besluttet 2026-06-21, ratificeret og udvidet 2026-08-10).
  *
  * Alle beløb er EKSKL. moms. Konstanterne er samlet ét sted, så de kan
  * re-tunes uden at røre UI eller beslutningslogik.
  */
 
-export type PrisType = "enfamiliehus" | "sommerhus" | "lager" | "kontor";
+export type PrisType = "enfamiliehus" | "sommerhus" | "raekkehus" | "lager" | "kontor";
+type FormelPrisType = Exclude<PrisType, "raekkehus">;
 export type Serviceniveau = "komplet" | "direkte";
 
 export interface PrisKonstant {
@@ -25,7 +26,7 @@ export interface PrisKonstant {
 }
 
 /** Konstanter pr. pris-type. Eneste sted tallene defineres. */
-export const PRIS_KONSTANTER: Record<PrisType, PrisKonstant> = {
+export const PRIS_KONSTANTER: Record<FormelPrisType, PrisKonstant> = {
   enfamiliehus: { grundpris: 3500, sats1: 20, knaek: 100, sats2: 8, loft: 8000 },
   sommerhus: { grundpris: 3500, sats1: 20, knaek: 100, sats2: 8, loft: 8000 },
   lager: { grundpris: 4000, sats1: 18, knaek: 150, sats2: 8, loft: 12500 },
@@ -52,6 +53,10 @@ function rundTil100(n: number): number {
  * Komplet-prisen overstiger typens loft (store jobs scopes manuelt).
  */
 export function beregnPris(prisType: PrisType, m2: number): PrisResultat {
+  // Rækkehuse og andre multi-unit-projekter scopes altid manuelt. M² alene
+  // fanger ikke antal boliger, variationer eller dokumentationsomfang.
+  if (prisType === "raekkehus") return { type: "individuelt" };
+
   const k = PRIS_KONSTANTER[prisType];
   const raw =
     k.grundpris +

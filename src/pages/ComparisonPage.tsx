@@ -229,7 +229,7 @@ export function ComparisonPage() {
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
                 Send tegninger og konstruktionsbeskrivelser, så får du et fast
-                tilbud inden 24 timer. Priser fra 4.000 kr.
+                tilbud inden 24 timer. Et typisk enfamiliehus koster 5.000-7.000 kr ekskl. moms.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

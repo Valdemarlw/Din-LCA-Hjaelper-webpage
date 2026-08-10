@@ -50,7 +50,7 @@ export const comparisons: Comparison[] = [
           [
             "Pris",
             "0 kr (programmet er gratis). Dine egne timer er den reelle omkostning.",
-            "Fra 4.000 kr. Beregning og dokumentation af [A4](/ordbog/modul-a4)/[A5](/ordbog/modul-a5) er inkluderet.",
+            "Enfamiliehuse og sommerhuse koster typisk 5.000-7.000 kr. ekskl. moms. [A4](/ordbog/modul-a4)/[A5](/ordbog/modul-a5) er inkluderet.",
           ],
           [
             "Tid for arkitekten",
@@ -160,7 +160,7 @@ export const comparisons: Comparison[] = [
       {
         question: "Hvad koster det vs. min egen tid?",
         answer:
-          "Vores priser starter fra 4.000 kr for et standard enfamiliehus, inkl. A4/A5-beregning og dokumentation. Hvis din egen timepris er 800 kr, og en LCA-beregning tager dig 15-25 timer, koster din egen tid 12.000-20.000 kr, uden at tælle læringskurven for de første projekter med. Regn på det for dit eget projekt: hvor mange timer bruger du, og hvad er dine timer værd i et debiterbart projekt?",
+          "En komplet beregning for et typisk enfamiliehus koster 5.000-7.000 kr ekskl. moms, inklusive A4/A5-beregning og dokumentation. Hvis din egen timepris er 800 kr, og en LCA-beregning tager dig 15-25 timer, koster din egen tid 12.000-20.000 kr, uden at tælle læringskurven for de første projekter med. Regn på det for dit eget projekt: hvor mange timer bruger du, og hvad er dine timer værd i et debiterbart projekt?",
       },
       {
         question: "Hvad hvis jeg kun har ét enkelt projekt om året?",

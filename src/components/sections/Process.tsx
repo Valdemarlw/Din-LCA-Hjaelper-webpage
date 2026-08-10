@@ -35,14 +35,14 @@ const steps = [
     number: "04",
     title: "Beregning af A4+A5",
     description:
-      "Vi beregner transport og byggeproces og noterer de data, der skal indsamles til den endelige rapport.",
+      "Vi beregner A4 og A5 med dokumenterede generiske forudsætninger og gør det klart, hvilke byggepladsdata der skal registreres.",
   },
   {
     icon: RefreshCw,
     number: "05",
     title: "Opdatering til as-built",
     description:
-      "Beregningen opdateres med faktiske mængder fra det færdige byggeri.",
+      "Efter byggeriet opdaterer vi med endelige mængder og registreret el-, varme-, gas- og brændstofforbrug fra byggepladsen.",
   },
   {
     icon: FileOutput,

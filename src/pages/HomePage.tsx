@@ -14,11 +14,11 @@ export function HomePage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>LCA-beregning fra 4.000 kr | Din LCA Hjælper</title>
-        <meta name="description" content="Professionel LCA-beregning til byggeri fra 4.000 kr. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport efter BR18, inkl. A4+A5." />
+        <title>LCA-beregning til BR18 | Typisk 5.000-7.000 kr</title>
+        <meta name="description" content="Komplet LCA-beregning til enfamiliehuse koster typisk 5.000-7.000 kr ekskl. moms. Vi håndterer hele forløbet efter BR18, inklusive A4+A5." />
         <link rel="canonical" href="https://dinlcahjælper.dk/" />
         <meta property="og:title" content="Din LCA Hjælper, LCA-beregning der bare virker" />
-        <meta property="og:description" content="Vi håndterer hele LCA-beregningen fra tidlig fase til myndighedsklar rapport. Fra 4.000 kr, inkl. A4+A5." />
+        <meta property="og:description" content="Vi håndterer hele LCA-beregningen fra tidlig fase til myndighedsklar rapport. Typisk 5.000-7.000 kr ekskl. moms for enfamiliehuse." />
         <meta property="og:url" content="https://dinlcahjælper.dk/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="da_DK" />

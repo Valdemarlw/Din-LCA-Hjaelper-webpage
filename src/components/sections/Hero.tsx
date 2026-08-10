@@ -57,7 +57,7 @@ export function Hero() {
             >
               <Button to="/kontakt">Få et tilbud</Button>
               <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold text-navy">Fra 4.000 kr</span>
+                <span className="text-2xl font-bold text-navy">Typisk 5.000-7.000 kr</span>
                 <Badge>A4+A5 inkluderet</Badge>
               </div>
             </motion.div>

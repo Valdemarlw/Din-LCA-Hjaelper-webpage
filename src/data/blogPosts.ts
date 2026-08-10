@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: "paragraph",
-        text: "Hvad en LCA-beregning koster afhænger af projektets omfang og kompleksitet, ikke af arealet alene. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms, mens et større erhvervsprojekt kan nå op til 12.500 kr. Store eller komplekse projekter får et individuelt tilbud. I denne artikel forklarer vi, hvad der driver prisen, hvad der er inkluderet, og hvordan du får en fast pris på dit projekt.",
+        text: "Hvad en LCA-beregning koster afhænger af projektets omfang og kompleksitet, ikke af arealet alene. For et typisk enfamiliehus eller sommerhus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. Rækkehuse og projekter med flere boliger starter ved 8.000 kr og får altid et manuelt tilbud. Det samme gælder store eller komplekse erhvervsprojekter.",
       },
       {
         type: "heading2",
@@ -47,8 +47,9 @@ export const blogPosts: BlogPost[] = [
         type: "table",
         headers: ["Bygningstype", "Vejledende pris (komplet beregning)"],
         rows: [
-          ["Sommerhus og fritidshus", "4.700-6.300 kr"],
-          ["Enfamiliehus og rækkehus", "5.000-7.000 kr"],
+          ["Enfamiliehus", "Typisk 5.000-7.000 kr"],
+          ["Sommerhus og fritidshus", "Typisk 5.000-7.000 kr"],
+          ["Rækkehus og projekter med flere boliger", "Fra 8.000 kr, manuelt tilbud"],
           ["Lager og hal", "5.500-9.500 kr"],
           ["Kontor, handel og etagebyggeri", "8.000-12.500 kr"],
           ["Store eller komplekse projekter", "Individuelt tilbud"],
@@ -91,7 +92,7 @@ export const blogPosts: BlogPost[] = [
         type: "list",
         items: [
           "LCA Komplet: Vi håndterer hele beregningen, inklusive at trække mængderne ud af dine tegninger eller din Revit-model. Det passer til de fleste kunder.",
-          "LCA Direkte: Leverer du selv et struktureret mængdeudtræk, fx fra en Revit-model eller en mængdeliste, trækker vi det fra prisen. Du sparer omkring 1.000 kr, fordi vi springer mængdeopgørelsen over.",
+          "LCA Direkte: Hvis du leverer et struktureret mængdeudtræk, som vi kan bruge direkte, trækker vi op til 1.000 kr fra prisen. Vi bekræfter altid først, at Revit-udtrækket eller mængdelisten er brugbar.",
         ],
       },
       {
@@ -111,8 +112,8 @@ export const blogPosts: BlogPost[] = [
         items: [
           "Tidlig beregning med [hotspot-analyse](/ordbog/hotspot-analyse), der viser de mest CO₂-tunge bygningsdele",
           "Materialeoptimering med konkrete forslag, hvis grænseværdien er i fare",
-          "[A4- og A5-beregning](/blog/a4-a5-dokumentation), så transport og byggeproces også er dækket",
-          "Opdatering ved færdigmelding med faktiske mængder, så rapporten matcher det byggede",
+          "[A4- og A5-beregning](/blog/a4-a5-dokumentation) med dokumenterede generiske forudsætninger i den tidlige beregning",
+          "Opdatering ved færdigmelding med endelige mængder og registreret byggepladsforbrug",
           "Myndighedsklar rapport klar til kommunen",
         ],
       },
@@ -163,12 +164,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad er forskellen på LCA Komplet og LCA Direkte?",
         answer:
-          "LCA Komplet er den fulde løsning, hvor vi også trækker mængderne ud af dine tegninger. LCA Direkte er til dig, der selv leverer et struktureret mængdeudtræk, fx fra en Revit-model. Så trækker vi omkring 1.000 kr fra prisen. Den faglige beregning er den samme i begge tilfælde.",
+          "LCA Komplet er standardløsningen, hvor vi også trækker mængderne ud af dine tegninger. LCA Direkte kan spare dig op til 1.000 kr, hvis du leverer et struktureret mængdeudtræk, som vi kan bruge direkte. Vi bekræfter datagrundlaget, før rabatten indgår i tilbuddet.",
       },
       {
         question: "Er opdatering ved færdigmelding inkluderet i prisen?",
         answer:
-          "Ja. Opdatering af beregningen med faktiske mængder ved færdigmelding er inkluderet. LCA-rapporten skal afspejle det faktisk opførte byggeri for at blive godkendt af kommunen, og derfor hører opdateringen med i en komplet løsning.",
+          "Ja. Vi opdaterer beregningen med endelige mængder og registreret byggepladsforbrug ved færdigmelding. LCA-rapporten skal afspejle det opførte byggeri, og derfor hører opdateringen med i en komplet løsning.",
       },
       {
         question: "Hvorfor får jeg ikke en fast pris pr. kvadratmeter?",
@@ -773,7 +774,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Miljøpåvirkningen beregnes ud fra transportafstand, transportmiddel og materialernes vægt. Data indsamles typisk fra følgesedler og fakturaer. Lokale materialer giver kortere transport og dermed lavere A4-udledning. Bemærk: maskiner og materiel under 1 ton er fritaget.",
+        text: "Miljøpåvirkningen beregnes ud fra transportafstand, transportmiddel og materialernes vægt. I vores tidlige beregning bruger vi dokumenterede generiske transportforudsætninger. Hvis projektet har brugbare projektspecifikke oplysninger, kan de indgå i den endelige beregning.",
       },
       {
         type: "heading2",
@@ -813,15 +814,14 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Den største udfordring ved A4/A5-dokumentation er at indsamle pålidelige data fra hele forsyningskæden:",
+        text: "Den største udfordring er at få registreret byggepladsforbruget, mens byggeriet står på:",
       },
       {
         type: "list",
         items: [
-          "Leverandører har ikke altid transportdata klar i et brugbart format",
-          "Entreprenører registrerer sjældent spild og affald systematisk",
-          "Data skal indsamles løbende under byggeriet, ikke først ved færdigmelding",
-          "Mange aktører er involveret, og koordinering tager tid",
+          "Entreprenøren skal registrere el, varme, gas og brændstof pr. kalenderår",
+          "Materialespild og endelige mængder skal bekræftes eller korrigeres",
+          "Data skal samles under byggeriet, ikke rekonstrueres ved færdigmelding",
         ],
       },
       {
@@ -834,20 +834,20 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Vi regner A4 og A5 som en del af LCA-opgaven. Tidligt i projektet bruger vi de oplysninger, der findes, og dokumenterede standardforudsætninger for resten. Beregningen viser samtidig, hvilke projektdata der mangler før den endelige rapport:",
+        text: "Vi regner A4 og A5 som en del af LCA-opgaven. Tidligt bruger vi dokumenterede generiske forudsætninger: A4 følger den dokumenterede transportmetode, og A5 bruger foreløbige værdier for byggepladsforbrug og materialespild. Samtidig gør vi det klart, hvad entreprenøren skal registrere før den endelige rapport:",
       },
       {
         type: "list",
         items: [
-          "Transportafstande og transportmidler for de væsentlige materialer",
-          "Energiforbrug og brændstof på byggepladsen",
-          "Materialespild og bortkørsel af affald",
-          "Hvilke værdier der er målte, oplyste eller baseret på standardforudsætninger",
+          "El, varme, gas og brændstof på byggepladsen pr. kalenderår",
+          "Endelige materialemængder og eventuelle ændringer i projektet",
+          "Materialespild, når projektet har bedre oplysninger end den foreløbige antagelse",
+          "Hvilke værdier der er registrerede, oplyste eller baseret på generiske forudsætninger",
         ],
       },
       {
         type: "paragraph",
-        text: "Før den endelige rapport opdaterer vi beregningen med de projektdata, vi har fået fra kunden og entreprenøren. A4/A5-dokumentation er en del af den samlede [LCA-opgave](/blog/hvad-er-lca-beregning).",
+        text: "Efter byggeriet erstatter vi de foreløbige A5-værdier med det registrerede byggepladsforbrug og opdaterer beregningen med de endelige projektoplysninger. A4/A5-dokumentation er en del af den samlede [LCA-opgave](/blog/hvad-er-lca-beregning).",
       },
       {
         type: "heading2",
@@ -862,12 +862,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Kan A4/A5-data estimeres, eller skal de måles?",
         answer:
-          "Ja. I den tidlige beregning kan dokumenterede standardværdier bruges, når de faktiske data endnu ikke findes. Før den endelige rapport opdaterer vi med de projektspecifikke oplysninger, der er tilgængelige.",
+          "Ja. Den tidlige beregning bruger dokumenterede generiske forudsætninger. Efter byggeriet erstatter vi de foreløbige A5-værdier med det registrerede el-, varme-, gas- og brændstofforbrug og opdaterer de øvrige projektoplysninger.",
       },
       {
         question: "Hvornår skal A4/A5-data indsamles?",
         answer:
-          "Løbende under hele byggeprocessen. Transportdata (A4) registreres ved levering af materialer. Spilddata (A5) registreres under opførelsen. Start fra første leverance, det er svært at rekonstruere data bagefter.",
+          "Entreprenøren bør registrere el, varme, gas og brændstof løbende under byggeriet. Vi sender et skema til formålet. Det er svært at rekonstruere byggepladsforbruget bagefter.",
       },
       {
         question: "Hvem er ansvarlig for at levere A4/A5-data?",
@@ -877,7 +877,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Tæller A4/A5 med i den samlede LCA-grænseværdi?",
         answer:
-          "A4 og A5 indgår i den samlede LCA-beregning, men fra juli 2025 er der også en separat grænseværdi specifikt for A4+A5 på 1,5 kg CO₂e/m²/år. Så A4/A5 skal overholde både sin egen grænse og bidrage til den samlede.",
+          "A4 og A5 skal opgøres som en del af LCA-dokumentationen, men de vurderes mod deres egen grænse på 1,5 kg CO₂e/m²/år. Bygningens anden grænse vurderes separat og omfatter A1-A3, B4, B6 og C3-C4.",
       },
     ],
   },
@@ -979,7 +979,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Hos Din LCA Hjælper har vi erfaring med sommerhusprojekter og kender de specifikke udfordringer ved den lave grænseværdi. A4/A5-beregning og dokumentation er en del af opgaven. Se vores [service for sommerhuse](/lca-beregning/sommerhus) for de præcise krav, eller [kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr.",
+        text: "Hos Din LCA Hjælper har vi erfaring med sommerhusprojekter og kender udfordringerne ved den lave grænseværdi. A4/A5-beregning og dokumentation er en del af opgaven. Se vores [service for sommerhuse](/lca-beregning/sommerhus), eller [kontakt os](/kontakt) for et tilbud. En komplet beregning koster typisk 5.000-7.000 kr ekskl. moms.",
       },
     ],
     faqs: [
@@ -996,7 +996,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad koster en LCA-beregning for et sommerhus?",
         answer:
-          "Prisen afhænger af projektets kompleksitet, men starter typisk fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
+          "En komplet beregning koster typisk 5.000-7.000 kr ekskl. moms. A4/A5-beregning og dokumentation er inkluderet. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
       },
     ],
   },
@@ -1141,7 +1141,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved præcis hvor du står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et tilbud. Priser fra 4.000 kr, inkl. A4/A5-beregning og dokumentation.",
+        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved, hvor projektet står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et fast tilbud. A4/A5-beregning og dokumentation er inkluderet.",
       },
     ],
     faqs: [
@@ -1158,7 +1158,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Kan jeg kompensere for en høj A1-A3 med en lav A4+A5?",
         answer:
-          "Nej. A4+A5 har sin egen separate grænseværdi (1,5 kg CO₂e/m²/år) som skal overholdes uafhængigt. Derudover tæller A4+A5 også med i den samlede LCA-grænse. Begge grænser skal overholdes.",
+          "Nej. A4+A5 har sin egen grænse på 1,5 kg CO₂e/m²/år. Bygningens grænse for A1-A3, B4, B6 og C3-C4 vurderes separat, så en lav værdi for A4+A5 kan ikke opveje en overskridelse dér.",
       },
       {
         question: "Hvor finder jeg de officielle grænseværdier?",

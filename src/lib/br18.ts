@@ -16,7 +16,8 @@
 import type { PrisType } from "./pris";
 
 export type Bygningstype =
-  | "enfamiliehus" // stuehus, enfamilie-, række-, kæde- og dobbelthuse
+  | "enfamiliehus" // stuehus og fritliggende enfamiliehus
+  | "raekkehus" // række-, kæde- og dobbelthuse
   | "sommerhus" // sommerhuse, campinghytter og lign. ferieboliger
   | "etagebolig"
   | "kontor"
@@ -71,7 +72,8 @@ export interface BR18Resultat {
 
 /** Dropdown-valg til UI'et — værdi + visningsnavn. */
 export const BYGNINGSTYPER: { value: Bygningstype; label: string }[] = [
-  { value: "enfamiliehus", label: "Enfamiliehus / rækkehus" },
+  { value: "enfamiliehus", label: "Enfamiliehus" },
+  { value: "raekkehus", label: "Rækkehus / kædehus / dobbelthus" },
   { value: "sommerhus", label: "Sommerhus / fritidshus" },
   { value: "etagebolig", label: "Etagebolig" },
   { value: "kontor", label: "Kontorbygning" },
@@ -86,7 +88,11 @@ export const BYGNINGSTYPER: { value: Bygningstype; label: string }[] = [
  * bolig-/ferietyper. Alle andre tilbygninger (erhverv, etagebolig) er
  * omfattet uanset størrelse.
  */
-const BOLIG_FRITAGNE_TILBYGNINGSTYPER: Bygningstype[] = ["enfamiliehus", "sommerhus"];
+const BOLIG_FRITAGNE_TILBYGNINGSTYPER: Bygningstype[] = [
+  "enfamiliehus",
+  "raekkehus",
+  "sommerhus",
+];
 
 /**
  * Mapping fra bygningstype til pris-type (4 buckets i prisformlen).
@@ -99,6 +105,8 @@ export function prisTypeFor(bygningstype: Bygningstype): PrisType {
   switch (bygningstype) {
     case "enfamiliehus":
       return "enfamiliehus";
+    case "raekkehus":
+      return "raekkehus";
     case "sommerhus":
       return "sommerhus";
     case "lager":
@@ -124,6 +132,7 @@ function graenseFor(bygningstype: Bygningstype, m2: number): Graense {
     case "sommerhus":
       return m2 < 150 ? { std: 4.0, lav: 3.2 } : { std: 6.7, lav: 5.4 };
     case "enfamiliehus":
+    case "raekkehus":
       return { std: 6.7, lav: 5.4 };
     case "etagebolig":
     case "kontor":

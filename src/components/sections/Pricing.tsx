@@ -7,7 +7,7 @@ const inclusions = [
   "Gennemgang af tegninger og projektmateriale",
   "Tidlig LCA-beregning med hotspot-analyse",
   "Materialeforslag ved overskridelse af grænseværdi",
-  "Opdatering ved færdigmelding med faktiske mængder",
+  "Opdatering ved færdigmelding med endelige mængder og byggepladsdata",
   "Myndighedsklar rapport klar til kommunen",
   "Beregning og dokumentation af A4/A5",
 ];
@@ -28,6 +28,13 @@ export function Pricing() {
             <Badge>A4+A5 inkluderet</Badge>
           </div>
 
+          <p className="mt-6 text-3xl md:text-4xl font-semibold text-navy">
+            Typisk 5.000-7.000 kr
+          </p>
+          <p className="mt-1 text-sm text-muted">
+            ekskl. moms for et komplet enfamiliehus
+          </p>
+
           <ul className="mt-8 space-y-3 text-left">
             {inclusions.map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -45,7 +52,8 @@ export function Pricing() {
           </div>
 
           <p className="mt-4 text-sm text-muted">
-            Du får et fast tilbud, så snart vi har set tegningerne.
+            Rækkehuse og projekter med flere boliger starter ved 8.000 kr og prissættes manuelt.
+            Du får altid et fast tilbud, når vi har set projektmaterialet.
           </p>
         </div>
       </div>

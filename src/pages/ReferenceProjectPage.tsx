@@ -194,7 +194,7 @@ export function ReferenceProjectPage() {
                 Har du et lignende projekt?
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Send os dine tegninger, så laver vi en tidlig LCA-beregning med hotspot-analyse. Priser fra 4.000 kr.
+                Send os dine tegninger, så laver vi en tidlig LCA-beregning med hotspot-analyse og giver en fast pris.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

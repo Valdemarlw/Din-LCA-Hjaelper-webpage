@@ -180,7 +180,7 @@ export function ProjectTypePage() {
             <div className="mt-16 rounded-2xl bg-primary-light p-8 md:p-10 text-center">
               <h2 className="text-2xl font-semibold text-navy">Klar til at komme i gang?</h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
-                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. Priser fra 4.000 kr. A4/A5 er inkluderet.
+                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. A4/A5 er inkluderet.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

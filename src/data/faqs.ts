@@ -92,7 +92,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad koster en LCA-beregning?",
         answer:
-          "Vores priser starter fra 4.000 kr. A4/A5-beregning og dokumentation er inkluderet. Den endelige pris afhænger af projektets størrelse, kompleksitet og antal konstruktionstyper. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.",
+          "En komplet LCA-beregning for et enfamiliehus eller sommerhus koster typisk 5.000-7.000 kr ekskl. moms. Rækkehuse og projekter med flere boliger starter ved 8.000 kr og prissættes manuelt. A4/A5 er inkluderet. Send os projektmaterialet, så giver vi et fast tilbud inden for 24 timer.",
       },
       {
         question: "Hvad påvirker prisen på en LCA-beregning?",
@@ -248,7 +248,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad adskiller Din LCA Hjælper fra andre rådgivere?",
         answer:
-          "Vi er specialiseret udelukkende i LCA for byggeri, ikke energiberegning, DGNB eller andre ydelser. Det giver en fast proces og priser fra 4.000 kr. Alle beregninger inkluderer hotspot-analyse, materialeoptimering, A4/A5-beregning og opdatering ved færdigmelding.",
+          "Vi er specialiseret udelukkende i LCA for byggeri, ikke energiberegning, DGNB eller andre ydelser. Alle komplette beregninger inkluderer hotspot-analyse, materialeoptimering, A4/A5-beregning og opdatering ved færdigmelding.",
       },
     ],
   },

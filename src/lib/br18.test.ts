@@ -37,6 +37,17 @@ describe("evaluateBR18", () => {
     expect(r.graensevaerdi).toBe(6.7);
   });
 
+  it("rækkehus følger boligreglerne, men får manuel pris", () => {
+    const underBagatel = evaluateBR18(
+      input({ bygningstype: "raekkehus", byggeri: "tilbygning", m2: 200 })
+    );
+    const nybyggeri = evaluateBR18(input({ bygningstype: "raekkehus", m2: 300 }));
+
+    expect(underBagatel.status).toBe("undtaget_tilbygning");
+    expect(nybyggeri.graensevaerdi).toBe(6.7);
+    expect(prisTypeFor("raekkehus")).toBe("raekkehus");
+  });
+
   it("tilbygning erhverv 30 m² -> lovpligtig (ingen bagatel) 7,5", () => {
     const r = evaluateBR18(input({ byggeri: "tilbygning", m2: 30, bygningstype: "kontor" }));
     expect(r.status).toBe("lovpligtig");
@@ -72,7 +83,7 @@ describe("evaluateBR18", () => {
 });
 
 describe("prisTypeFor", () => {
-  it("mapper bygningstyper til de 4 pris-buckets", () => {
+  it("mapper bygningstyper til pris-buckets", () => {
     expect(prisTypeFor("enfamiliehus")).toBe("enfamiliehus");
     expect(prisTypeFor("sommerhus")).toBe("sommerhus");
     expect(prisTypeFor("lager")).toBe("lager");

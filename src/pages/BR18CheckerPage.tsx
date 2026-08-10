@@ -121,7 +121,7 @@ export function BR18CheckerPage() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 py-16 md:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 pb-16 pt-28 md:pb-24 md:pt-36">
         <div className="absolute right-0 top-1/3 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <nav aria-label="Brødkrumme" className="mb-6">

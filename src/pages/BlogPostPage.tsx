@@ -224,7 +224,7 @@ export function BlogPostPage() {
               </h2>
               <p className="mt-3 text-body max-w-lg mx-auto">
                 Vi håndterer hele processen, fra tidlig fase til myndighedsklar
-                rapport. Priser fra 4.000 kr.
+                rapport. Et typisk enfamiliehus koster 5.000-7.000 kr ekskl. moms.
               </p>
               <div className="mt-6">
                 <Button to="/kontakt">Få et tilbud</Button>

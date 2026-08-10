@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { beregnPris, formatKr, type PrisType } from "../../lib/pris";
 
 /**
  * Pris-estimat-blok. Deler input (pris-type + m²) med BR18-checkeren.
- * Anker på den billigere basispris (kunden leverer mængderne); mængdeudtræk
- * er et tilvalg der lægges oveni. Framing-regel: ALDRIG "kr per m²".
+ * Viser altid LCA Komplet. En mulig Direkte-rabat beskrives som betinget,
+ * fordi datagrundlaget skal gennemgås, før den kan indgå i et fast tilbud.
  */
 export function PrisEstimat({
   prisType,
@@ -15,26 +14,24 @@ export function PrisEstimat({
   m2: number;
   frivillig?: boolean;
 }) {
-  const [medMaengdeudtraek, setMedMaengdeudtraek] = useState(false);
   const res = beregnPris(prisType, m2);
 
   if (res.type === "individuelt") {
+    const erRaekkehus = prisType === "raekkehus";
     return (
       <div className="mt-6 rounded-xl border border-border bg-white p-5">
         <p className="text-sm font-medium text-muted">Vejledende pris</p>
         <p className="mt-1 text-2xl font-bold text-navy">Individuelt tilbud</p>
         <p className="mt-2 text-sm text-body leading-relaxed">
-          Dit projekt er større end vores faste prisinterval. Send os tegningerne, så får du et
-          konkret tilbud inden for 24 timer.
+          {erRaekkehus
+            ? "Rækkehuse og projekter med flere boliger starter ved 8.000 kr. Vi ser på antal boliger, variationer og projektmaterialet, før vi giver en fast pris."
+            : "Dit projekt ligger uden for vores faste prisinterval. Send os tegningerne, så får du et konkret tilbud inden for 24 timer."}
         </p>
       </div>
     );
   }
 
-  // Add-on = forskellen mellem fuld service (Komplet) og basis (Direkte).
-  // Nær gulvet kan den være mindre end 1.000.
-  const addOn = res.komplet - res.direkte;
-  const pris = medMaengdeudtraek ? res.komplet : res.direkte;
+  const rabat = res.komplet - res.direkte;
 
   return (
     <div className="mt-6 rounded-xl border border-border bg-white p-5">
@@ -44,32 +41,23 @@ export function PrisEstimat({
       <p className="mt-1 flex items-baseline gap-1.5">
         <span className="text-sm text-muted">ca.</span>
         <span className="text-3xl md:text-4xl font-bold text-navy tracking-tight">
-          {formatKr(pris)}
+          {formatKr(res.komplet)}
         </span>
         <span className="text-lg text-navy font-medium">kr</span>
         <span className="text-sm text-muted">ekskl. moms</span>
       </p>
 
-      {addOn > 0 && (
-        <label className="mt-4 flex items-start gap-2.5 cursor-pointer select-none">
-          <input
-            type="checkbox"
-            checked={medMaengdeudtraek}
-            onChange={(e) => setMedMaengdeudtraek(e.target.checked)}
-            className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
-          />
-          <span className="text-sm text-body">
-            Lad os trække mængderne ud for dig{" "}
-            <span className="text-muted">(+{formatKr(addOn)} kr)</span>
-          </span>
-        </label>
+      {rabat > 0 && (
+        <p className="mt-4 text-sm text-body leading-relaxed">
+          Et struktureret mængdeudtræk kan give op til {formatKr(rabat)} kr i afslag, når vi har
+          gennemgået og bekræftet, at det kan bruges direkte.
+        </p>
       )}
 
       <p className="mt-4 text-xs text-muted leading-relaxed">
-        Basisprisen forudsætter, at du selv leverer strukturerede mængder (fx Revit-model eller
-        mængdeliste). Har du ikke det, laver vi mængdeudtrækket for dig. Prisen afhænger af
-        projektets omfang og kompleksitet (antal konstruktioner og grænseværdikrav), ikke af
-        arealet alene, estimatet er vejledende.
+        Estimatet viser LCA Komplet og inkluderer vores mængdeudtræk. Den endelige pris fastsættes
+        i et tilbud, når vi har gennemgået projektmaterialet, antallet af konstruktioner og
+        projektets kompleksitet.
       </p>
     </div>
   );

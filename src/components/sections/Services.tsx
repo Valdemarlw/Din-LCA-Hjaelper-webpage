@@ -24,12 +24,14 @@ const services = [
   {
     icon: ClipboardCheck,
     title: "Opdatering ved færdigmelding",
-    description: "Vi opdaterer beregningen med faktiske mængder, så rapporten matcher det byggede.",
+    description:
+      "Vi opdaterer beregningen med endelige mængder og de registrerede data fra byggepladsen, så rapporten matcher det byggede.",
   },
   {
     icon: Truck,
     title: "A4/A5-beregning",
-    description: "Vi beregner transport og byggeprocessen som en del af LCA'en. Mangler der faktiske data i den tidlige fase, dokumenterer vi forudsætningerne. Vi opdaterer den endelige rapport, når vi har de projektspecifikke oplysninger.",
+    description:
+      "Tidligt beregner vi A4 og A5 med dokumenterede generiske forudsætninger. Efter byggeriet opdaterer vi A5 med det registrerede forbrug fra byggepladsen og de endelige projektoplysninger.",
     highlighted: true,
   },
 ];
@@ -104,10 +106,10 @@ export function Services() {
                   </div>
                   <p className="text-body leading-relaxed">{services[4].description}</p>
                   <ul className="mt-3 space-y-1.5 text-body text-sm leading-relaxed">
-                    <li>A4: Transportafstande og transportmidler for materialer</li>
-                    <li>A5: Materialespild, energi og brændstof på byggepladsen</li>
-                    <li>Vi dokumenterer de foreløbige forudsætninger</li>
-                    <li>Vi opdaterer den endelige rapport med faktiske projektdata</li>
+                    <li>A4: Dokumenterede generiske transportforudsætninger for materialer</li>
+                    <li>A5: Foreløbige værdier for spild og byggepladsforbrug</li>
+                    <li>Entreprenøren registrerer el, varme, gas og brændstof under byggeriet</li>
+                    <li>Vi indarbejder de registrerede data i den endelige rapport</li>
                   </ul>
                 </div>
               </div>
