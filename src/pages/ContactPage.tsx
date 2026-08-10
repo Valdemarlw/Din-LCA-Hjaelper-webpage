@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
 import { Phone, Mail, Send } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { Button } from "../components/ui/Button";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
@@ -30,6 +31,7 @@ export function ContactPage() {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
+        track("kontakt_formular_sendt");
         setSubmitted(true);
         form.reset();
       } else {

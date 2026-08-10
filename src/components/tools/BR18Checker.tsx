@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ClipboardCheck, FileText, CheckCircle2 } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { Button } from "../ui/Button";
 import {
   evaluateBR18,
@@ -51,12 +52,20 @@ export function BR18Checker() {
   const [m2input, setM2input] = useState("");
   const [uopvarmet, setUopvarmet] = useState(false);
   const [samfundskritisk, setSamfundskritisk] = useState(false);
+  const harTracket = useRef(false);
 
   const m2 = parseInt(m2input, 10);
   const harAreal = Number.isFinite(m2) && m2 > 0;
   const resultat = harAreal
     ? evaluateBR18({ bygningstype, byggeri, m2, uopvarmet, samfundskritisk })
     : null;
+
+  useEffect(() => {
+    if (resultat && !harTracket.current) {
+      harTracket.current = true;
+      track("br18_tjekker_brugt", { bygningstype, byggeri });
+    }
+  }, [resultat, bygningstype, byggeri]);
 
   return (
     <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">

@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { Analytics } from "@vercel/analytics/react";
 import "./index.css";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/HomePage";
@@ -43,6 +44,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/vaerktoejer/br18-tjekker" element={<BR18CheckerPage />} />
           </Route>
         </Routes>
+        <Analytics />
       </BrowserRouter>
     </HelmetProvider>
   </StrictMode>
