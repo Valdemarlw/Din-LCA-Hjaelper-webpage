@@ -6,6 +6,6 @@
   "buildCommand": "npm run build:prerender",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/:path((?!_vercel/).*)", "destination": "/index.html" }
   ]
 }
