@@ -9,6 +9,26 @@ import { Pricing } from "../components/sections/Pricing";
 import { References } from "../components/sections/References";
 import { FAQ } from "../components/sections/FAQ";
 import { FinalCTA } from "../components/sections/FinalCTA";
+import { getHomepageFaqs } from "../data/faqs";
+
+/**
+ * FAQPage schema for the homepage, generated from the same data the visible
+ * FAQ section renders, so the two can never drift apart.
+ *
+ * This used to live in index.html, which meant all 45 pages shipped the
+ * homepage's FAQ. Subpages with their own FAQPage ended up with two conflicting
+ * entities; /faq carried nine questions twice with five different answers.
+ */
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://dinlcahjælper.dk/#faq",
+  mainEntity: getHomepageFaqs().map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 export function HomePage() {
   return (
@@ -22,6 +42,7 @@ export function HomePage() {
         <meta property="og:url" content="https://dinlcahjælper.dk/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="da_DK" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       <Hero />
       <Problem />

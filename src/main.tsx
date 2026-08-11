@@ -20,6 +20,7 @@ import { GlossaryPage } from "./pages/GlossaryPage";
 import { GlossaryTermPage } from "./pages/GlossaryTermPage";
 import { ComparisonPage } from "./pages/ComparisonPage";
 import { BR18CheckerPage } from "./pages/BR18CheckerPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -42,6 +43,8 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/ordbog/:slug" element={<GlossaryTermPage />} />
             <Route path="/sammenligninger/:slug" element={<ComparisonPage />} />
             <Route path="/vaerktoejer/br18-tjekker" element={<BR18CheckerPage />} />
+            {/* Prerendered to dist/404.html; Vercel serves it with a real 404 status. */}
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
         <Analytics />

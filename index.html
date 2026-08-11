@@ -4,17 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Din LCA Hjælper håndterer LCA-beregningen fra tidlig fase til myndighedsklar rapport. Typisk 5.000-7.000 kr ekskl. moms for enfamiliehuse." />
+    <!--
+      This shell deliberately declares no page description. Every page sets its
+      own via react-helmet-async. A static description tag here was emitted
+      first on all 45 pages, so crawlers read one identical sitewide string
+      instead of the page-specific one. Verified on the live site 2026-08-11.
+
+      The JSON-LD below is limited to sitewide entities (business, person,
+      website). Page-specific types such as BreadcrumbList and FAQPage belong in
+      the page component, otherwise every subpage inherits the homepage's
+      breadcrumb and FAQ and ships conflicting duplicate entities.
+
+      Note for future audits: keep literal tag markup out of these comments.
+      Grep-based checks match inside comments and report phantom duplicates.
+    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": ["ProfessionalService", "LocalBusiness"],
+          "@type": [
+            "ProfessionalService",
+            "LocalBusiness"
+          ],
           "@id": "https://dinlcahjælper.dk/#business",
           "name": "Din LCA Hjælper",
           "description": "Specialiseret i LCA-beregning for byggeri efter BR18. Vi håndterer hele processen fra tidlig fase til myndighedsklar rapport for bolig, erhverv og industri i hele Danmark.",
           "url": "https://dinlcahjælper.dk",
+          "sameAs": [
+            "https://www.linkedin.com/company/din-lca-hjaelper/"
+          ],
           "telephone": "+4529899999",
           "email": "valdemar.wernblad@dinlcahjælper.dk",
           "address": {
@@ -26,7 +45,9 @@
             "@type": "Country",
             "name": "Danmark"
           },
-          "founder": { "@id": "https://dinlcahjælper.dk/#person" },
+          "founder": {
+            "@id": "https://dinlcahjælper.dk/#person"
+          },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "LCA-ydelser",
@@ -82,7 +103,9 @@
           "@id": "https://dinlcahjælper.dk/#person",
           "name": "Valdemar Løvschal Wernblad",
           "jobTitle": "LCA-rådgiver",
-          "worksFor": { "@id": "https://dinlcahjælper.dk/#business" },
+          "worksFor": {
+            "@id": "https://dinlcahjælper.dk/#business"
+          },
           "knowsAbout": [
             "LCA-beregning",
             "Livscyklusvurdering",
@@ -99,105 +122,9 @@
           "name": "Din LCA Hjælper",
           "url": "https://dinlcahjælper.dk",
           "inLanguage": "da",
-          "publisher": { "@id": "https://dinlcahjælper.dk/#business" }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://dinlcahjælper.dk/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Forside",
-              "item": "https://dinlcahjælper.dk/"
-            }
-          ]
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://dinlcahjælper.dk/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Hvad er en LCA-beregning?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkning over hele dets levetid, fra materialeproduktion til nedrivning. Beregningen er lovpligtig efter BR18 og dokumenterer bl.a. CO₂-udledning pr. m² pr. år. Resultatet afleveres som en rapport til kommunen sammen med færdigmeldingen."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvornår er LCA-beregning lovpligtigt?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Alle nye opvarmede byggerier skal have en LCA-beregning uanset størrelse. For uopvarmede bygninger gælder kravet ved arealer over 50 m², og for tilbygninger over 250 m². Kravet følger af BR18 og skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvad koster en LCA-beregning?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En komplet LCA-beregning for et enfamiliehus koster typisk 5.000-7.000 kr ekskl. moms. Rækkehuse og projekter med flere boliger prissættes manuelt fra 8.000 kr. A4/A5-beregning og dokumentation er inkluderet. Send os projektmaterialet, så giver vi et fast tilbud inden for 24 timer."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvor lang tid tager en LCA-beregning?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En typisk LCA-beregning tager 1-2 uger fra vi modtager det nødvendige projektmateriale. Ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi anbefaler at involvere os så tidligt som muligt, så materialevalgene kan bygge på LCA-resultaterne."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvad er A4- og A5-faserne i LCA?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A4 dækker transport af materialer til byggepladsen, og A5 dækker spild, affald og energiforbrug under opførelsen. Tidligt beregner vi begge med dokumenterede generiske forudsætninger. Efter byggeriet opdaterer vi A5 med det registrerede el-, varme-, gas- og brændstofforbrug fra byggepladsen samt de endelige projektoplysninger."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvad er grænseværdien for CO₂ i BR18?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Fra 1. juli 2025 gælder differentierede grænseværdier afhængigt af bygningstype: sommerhuse under 150 m² skal holde 4,0 kg CO₂e/m²/år, enfamiliehuse og rækkehuse 6,7, etageboliger og kontor 7,5, og øvrigt nybyggeri 8,0. Derudover er der en separat grænse for byggeprocessen (A4+A5) på 1,5 kg CO₂e/m²/år for alle typer."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Kan I hjælpe med både bolig og erhverv?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja, vi håndterer LCA-beregninger for alle bygningstyper, bolig, erhverv og industri. Vi har erfaring med projekter fra 80 til 3.000 m² og tilpasser altid vores tilgang til det konkrete projekts kompleksitet og krav."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvem bør lave min LCA-beregning?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En LCA-beregning bør udføres af en specialist med erfaring i BR18-kravene og de relevante beregningsværktøjer. Din LCA Hjælper er specialiseret udelukkende i LCA for byggeri, hvilket sikrer præcise beregninger og myndighedsklar dokumentation. Vi anbefaler at vælge en rådgiver der inkluderer opdatering ved færdigmelding, da mange projekter ellers ender med en rapport der ikke matcher det faktisk byggede."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Hvad skal jeg kigge efter i en LCA-rådgiver?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Kig efter erfaring med din bygningstype, hotspot-analyse, materialeoptimering og opdatering ved færdigmelding. Rådgiveren skal også kunne dokumentere A4 og A5. Hos Din LCA Hjælper er hele forløbet inkluderet."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Kan jeg få LCA-beregning hurtigt?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja. En typisk LCA-beregning tager 1-2 uger, men ved tidlig fase kan vi levere en foreløbig beregning hurtigere. Vi tilbyder fast tilbud inden for 24 timer efter modtagelse af tegninger. Kontakt os på +45 29 89 99 99 eller via kontaktformularen."
-              }
-            }
-          ]
+          "publisher": {
+            "@id": "https://dinlcahjælper.dk/#business"
+          }
         }
       ]
     }

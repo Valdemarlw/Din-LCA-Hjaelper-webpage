@@ -4,6 +4,10 @@
  * and writes the fully-rendered HTML to dist/ so crawlers (including
  * AI bots that don't execute JS) see real content.
  *
+ * Routes come from src/lib/routes.ts so this list cannot drift from the
+ * router or the sitemap. Unmatched paths are a real 404 in production
+ * (see vercel.json), so a missing route here is a user-visible failure.
+ *
  * Usage: npx tsx scripts/prerender.ts
  */
 
@@ -11,54 +15,9 @@ import { chromium } from "@playwright/test";
 import { preview } from "vite";
 import { writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
+import { ALL_ROUTES } from "../src/lib/routes";
 
-const ROUTES = [
-  "/",
-  "/om-os",
-  "/kontakt",
-  "/viden",
-  "/blog",
-  "/blog/hvad-er-lca-beregning",
-  "/blog/klimakrav-2025",
-  "/blog/a4-a5-dokumentation",
-  "/blog/lca-sommerhuse",
-  "/blog/graensevaerdier-co2",
-  "/blog/lca-beregning-pris",
-  "/blog/hvornaar-er-lca-lovpligtig",
-  "/blog/lcabyg-hjaelp-outsource",
-  "/lca-beregning",
-  "/lca-beregning/enfamiliehus",
-  "/lca-beregning/sommerhus",
-  "/lca-beregning/erhverv",
-  "/referenceprojekter",
-  "/referenceprojekter/agavevej-4a",
-  "/referenceprojekter/lagerhal-laesovej-randers",
-  "/referenceprojekter/he-bluhmesvej-67",
-  "/faq",
-  "/ordbog",
-  "/ordbog/epd",
-  "/ordbog/graensevaerdi",
-  "/ordbog/hotspot-analyse",
-  "/ordbog/br18",
-  "/ordbog/modul-a1-a3",
-  "/ordbog/modul-a4",
-  "/ordbog/modul-a5",
-  "/ordbog/modul-b4",
-  "/ordbog/modul-b6",
-  "/ordbog/modul-c3-c4",
-  "/ordbog/modul-d",
-  "/ordbog/generiske-data",
-  "/ordbog/produktspecifikke-data",
-  "/ordbog/betragtningsperiode",
-  "/ordbog/gwp",
-  "/ordbog/co2-aekvivalenter",
-  "/ordbog/etageareal",
-  "/ordbog/en-15978",
-  "/ordbog/lcabyg",
-  "/ordbog/dgnb",
-  "/sammenligninger/din-lca-hjaelper-vs-lcabyg",
-  "/vaerktoejer/br18-tjekker",
-];
+const ROUTES = ALL_ROUTES;
 const DIST = join(import.meta.dirname, "..", "dist");
 
 async function prerender() {
@@ -79,6 +38,34 @@ async function prerender() {
   const orderedRoutes = [...ROUTES.filter((r) => r !== "/"), "/"];
 
   const failed: string[] = [];
+
+  // Render the catch-all 404 route to dist/404.html, which Vercel serves with a
+  // real 404 status for any unmatched path. This replaces the old catch-all
+  // rewrite that returned HTTP 200 plus the homepage for every dead URL.
+  //
+  // This must run BEFORE the route loop, while dist/index.html is still the
+  // clean Vite shell. The loop writes the prerendered homepage to dist/index.html
+  // last, and the preview server serves that file as the SPA fallback, so a 404
+  // rendered afterwards inherits the homepage's title and meta tags.
+  try {
+    console.log("Rendering 404...");
+    await page.goto(`${origin}/__prerender_404__`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000,
+    });
+    await page.waitForSelector("#root > *", { timeout: 15000 });
+    await page.waitForFunction(
+      () => document.title.includes("ikke fundet"),
+      undefined,
+      { timeout: 10000 }
+    );
+    await page.waitForTimeout(200);
+    writeFileSync(join(DIST, "404.html"), await page.content(), "utf-8");
+    console.log(`  → wrote ${join(DIST, "404.html")}`);
+  } catch (err) {
+    failed.push("/404");
+    console.warn(`  ! FAILED 404: ${(err as Error).message.split("\n")[0]}`);
+  }
 
   for (const route of orderedRoutes) {
     const url = `${origin}${route}`;
@@ -130,7 +117,9 @@ async function prerender() {
   }
 
   if (failed.length) {
-    console.error(`\n${failed.length}/${orderedRoutes.length} route(s) failed: ${failed.join(", ")}`);
+    console.error(
+      `\n${failed.length}/${orderedRoutes.length + 1} route(s) failed: ${failed.join(", ")}`
+    );
     process.exitCode = 1;
   }
 

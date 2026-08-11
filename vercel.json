@@ -5,7 +5,12 @@
   },
   "buildCommand": "npm run build:prerender",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/:path((?!_vercel/).*)", "destination": "/index.html" }
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/om", "destination": "/om-os", "permanent": true },
+    { "source": "/ydelser-og-priser", "destination": "/lca-beregning", "permanent": true },
+    { "source": "/prof-kunde", "destination": "/lca-beregning", "permanent": true },
+    { "source": "/privat-kunde", "destination": "/lca-beregning", "permanent": true },
+    { "source": "/send-mail", "destination": "/kontakt", "permanent": true }
   ]
 }
