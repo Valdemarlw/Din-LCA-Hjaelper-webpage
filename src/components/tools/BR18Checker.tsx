@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ClipboardCheck, FileText, CheckCircle2 } from "lucide-react";
-import { track } from "@vercel/analytics";
 import { Button } from "../ui/Button";
+import { trackAnalyticsEvent } from "../../lib/analytics";
 import {
   evaluateBR18,
   prisTypeFor,
@@ -63,7 +63,7 @@ export function BR18Checker() {
   useEffect(() => {
     if (resultat && !harTracket.current) {
       harTracket.current = true;
-      track("br18_tjekker_brugt", { bygningstype, byggeri });
+      trackAnalyticsEvent("br18_tjekker_brugt", { bygningstype, byggeri });
     }
   }, [resultat, bygningstype, byggeri]);
 

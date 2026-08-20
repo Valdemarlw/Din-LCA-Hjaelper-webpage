@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
 import { Phone, Mail, Send } from "lucide-react";
-import { track } from "@vercel/analytics";
 import { Button } from "../components/ui/Button";
+import { trackAnalyticsEvent } from "../lib/analytics";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "80bd8607-2b37-4bfd-9ad3-184e93658aed";
@@ -13,6 +13,7 @@ export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(false);
+  const hasTrackedStart = useRef(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,7 +32,7 @@ export function ContactPage() {
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
-        track("kontakt_formular_sendt");
+        trackAnalyticsEvent("kontakt_formular_sendt");
         setSubmitted(true);
         form.reset();
       } else {
@@ -126,6 +127,12 @@ export function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
+                  onFocusCapture={() => {
+                    if (!hasTrackedStart.current) {
+                      hasTrackedStart.current = true;
+                      trackAnalyticsEvent("kontakt_formular_startet");
+                    }
+                  }}
                   className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-sm space-y-5"
                 >
                   {/* Honeypot spam protection */}
