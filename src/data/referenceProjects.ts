@@ -3,6 +3,7 @@ import type { BlogSection, FAQ } from "./blogPosts";
 export type ReferenceProject = {
   slug: string;
   title: string;
+  metaTitle?: string;
   description: string;
   type: string;
   location: string;
@@ -23,6 +24,7 @@ export const referenceProjects: ReferenceProject[] = [
   {
     slug: "agavevej-4a",
     title: "Sommerhus i Knebel: fra 47% over grænsen til godkendt",
+    metaTitle: "Sommerhus i Knebel, 40 % lavere CO₂",
     description:
       "Et sommerhus under 150 m² startede med 5,87 kg CO₂e/m²/år, 47% over grænsen på 4,0. Med hotspot-analyse og produktspecifikke EPD'er landede resultatet på 3,538. En reduktion på 40% uden designændringer.",
     type: "Sommerhus under 150 m²",

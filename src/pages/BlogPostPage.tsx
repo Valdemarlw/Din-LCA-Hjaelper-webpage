@@ -6,6 +6,7 @@ import { getBlogPost } from "../data/blogPosts";
 import { Button } from "../components/ui/Button";
 import { RenderSection, FAQItem } from "../components/content/RenderSection";
 import { Calendar, Clock } from "lucide-react";
+import { buildSeoTitle } from "../lib/seoTitles";
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -14,6 +15,8 @@ export function BlogPostPage() {
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
+
+  const seoTitle = buildSeoTitle(post.metaTitle ?? post.title);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -88,13 +91,13 @@ export function BlogPostPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${post.title} | Din LCA Hjælper`}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={post.description} />
         <link
           rel="canonical"
           href={`https://dinlcahjælper.dk/blog/${post.slug}`}
         />
-        <meta property="og:title" content={`${post.title} | Din LCA Hjælper`} />
+        <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={post.description} />
         <meta
           property="og:url"

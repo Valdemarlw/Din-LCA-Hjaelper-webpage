@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { pageTransition } from "../lib/animations";
 import { BR18Checker } from "../components/tools/BR18Checker";
+import { BR18_CHECKER_SEO_TITLE } from "../lib/seoTitles";
 
 const SITE = "https://dinlcahjælper.dk";
 const PATH = "/vaerktoejer/br18-tjekker";
@@ -101,13 +102,13 @@ export function BR18CheckerPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>BR18 LCA-tjekker, skal dit projekt have en LCA-beregning? | Din LCA Hjælper</title>
+        <title>{BR18_CHECKER_SEO_TITLE}</title>
         <meta
           name="description"
           content="Gratis værktøj: find ud af, om dit byggeprojekt skal have en LCA-beregning efter BR18, hvilken grænseværdi der gælder, og hvad en beregning koster. Svar på sekunder."
         />
         <link rel="canonical" href={SITE + PATH} />
-        <meta property="og:title" content="BR18 LCA-tjekker, skal dit projekt have en LCA-beregning?" />
+        <meta property="og:title" content={BR18_CHECKER_SEO_TITLE} />
         <meta
           property="og:description"
           content="Gratis værktøj: er en LCA-beregning lovpligtig for dit projekt? Se grænseværdi og vejledende pris på sekunder."

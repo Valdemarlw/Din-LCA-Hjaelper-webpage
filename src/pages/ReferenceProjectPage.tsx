@@ -6,6 +6,7 @@ import { getReferenceProject } from "../data/referenceProjects";
 import { Button } from "../components/ui/Button";
 import { RenderSection, FAQItem } from "../components/content/RenderSection";
 import { MapPin, CheckCircle } from "lucide-react";
+import { buildSeoTitle } from "../lib/seoTitles";
 
 export function ReferenceProjectPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -14,6 +15,8 @@ export function ReferenceProjectPage() {
   if (!project) {
     return <Navigate to="/referenceprojekter" replace />;
   }
+
+  const seoTitle = buildSeoTitle(project.metaTitle ?? project.title);
 
   const creativeWorkSchema = {
     "@context": "https://schema.org",
@@ -63,10 +66,10 @@ export function ReferenceProjectPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${project.title} | Din LCA Hjælper`}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={project.description} />
         <link rel="canonical" href={`https://dinlcahjælper.dk/referenceprojekter/${project.slug}`} />
-        <meta property="og:title" content={`${project.title} | Din LCA Hjælper`} />
+        <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={project.description} />
         <meta property="og:url" content={`https://dinlcahjælper.dk/referenceprojekter/${project.slug}`} />
         <meta property="og:type" content="article" />
