@@ -1,6 +1,7 @@
 export type BlogPost = {
   slug: string;
   title: string;
+  metaTitle?: string;
   description: string;
   date: string;
   readingTime: string;
@@ -26,6 +27,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lca-beregning-pris",
     title: "Hvad koster en LCA-beregning? Priser i 2026 og hvad der påvirker dem",
+    metaTitle: "Hvad koster en LCA-beregning? Pris 2026",
     description:
       "Hvad koster en LCA-beregning efter BR18? Vejledende priser for bolig, sommerhus og erhverv, hvad der driver prisen, og hvordan du får et fast tilbud inden 24 timer.",
     date: "2026-06-22",
@@ -188,6 +190,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "hvornaar-er-lca-lovpligtig",
     title: "Hvornår er en LCA-beregning lovpligtig? Bygningstyper og arealgrænser",
+    metaTitle: "Hvornår er en LCA-beregning lovpligtig?",
     description:
       "Skal dit byggeri have en LCA-beregning efter BR18? Se hvilke bygningstyper og arealgrænser der er omfattet, hvilke undtagelser der gælder, og hvad der sker, hvis beregningen mangler.",
     date: "2026-06-22",
@@ -342,6 +345,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lcabyg-hjaelp-outsource",
     title: "Sidder du fast i LCAbyg? Sådan får du beregningen igennem til tiden",
+    metaTitle: "Hjælp til LCAbyg, kom videre",
     description:
       "LCAbyg har en stejl læringskurve, og mængdeopgørelse, EPD-import og A4/A5 er typiske faldgruber. Læs hvornår du bør kæmpe videre, og hvornår det betaler sig at outsource LCA-beregningen.",
     date: "2026-06-22",
@@ -613,6 +617,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "klimakrav-2025",
     title: "Nye klimakrav 2025: Hvad betyder det for dit byggeri?",
+    metaTitle: "Klimakrav 2025 og grænseværdier",
     description:
       "Fra 1. juli 2025 gælder nye, skærpede klimakrav for nybyggeri i Danmark. Læs om de differentierede grænseværdier og hvad de betyder for dit projekt.",
     date: "2026-04-02",
@@ -886,6 +891,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lca-sommerhuse",
     title: "LCA-beregning for sommerhuse: udfordringer og løsninger",
+    metaTitle: "LCA-beregning for sommerhuse",
     description:
       "Sommerhuse har den strengeste CO₂-grænseværdi i BR18 på kun 4,0 kg CO₂e/m²/år. Læs om udfordringerne og hvordan du overholder kravet.",
     date: "2026-04-02",
