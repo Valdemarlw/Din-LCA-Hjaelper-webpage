@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail } from "lucide-react";
+import { ANALYTICS_SETTINGS_EVENT } from "../../lib/analytics";
 
 export function Footer() {
   return (
@@ -64,10 +65,22 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border flex items-center">
+        <div className="mt-10 pt-6 border-t border-border flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} Din LCA Hjælper. Alle rettigheder forbeholdes.
           </p>
+          <div className="flex items-center gap-4 text-xs text-muted">
+            <Link to="/privatliv" className="hover:text-primary transition-colors">
+              Privatliv og statistik
+            </Link>
+            <button
+              type="button"
+              className="hover:text-primary transition-colors"
+              onClick={() => window.dispatchEvent(new Event(ANALYTICS_SETTINGS_EVENT))}
+            >
+              Statistikindstillinger
+            </button>
+          </div>
         </div>
       </div>
     </footer>

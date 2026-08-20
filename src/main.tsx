@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { Analytics } from "@vercel/analytics/react";
 import "./index.css";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/HomePage";
@@ -21,6 +20,7 @@ import { GlossaryTermPage } from "./pages/GlossaryTermPage";
 import { ComparisonPage } from "./pages/ComparisonPage";
 import { BR18CheckerPage } from "./pages/BR18CheckerPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -31,6 +31,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/" element={<HomePage />} />
             <Route path="/om-os" element={<AboutPage />} />
             <Route path="/kontakt" element={<ContactPage />} />
+            <Route path="/privatliv" element={<PrivacyPage />} />
             <Route path="/viden" element={<VidenPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
@@ -47,7 +48,6 @@ createRoot(document.getElementById("root")!).render(
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-        <Analytics />
       </BrowserRouter>
     </HelmetProvider>
   </StrictMode>

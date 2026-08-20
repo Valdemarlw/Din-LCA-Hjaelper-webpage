@@ -20,6 +20,7 @@ export const STATIC_ROUTES = [
   "/",
   "/om-os",
   "/kontakt",
+  "/privatliv",
   "/viden",
   "/blog",
   "/lca-beregning",

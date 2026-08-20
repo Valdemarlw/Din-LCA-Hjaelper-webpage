@@ -2,6 +2,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { AnalyticsConsent } from "../analytics/AnalyticsConsent";
+import { AnalyticsController } from "../analytics/AnalyticsController";
 
 export function Layout() {
   const location = useLocation();
@@ -15,6 +17,8 @@ export function Layout() {
         </AnimatePresence>
       </main>
       <Footer />
+      <AnalyticsController />
+      <AnalyticsConsent />
     </div>
   );
 }
