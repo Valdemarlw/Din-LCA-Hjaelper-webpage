@@ -54,3 +54,8 @@ jobs:
 
       - name: Deploy prebuilt output to production
         run: vercel deploy --prebuilt --prod
+
+      - name: Notify search engines through IndexNow
+        continue-on-error: true
+        timeout-minutes: 1
+        run: npm run indexnow:submit
