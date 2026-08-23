@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   ANALYTICS_CONSENT_KEY,
+  analyticsTrafficProperties,
   readAnalyticsConsent,
   sanitizeAnalyticsProperties,
   sanitizeAnalyticsUrl,
@@ -40,8 +41,28 @@ describe("analytics properties", () => {
   it("keeps attribution parameters but removes arbitrary query data", () => {
     expect(
       sanitizeAnalyticsUrl(
-        "https://dinlcahjælper.dk/kontakt?utm_source=linkedin&utm_medium=profile&email=kunde@example.dk&token=hemmelig#formular"
+        "https://dinlcahjælper.dk/kontakt?utm_source=linkedin&utm_medium=profile&dlh_verification=1&email=kunde@example.dk&token=hemmelig#formular"
       )
     ).toBe("https://xn--dinlcahjlper-edb.dk/kontakt?utm_source=linkedin&utm_medium=profile");
+  });
+
+  it("marks explicit verification sessions and persists the marker for navigation", () => {
+    let storedValue: string | null = null;
+    const storage: Pick<Storage, "getItem" | "setItem"> = {
+      getItem() {
+        return storedValue;
+      },
+      setItem(_key, value) {
+        storedValue = value;
+      },
+    };
+
+    expect(analyticsTrafficProperties("", storage)).toEqual({});
+    expect(analyticsTrafficProperties("?dlh_verification=1", storage)).toEqual({
+      traffic_type: "verification",
+    });
+    expect(analyticsTrafficProperties("", storage)).toEqual({
+      traffic_type: "verification",
+    });
   });
 });

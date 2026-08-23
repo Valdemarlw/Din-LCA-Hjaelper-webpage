@@ -3,6 +3,8 @@ import type posthog from "posthog-js";
 export const ANALYTICS_CONSENT_KEY = "dlh_analytics_consent";
 export const ANALYTICS_CONSENT_EVENT = "dlh:analytics-consent";
 export const ANALYTICS_SETTINGS_EVENT = "dlh:analytics-settings";
+export const ANALYTICS_VERIFICATION_PARAMETER = "dlh_verification";
+export const ANALYTICS_TRAFFIC_TYPE_KEY = "dlh_analytics_traffic_type";
 
 const POSTHOG_PUBLIC_KEY = "phc_BAQKbzS6sCxTYUfRoZqp5aykwEySuVW9GGSHUaQVLL4X";
 const POSTHOG_API_HOST = "https://eu.i.posthog.com";
@@ -76,6 +78,21 @@ export function sanitizeAnalyticsUrl(rawUrl: string): string {
   }
 }
 
+export function analyticsTrafficProperties(
+  search: string = typeof window === "undefined" ? "" : window.location.search,
+  storage: Pick<Storage, "getItem" | "setItem"> | undefined =
+    typeof window === "undefined" ? undefined : window.sessionStorage
+): Record<string, "verification"> {
+  const explicitlyMarked =
+    new URLSearchParams(search).get(ANALYTICS_VERIFICATION_PARAMETER) === "1";
+  if (explicitlyMarked) {
+    storage?.setItem(ANALYTICS_TRAFFIC_TYPE_KEY, "verification");
+  }
+  return explicitlyMarked || storage?.getItem(ANALYTICS_TRAFFIC_TYPE_KEY) === "verification"
+    ? { traffic_type: "verification" }
+    : {};
+}
+
 function analyticsClient(): Promise<PostHogClient> | null {
   if (typeof window === "undefined" || readAnalyticsConsent() !== "granted") return null;
 
@@ -136,7 +153,10 @@ export function capturePageView(): void {
 
   lastPageView = { url, at: now };
   void analyticsClient()?.then((client) =>
-    client.capture("$pageview", { $current_url: window.location.href })
+    client.capture("$pageview", {
+      $current_url: window.location.href,
+      ...analyticsTrafficProperties(),
+    })
   );
 }
 
@@ -146,6 +166,9 @@ export function trackAnalyticsEvent(
 ): void {
   if (typeof window === "undefined" || readAnalyticsConsent() !== "granted") return;
   void analyticsClient()?.then((client) =>
-    client.capture(event, sanitizeAnalyticsProperties(properties))
+    client.capture(event, {
+      ...sanitizeAnalyticsProperties(properties),
+      ...analyticsTrafficProperties(),
+    })
   );
 }
