@@ -31,10 +31,10 @@ export function AnalyticsConsent() {
       aria-label="Indstillinger for anonym statistik"
       data-nosnippet
     >
-      <h2 className="text-lg font-semibold text-navy">Må vi måle, hvordan hjemmesiden bliver brugt?</h2>
+      <h2 className="text-lg font-semibold text-navy">Hjælp os med at gøre hjemmesiden bedre</h2>
       <p className="mt-2 text-sm leading-relaxed text-body">
-        Vi bruger PostHog til cookieløs statistik om sidevisninger og de vigtigste klik. Vi gemmer
-        ikke det, du skriver i formularen, og vi optager ikke din skærm. Du kan læse mere under{" "}
+        Må vi bruge anonym besøgsstatistik til at se, hvad der er nyttigt, og hvad vi kan gøre bedre?
+        Vi gemmer ikke det, du skriver i formularen, og optager ikke din skærm. Læs mere under{" "}
         <Link className="text-primary underline" to="/privatliv">
           privatliv og statistik
         </Link>
@@ -53,7 +53,7 @@ export function AnalyticsConsent() {
           className="rounded-[10px] bg-primary px-5 py-3 font-medium text-white transition-colors hover:bg-primary-hover"
           onClick={() => choose("granted")}
         >
-          Ja, brug besøgsstatistik
+          Ja tak
         </button>
       </div>
     </aside>
