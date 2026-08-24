@@ -33,8 +33,8 @@ export function AnalyticsConsent() {
     >
       <h2 className="text-lg font-semibold text-navy">Hjælp os med at gøre hjemmesiden bedre</h2>
       <p className="mt-2 text-sm leading-relaxed text-body">
-        Må vi bruge anonym besøgsstatistik til at se, hvad der er nyttigt, og hvad vi kan gøre bedre?
-        Vi gemmer ikke det, du skriver i formularen, og optager ikke din skærm. Læs mere under{" "}
+        Må vi bruge anonym besøgsstatistik til at forstå, hvordan hjemmesiden bliver brugt? Læs mere
+        under{" "}
         <Link className="text-primary underline" to="/privatliv">
           privatliv og statistik
         </Link>
