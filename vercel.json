@@ -12,6 +12,7 @@
     { "source": "/prof-kunde", "destination": "/lca-beregning", "permanent": true },
     { "source": "/privat-kunde", "destination": "/lca-beregning", "permanent": true },
     { "source": "/send-mail", "destination": "/kontakt", "permanent": true },
-    { "source": "/a4-a5", "destination": "/blog/a4-a5-dokumentation", "permanent": true }
+    { "source": "/a4-a5", "destination": "/blog/a4-a5-dokumentation", "permanent": true },
+    { "source": "/referenceprojekter/moerkdalvej-6", "destination": "/referenceprojekter", "permanent": true }
   ]
 }

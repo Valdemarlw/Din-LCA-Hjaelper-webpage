@@ -35,28 +35,30 @@ describe("documented website cases", () => {
     expect(project?.status).toContain("Under grænsen, tidlig fase");
   });
 
-  it("keeps Mørkdalvej on the historical 2026 QA vintage", () => {
-    const project = getReferenceProject("moerkdalvej-6");
-    const content = serializedProject("moerkdalvej-6");
+  it("does not publish the Mørkdalvej internal QA case anywhere", () => {
+    expect(getReferenceProject("moerkdalvej-6")).toBeUndefined();
 
-    for (const value of [
+    const root = join(__dirname, "..", "..");
+    const publicText = readTextFilesRecursively(join(root, "public"));
+    const sourceText = readTextFilesRecursively(join(root, "src"));
+    const liveText = `${publicText}\n${sourceText}`.toLocaleLowerCase("da-DK");
+
+    for (const forbidden of [
+      "mørkdalvej",
+      "moerkdalvej",
+      "qa rettede en for lav lca-beregning",
+      "historisk qa-vintage",
+      "qa-korrigeret",
       "5,8677",
       "5,9227",
       "0,0550",
-      "0,94 %",
-      "8,3328",
       "11,362923",
       "1,4762088",
       "919,555065",
       "572,24832",
-      "6,7",
     ]) {
-      expect(content).toContain(value);
+      expect(liveText).not.toContain(forbidden);
     }
-    expect(content).toContain("2026");
-    expect(content).not.toContain("5,9088");
-    expect(project?.metrics?.find((metric) => metric.label === "Efter QA")?.tone).toBe("neutral");
-    expect(project?.reduktion).toBeUndefined();
   });
 
   it("keeps Agavevej as an early hotspot case without a claimed final result", () => {

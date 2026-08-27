@@ -3,7 +3,7 @@ import { getReferenceProject } from "../data/referenceProjects";
 import { buildReferenceProjectSchemas } from "./referenceProjectSeo";
 
 describe("reference project structured data", () => {
-  it.each(["ternedalen-42", "moerkdalvej-6", "agavevej-4a"])(
+  it.each(["ternedalen-42", "agavevej-4a"])(
     "uses Article and BreadcrumbList without FAQ or HowTo for %s",
     (slug) => {
       const project = getReferenceProject(slug);
