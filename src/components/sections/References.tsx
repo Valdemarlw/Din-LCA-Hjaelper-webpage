@@ -16,13 +16,13 @@ const cases = [
       "En dokumenteret beregnings- og optimeringsrejse med rettelser, EPD'er og tydelige forbehold.",
   },
   {
-    slug: "moerkdalvej-6",
-    type: "Enfamiliehus",
-    location: "Silkeborg",
-    stat: "+0,94 %",
-    statLabel: "efter QA",
+    slug: "agavevej-4a",
+    type: "Tidlig LCA",
+    location: "Knebel",
+    stat: "72 %",
+    statLabel: "i tre hotspots",
     description:
-      "Kvalitetssikringen fandt manglende mængder og materialer. Det højere resultat var det mere retvisende.",
+      "Tag, terrændæk og fundament stod for 72 % af den tidlige beregning. Det viste, hvor arbejdet skulle begynde.",
   },
   {
     slug: "lagerhal-laesovej-randers",

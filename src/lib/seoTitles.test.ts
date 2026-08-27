@@ -27,7 +27,7 @@ describe("Bing title-length fixes", () => {
   });
 
   it("keeps the case titles within the search title limit", () => {
-    for (const slug of ["ternedalen-42", "moerkdalvej-6", "agavevej-4a"]) {
+    for (const slug of ["ternedalen-42", "agavevej-4a"]) {
       const project = getReferenceProject(slug);
       expect(project?.metaTitle).toBeTruthy();
       expect(buildSeoTitle(project!.metaTitle!).length).toBeLessThanOrEqual(
