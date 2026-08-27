@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
 import { referenceProjects } from "../data/referenceProjects";
-import { ArrowRight, MapPin, CheckCircle } from "lucide-react";
+import { ArrowRight, MapPin, CheckCircle, Info, AlertTriangle } from "lucide-react";
+
+const statusStyles = {
+  success: "bg-green-50 text-green-700",
+  info: "bg-blue-50 text-blue-700",
+  warning: "bg-amber-50 text-amber-800",
+};
 
 export function ReferenceProjectsPage() {
   const breadcrumbSchema = {
@@ -22,7 +28,7 @@ export function ReferenceProjectsPage() {
         <title>Referenceprojekter | Din LCA Hjælper</title>
         <meta
           name="description"
-          content="Se vores LCA-referenceprojekter: sommerhuse, lagerhaller og erhvervsbyggeri. Rigtige projekter med hotspot-analyser, EPD-optimering og dokumenterede resultater."
+          content="Se dokumenterede LCA-cases med beregningsforløb, kvalitetssikring og hotspotanalyser fra konkrete byggeprojekter."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/referenceprojekter" />
         <meta property="og:title" content="Referenceprojekter | Din LCA Hjælper" />
@@ -61,7 +67,7 @@ export function ReferenceProjectsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Rigtige byggeprojekter med dokumenterede LCA-resultater. Se hvordan vi arbejder med hotspot-analyser og EPD-optimering.
+            Se hvordan beregninger bliver kontrolleret, rettet og optimeret. Hver case viser både resultat, metode og de forbehold, der stadig gælder.
           </motion.p>
         </div>
       </section>
@@ -76,8 +82,15 @@ export function ReferenceProjectsPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            {referenceProjects.map((project) => (
-              <motion.div key={project.slug} variants={fadeUp}>
+            {referenceProjects.map((project) => {
+              const statusTone = project.statusTone ?? "success";
+              const StatusIcon = statusTone === "success" ? CheckCircle : statusTone === "warning" ? AlertTriangle : Info;
+              const cardMetrics = project.metrics?.slice(0, 3) ?? [
+                ...(project.foer ? [{ label: "Før", value: project.foer }] : []),
+                ...(project.resultat ? [{ label: "Resultat", value: project.resultat }] : []),
+                ...(project.graensevaerdi ? [{ label: "Grænse", value: project.graensevaerdi }] : []),
+              ];
+              return <motion.div key={project.slug} variants={fadeUp}>
                 <Link
                   to={`/referenceprojekter/${project.slug}`}
                   className="group block rounded-xl border border-border bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
@@ -86,8 +99,8 @@ export function ReferenceProjectsPage() {
                     <span className="inline-flex items-center rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-navy">
                       {project.type}
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-xs font-medium text-green-700">
-                      <CheckCircle size={12} />
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${statusStyles[statusTone]}`}>
+                      <StatusIcon size={12} />
                       {project.status}
                     </span>
                   </div>
@@ -103,24 +116,13 @@ export function ReferenceProjectsPage() {
                   </div>
 
                   {/* Result metrics */}
-                  <div className="mt-4 flex items-center gap-3">
-                    {project.foer && (
-                      <div className="text-center">
-                        <p className="text-xs text-muted">Før</p>
-                        <p className="text-lg font-bold text-red-500">{project.foer}</p>
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    {cardMetrics.map((metric) => (
+                      <div key={metric.label} className="text-center">
+                        <p className="text-xs text-muted">{metric.label}</p>
+                        <p className="text-base font-bold text-navy">{metric.value}</p>
                       </div>
-                    )}
-                    {project.foer && (
-                      <ArrowRight size={16} className="text-muted" />
-                    )}
-                    <div className="text-center">
-                      <p className="text-xs text-muted">Resultat</p>
-                      <p className="text-lg font-bold text-green-600">{project.resultat}</p>
-                    </div>
-                    <div className="text-center ml-auto">
-                      <p className="text-xs text-muted">Grænse</p>
-                      <p className="text-lg font-bold text-navy">{project.graensevaerdi}</p>
-                    </div>
+                    ))}
                   </div>
 
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
@@ -128,8 +130,8 @@ export function ReferenceProjectsPage() {
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
                   </span>
                 </Link>
-              </motion.div>
-            ))}
+              </motion.div>;
+            })}
           </motion.div>
         </div>
       </section>

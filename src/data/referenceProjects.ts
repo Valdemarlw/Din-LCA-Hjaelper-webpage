@@ -8,11 +8,25 @@ export type ReferenceProject = {
   type: string;
   location: string;
   etageareal?: string;
-  graensevaerdi: string;
-  resultat: string;
+  graensevaerdi?: string;
+  resultat?: string;
   foer?: string;
   reduktion?: string;
   status: string;
+  statusTone?: "success" | "info" | "warning";
+  metrics?: {
+    label: string;
+    value: string;
+    unit?: string;
+    tone?: "positive" | "negative" | "neutral" | "primary";
+  }[];
+  journey?: {
+    label: string;
+    value: string;
+    detail: string;
+  }[];
+  datePublished?: string;
+  dateModified?: string;
   highlights: string[];
   content: BlogSection[];
   faqs: FAQ[];
@@ -20,129 +34,390 @@ export type ReferenceProject = {
 };
 
 export const referenceProjects: ReferenceProject[] = [
-  // ─── Sommerhus i Knebel ───
+  // Ternedalen, sommerhus under 150 m²
   {
-    slug: "agavevej-4a",
-    title: "Sommerhus i Knebel: fra 47% over grænsen til godkendt",
-    metaTitle: "Sommerhus i Knebel, 40 % lavere CO₂",
+    slug: "ternedalen-42",
+    title: "Ternedalen: sommerhus-LCA fra 6,88 til 3,839",
+    metaTitle: "Sommerhus-LCA: 6,88 til 3,839",
     description:
-      "Et sommerhus under 150 m² startede med 5,87 kg CO₂e/m²/år, 47% over grænsen på 4,0. Med hotspot-analyse og produktspecifikke EPD'er landede resultatet på 3,538. En reduktion på 40% uden designændringer.",
+      "Se den dokumenterede sommerhus-LCA fra 6,88 til 3,839 kg CO₂e/m²/år: fire beregningstrin, hotspots, metode og forbehold før endelig A5.",
     type: "Sommerhus under 150 m²",
-    location: "Knebel, Djursland",
+    location: "Ternedalen",
+    etageareal: "94 m²",
     graensevaerdi: "4,0",
-    resultat: "3,538",
-    foer: "5,87",
-    reduktion: "40%",
-    status: "Bestået",
+    resultat: "3,839",
+    foer: "6,88",
+    reduktion: "44,2 %",
+    status: "Under grænsen, tidlig fase",
+    statusTone: "success",
+    metrics: [
+      { label: "Første QA", value: "6,88", unit: "kg CO₂e/m²/år", tone: "negative" },
+      { label: "Aktuelt resultat", value: "3,839", unit: "kg CO₂e/m²/år", tone: "positive" },
+      { label: "BR18-grænse", value: "4,0", unit: "kg CO₂e/m²/år", tone: "neutral" },
+      { label: "Samlet forskel", value: "44,2 %", tone: "primary" },
+    ],
+    journey: [
+      {
+        label: "Første QA",
+        value: "6,88",
+        detail: "Den første gennemgang viste, at projektet lå klart over grænsen.",
+      },
+      {
+        label: "Første optimeringsrunde",
+        value: "4,38",
+        detail: "Designvalg, produkter og levetider blev gennemgået og rettet til projektets faktiske løsninger.",
+      },
+      {
+        label: "Rettelser og EPD'er",
+        value: "3,9837",
+        detail: "Fundament, installationer og levetider blev korrigeret, og flere produkter fik projektspecifik dokumentation.",
+      },
+      {
+        label: "Aktuelt scenarie",
+        value: "3,839",
+        detail: "Det seneste scenarie bruger den valgte isolering og ligger 0,161 under grænsen.",
+      },
+    ],
+    datePublished: "2026-08-27",
+    dateModified: "2026-08-27",
     highlights: [
-      "Generiske værdier er konservative. Produktspecifikke EPD'er afspejler virkeligheden og kan sænke resultatet markant.",
-      "Hotspot-analysen er afgørende. Ved at fokusere på de 3 største bidragsydere fik vi størst effekt med mindst mulig ændring.",
-      "Sommerhuse kræver tidlig LCA. Med en grænse på 4,0 er der ikke meget plads til fejl.",
+      "Tallet faldt ikke på grund af ét materialeskift. Beregningsrettelser, EPD'er, levetider og dokumenterede valg flyttede resultatet samlet.",
+      "Den aktuelle rapport er afstemt med LUCA: 15 konstruktioner og 46 lag matcher mellem projekt og rapport.",
+      "Resultatet er fra den tidlige fase. A5 og den endelige as-built-opdatering skal stadig afsluttes.",
     ],
     relatedProjectType: "sommerhus",
     content: [
       {
         type: "heading2",
-        text: "Udfordringen",
+        text: "Kort svar",
       },
       {
         type: "paragraph",
-        text: "Arkitekten stod med et sommerhusprojekt i Knebel, der skulle overholde BR18's strengeste grænseværdi: 4,0 kg CO₂e/m²/år for ferieboliger under 150 m² opvarmet etageareal.",
-      },
-      {
-        type: "paragraph",
-        text: "Den første LCA-beregning viste 5,87, hele 47% over grænsen. Projektet kunne ikke godkendes uden ændringer.",
+        text: "Den tidlige LCA for sommerhuset startede på 6,88 kg CO₂e/m²/år. Efter gennemgang af beregningen, materialerne, levetiderne og dokumentationen stod det aktuelle scenarie på 3,839 mod BR18-grænsen på 4,0. Det svarer til en forskel på 3,041 eller 44,2 % fra den første QA.",
       },
       {
         type: "heading2",
-        text: "Hotspot-analyse",
+        text: "Fire dokumenterede trin",
+      },
+      {
+        type: "table",
+        headers: ["Trin", "Resultat", "Hvad der skete"],
+        rows: [
+          ["Første QA", "6,88", "Baseline blev kontrolleret mod projektmaterialet"],
+          ["Første optimeringsrunde", "4,38", "Designvalg, produkter og levetider blev gennemgået"],
+          ["Rettelser og EPD'er", "3,9837", "Modellen blev rettet, og produktdata blev dokumenteret"],
+          ["Aktuelt scenarie", "3,839", "Valgt isolering og korrigerede A4-kategorier"],
+        ],
       },
       {
         type: "paragraph",
-        text: "Vores hotspot-analyse identificerede tre bygningsdele, der tilsammen stod for 72% af det samlede CO₂-aftryk:",
+        text: "Det er en samlet beregnings- og optimeringsrejse. Hele forskellen kan derfor ikke tilskrives EPD'er eller materialeskift. En del kom fra rettelser i beregningsgrundlaget og fra antagelser, der blev gjort synlige og kontrollerbare.",
+      },
+      {
+        type: "paragraph",
+        text: "LCA-optimering af et sommerhus begynder derfor med at kontrollere beregningen. Først derefter giver det mening at sammenligne materialer og EPD'er.",
+      },
+      {
+        type: "heading2",
+        text: "Hotspots i det aktuelle scenarie",
+      },
+      {
+        type: "paragraph",
+        text: "Hotspotanalysen gør det tydeligt, hvor den resterende klimapåvirkning ligger. Terrændækket er stadig den største post, mens fundament, vinduer og tag følger efter.",
+      },
+      {
+        type: "table",
+        headers: ["Bygningsdel", "kg CO₂e/m²/år", "Andel"],
+        rows: [
+          ["Terrændæk", "0,911", "23,7 %"],
+          ["Fundament", "0,447", "11,6 %"],
+          ["Vinduer", "0,304", "7,9 %"],
+          ["Tag", "0,295", "7,7 %"],
+        ],
+      },
+      {
+        type: "heading2",
+        text: "Sådan blev beregningen bedre",
+      },
+      {
+        type: "list",
+        items: [
+          "Beregningsgrundlaget blev kontrolleret, så fundament, installationer og mindre lag ikke stod forkert eller manglede.",
+          "Produktspecifikke EPD'er blev brugt, hvor de passede til de valgte produkter og kunne erstatte generiske data.",
+          "Levetider og udskiftninger blev gennemgået, fordi B4 kan flytte resultatet mærkbart over den 50-årige betragtningsperiode.",
+          "Hotspotanalysen styrede indsatsen mod de poster, der faktisk fyldte i projektet.",
+        ],
+      },
+      {
+        type: "heading2",
+        text: "Evidens og forbehold",
+      },
+      {
+        type: "table",
+        headers: ["Kontrol", "Dokumenteret status"],
+        rows: [
+          ["Rapport mod LUCA", "15 af 15 konstruktioner og 46 af 46 lag matcher"],
+          ["Uafhængig kontrol", "Materialeresultatet afviger -0,36 %, og forskellen er forklaret"],
+          ["Projektfase", "Tidlig beregning. Endelig A5 og as-built-opdatering udestår"],
+          ["Vinduer", "Antagelsen om vinduesudskiftning mangler skriftlig bekræftelse"],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Casen viser, hvorfor en [tidlig LCA-beregning for sommerhuse](/lca-beregning/sommerhus) er nyttig: Der er tid til at rette modellen og undersøge materialerne, før projektet er låst. Se også forklaringen af [hotspotanalyse](/ordbog/hotspot-analyse) og QA-casen fra [Mørkdalvej](/referenceprojekter/moerkdalvej-6).",
+      },
+    ],
+    faqs: [
+      {
+        question: "Hvad var grænseværdien i Ternedalen-casen?",
+        answer:
+          "Sommerhuset er under 150 m², så hovedgrænsen var 4,0 kg CO₂e/m²/år. Det aktuelle scenarie står på 3,839, altså cirka 0,161 eller 4,0 % under grænsen.",
+      },
+      {
+        question: "Kom hele forbedringen fra produktspecifikke EPD'er?",
+        answer:
+          "Nej. EPD'er var en del af arbejdet, men beregningsrettelser, levetider, materialevalg og dokumenterede antagelser bidrog også. Derfor beskriver vi det som en beregnings- og optimeringsrejse.",
+      },
+      {
+        question: "Er beregningen endelig?",
+        answer:
+          "Nej. Resultatet er fra den tidlige fase. A5 og beregningen skal opdateres med de faktiske oplysninger fra byggeriet før den endelige aflevering.",
+      },
+    ],
+  },
+
+  // Mørkdalvej, historisk QA-vintage fra 22. august 2026
+  {
+    slug: "moerkdalvej-6",
+    title: "Mørkdalvej: QA rettede en for lav LCA-beregning",
+    metaTitle: "QA af LCA: fejl fundet og rettet",
+    description:
+      "Se hvordan kvalitetssikring hævede LCA-resultatet fra 5,8677 til 5,9227 ved at rette mængder, materialer og levetider. Fortsat under 6,7.",
+    type: "Enfamiliehus",
+    location: "Silkeborg",
+    etageareal: "140 m² referenceareal",
+    graensevaerdi: "6,7",
+    resultat: "5,9227",
+    foer: "5,8677",
+    reduktion: "+0,94 %",
+    status: "QA-korrigeret, 2026",
+    statusTone: "info",
+    metrics: [
+      { label: "Før QA", value: "5,8677", unit: "kg CO₂e/m²/år", tone: "neutral" },
+      { label: "Efter QA", value: "5,9227", unit: "kg CO₂e/m²/år", tone: "positive" },
+      { label: "Korrektion", value: "+0,0550", unit: "+0,94 %", tone: "primary" },
+      { label: "BR18-grænse", value: "6,7", unit: "kg CO₂e/m²/år", tone: "neutral" },
+    ],
+    journey: [
+      {
+        label: "Beregning før QA",
+        value: "5,8677",
+        detail: "Projektet så allerede ud til at holde grænsen.",
+      },
+      {
+        label: "Mængde- og materialekontrol",
+        value: "+0,0550",
+        detail: "Manglende beton, Leca, mørtel og lim blev lagt ind, og levetider blev rettet.",
+      },
+      {
+        label: "Korrigeret 2026-vintage",
+        value: "5,9227",
+        detail: "Det højere tal var bedre dokumenteret og lå fortsat under 6,7.",
+      },
+    ],
+    datePublished: "2026-08-27",
+    dateModified: "2026-08-27",
+    highlights: [
+      "En god QA kan hæve resultatet. Målet er et korrekt tal, ikke det lavest mulige tal.",
+      "Fundamentets betonmængde blev hævet 36,4 %, og flere manglende materialer blev tilføjet.",
+      "Casen bruger konsekvent den historiske QA-vintage fra 22. august 2026.",
+    ],
+    relatedProjectType: "enfamiliehus",
+    content: [
+      {
+        type: "heading2",
+        text: "Kort svar",
+      },
+      {
+        type: "paragraph",
+        text: "Beregningen lå på 5,8677 kg CO₂e/m²/år før QA. Efter kontrol af mængder, materialer og levetider steg den til 5,9227. Forskellen var 0,0550 eller 0,94 %, og projektet lå stadig under BR18-grænsen på 6,7.",
+      },
+      {
+        type: "heading2",
+        text: "Hvorfor resultatet steg",
+      },
+      {
+        type: "paragraph",
+        text: "Det første tal så fint ud, men dokumentationen var ikke komplet. QA'en fandt konkrete poster, som manglede eller var sat for lavt. Da de blev rettet, steg resultatet en smule.",
+      },
+      {
+        type: "paragraph",
+        text: "Kontrol af en LCA-beregning handler netop om at finde den slags fejl, før rapporten afleveres. I denne beregning for et enfamiliehus var fejlene små i det samlede resultat, men konkrete i mængdegrundlaget.",
+      },
+      {
+        type: "table",
+        headers: ["QA-rettelse", "Før", "Efter"],
+        rows: [
+          ["Beton i fundament", "8,3328 m³", "11,362923 m³"],
+          ["Beton pr. løbende meter", "0,1287 m³", "0,1755 m³"],
+          ["Leca inderskal", "Manglede", "1,4762088 m³"],
+          ["Blokmørtel", "Manglede", "919,555065 kg"],
+          ["H+H-lim", "Manglede", "572,24832 kg"],
+          ["Levetider", "Flere forkerte værdier", "Rettet efter dokumenteret grundlag"],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Fundamentets betonmængde steg 36,4 %. Det er den største enkeltstående mængderettelse, men de mindre materialer tæller også, når hele bygningen skal dokumenteres.",
+      },
+      {
+        type: "heading2",
+        text: "Hotspots efter QA",
+      },
+      {
+        type: "paragraph",
+        text: "Den korrigerede hotspotanalyse viste, at terrændæk, ydervæg og fundament tilsammen stod for 41,2 % af resultatet. Det gav et bedre grundlag for den videre projektering.",
+      },
+      {
+        type: "table",
+        headers: ["Bygningsdel", "kg CO₂e/m²/år", "Andel"],
+        rows: [
+          ["Terrændæk", "1,045", "17,6 %"],
+          ["Ydervæg", "0,709", "12,0 %"],
+          ["Fundament", "0,686", "11,6 %"],
+          ["Installationer", "0,566", "9,6 %"],
+        ],
+      },
+      {
+        type: "heading2",
+        text: "Hvorfor et højere tal kan være et bedre resultat",
+      },
+      {
+        type: "paragraph",
+        text: "En LCA skal kunne forklares og afleveres, også når nogen spørger til mængderne. Et lavt tal er ikke en gevinst, hvis beton, mørtel eller andre materialer mangler. Her gjorde QA'en beregningen mere retvisende, samtidig med at projektet beholdt en margin til grænsen.",
+      },
+      {
+        type: "heading2",
+        text: "Valgt beregningsvintage",
+      },
+      {
+        type: "paragraph",
+        text: "Casen bruger rapporten og QA-sporet fra 22. august 2026: 5,8677 før QA og 5,9227 efter korrektion. Et senere LUCA-scenarie med startår 2027 indgår ikke i før/efter-sammenligningen.",
+      },
+      {
+        type: "paragraph",
+        text: "Læs mere om [LCA-beregning for enfamiliehuse](/lca-beregning/enfamiliehus), vores metode til [hotspotanalyse](/ordbog/hotspot-analyse) eller sommerhusets beregningsrejse på [Ternedalen](/referenceprojekter/ternedalen-42).",
+      },
+    ],
+    faqs: [
+      {
+        question: "Hvorfor steg LCA-resultatet efter kvalitetssikring?",
+        answer:
+          "QA'en fandt manglende materialer og en for lav betonmængde i fundamentet. Da beregningen blev komplet, steg resultatet 0,0550 kg CO₂e/m²/år.",
+      },
+      {
+        question: "Var projektet stadig under grænsen efter rettelserne?",
+        answer:
+          "Ja. Det korrigerede 2026-resultat var 5,9227 mod grænsen på 6,7 kg CO₂e/m²/år.",
+      },
+      {
+        question: "Hvad kontrollerer I i en LCA-beregning?",
+        answer:
+          "Vi kontrollerer blandt andet konstruktionernes mængder, manglende materialelag, produktdata, levetider og om rapportens resultater kan spores tilbage til beregningsgrundlaget.",
+      },
+    ],
+  },
+
+  // Agavevej, tidlig LCA og hotspotanalyse uden dokumenteret slutresultat
+  {
+    slug: "agavevej-4a",
+    title: "Agavevej: tidlig LCA viste tre klare hotspots",
+    metaTitle: "Tidlig LCA og hotspots på Agavevej",
+    description:
+      "Se den tidlige LCA på 5,87 kg CO₂e/m²/år og hotspotanalysen, hvor tag, terrændæk og fundament stod for 72 %. Siden viser ikke et udokumenteret slutresultat.",
+    type: "Tidlig LCA og hotspotanalyse",
+    location: "Knebel, Djursland",
+    resultat: "5,87",
+    status: "Tidlig analyse",
+    statusTone: "info",
+    metrics: [
+      { label: "Tidlig beregning", value: "5,87", unit: "kg CO₂e/m²/år", tone: "neutral" },
+      { label: "Største hotspot", value: "43 %", unit: "tag", tone: "primary" },
+      { label: "Tre hotspots", value: "72 %", unit: "af den tidlige beregning", tone: "primary" },
+    ],
+    dateModified: "2026-08-27",
+    highlights: [
+      "Hotspotanalysen viste præcist, hvilke bygningsdele der fyldte mest i den tidlige beregning.",
+      "Taget stod for 43 %, mens terrændæk og fundament bidrog med yderligere 29 %.",
+      "Casen dokumenterer en tidlig beregning og en prioritering, ikke et slutresultat.",
+    ],
+    relatedProjectType: "",
+    content: [
+      {
+        type: "heading2",
+        text: "Kort svar",
+      },
+      {
+        type: "paragraph",
+        text: "Den tidlige beregning stod på 5,87 kg CO₂e/m²/år. Formålet med analysen var at finde de bygningsdele, der trak mest, så den videre dokumentation og projektering kunne starte det rigtige sted.",
+      },
+      {
+        type: "heading2",
+        text: "Tre bygningsdele stod for 72 %",
+      },
+      {
+        type: "paragraph",
+        text: "Tag, terrændæk og fundament fyldte mest i den tidlige beregning. Fordelingen gjorde det muligt at prioritere dokumentation og mulige ændringer frem for at gennemgå alle materialer med samme vægt.",
       },
       {
         type: "table",
         headers: ["Bygningsdel", "CO₂-ækv./m²/år", "Andel af total"],
         rows: [
-          ["Tagkonstruktion (tagpap)", "2,52", "43%"],
-          ["Terrændæk (EPS + beton)", "1,10", "19%"],
-          ["Fundamenter (beton + letklinker)", "0,59", "10%"],
+          ["Tagkonstruktion", "2,52", "43 %"],
+          ["Terrændæk", "1,10", "19 %"],
+          ["Fundament", "0,59", "10 %"],
         ],
       },
       {
         type: "paragraph",
-        text: "Taget var den klare synder. Tagpappen, overpap og underpap i bitumen, stod alene for 43% af det samlede CO₂-regnskab. Med udskiftning over 50 år (modul B4) fordoblede bidraget sig næsten.",
+        text: "Taget stod alene for 2,52 kg CO₂e/m²/år. Det gjorde tagets materialer og udskiftninger til det første sted, der skulle undersøges nærmere.",
       },
       {
         type: "heading2",
-        text: "En strukturel udfordring",
-      },
-      {
-        type: "paragraph",
-        text: "Projektet havde en overdækning (carport/terrasseoverdækning), der gav en ekstra udfordring: ifølge BR18 tæller overdækninger kun med 25% af arealet i referenceberegningen, men materialerne tæller 100%.",
-      },
-      {
-        type: "paragraph",
-        text: "Det betyder, at der reelt var \"mere bygning\" end referencearealet afspejlede, og CO₂-budgettet blev tilsvarende strammere.",
-      },
-      {
-        type: "heading2",
-        text: "Løsningen",
-      },
-      {
-        type: "paragraph",
-        text: "I stedet for at redesigne projektet fokuserede vi på at erstatte generiske beregningsværdier med produktspecifikke EPD'er fra de faktiske producenter:",
+        text: "Hvad analysen kunne bruges til",
       },
       {
         type: "list",
         items: [
-          "Tagpap: Vi fandt en producent med en markant lavere EPD-værdi end den generiske Tabel 7-værdi. Den generiske værdi på 5,69 kg CO₂/m² blev erstattet med producentens dokumenterede tal.",
-          "Genbrugsmaterialer: Der blev tilføjet genbrugsmaterialer i projektet, som bidrog med lavere CO₂-aftryk end konventionelle alternativer.",
-          "Terrændæk: Skift fra hvid EPS til grå EPS med produktspecifik EPD gav yderligere besparelser.",
-          "Beton og fundamenter: Produktspecifikke EPD'er fra betonleverandøren erstattede de konservative generiske værdier.",
+          "Undersøg tagets produktdata og levetider først, fordi taget stod for 43 %.",
+          "Afklar beton og isolering i terrændæk og fundament, som tilsammen stod for 29 %.",
+          "Brug produktspecifikke EPD'er, når de matcher de produkter, projektet faktisk anvender.",
+          "Genberegn efter dokumenterede ændringer i stedet for at fremskrive et forventet slutresultat.",
         ],
       },
       {
         type: "heading2",
-        text: "Resultatet",
-      },
-      {
-        type: "table",
-        headers: ["", "Før", "Efter"],
-        rows: [
-          ["Samlet CO₂", "5,87 kg CO₂e/m²/år", "3,538 kg CO₂e/m²/år"],
-          ["Afstand til grænse", "+47% over", "Under grænsen"],
-          ["Status", "Ikke godkendt", "Bestået"],
-        ],
+        text: "Hvad casen ikke dokumenterer",
       },
       {
         type: "paragraph",
-        text: "En reduktion på 40%, uden at ændre projektets design eller konstruktion. Forskellen lå udelukkende i at dokumentere de faktiske materialer med produktspecifikke EPD'er og optimere de største hotspots.",
+        text: "De tilgængelige projektfiler dokumenterer ikke et senere slutresultat. Bygningstypen og den tilhørende grænseværdi er heller ikke afklaret entydigt i kilderne. Derfor viser siden den tidlige beregning og hotspotanalysen, ikke et dokumenteret slutresultat eller en overholdelsesstatus.",
       },
       {
-        type: "heading2",
-        text: "Hvad projektet viser",
-      },
-      {
-        type: "list",
-        items: [
-          "Generiske værdier er konservative. Tabel 7-værdierne har sikkerhedsmarginer indlagt. Produktspecifikke EPD'er afspejler virkeligheden og kan sænke resultatet markant.",
-          "Hotspot-analysen er afgørende. Ved at fokusere indsatsen på de 3 største bidragsydere (tag, terrændæk, fundament) fik vi størst effekt med mindst mulig ændring.",
-          "Sommerhuse kræver tidlig LCA. Med en grænse på 4,0 er der ikke meget plads til fejl. Jo tidligere beregningen laves, jo flere muligheder er der for at justere.",
-        ],
+        type: "paragraph",
+        text: "Læs hvordan en [hotspotanalyse](/ordbog/hotspot-analyse) bruges i praksis, eller se den fulde dokumenterede beregningsrejse fra [Ternedalen](/referenceprojekter/ternedalen-42).",
       },
     ],
     faqs: [
       {
-        question: "Hvad kostede LCA-optimeringen for dette sommerhus?",
+        question: "Hvad viser Agavevej-casen?",
         answer:
-          "En komplet beregning for et typisk enfamiliehus eller sommerhus koster 5.000-7.000 kr ekskl. moms. A4/A5-beregning og dokumentation er inkluderet. Optimering med produktspecifikke EPD'er er en del af vores standardydelse.",
+          "Den viser en tidlig LCA-beregning på 5,87 kg CO₂e/m²/år og en hotspotfordeling, hvor tag, terrændæk og fundament stod for 72 % tilsammen.",
       },
       {
-        question: "Kan alle sommerhuse optimeres så meget?",
+        question: "Hvorfor viser siden ikke en grænseværdi eller et slutresultat?",
         answer:
-          "Potentialet afhænger af, hvor langt den generiske beregning er fra grænsen, og hvilke materialer der bruges. I dette projekt var der stor forskel mellem generiske og produktspecifikke værdier for tagpappen. Andre projekter kan have mindre potentiale, men en hotspot-analyse viser altid, hvor mulighederne ligger.",
+          "De gennemgåede kilder er ikke entydige om bygningstypen, og de dokumenterer ikke et senere slutresultat. Vi viser derfor kun den beregning og analyse, som kan spores direkte til projektmaterialet.",
       },
     ],
   },

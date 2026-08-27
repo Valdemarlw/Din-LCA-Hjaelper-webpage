@@ -111,6 +111,8 @@ Komplet FAQ: [https://dinlcahjælper.dk/faq](https://dinlcahjælper.dk/faq)
 
 ## Referenceprojekter
 
-- [Sommerhus i Knebel](https://dinlcahjælper.dk/referenceprojekter/agavevej-4a): Fra 5,87 til 3,538 kg CO₂e/m²/år, 40% reduktion med produktspecifikke EPD'er. Grænse 4,0.
+- [Ternedalen](https://dinlcahjælper.dk/referenceprojekter/ternedalen-42): Sommerhus på 94 m². Samlet beregnings- og optimeringsrejse fra 6,88 via 4,38 og 3,9837 til 3,839 kg CO₂e/m²/år. Aktuelt 0,161 under grænsen på 4,0. Tidlig fase, hvor A5 og as-built-opdateringen udestår.
+- [Mørkdalvej](https://dinlcahjælper.dk/referenceprojekter/moerkdalvej-6): Historisk QA-vintage fra 2026. Resultatet steg fra 5,8677 til 5,9227, da manglende mængder og materialer blev rettet. Fortsat under grænsen på 6,7.
+- [Agavevej](https://dinlcahjælper.dk/referenceprojekter/agavevej-4a): Tidlig beregning på 5,87. Tag, terrændæk og fundament stod tilsammen for 72 %. Casen dokumenterer hotspotanalysen, ikke et slutresultat eller en overholdelsesstatus.
 - [Kold lagerhal i Randers](https://dinlcahjælper.dk/referenceprojekter/lagerhal-laesovej-randers): 600 m² uopvarmet lagerhal. Resultat 6,307 vs. grænse 7,5, 16% margin.
 - [Lagerhal og kontor i Esbjerg](https://dinlcahjælper.dk/referenceprojekter/he-bluhmesvej-67): To erhvervsbygninger (1.296 + 1.299 m²). Bestod begge med EPD-dokumentation under tidspres.

@@ -6,7 +6,7 @@ import { blogPosts } from "../data/blogPosts";
 import { glossaryTerms } from "../data/glossary";
 import { projectTypes } from "../data/projectTypes";
 import { referenceProjects } from "../data/referenceProjects";
-import { ArrowRight, Clock, Calendar, MapPin, CheckCircle } from "lucide-react";
+import { ArrowRight, Clock, Calendar, MapPin, CheckCircle, Info } from "lucide-react";
 
 export function VidenPage() {
   const recentPosts = blogPosts.slice(0, 3);
@@ -330,8 +330,8 @@ export function VidenPage() {
                       <span className="inline-flex items-center rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-navy">
                         {project.type}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-xs font-medium text-green-700">
-                        <CheckCircle size={12} />
+                      <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${project.statusTone === "info" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}`}>
+                        {project.statusTone === "info" ? <Info size={12} /> : <CheckCircle size={12} />}
                         {project.status}
                       </span>
                     </div>
@@ -342,8 +342,13 @@ export function VidenPage() {
                       <MapPin size={14} />
                       {project.location}
                     </div>
-                    <div className="mt-3 text-sm text-muted">
-                      Resultat: <span className="font-semibold text-green-600">{project.resultat}</span> vs. grænse {project.graensevaerdi}
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
+                      {(project.metrics?.slice(0, 2) ?? []).map((metric) => (
+                        <span key={metric.label}>{metric.label}: <span className="font-semibold text-navy">{metric.value}</span></span>
+                      ))}
+                      {!project.metrics && project.resultat && (
+                        <span>Resultat: <span className="font-semibold text-green-600">{project.resultat}</span>{project.graensevaerdi && ` vs. grænse ${project.graensevaerdi}`}</span>
+                      )}
                     </div>
                     <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                       Læs hele casen

@@ -6,7 +6,7 @@ import { getProjectType, type ProjectType } from "../data/projectTypes";
 import { referenceProjects } from "../data/referenceProjects";
 import { Button } from "../components/ui/Button";
 import { RenderSection, FAQItem } from "../components/content/RenderSection";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Info } from "lucide-react";
 
 function buildSchema(pt: ProjectType) {
   const serviceSchema = {
@@ -140,8 +140,8 @@ export function ProjectTypePage() {
                       <div className="flex items-start justify-between gap-4">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2 mb-2">
-                            <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">
-                              <CheckCircle size={12} />
+                            <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${rp.statusTone === "info" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}`}>
+                              {rp.statusTone === "info" ? <Info size={12} /> : <CheckCircle size={12} />}
                               {rp.status}
                             </span>
                             <span className="text-sm text-muted">{rp.location}</span>
@@ -152,10 +152,13 @@ export function ProjectTypePage() {
                           <p className="mt-1 text-sm text-body line-clamp-2">
                             {rp.description}
                           </p>
-                          <div className="mt-3 flex items-center gap-4 text-sm">
-                            <span className="text-muted">
-                              Resultat: <span className="font-semibold text-green-600">{rp.resultat}</span> vs. grænse {rp.graensevaerdi}
-                            </span>
+                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
+                            {(rp.metrics?.slice(0, 2) ?? []).map((metric) => (
+                              <span key={metric.label}>{metric.label}: <span className="font-semibold text-navy">{metric.value}</span></span>
+                            ))}
+                            {!rp.metrics && rp.resultat && (
+                              <span>Resultat: <span className="font-semibold text-green-600">{rp.resultat}</span>{rp.graensevaerdi && ` vs. grænse ${rp.graensevaerdi}`}</span>
+                            )}
                           </div>
                         </div>
                         <ArrowRight size={20} className="shrink-0 text-muted mt-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />

@@ -977,7 +977,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Tallene varierer fra projekt til projekt, men mønsteret er klart: Fundamentet og de bærende konstruktioner står for størstedelen. Det er her optimeringen skal fokuseres. I vores [referenceprojekt fra Knebel](/referenceprojekter/agavevej-4a) stod tagkonstruktionen alene for 43% af CO₂-aftrykket, og med [produktspecifikke EPD'er](/ordbog/produktspecifikke-data) blev det samlede resultat reduceret med 40%.",
+        text: "Tallene varierer fra projekt til projekt, og derfor skal projektets egne hotspots styre prioriteringen. I den tidlige [Agavevej-analyse](/referenceprojekter/agavevej-4a) stod taget for 43 %, mens tag, terrændæk og fundament tilsammen stod for 72 %. Analysen dokumenterer prioriteringen, ikke et senere slutresultat.",
       },
       {
         type: "heading2",

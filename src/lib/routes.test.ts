@@ -42,6 +42,11 @@ describe("ALL_ROUTES", () => {
     expect(ALL_ROUTES.length).toBe(new Set(ALL_ROUTES).size);
   });
 
+  it("includes the Ternedalen and Mørkdalvej case routes", () => {
+    expect(ALL_ROUTES).toContain("/referenceprojekter/ternedalen-42");
+    expect(ALL_ROUTES).toContain("/referenceprojekter/moerkdalvej-6");
+  });
+
   it("uses root-relative paths without trailing slashes", () => {
     const malformed = ALL_ROUTES.filter((r) => r !== "/" && (!r.startsWith("/") || r.endsWith("/")));
     expect(malformed).toEqual([]);

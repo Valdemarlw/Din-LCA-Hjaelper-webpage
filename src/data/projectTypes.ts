@@ -210,7 +210,7 @@ export const projectTypes: ProjectType[] = [
       },
       {
         type: "paragraph",
-        text: "Tallene varierer fra projekt til projekt, men mønsteret er tydeligt: fundamentet og de bærende konstruktioner står for størstedelen. Optimeringen skal fokuseres her. Se vores [referenceprojekt for et sommerhus i Knebel](/referenceprojekter/agavevej-4a), hvor vi reducerede CO₂-aftrykket med 40% via produktspecifikke EPD'er. Se den [komplette oversigt over grænseværdier](/blog/graensevaerdier-co2) for alle bygningstyper.",
+        text: "Tallene varierer fra projekt til projekt, så hotspotanalysen skal styre, hvor indsatsen begynder. I [Ternedalen-casen](/referenceprojekter/ternedalen-42) blev sommerhusets beregning gennemgået i fire dokumenterede trin fra 6,88 til 3,839 kg CO₂e/m²/år. Se den [komplette oversigt over grænseværdier](/blog/graensevaerdier-co2) for alle bygningstyper.",
       },
     ],
     faqs: [

@@ -26,12 +26,14 @@ describe("Bing title-length fixes", () => {
     }
   });
 
-  it("keeps the flagged reference-project title within the limit", () => {
-    const project = getReferenceProject("agavevej-4a");
-    expect(project?.metaTitle).toBeTruthy();
-    expect(buildSeoTitle(project!.metaTitle!).length).toBeLessThanOrEqual(
-      MAX_SEO_TITLE_LENGTH,
-    );
+  it("keeps the case titles within the search title limit", () => {
+    for (const slug of ["ternedalen-42", "moerkdalvej-6", "agavevej-4a"]) {
+      const project = getReferenceProject(slug);
+      expect(project?.metaTitle).toBeTruthy();
+      expect(buildSeoTitle(project!.metaTitle!).length).toBeLessThanOrEqual(
+        MAX_SEO_TITLE_LENGTH,
+      );
+    }
   });
 
   it("keeps the BR18 checker title within the limit", () => {

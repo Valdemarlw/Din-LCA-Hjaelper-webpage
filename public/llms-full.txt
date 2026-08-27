@@ -190,8 +190,14 @@ Grænseværdi: 7,5 kg CO₂e/m²/år for kontorer, handel, lager og lignende. A4
 
 ## Referenceprojekter
 
-### Sommerhus i Knebel: fra 47% over grænsen til godkendt
-Bygningstype: Sommerhus under 150 m². Grænseværdi: 4,0 kg CO₂e/m²/år. Første beregning: 5,87. Endeligt resultat: 3,538. Reduktion: 40%. Status: Bestået. Hotspot-analyse viste, at tagpap (43%), terrændæk (19%) og fundamenter (10%) stod for 72% af CO₂-aftrykket. Løsningen: produktspecifikke EPD'er fra faktiske producenter erstattede generiske Tabel 7-værdier, uden designændringer.
+### Ternedalen: sommerhus-LCA fra 6,88 til 3,839
+Sommerhus på 94 m² med en grænse på 4,0 kg CO₂e/m²/år. Den samlede beregnings- og optimeringsrejse gik fra 6,88 via 4,38 og 3,9837 til 3,839. Forskellen var 44,2 %. EPD'er og materialevalg bidrog, men det gjorde beregningsrettelser, levetider og dokumenterede antagelser også. Det aktuelle resultat ligger 0,161 eller cirka 4,0 % under grænsen. Beregningen er fra den tidlige fase, så A5 og as-built-opdateringen udestår. Antagelsen om vinduesudskiftning mangler skriftlig bekræftelse.
+
+### Mørkdalvej: kvalitetssikring rettede en for lav beregning
+Historisk QA-vintage fra 22. august 2026. Resultatet steg fra 5,8677 til 5,9227 kg CO₂e/m²/år, en korrektion på 0,0550 eller 0,94 %. QA'en fandt blandt andet en for lav betonmængde i fundamentet samt manglende Leca, blokmørtel og H+H-lim. Det højere resultat var mere retvisende og lå fortsat under grænsen på 6,7. Et senere LUCA-scenarie med startår 2027 indgår ikke i sammenligningen.
+
+### Agavevej: tidlig LCA og hotspotanalyse
+Den tidlige beregning stod på 5,87 kg CO₂e/m²/år. Taget bidrog med 2,52 eller 43 %, terrændækket med 1,10 eller 19 %, og fundamentet med 0,59 eller 10 %. De tre bygningsdele stod dermed for 72 % tilsammen. Casen dokumenterer den tidlige beregning og prioriteringen, ikke et senere slutresultat, en bestemt bygningstype eller en overholdelsesstatus.
 
 ### Kold lagerhal i Randers: stål og beton under kontrol
 Bygningstype: Lagerhal (uopvarmet). Etageareal: 600 m². Grænseværdi: 7,5 kg CO₂e/m²/år. Resultat: 6,307. Margin: 16% under. Status: Bestået. Stålsøjler og -bjælker stod for 30% af aftrykket. Terrændæk (22%) og fundamenter (20%) bidrog med yderligere 42%. Tidlig beregning gav bygherren et klart beslutningsgrundlag inden bestilling af stålspær.
