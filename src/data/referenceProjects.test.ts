@@ -22,6 +22,7 @@ function readTextFilesRecursively(directory: string): string {
 
 describe("documented website cases", () => {
   it("publishes the complete Ternedalen calculation journey and caveats", () => {
+    const project = getReferenceProject("ternedalen-42");
     const content = serializedProject("ternedalen-42");
 
     for (const value of ["6,88", "4,38", "3,9837", "3,839", "4,0", "0,161"]) {
@@ -30,9 +31,12 @@ describe("documented website cases", () => {
     expect(content).toContain("beregnings- og optimeringsrejse");
     expect(content).toContain("A5");
     expect(content).toContain("vinduesudskiftning");
+    expect(project?.statusTone).toBe("info");
+    expect(project?.status).toContain("Under grænsen, tidlig fase");
   });
 
   it("keeps Mørkdalvej on the historical 2026 QA vintage", () => {
+    const project = getReferenceProject("moerkdalvej-6");
     const content = serializedProject("moerkdalvej-6");
 
     for (const value of [
@@ -51,6 +55,8 @@ describe("documented website cases", () => {
     }
     expect(content).toContain("2026");
     expect(content).not.toContain("5,9088");
+    expect(project?.metrics?.find((metric) => metric.label === "Efter QA")?.tone).toBe("neutral");
+    expect(project?.reduktion).toBeUndefined();
   });
 
   it("keeps Agavevej as an early hotspot case without a claimed final result", () => {

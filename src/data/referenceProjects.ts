@@ -49,7 +49,7 @@ export const referenceProjects: ReferenceProject[] = [
     foer: "6,88",
     reduktion: "44,2 %",
     status: "Under grænsen, tidlig fase",
-    statusTone: "success",
+    statusTone: "info",
     metrics: [
       { label: "Første QA", value: "6,88", unit: "kg CO₂e/m²/år", tone: "negative" },
       { label: "Aktuelt resultat", value: "3,839", unit: "kg CO₂e/m²/år", tone: "positive" },
@@ -199,12 +199,11 @@ export const referenceProjects: ReferenceProject[] = [
     graensevaerdi: "6,7",
     resultat: "5,9227",
     foer: "5,8677",
-    reduktion: "+0,94 %",
     status: "QA-korrigeret, 2026",
     statusTone: "info",
     metrics: [
       { label: "Før QA", value: "5,8677", unit: "kg CO₂e/m²/år", tone: "neutral" },
-      { label: "Efter QA", value: "5,9227", unit: "kg CO₂e/m²/år", tone: "positive" },
+      { label: "Efter QA", value: "5,9227", unit: "kg CO₂e/m²/år", tone: "neutral" },
       { label: "Korrektion", value: "+0,0550", unit: "+0,94 %", tone: "primary" },
       { label: "BR18-grænse", value: "6,7", unit: "kg CO₂e/m²/år", tone: "neutral" },
     ],
