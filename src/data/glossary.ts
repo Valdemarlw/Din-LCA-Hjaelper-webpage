@@ -41,7 +41,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Det betyder, at skiftet fra generiske data til EPD-dokumenterede produkter kan give en markant forbedring af bygningens klimaregnskab, uden at ændre selve materialevalgene. Se vores case fra [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor EPD'er reducerede resultatet med 40%.",
+        text: "Det betyder, at skiftet fra generiske data til EPD-dokumenterede produkter kan forbedre bygningens klimaregnskab, når EPD'en matcher det produkt, der faktisk bruges. I [Ternedalen-casen](/referenceprojekter/ternedalen-42) indgik EPD'er sammen med beregningsrettelser, levetider og dokumenterede materialevalg i den samlede forbedring.",
       },
       {
         type: "heading2",
@@ -673,7 +673,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "Forskellen kan være betydelig. I vores [referenceprojekt fra Knebel](/referenceprojekter/agavevej-4a) gik resultatet fra 5,87 til 3,538 kg CO₂e/m²/år, en reduktion på 40%, alene ved at erstatte generiske data med produktspecifikke EPD'er for de mest klimatunge poster.",
+        text: "Forskellen kan være betydelig, men den skal dokumenteres på det konkrete projekt. I [Ternedalen-casen](/referenceprojekter/ternedalen-42) indgik produktspecifikke EPD'er som ét af flere dokumenterede trin i en beregningsrejse fra 6,88 til 3,839 kg CO₂e/m²/år.",
       },
     ],
     faqs: [

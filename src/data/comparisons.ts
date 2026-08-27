@@ -135,7 +135,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "paragraph",
-        text: "Vi er udelukkende specialiseret i LCA for byggeri. Det giver lavere overhead end de store rådgivende ingeniørfirmaer og en fast proces til præcis denne opgave. Hver beregning indeholder hotspot-analyse, materialeforslag baseret på produktspecifikke EPD'er, A4/A5-beregning og opdatering ved færdigmelding. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv), eller læs vores referenceprojekter, fx [sommerhuset i Knebel](/referenceprojekter/agavevej-4a), hvor produktspecifikke EPD'er trak resultatet ned med 40%.",
+        text: "Vi er udelukkende specialiseret i LCA for byggeri. Det giver lavere overhead end de store rådgivende ingeniørfirmaer og en fast proces til præcis denne opgave. Hver beregning indeholder hotspot-analyse, materialeforslag baseret på produktspecifikke EPD'er, A4/A5-beregning og opdatering ved færdigmelding. Se vores løsninger for [enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv), eller læs [Ternedalen-casen](/referenceprojekter/ternedalen-42), hvor beregningsrettelser, dokumentation og materialevalg samlet flyttede resultatet fra 6,88 til 3,839.",
       },
       {
         type: "heading2",

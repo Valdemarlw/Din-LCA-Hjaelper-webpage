@@ -7,31 +7,31 @@ import { Link } from "react-router-dom";
 
 const cases = [
   {
-    slug: "agavevej-4a",
+    slug: "ternedalen-42",
     type: "Sommerhus",
-    location: "Knebel",
-    stat: "40%",
-    statLabel: "CO₂-reduktion",
+    location: "Ternedalen",
+    stat: "6,88 → 3,839",
+    statLabel: "kg CO₂e/m²/år",
     description:
-      "Fra 47% over grænsen til godkendt, uden designændringer. Produktspecifikke EPD'er gjorde forskellen.",
+      "En dokumenteret beregnings- og optimeringsrejse med rettelser, EPD'er og tydelige forbehold.",
+  },
+  {
+    slug: "moerkdalvej-6",
+    type: "Enfamiliehus",
+    location: "Silkeborg",
+    stat: "+0,94 %",
+    statLabel: "efter QA",
+    description:
+      "Kvalitetssikringen fandt manglende mængder og materialer. Det højere resultat var det mere retvisende.",
   },
   {
     slug: "lagerhal-laesovej-randers",
     type: "Lagerhal",
     location: "Randers",
-    stat: "16%",
+    stat: "16 %",
     statLabel: "margin til grænsen",
     description:
-      "Stål og beton dominerede CO₂-regnskabet. Tidlig hotspot-analyse gav bygherren et klart beslutningsgrundlag.",
-  },
-  {
-    slug: "he-bluhmesvej-67",
-    type: "Lagerhal + kontor",
-    location: "Esbjerg",
-    stat: "2",
-    statLabel: "bygninger bestået",
-    description:
-      "LCA bestilt efter byggestart. EPD-dokumentation var det eneste redskab, og det var lige nok.",
+      "Stål og beton dominerede CO₂-regnskabet. Den tidlige analyse gav et klart beslutningsgrundlag.",
   },
 ];
 
