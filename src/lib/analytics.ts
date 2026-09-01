@@ -39,7 +39,8 @@ export type AnalyticsEvent =
   | "kontakt_formular_sendt"
   | "kontakt_formular_startet"
   | "kontakt_telefon_klik"
-  | "br18_tjekker_brugt";
+  | "br18_tjekker_brugt"
+  | "preferred_source_klik";
 
 type PostHogClient = typeof posthog;
 

@@ -7,6 +7,7 @@ import { glossaryTerms } from "../data/glossary";
 import { projectTypes } from "../data/projectTypes";
 import { referenceProjects } from "../data/referenceProjects";
 import { ArrowRight, Clock, Calendar, MapPin, CheckCircle, Info } from "lucide-react";
+import { PreferredSourcePrompt } from "../components/content/PreferredSourcePrompt";
 
 export function VidenPage() {
   const recentPosts = blogPosts.slice(0, 3);
@@ -413,6 +414,8 @@ export function VidenPage() {
           </motion.div>
         </div>
       </section>
+
+      <PreferredSourcePrompt />
     </motion.div>
   );
 }

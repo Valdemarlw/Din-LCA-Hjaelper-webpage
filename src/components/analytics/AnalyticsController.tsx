@@ -45,6 +45,8 @@ export function AnalyticsController() {
         trackAnalyticsEvent("kontakt_email_klik", common);
       } else if (new URL(anchor.href, window.location.href).pathname === "/kontakt") {
         trackAnalyticsEvent("kontakt_cta_klik", common);
+      } else if (anchor.dataset.analyticsEvent === "preferred_source_klik") {
+        trackAnalyticsEvent("preferred_source_klik", common);
       }
     };
 
