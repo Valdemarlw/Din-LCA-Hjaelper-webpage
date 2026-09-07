@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { pageTransition, fadeUp } from "../lib/animations";
 import { getGlossaryTerm, glossaryTerms } from "../data/glossary";
 import { getBlogPost } from "../data/blogPosts";
+import { buildSeoTitle } from "../lib/seoTitles";
 import { Button } from "../components/ui/Button";
 import { RenderSection, FAQItem } from "../components/content/RenderSection";
 import { ArrowRight } from "lucide-react";
@@ -86,10 +87,14 @@ export function GlossaryTermPage() {
     .map((slug) => getBlogPost(slug))
     .filter(Boolean);
 
+  const seoTitle = term.metaTitle
+    ? buildSeoTitle(term.metaTitle)
+    : `${term.term} | LCA-ordbog | Din LCA Hjælper`;
+
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>{`${term.term} | LCA-ordbog | Din LCA Hjælper`}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={term.shortDefinition} />
         <link
           rel="canonical"
@@ -97,7 +102,7 @@ export function GlossaryTermPage() {
         />
         <meta
           property="og:title"
-          content={`${term.term} | LCA-ordbog | Din LCA Hjælper`}
+          content={seoTitle}
         />
         <meta property="og:description" content={term.shortDefinition} />
         <meta

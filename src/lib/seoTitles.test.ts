@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getBlogPost } from "../data/blogPosts";
+import { getGlossaryTerm } from "../data/glossary";
 import { getReferenceProject } from "../data/referenceProjects";
 import {
   BR18_CHECKER_SEO_TITLE,
@@ -38,6 +39,15 @@ describe("Bing title-length fixes", () => {
 
   it("keeps the BR18 checker title within the limit", () => {
     expect(BR18_CHECKER_SEO_TITLE.length).toBeLessThanOrEqual(
+      MAX_SEO_TITLE_LENGTH,
+    );
+  });
+
+  it("uses the approved question-led GWP title within the search title limit", () => {
+    const term = getGlossaryTerm("gwp");
+
+    expect(term?.metaTitle).toBe("Hvad er GWP? Global Warming Potential");
+    expect(buildSeoTitle(term!.metaTitle!).length).toBeLessThanOrEqual(
       MAX_SEO_TITLE_LENGTH,
     );
   });
