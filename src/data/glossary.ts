@@ -3,6 +3,7 @@ import type { BlogSection, FAQ } from "./blogPosts";
 export type GlossaryTerm = {
   slug: string;
   term: string;
+  metaTitle?: string;
   shortDefinition: string;
   content: BlogSection[];
   faqs: FAQ[];
@@ -802,6 +803,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     slug: "gwp",
     term: "GWP (Global Warming Potential)",
+    metaTitle: "Hvad er GWP? Global Warming Potential",
     shortDefinition:
       "GWP er miljøpåvirkningsindikatoren, der måler et byggeris opvarmningspotentiale i kg CO₂-ækvivalenter. Det er GWP-værdien, som skal overholde grænseværdierne i BR18.",
     content: [
