@@ -34,19 +34,20 @@ for (const width of [1440, 390]) {
 
   // Process connector draws when scrolled into view.
   const list = page.locator("ol").filter({ hasText: "Send dit projekt" });
+  const wrap = list.locator("xpath=.."); // the connector svg is drawn in the wrapper around the list
   await list.scrollIntoViewIfNeeded();
   await settle(page, 150);
-  const svg = list.locator("svg").first();
+  const svg = wrap.locator("svg").first();
   check(`[${width}] process connector rendered`, (await svg.count()) === 1);
   const pathEarly = await svg.locator("path").first().evaluate((p) => p.getAttribute("stroke-dashoffset") ?? p.style.strokeDashoffset ?? "");
   await settle(page, 3600);
   const pathLate = await svg.locator("path").first().evaluate((p) => p.getAttribute("stroke-dashoffset") ?? p.style.strokeDashoffset ?? "");
   check(`[${width}] connector finished drawing`, /^0(px)?$/.test(pathLate), `(early "${pathEarly}", late "${pathLate}")`);
   const arrows = await svg.locator("g path").count();
-  check(`[${width}] five arrowheads between six steps`, arrows === 5, `(${arrows})`);
+  check(`[${width}] six arrowheads incl. the loop`, arrows === 6, `(${arrows})`);
   const discsVisible = await list.locator("li > div").first().evaluate((el) => getComputedStyle(el).opacity);
   check(`[${width}] step discs visible after draw`, Number(discsVisible) === 1, `(${discsVisible})`);
-  await list.screenshot({ path: join(outDir, `motion-process-${width}.png`) });
+  await wrap.screenshot({ path: join(outDir, `motion-process-${width}.png`) });
 
   // Reference stats count to their real values.
   const refs = page.locator("text=Referenceprojekter").first();

@@ -74,22 +74,30 @@ const FLOW_PERIOD = 18; // dash + gap of the drifting "current" overlay
 /*
  * The early calculation can come back over the limit. Then materials are
  * optimised and the calculation runs again before the process moves on. That
- * iteration is drawn as a small loop in the stroke right after step 03.
+ * iteration is drawn as a loop in the stroke right after step 03: a solid
+ * green circle with a chevron on top pointing back toward the step, and the
+ * explanation attached to the loop itself.
  */
 const LOOP_STEP = 2;
-const LOOP_AT = 64; // distance from the disc centre to the loop, along the travel direction
-const LOOP_RADIUS = 15;
-const LOOP_NOTE = "Over grænsen? Vi optimerer materialer og regner igen.";
+const LOOP_AT = 74; // distance from the disc centre to the loop, along the travel direction
+const LOOP_RADIUS = 22;
+const LOOP_NOTE = "Over grænseværdien? Vi optimerer materialer og regner igen.";
 
 type Pt = { x: number; y: number };
 type Geometry = { width: number; height: number; points: Pt[] };
 type Leg = (
   | { kind: "line"; from: Pt; to: Pt }
   | { kind: "turn"; from: Pt; to: Pt; c1: Pt; c2: Pt }
-  | { kind: "loop"; from: Pt; to: Pt; far: Pt; sweep: 0 | 1 }
+  | { kind: "loop"; from: Pt; to: Pt; far: Pt; sweep: 0 | 1; dir: Pt }
 ) & { endsAtDisc: boolean; arrow: boolean };
 type Arrow = { x: number; y: number; angle: number; at: number };
-type PathModel = { d: string; arrows: Arrow[]; stepAt: number[] };
+type LoopModel = {
+  d: string;
+  at: number;
+  /** Where the label sits and which way it extends from the loop. */
+  label: { x: number; y: number; side: "right" | "left" | "none" };
+};
+type PathModel = { d: string; arrows: Arrow[]; stepAt: number[]; loop: LoopModel | null };
 
 const f = (n: number) => n.toFixed(1);
 
@@ -126,6 +134,11 @@ function legLength(leg: Leg): number {
   return len;
 }
 
+function loopPath(leg: Extract<Leg, { kind: "loop" }>): string {
+  const r = LOOP_RADIUS;
+  return `M ${f(leg.from.x)} ${f(leg.from.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.far.x)} ${f(leg.far.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.to.x)} ${f(leg.to.y)}`;
+}
+
 /**
  * Discs in the same row are joined by straight runs. A change of row becomes
  * one continuous S-curve that swings out past the column's text and lands on
@@ -155,7 +168,7 @@ function buildLegs(points: Pt[], width: number): Leg[] {
       const sweep: 0 | 1 = dir.x * normal.y - dir.y * normal.x > 0 ? 1 : 0;
       const far = { x: at.x + 2 * LOOP_RADIUS * normal.x, y: at.y + 2 * LOOP_RADIUS * normal.y };
       legs.push({ kind: "line", from, to: at, endsAtDisc: false, arrow: false });
-      legs.push({ kind: "loop", from: at, to: at, far, sweep, endsAtDisc: false, arrow: false });
+      legs.push({ kind: "loop", from: at, to: at, far, sweep, dir, endsAtDisc: false, arrow: false });
       from = at;
     }
 
@@ -179,7 +192,7 @@ function buildLegs(points: Pt[], width: number): Leg[] {
 }
 
 function buildPath(points: Pt[], width: number): PathModel {
-  if (points.length < 2) return { d: "", arrows: [], stepAt: points.map(() => 0) };
+  if (points.length < 2) return { d: "", arrows: [], stepAt: points.map(() => 0), loop: null };
   const legs = buildLegs(points, width);
   const lengths = legs.map(legLength);
   const total = lengths.reduce((a, b) => a + b, 0) || 1;
@@ -187,6 +200,7 @@ function buildPath(points: Pt[], width: number): PathModel {
   let d = `M ${f(points[0].x)} ${f(points[0].y)}`;
   const arrows: Arrow[] = [];
   const stepAt = [0];
+  let loop: LoopModel | null = null;
   let cum = 0;
 
   legs.forEach((leg, i) => {
@@ -203,6 +217,26 @@ function buildPath(points: Pt[], width: number): PathModel {
     } else if (leg.kind === "loop") {
       const r = LOOP_RADIUS;
       d += ` A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.far.x)} ${f(leg.far.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.to.x)} ${f(leg.to.y)}`;
+      // On the far side of the loop the flow runs back toward the step: that chevron is the cue.
+      arrows.push({
+        x: leg.far.x,
+        y: leg.far.y,
+        angle: (Math.atan2(-leg.dir.y, -leg.dir.x) * 180) / Math.PI,
+        at: (cum + lengths[i] / 2) / total,
+      });
+      const horizontal = Math.abs(leg.dir.x) > 0.5;
+      const centre = { x: (leg.from.x + leg.far.x) / 2, y: (leg.from.y + leg.far.y) / 2 };
+      loop = {
+        d: loopPath(leg),
+        at: cum / total,
+        label: horizontal
+          ? {
+              x: leg.dir.x > 0 ? centre.x + r + 12 : centre.x - r - 12,
+              y: centre.y,
+              side: leg.dir.x > 0 ? "right" : "left",
+            }
+          : { x: centre.x, y: centre.y, side: "none" },
+      };
     } else {
       d += ` C ${f(leg.c1.x)} ${f(leg.c1.y)} ${f(leg.c2.x)} ${f(leg.c2.y)} ${f(leg.to.x)} ${f(leg.to.y)}`;
       if (leg.arrow) {
@@ -220,7 +254,7 @@ function buildPath(points: Pt[], width: number): PathModel {
     if (leg.endsAtDisc) stepAt.push(cum / total);
   });
 
-  return { d, arrows, stepAt };
+  return { d, arrows, stepAt, loop };
 }
 
 /**
@@ -232,18 +266,18 @@ function buildPath(points: Pt[], width: number): PathModel {
  */
 export function Process() {
   const reduce = useReducedMotion();
-  const listRef = useRef<HTMLOListElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const discRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [geometry, setGeometry] = useState<Geometry | null>(null);
-  const inView = useInView(listRef, { once: true, margin: "-15% 0px -15% 0px" });
+  const inView = useInView(wrapRef, { once: true, margin: "-15% 0px -15% 0px" });
   const play = inView || !!reduce;
 
   useEffect(() => {
-    const list = listRef.current;
-    if (!list) return;
+    const wrap = wrapRef.current;
+    if (!wrap) return;
     // ResizeObserver fires once on observe, so the first measurement happens here too.
     const observer = new ResizeObserver(() => {
-      const box = list.getBoundingClientRect();
+      const box = wrap.getBoundingClientRect();
       const points = discRefs.current.flatMap((el) => {
         if (!el) return [];
         const r = el.getBoundingClientRect();
@@ -251,7 +285,7 @@ export function Process() {
       });
       setGeometry({ width: box.width, height: box.height, points });
     });
-    observer.observe(list);
+    observer.observe(wrap);
     return () => observer.disconnect();
   }, []);
 
@@ -259,6 +293,8 @@ export function Process() {
     () => buildPath(geometry?.points ?? [], geometry?.width ?? 0),
     [geometry]
   );
+  const loop = path.loop;
+  const loopDelay = (loop?.at ?? 0) * DRAW_SECONDS;
 
   return (
     <SectionWrapper bg="paper">
@@ -269,10 +305,7 @@ export function Process() {
         </Reveal>
       </div>
 
-      <ol
-        ref={listRef}
-        className="relative mt-12 grid gap-y-10 md:mt-16 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-3"
-      >
+      <div ref={wrapRef} className="relative mt-14 md:mt-20">
         {geometry && path.d && (
           <svg
             className="pointer-events-none absolute inset-0 overflow-visible"
@@ -292,6 +325,19 @@ export function Process() {
               animate={play ? { pathLength: 1 } : { pathLength: 0 }}
               transition={{ duration: DRAW_SECONDS, ease: [0.65, 0, 0.35, 1] }}
             />
+            {loop && (
+              <motion.path
+                d={loop.d}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.25}
+                strokeLinecap="round"
+                className="text-green"
+                initial={reduce ? false : { pathLength: 0, opacity: 0 }}
+                animate={play ? { pathLength: 1, opacity: 1 } : {}}
+                transition={{ delay: loopDelay, duration: 0.9, ease: EASE }}
+              />
+            )}
             {!reduce && (
               <motion.path
                 d={path.d}
@@ -315,7 +361,7 @@ export function Process() {
                   d="M -6 -5.5 L 0 0 L -6 5.5"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={1.75}
+                  strokeWidth={2}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="text-green"
@@ -328,44 +374,72 @@ export function Process() {
           </svg>
         )}
 
-        {steps.map((step, i) => {
-          const delay = (path.stepAt[i] ?? 0) * DRAW_SECONDS;
-          const Icon = step.icon;
-          return (
-            <li key={step.title} className={`relative flex gap-5 md:block ${ORDER[i]}`}>
-              <motion.div
-                ref={(el) => {
-                  discRefs.current[i] = el;
-                }}
-                className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-green shadow-[0_10px_24px_-14px_rgb(44_95_48/0.55)] ring-1 ring-green/30"
-                initial={reduce ? false : { opacity: 0, scale: 0.4 }}
-                animate={play ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay, type: "spring", stiffness: 210, damping: 19 }}
-              >
-                <Icon size={22} strokeWidth={1.75} aria-hidden="true" />
-                <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-green text-[11px] font-bold text-white ring-2 ring-paper">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </motion.div>
-              <motion.div
-                className="pt-1 md:pt-5"
-                initial={reduce ? false : { opacity: 0, y: 14 }}
-                animate={play ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: delay + 0.12, duration: 0.7, ease: EASE }}
-              >
-                <h3 className="text-lg font-semibold leading-snug text-ink">{step.title}</h3>
-                <p className="mt-2 max-w-[30ch] text-[15px] leading-relaxed text-body">{step.description}</p>
-                {i === LOOP_STEP && (
-                  <p className="mt-3 flex max-w-[30ch] items-start gap-2 text-[13px] font-medium leading-snug text-green">
-                    <RotateCcw size={14} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0" />
-                    <span>{LOOP_NOTE}</span>
-                  </p>
-                )}
-              </motion.div>
-            </li>
-          );
-        })}
-      </ol>
+        {/* The explanation sits next to the loop where there is room (tablet and up). */}
+        {loop && loop.label.side !== "none" && (
+          <motion.p
+            aria-hidden="true"
+            className={`pointer-events-none absolute z-10 hidden w-[24ch] -translate-y-1/2 items-start gap-1.5 rounded-md bg-paper/95 px-1.5 py-1 text-[13px] font-medium leading-snug text-green md:flex ${
+              loop.label.side === "left" ? "justify-end text-right" : ""
+            }`}
+            style={
+              loop.label.side === "right"
+                ? { left: loop.label.x, top: loop.label.y }
+                : { right: (geometry?.width ?? 0) - loop.label.x, top: loop.label.y }
+            }
+            initial={reduce ? false : { opacity: 0, x: loop.label.side === "right" ? -8 : 8 }}
+            animate={play ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: loopDelay + 0.5, duration: 0.6, ease: EASE }}
+          >
+            {loop.label.side === "right" && <RotateCcw size={14} strokeWidth={2} className="mt-0.5 shrink-0" />}
+            <span>{LOOP_NOTE}</span>
+            {loop.label.side === "left" && <RotateCcw size={14} strokeWidth={2} className="mt-0.5 shrink-0" />}
+          </motion.p>
+        )}
+
+        <ol className="grid gap-y-10 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-3">
+          {steps.map((step, i) => {
+            const delay = (path.stepAt[i] ?? 0) * DRAW_SECONDS;
+            const Icon = step.icon;
+            return (
+              <li key={step.title} className={`relative flex gap-5 md:block ${ORDER[i]}`}>
+                <motion.div
+                  ref={(el) => {
+                    discRefs.current[i] = el;
+                  }}
+                  className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-green shadow-[0_10px_24px_-14px_rgb(44_95_48/0.55)] ring-1 ring-green/30"
+                  initial={reduce ? false : { opacity: 0, scale: 0.4 }}
+                  animate={play ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay, type: "spring", stiffness: 210, damping: 19 }}
+                >
+                  <Icon size={22} strokeWidth={1.75} aria-hidden="true" />
+                  <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-green text-[11px] font-bold text-white ring-2 ring-paper">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </motion.div>
+                <motion.div
+                  className="pt-1 md:pt-5"
+                  initial={reduce ? false : { opacity: 0, y: 14 }}
+                  animate={play ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: delay + 0.12, duration: 0.7, ease: EASE }}
+                >
+                  <h3 className="text-lg font-semibold leading-snug text-ink">{step.title}</h3>
+                  <p className="mt-2 max-w-[30ch] text-[15px] leading-relaxed text-body">{step.description}</p>
+                  {i === LOOP_STEP && (
+                    <p
+                      className={`mt-3 flex max-w-[30ch] items-start gap-2 text-[13px] font-medium leading-snug text-green ${
+                        loop && loop.label.side !== "none" ? "md:sr-only" : ""
+                      }`}
+                    >
+                      <RotateCcw size={14} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0" />
+                      <span>{LOOP_NOTE}</span>
+                    </p>
+                  )}
+                </motion.div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </SectionWrapper>
   );
 }
