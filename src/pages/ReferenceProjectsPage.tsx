@@ -1,15 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
+import { pageTransition } from "../lib/animations";
 import { referenceProjects } from "../data/referenceProjects";
-import { ArrowRight, MapPin, CheckCircle, Info, AlertTriangle } from "lucide-react";
-
-const statusStyles = {
-  success: "bg-green-50 text-green-700",
-  info: "bg-blue-50 text-blue-700",
-  warning: "bg-amber-50 text-amber-800",
-};
+import { PageHero } from "../components/ui/PageHero";
+import { Tag } from "../components/ui/Tag";
+import { RevealGroup, RevealItem } from "../components/motion/Reveal";
+import { statusTagTone, statusToneOf } from "../lib/statusTone";
 
 export function ReferenceProjectsPage() {
   const breadcrumbSchema = {
@@ -39,100 +36,57 @@ export function ReferenceProjectsPage() {
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 py-20 md:py-28 lg:py-32">
-        <div className="absolute right-0 top-1/3 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2 text-sm text-muted">
-              <li><Link to="/" className="hover:text-primary transition-colors">Forside</Link></li>
-              <li aria-hidden="true">/</li>
-              <li><Link to="/viden" className="hover:text-primary transition-colors">Viden</Link></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-navy font-medium">Referenceprojekter</li>
-            </ol>
-          </nav>
+      <PageHero
+        crumbs={[{ label: "Forside", to: "/" }, { label: "Viden", to: "/viden" }, { label: "Referenceprojekter" }]}
+        title="Referenceprojekter"
+        lede="Se hvordan beregninger bliver kontrolleret, rettet og optimeret. Hver case viser både resultat, metode og de forbehold, der stadig gælder."
+      />
 
-          <motion.h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Referenceprojekter
-          </motion.h1>
-          <motion.p
-            className="mt-4 text-lg text-body max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            Se hvordan beregninger bliver kontrolleret, rettet og optimeret. Hver case viser både resultat, metode og de forbehold, der stadig gælder.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Project cards */}
-      <section className="bg-bg py-16 md:py-24">
+      <section className="bg-paper pb-20 md:pb-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
+          <RevealGroup className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1} delay={0.2}>
             {referenceProjects.map((project) => {
-              const statusTone = project.statusTone ?? "success";
-              const StatusIcon = statusTone === "success" ? CheckCircle : statusTone === "warning" ? AlertTriangle : Info;
+              const tone = statusToneOf(project);
               const cardMetrics = project.metrics?.slice(0, 3) ?? [
                 ...(project.foer ? [{ label: "Før", value: project.foer }] : []),
                 ...(project.resultat ? [{ label: "Resultat", value: project.resultat }] : []),
                 ...(project.graensevaerdi ? [{ label: "Grænse", value: project.graensevaerdi }] : []),
               ];
-              return <motion.div key={project.slug} variants={fadeUp}>
-                <Link
-                  to={`/referenceprojekter/${project.slug}`}
-                  className="group block rounded-xl border border-border bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="inline-flex items-center rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-navy">
-                      {project.type}
+              return (
+                <RevealItem key={project.slug} className="h-full" y={36}>
+                  <Link
+                    to={`/referenceprojekter/${project.slug}`}
+                    className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet md:p-7"
+                  >
+                    <p className="text-[13px] text-muted">
+                      {project.type}, {project.location}
+                      {project.etageareal && `, ${project.etageareal}`}
+                    </p>
+                    <div className="mt-3">
+                      <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
+                    </div>
+
+                    <h2 className="mt-4 flex-1 text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                      {project.title}
+                    </h2>
+
+                    <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-line pt-5">
+                      {cardMetrics.map((metric) => (
+                        <div key={metric.label}>
+                          <dt className="text-xs text-muted">{metric.label}</dt>
+                          <dd className="mt-0.5 text-base font-bold text-ink">{metric.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
+                      Læs hele casen
                     </span>
-                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${statusStyles[statusTone]}`}>
-                      <StatusIcon size={12} />
-                      {project.status}
-                    </span>
-                  </div>
-
-                  <h2 className="text-lg font-semibold text-navy leading-snug group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h2>
-
-                  <div className="mt-3 flex items-center gap-1.5 text-sm text-muted">
-                    <MapPin size={14} />
-                    {project.location}
-                    {project.etageareal && <span className="ml-2">| {project.etageareal}</span>}
-                  </div>
-
-                  {/* Result metrics */}
-                  <div className="mt-4 grid grid-cols-3 gap-2">
-                    {cardMetrics.map((metric) => (
-                      <div key={metric.label} className="text-center">
-                        <p className="text-xs text-muted">{metric.label}</p>
-                        <p className="text-base font-bold text-navy">{metric.value}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                    Læs hele casen
-                    <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              </motion.div>;
+                  </Link>
+                </RevealItem>
+              );
             })}
-          </motion.div>
+          </RevealGroup>
         </div>
       </section>
     </motion.div>

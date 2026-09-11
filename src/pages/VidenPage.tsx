@@ -1,13 +1,59 @@
+import type { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
+import { pageTransition } from "../lib/animations";
 import { blogPosts } from "../data/blogPosts";
 import { glossaryTerms } from "../data/glossary";
 import { projectTypes } from "../data/projectTypes";
 import { referenceProjects } from "../data/referenceProjects";
-import { ArrowRight, Clock, Calendar, MapPin, CheckCircle, Info } from "lucide-react";
 import { PreferredSourcePrompt } from "../components/content/PreferredSourcePrompt";
+import { PageHero } from "../components/ui/PageHero";
+import { Tag } from "../components/ui/Tag";
+import { Reveal, RevealGroup, RevealItem } from "../components/motion/Reveal";
+import { formatDanishDate } from "../lib/format";
+import { statusTagTone, statusToneOf } from "../lib/statusTone";
+
+const textLink =
+  "shrink-0 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 transition-colors hover:decoration-green";
+const readMore =
+  "mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green";
+const linkSheet =
+  "group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet";
+
+function SectionHeader({
+  title,
+  text,
+  to,
+  linkLabel,
+}: {
+  title: string;
+  text?: string;
+  to?: string;
+  linkLabel?: string;
+}) {
+  return (
+    <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="max-w-2xl">
+        <h2 className="text-2xl font-bold leading-tight md:text-3xl">{title}</h2>
+        {text && <p className="mt-2 text-body">{text}</p>}
+      </div>
+      {to && linkLabel && (
+        <Link to={to} className={textLink}>
+          {linkLabel}
+        </Link>
+      )}
+    </Reveal>
+  );
+}
+
+function Band({ tone = "paper", id, children }: { tone?: "paper" | "mist"; id?: string; children: ReactNode }) {
+  return (
+    <section id={id} className={`${tone === "mist" ? "bg-mist" : "bg-paper"} py-14 md:py-20`}>
+      <div className="mx-auto max-w-6xl px-5 md:px-8">{children}</div>
+    </section>
+  );
+}
 
 export function VidenPage() {
   const recentPosts = blogPosts.slice(0, 3);
@@ -50,370 +96,149 @@ export function VidenPage() {
         </script>
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 py-20 md:py-28 lg:py-32">
-        <div className="absolute right-0 top-1/3 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2 text-sm text-muted">
-              <li>
-                <Link to="/" className="hover:text-primary transition-colors">
-                  Forside
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-navy font-medium">Viden</li>
-            </ol>
-          </nav>
-
-          <motion.h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Viden om LCA-beregning
-          </motion.h1>
-          <motion.p
-            className="mt-4 text-lg text-body max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            Artikler, bygningstyper og guides om LCA-beregning, klimakrav og
-            bæredygtigt byggeri i Danmark.
-          </motion.p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: "Forside", to: "/" }, { label: "Viden" }]}
+        title="Viden om LCA-beregning"
+        lede="Artikler, bygningstyper og guides om LCA-beregning, klimakrav og bæredygtigt byggeri i Danmark."
+      />
 
       {/* Artikler */}
-      <section className="bg-bg py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-          >
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl md:text-3xl font-semibold text-navy">
-                Artikler
-              </h2>
+      <Band>
+        <SectionHeader title="Artikler" to="/blog" linkLabel="Se alle artikler" />
+        <RevealGroup className="mt-8 border-t border-line" stagger={0.12}>
+          {recentPosts.map((post) => (
+            <RevealItem key={post.slug}>
               <Link
-                to="/blog"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
+                to={`/blog/${post.slug}`}
+                className="group grid gap-3 border-b border-line py-7 transition-colors hover:bg-white md:grid-cols-12 md:gap-8 md:px-4"
               >
-                Se alle artikler
-                <ArrowRight size={14} />
+                <p className="text-sm text-muted md:col-span-3">
+                  <time dateTime={post.date}>{formatDanishDate(post.date)}</time>
+                  <span className="block">{post.readingTime}</span>
+                </p>
+                <div className="md:col-span-9">
+                  <h3 className="text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 max-w-[62ch] text-[15px] leading-relaxed text-body">{post.description}</p>
+                </div>
               </Link>
-            </div>
-
-            <motion.div
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              {recentPosts.map((post) => (
-                <motion.div key={post.slug} variants={fadeUp}>
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="group block rounded-xl border border-border bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
-                  >
-                    <div className="flex items-center gap-4 text-sm text-muted mb-4">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar size={14} />
-                        {post.date}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Clock size={14} />
-                        {post.readingTime}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-navy leading-snug group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="mt-3 text-body leading-relaxed line-clamp-2 text-sm">
-                      {post.description}
-                    </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                      Læs mere
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </Band>
 
       {/* LCA-ordbog */}
-      <section className="bg-bg-alt py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-          >
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-semibold text-navy">
-                  LCA-ordbog
-                </h2>
-                <p className="mt-2 text-muted">
-                  Centrale begreber inden for LCA-beregning forklaret.
-                </p>
-              </div>
-              <Link
-                to="/ordbog"
-                className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
-              >
-                Se alle begreber
-                <ArrowRight size={14} />
+      <Band tone="mist">
+        <SectionHeader
+          title="LCA-ordbog"
+          text="Centrale begreber inden for LCA-beregning forklaret."
+          to="/ordbog"
+          linkLabel="Se alle begreber"
+        />
+        <RevealGroup className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          {glossaryTerms.slice(0, 6).map((term) => (
+            <RevealItem key={term.slug}>
+              <Link to={`/ordbog/${term.slug}`} className="group block border-t border-green/25 pt-4">
+                <h3 className="text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                  {term.term}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-body">{term.shortDefinition}</p>
               </Link>
-            </div>
-
-            <motion.div
-              className="grid gap-3 md:grid-cols-2 lg:grid-cols-3"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              {glossaryTerms.slice(0, 6).map((term) => (
-                <motion.div key={term.slug} variants={fadeUp}>
-                  <Link
-                    to={`/ordbog/${term.slug}`}
-                    className="group block rounded-xl border border-border bg-white p-5 md:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
-                  >
-                    <h3 className="text-base font-semibold text-navy leading-snug group-hover:text-primary transition-colors">
-                      {term.term}
-                    </h3>
-                    <p className="mt-2 text-body leading-relaxed line-clamp-2 text-sm">
-                      {term.shortDefinition}
-                    </p>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <Link
-              to="/ordbog"
-              className="mt-6 md:hidden inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
-            >
-              Se alle begreber
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </Band>
 
       {/* Bygningstyper */}
-      <section className="bg-bg py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-          >
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-semibold text-navy">
-                  LCA efter bygningstype
-                </h2>
-                <p className="mt-2 text-muted">
-                  Grænseværdierne i BR18 varierer efter bygningstype. Vælg din
-                  projekttype.
-                </p>
-              </div>
-              <Link
-                to="/lca-beregning"
-                className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
-              >
-                Se alle bygningstyper
-                <ArrowRight size={14} />
+      <Band>
+        <SectionHeader
+          title="LCA efter bygningstype"
+          text="Grænseværdierne i BR18 varierer efter bygningstype. Vælg din projekttype."
+          to="/lca-beregning"
+          linkLabel="Se alle bygningstyper"
+        />
+        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3" stagger={0.12}>
+          {projectTypes.map((pt) => (
+            <RevealItem key={pt.slug} className="h-full" y={36}>
+              <Link to={`/lca-beregning/${pt.slug}`} className={linkSheet}>
+                <Tag tone="mist" className="self-start">
+                  {pt.grensevaerdi} kg CO₂e/m²/år
+                </Tag>
+                <h3 className="mt-5 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                  {pt.title.replace("LCA-beregning for ", "")}
+                </h3>
+                <p className="mt-2 line-clamp-3 flex-1 text-[15px] leading-relaxed text-body">{pt.description}</p>
+                <span className={readMore}>Læs mere</span>
               </Link>
-            </div>
-
-            <motion.div
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              {projectTypes.map((pt) => (
-                <motion.div key={pt.slug} variants={fadeUp}>
-                  <Link
-                    to={`/lca-beregning/${pt.slug}`}
-                    className="group block rounded-xl border border-border bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
-                  >
-                    <span className="inline-flex items-center rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-navy mb-4">
-                      {pt.grensevaerdi} kg CO₂e/m²/år
-                    </span>
-                    <h3 className="text-lg font-semibold text-navy leading-snug group-hover:text-primary transition-colors">
-                      {pt.title.replace("LCA-beregning for ", "")}
-                    </h3>
-                    <p className="mt-3 text-body leading-relaxed line-clamp-2 text-sm">
-                      {pt.description}
-                    </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                      Læs mere
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <Link
-              to="/lca-beregning"
-              className="mt-6 md:hidden inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
-            >
-              Se alle bygningstyper
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </Band>
 
       {/* Referenceprojekter */}
-      <section className="bg-bg-alt py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-          >
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-semibold text-navy">
-                  Referenceprojekter
-                </h2>
-                <p className="mt-2 text-muted">
-                  Rigtige byggeprojekter med dokumenterede LCA-resultater.
-                </p>
-              </div>
-              <Link
-                to="/referenceprojekter"
-                className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
-              >
-                Se alle referenceprojekter
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-
-            <motion.div
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              {referenceProjects.map((project) => (
-                <motion.div key={project.slug} variants={fadeUp}>
-                  <Link
-                    to={`/referenceprojekter/${project.slug}`}
-                    className="group block rounded-xl border border-border bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
-                  >
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="inline-flex items-center rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-navy">
-                        {project.type}
+      <Band tone="mist">
+        <SectionHeader
+          title="Referenceprojekter"
+          text="Rigtige byggeprojekter med dokumenterede LCA-resultater."
+          to="/referenceprojekter"
+          linkLabel="Se alle referenceprojekter"
+        />
+        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
+          {referenceProjects.map((project) => {
+            const tone = statusToneOf(project);
+            return (
+              <RevealItem key={project.slug} className="h-full" y={36}>
+                <Link to={`/referenceprojekter/${project.slug}`} className={linkSheet}>
+                  <p className="text-[13px] text-muted">
+                    {project.type}, {project.location}
+                  </p>
+                  <div className="mt-3">
+                    <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
+                  </div>
+                  <h3 className="mt-4 flex-1 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                    {project.title}
+                  </h3>
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1 border-t border-line pt-4 text-sm text-muted">
+                    {(project.metrics?.slice(0, 2) ?? []).map((metric) => (
+                      <span key={metric.label}>
+                        {metric.label}: <span className="font-semibold text-ink">{metric.value}</span>
                       </span>
-                      <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${project.statusTone === "info" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}`}>
-                        {project.statusTone === "info" ? <Info size={12} /> : <CheckCircle size={12} />}
-                        {project.status}
+                    ))}
+                    {!project.metrics && project.resultat && (
+                      <span>
+                        Resultat: <span className="font-semibold text-green">{project.resultat}</span>
+                        {project.graensevaerdi && ` vs. grænse ${project.graensevaerdi}`}
                       </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-navy leading-snug group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="mt-2 flex items-center gap-1.5 text-sm text-muted">
-                      <MapPin size={14} />
-                      {project.location}
-                    </div>
-                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
-                      {(project.metrics?.slice(0, 2) ?? []).map((metric) => (
-                        <span key={metric.label}>{metric.label}: <span className="font-semibold text-navy">{metric.value}</span></span>
-                      ))}
-                      {!project.metrics && project.resultat && (
-                        <span>Resultat: <span className="font-semibold text-green-600">{project.resultat}</span>{project.graensevaerdi && ` vs. grænse ${project.graensevaerdi}`}</span>
-                      )}
-                    </div>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                      Læs hele casen
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <Link
-              to="/referenceprojekter"
-              className="mt-6 md:hidden inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
-            >
-              Se alle referenceprojekter
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+                    )}
+                  </div>
+                  <span className={readMore}>Læs hele casen</span>
+                </Link>
+              </RevealItem>
+            );
+          })}
+        </RevealGroup>
+      </Band>
 
       {/* Sammenligninger */}
-      <section id="sammenligninger" className="bg-bg py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
+      <Band id="sammenligninger">
+        <SectionHeader title="Sammenligninger" text="Hvordan Din LCA Hjælper står sig over for andre løsninger." />
+        <Reveal delay={0.1} className="mt-8 max-w-2xl">
+          <Link
+            to="/sammenligninger/din-lca-hjaelper-vs-lcabyg"
+            className={`${linkSheet} md:p-8`}
           >
-            <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-semibold text-navy">
-                Sammenligninger
-              </h2>
-              <p className="mt-2 text-muted">
-                Hvordan Din LCA Hjælper står sig over for andre løsninger.
-              </p>
-            </div>
-
-            <Link
-              to="/sammenligninger/din-lca-hjaelper-vs-lcabyg"
-              className="group block rounded-xl border border-border bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 max-w-2xl"
-            >
-              <h3 className="text-lg font-semibold text-navy leading-snug group-hover:text-primary transition-colors">
-                Din LCA Hjælper vs. LCAbyg: Hvornår bør du få hjælp?
-              </h3>
-              <p className="mt-3 text-body leading-relaxed text-sm">
-                LCAbyg er gratis og dækker BR18, men har en stejl læringskurve.
-                Sammenlign pris, tid og hvornår hver løsning passer.
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                Læs sammenligningen
-                <ArrowRight
-                  size={14}
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
-              </span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+            <h3 className="text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+              Din LCA Hjælper vs. LCAbyg: Hvornår bør du få hjælp?
+            </h3>
+            <p className="mt-3 leading-relaxed text-body">
+              LCAbyg er gratis og dækker BR18, men har en stejl læringskurve.
+              Sammenlign pris, tid og hvornår hver løsning passer.
+            </p>
+            <span className={`${readMore} inline-block`}>Læs sammenligningen</span>
+          </Link>
+        </Reveal>
+      </Band>
 
       <PreferredSourcePrompt />
     </motion.div>

@@ -31,6 +31,10 @@ async function prerender() {
 
   const browser = await chromium.launch();
   const page = await browser.newPage();
+  // Scroll-triggered motion renders its final state under reduced motion, so
+  // the captured HTML never contains content hidden at opacity 0 or numbers
+  // frozen mid count-up. Visitors with JS still get the full choreography.
+  await page.emulateMedia({ reducedMotion: "reduce" });
 
   // Render "/" last. It overwrites dist/index.html, which the preview server
   // uses as the SPA fallback for not-yet-prerendered routes. Rendering it early

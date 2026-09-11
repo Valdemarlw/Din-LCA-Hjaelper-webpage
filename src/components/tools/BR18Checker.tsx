@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ClipboardCheck, FileText, CheckCircle2 } from "lucide-react";
 import { Button } from "../ui/Button";
 import { trackAnalyticsEvent } from "../../lib/analytics";
+import { kommatal } from "../../lib/format";
 import {
   evaluateBR18,
   prisTypeFor,
@@ -12,39 +13,34 @@ import {
 } from "../../lib/br18";
 import { PrisEstimat } from "./PrisEstimat";
 
-/** Formatér et tal med dansk komma, fx 6.7 -> "6,7". */
-function kommatal(n: number): string {
-  return n.toLocaleString("da-DK", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-}
-
 const TONE: Record<
   LovpligtStatus,
   { wrap: string; iconWrap: string; Icon: typeof ClipboardCheck }
 > = {
   lovpligtig: {
-    wrap: "border-primary/30 bg-primary-light/40",
-    iconWrap: "bg-primary/10 text-primary",
+    wrap: "bg-mist",
+    iconWrap: "bg-green text-white",
     Icon: ClipboardCheck,
   },
   kun_dokumentation: {
-    wrap: "border-navy/20 bg-bg-alt",
-    iconWrap: "bg-navy/10 text-navy",
+    wrap: "bg-white ring-1 ring-line",
+    iconWrap: "bg-green-soft text-green",
     Icon: FileText,
   },
   undtaget_tilbygning: {
-    wrap: "border-status-green/30 bg-status-green/5",
-    iconWrap: "bg-status-green/10 text-status-green",
+    wrap: "bg-green-soft",
+    iconWrap: "bg-white text-green",
     Icon: CheckCircle2,
   },
   undtaget_helt: {
-    wrap: "border-status-green/30 bg-status-green/5",
-    iconWrap: "bg-status-green/10 text-status-green",
+    wrap: "bg-green-soft",
+    iconWrap: "bg-white text-green",
     Icon: CheckCircle2,
   },
 };
 
 const inputCls =
-  "w-full rounded-lg border border-border bg-white px-4 py-2.5 text-navy focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20";
+  "w-full rounded-lg border border-line bg-white px-4 py-3 text-ink transition-colors placeholder:text-muted/70 focus:border-green focus:outline-none focus:ring-2 focus:ring-green/20";
 
 export function BR18Checker() {
   const [bygningstype, setBygningstype] = useState<Bygningstype>("enfamiliehus");
@@ -70,12 +66,12 @@ export function BR18Checker() {
   return (
     <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
       {/* Inputs */}
-      <div className="rounded-2xl border border-border bg-white p-6 md:p-8">
-        <h2 className="text-xl font-semibold text-navy">Dit projekt</h2>
+      <div className="rounded-sheet bg-white p-6 ring-1 ring-line md:p-8">
+        <h2 className="text-xl font-bold text-ink">Dit projekt</h2>
 
         <div className="mt-6 space-y-5">
           <div>
-            <label htmlFor="bygningstype" className="block text-sm font-medium text-navy">
+            <label htmlFor="bygningstype" className="block text-sm font-medium text-ink">
               Bygningstype
             </label>
             <select
@@ -93,7 +89,7 @@ export function BR18Checker() {
           </div>
 
           <div>
-            <span className="block text-sm font-medium text-navy">Type byggeri</span>
+            <span className="block text-sm font-medium text-ink">Type byggeri</span>
             <div className="mt-1.5 grid grid-cols-2 gap-2">
               {(
                 [
@@ -105,10 +101,11 @@ export function BR18Checker() {
                   key={opt.value}
                   type="button"
                   onClick={() => setByggeri(opt.value)}
-                  className={`rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors ${
+                  aria-pressed={byggeri === opt.value}
+                  className={`rounded-lg border px-4 py-3 text-sm font-semibold transition-colors ${
                     byggeri === opt.value
-                      ? "border-primary bg-primary text-white"
-                      : "border-border bg-white text-navy hover:border-primary"
+                      ? "border-green bg-green text-white"
+                      : "border-line bg-white text-ink hover:border-green"
                   }`}
                 >
                   {opt.label}
@@ -118,7 +115,7 @@ export function BR18Checker() {
           </div>
 
           <div>
-            <label htmlFor="areal" className="block text-sm font-medium text-navy">
+            <label htmlFor="areal" className="block text-sm font-medium text-ink">
               Opvarmet etageareal (m²)
             </label>
             <input
@@ -139,27 +136,27 @@ export function BR18Checker() {
           </div>
 
           {/* Særlige forhold, vist direkte (valgfrit) */}
-          <div className="space-y-3 border-t border-border pt-4">
-            <p className="text-sm font-medium text-navy">
+          <div className="space-y-3 border-t border-line pt-4">
+            <p className="text-sm font-medium text-ink">
               Særlige forhold <span className="font-normal text-muted">(valgfrit)</span>
             </p>
 
-            <label className="flex items-start gap-2.5 cursor-pointer select-none">
+            <label className="flex cursor-pointer select-none items-start gap-2.5">
               <input
                 type="checkbox"
                 checked={uopvarmet}
                 onChange={(e) => setUopvarmet(e.target.checked)}
-                className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
+                className="mt-0.5 h-4 w-4 shrink-0 accent-green"
               />
               <span className="text-sm text-body">Bygningen er uopvarmet</span>
             </label>
 
-            <label className="flex items-start gap-2.5 cursor-pointer select-none">
+            <label className="flex cursor-pointer select-none items-start gap-2.5">
               <input
                 type="checkbox"
                 checked={samfundskritisk}
                 onChange={(e) => setSamfundskritisk(e.target.checked)}
-                className="mt-0.5 h-4 w-4 shrink-0 accent-[#0D7C6E]"
+                className="mt-0.5 h-4 w-4 shrink-0 accent-green"
               />
               <span className="text-sm text-body">
                 Samfundskritisk byggeri / industriproduktion
@@ -176,8 +173,8 @@ export function BR18Checker() {
       {/* Resultat */}
       <div>
         {!resultat ? (
-          <div className="flex h-full min-h-[280px] items-center justify-center rounded-2xl border border-dashed border-border bg-bg-alt/50 p-8 text-center">
-            <p className="text-muted">
+          <div className="flex h-full min-h-[280px] items-center justify-center rounded-sheet border border-dashed border-line p-8 text-center">
+            <p className="max-w-sm text-muted">
               Indtast et opvarmet areal for at se, om dit projekt skal have en LCA-beregning, og
               hvad det koster.
             </p>
@@ -187,27 +184,23 @@ export function BR18Checker() {
             const tone = TONE[resultat.status];
             const visPris = resultat.status !== "undtaget_helt";
             return (
-              <div className={`rounded-2xl border p-6 md:p-8 ${tone.wrap}`}>
+              <div className={`rounded-sheet p-6 md:p-8 ${tone.wrap}`} aria-live="polite">
                 <div className="flex items-start gap-3">
                   <span
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${tone.iconWrap}`}
                   >
-                    <tone.Icon size={22} />
+                    <tone.Icon size={22} aria-hidden="true" />
                   </span>
-                  <div>
-                    <h2 className="text-lg font-semibold text-navy leading-snug">
-                      {resultat.overskrift}
-                    </h2>
-                  </div>
+                  <h2 className="text-lg font-bold leading-snug text-ink">{resultat.overskrift}</h2>
                 </div>
 
-                <p className="mt-4 text-body leading-relaxed">{resultat.forklaring}</p>
+                <p className="mt-4 leading-relaxed text-body">{resultat.forklaring}</p>
 
                 {resultat.graensevaerdi !== null && (
                   <dl className="mt-5 grid grid-cols-2 gap-3">
-                    <div className="rounded-lg bg-white/70 px-4 py-3">
+                    <div className="rounded-lg bg-white/80 px-4 py-3">
                       <dt className="text-xs font-medium text-muted">Grænseværdi</dt>
-                      <dd className="mt-0.5 text-lg font-bold text-navy">
+                      <dd className="mt-0.5 text-lg font-bold text-ink">
                         {kommatal(resultat.graensevaerdi)}{" "}
                         <span className="text-xs font-normal text-muted">kg CO₂-eq/m²/år</span>
                       </dd>
@@ -218,9 +211,9 @@ export function BR18Checker() {
                       )}
                     </div>
                     {resultat.a4a5 !== null && (
-                      <div className="rounded-lg bg-white/70 px-4 py-3">
+                      <div className="rounded-lg bg-white/80 px-4 py-3">
                         <dt className="text-xs font-medium text-muted">Byggeproces (A4+A5)</dt>
-                        <dd className="mt-0.5 text-lg font-bold text-navy">
+                        <dd className="mt-0.5 text-lg font-bold text-ink">
                           {kommatal(resultat.a4a5)}{" "}
                           <span className="text-xs font-normal text-muted">kg CO₂-eq/m²/år</span>
                         </dd>
@@ -235,10 +228,10 @@ export function BR18Checker() {
                 )}
 
                 {(resultat.status === "lovpligtig" || resultat.status === "kun_dokumentation") && (
-                  <p className="mt-4 text-sm text-muted leading-relaxed">{resultat.b6Metode}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted">{resultat.b6Metode}</p>
                 )}
 
-                <p className="mt-4 text-body leading-relaxed">{resultat.naesteSkridt}</p>
+                <p className="mt-4 leading-relaxed text-body">{resultat.naesteSkridt}</p>
 
                 {visPris && (
                   <PrisEstimat

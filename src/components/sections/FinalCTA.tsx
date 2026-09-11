@@ -1,42 +1,42 @@
-import { motion } from "framer-motion";
-import { fadeUp } from "../../lib/animations";
 import { Button } from "../ui/Button";
-import { Phone, Mail } from "lucide-react";
+import { Reveal, RevealWords } from "../motion/Reveal";
 
 export function FinalCTA() {
   return (
-    <section className="bg-navy py-20 md:py-28 lg:py-32">
-      <motion.div
-        className="mx-auto max-w-6xl px-5 md:px-8 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-        variants={fadeUp}
-      >
-        <h2 className="text-3xl md:text-4xl font-semibold text-white">
-          Klar til at få styr på dit projekts LCA?
-        </h2>
-        <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">
-          Send os dine tegninger og få et tilbud, vi vender tilbage inden for 24 timer.
-        </p>
-
-        <div className="mt-8">
-          <Button to="/kontakt" variant="inverted">
-            Send tegninger, få pris
-          </Button>
+    <section className="bg-green py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <RevealWords
+              as="h2"
+              text="Klar til at få styr på dit projekts LCA?"
+              className="max-w-[18ch] text-3xl font-bold leading-tight text-white md:text-5xl"
+            />
+            <Reveal as="p" delay={0.15} className="mt-5 max-w-xl text-lg leading-relaxed text-mist/85">
+              Send os dine tegninger og få et tilbud, vi vender tilbage inden for 24 timer.
+            </Reveal>
+            <Reveal delay={0.3} className="mt-8">
+              <Button to="/kontakt" variant="light">
+                Send tegninger, få pris
+              </Button>
+            </Reveal>
+          </div>
+          <Reveal delay={0.4} className="lg:col-span-4 lg:text-right">
+            <a
+              href="tel:+4529899999"
+              className="block text-xl font-semibold text-white transition-colors hover:text-mist"
+            >
+              +45 29 89 99 99
+            </a>
+            <a
+              href="mailto:valdemar.wernblad@dinlcahjælper.dk"
+              className="mt-1.5 block break-all text-mist/85 transition-colors hover:text-white"
+            >
+              valdemar.wernblad@dinlcahjælper.dk
+            </a>
+          </Reveal>
         </div>
-
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6 text-white/60">
-          <a href="tel:+4529899999" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Phone size={16} />
-            +45 29 89 99 99
-          </a>
-          <a href="mailto:valdemar.wernblad@dinlcahjælper.dk" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Mail size={16} />
-            valdemar.wernblad@dinlcahjælper.dk
-          </a>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

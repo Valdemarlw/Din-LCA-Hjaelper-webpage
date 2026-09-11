@@ -1,23 +1,18 @@
-import { motion } from "framer-motion";
-import { staggerContainer, fadeUp } from "../../lib/animations";
 import { SectionWrapper } from "../ui/SectionWrapper";
-import { AlertTriangle, BookOpen, Clock } from "lucide-react";
+import { RevealGroup, RevealItem, RevealWords } from "../motion/Reveal";
 
 const painPoints = [
   {
-    icon: AlertTriangle,
     title: "Det er lovpligtigt",
     description:
       "Alle nye opvarmede byggerier kræver en LCA-beregning efter BR18, uanset størrelse. For uopvarmede bygninger over 50 m² og tilbygninger over 250 m² gælder kravet også. Uden den, ingen ibrugtagningstilladelse.",
   },
   {
-    icon: BookOpen,
     title: "Det kræver specialviden",
     description:
       "En korrekt LCA kræver faglig indsigt i materialer, konstruktioner og lovkrav, samt kendskab til de rette beregningsværktøjer og hvordan de bruges. Det er ikke noget man bare lige gør.",
   },
   {
-    icon: Clock,
     title: "Tænk LCA ind fra start",
     description:
       "Materiale- og konstruktionsvalg bør bygge på LCA-beregningen. Jo tidligere du involverer en specialist, jo færre overraskelser undervejs.",
@@ -26,35 +21,29 @@ const painPoints = [
 
 export function Problem() {
   return (
-    <SectionWrapper bg="alt">
-      <div className="text-center mb-12 md:mb-16">
-        <h2 className="text-3xl md:text-4xl font-semibold text-navy">
-          Hvorfor LCA-beregning ikke er til at komme udenom
-        </h2>
+    <SectionWrapper bg="paper">
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <RevealWords
+            as="h2"
+            text="Hvorfor LCA-beregning ikke er til at komme udenom"
+            className="max-w-[16ch] text-3xl font-bold leading-tight md:text-4xl lg:sticky lg:top-28"
+          />
+        </div>
+        <RevealGroup className="lg:col-span-7" stagger={0.14}>
+          {painPoints.map((point, i) => (
+            <RevealItem
+              key={point.title}
+              className={`grid gap-2 border-b border-line py-7 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8 ${
+                i === 0 ? "border-t" : ""
+              }`}
+            >
+              <h3 className="text-xl font-semibold text-ink">{point.title}</h3>
+              <p className="max-w-[58ch] leading-relaxed text-body">{point.description}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </div>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-      >
-        {painPoints.map((point) => (
-          <motion.div
-            key={point.title}
-            variants={fadeUp}
-            className="rounded-xl border border-border border-t-2 border-t-primary/20 bg-white p-6 md:p-8"
-          >
-            <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary">
-              <point.icon size={24} />
-            </div>
-            <h3 className="text-lg font-semibold text-navy mb-2">
-              {point.title}
-            </h3>
-            <p className="text-body leading-relaxed">{point.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
     </SectionWrapper>
   );
 }

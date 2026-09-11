@@ -23,17 +23,17 @@ export function NotFoundPage() {
         />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
-      <section className="bg-bg py-24 md:py-32">
-        <div className="mx-auto max-w-2xl px-5 text-center md:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">404</p>
-          <h1 className="mt-3 text-3xl font-bold leading-tight text-navy md:text-4xl">
+      <section className="bg-linear-to-b from-mist/70 to-paper py-24 md:py-32">
+        <div className="mx-auto max-w-2xl px-5 md:px-8">
+          <p className="text-sm font-semibold text-green">404</p>
+          <h1 className="mt-3 text-4xl font-extrabold leading-tight md:text-5xl">
             Siden blev ikke fundet
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-body">
             Siden er måske flyttet eller fjernet. Herunder er de steder folk oftest skal hen.
           </p>
 
-          <nav className="mt-10 grid gap-3 text-left sm:grid-cols-2">
+          <nav className="mt-10 grid gap-3 sm:grid-cols-2">
             {[
               { to: "/lca-beregning", label: "LCA-beregning", hint: "Ydelser og priser" },
               {
@@ -47,9 +47,9 @@ export function NotFoundPage() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="rounded-xl border border-border bg-white px-5 py-4 transition-colors hover:border-primary"
+                className="rounded-xl bg-white px-5 py-4 transition-colors hover:bg-green-soft"
               >
-                <span className="block font-semibold text-navy">{l.label}</span>
+                <span className="block font-semibold text-ink">{l.label}</span>
                 <span className="mt-0.5 block text-sm text-muted">{l.hint}</span>
               </Link>
             ))}
@@ -57,7 +57,7 @@ export function NotFoundPage() {
 
           <p className="mt-10 text-body">
             Eller ring på{" "}
-            <a href="tel:+4529899999" className="font-medium text-primary hover:underline">
+            <a href="tel:+4529899999" className="font-semibold text-green underline decoration-green/40 underline-offset-4 hover:decoration-green">
               +45 29 89 99 99
             </a>
             .

@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { pageTransition } from "../lib/animations";
 import { BR18Checker } from "../components/tools/BR18Checker";
 import { BR18_CHECKER_SEO_TITLE } from "../lib/seoTitles";
+import { PageHero } from "../components/ui/PageHero";
+import { FAQList } from "../components/ui/FAQList";
+import { Button } from "../components/ui/Button";
 
 const SITE = "https://dinlcahjælper.dk";
 const PATH = "/vaerktoejer/br18-tjekker";
@@ -71,33 +71,6 @@ const howToSchema = {
   ],
 };
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border-b border-border last:border-b-0">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between gap-4 py-5 text-left"
-        aria-expanded={open}
-      >
-        <h3 className="text-lg font-semibold text-navy">{question}</h3>
-        <ChevronDown
-          size={20}
-          className={`shrink-0 text-muted transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-        className="overflow-hidden"
-      >
-        <p className="pb-5 text-body leading-relaxed">{answer}</p>
-      </motion.div>
-    </div>
-  );
-}
-
 export function BR18CheckerPage() {
   return (
     <motion.div {...pageTransition}>
@@ -121,36 +94,17 @@ export function BR18CheckerPage() {
         <script type="application/ld+json">{JSON.stringify(howToSchema)}</script>
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 pb-16 pt-28 md:pb-24 md:pt-36">
-        <div className="absolute right-0 top-1/3 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <nav aria-label="Brødkrumme" className="mb-6">
-            <ol className="flex items-center gap-2 text-sm text-muted">
-              <li>
-                <Link to="/" className="hover:text-primary transition-colors">
-                  Forside
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="font-medium text-navy">BR18-tjekker</li>
-            </ol>
-          </nav>
-          <h1 className="max-w-3xl text-3xl font-bold leading-tight text-navy md:text-4xl lg:text-5xl">
-            Skal dit projekt have en LCA-beregning?
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-body">
-            Svar på tre spørgsmål og find ud af, om dit byggeri er omfattet af BR18's klimakrav,
-            hvilken grænseværdi der gælder, og hvad en beregning koster.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: "Forside", to: "/" }, { label: "BR18-tjekker" }]}
+        title="Skal dit projekt have en LCA-beregning?"
+        lede="Svar på tre spørgsmål og find ud af, om dit byggeri er omfattet af BR18's klimakrav, hvilken grænseværdi der gælder, og hvad en beregning koster."
+      />
 
       {/* Værktøjet */}
-      <section className="bg-bg py-12 md:py-16">
+      <section className="bg-paper pb-16 md:pb-24">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <BR18Checker />
-          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-muted">
+          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted">
             Værktøjet giver et vejledende svar baseret på BR18 § 297-298 (gældende fra 1. juli
             2025). Det erstatter ikke en konkret byggesagsvurdering. Er du i tvivl om afgrænsningen
             for dit projekt, er du velkommen til at kontakte os uforpligtende.
@@ -159,22 +113,21 @@ export function BR18CheckerPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-bg-alt py-16 md:py-24">
-        <div className="mx-auto max-w-3xl px-5 md:px-8">
-          <h2 className="text-2xl font-semibold text-navy md:text-3xl">Ofte stillede spørgsmål</h2>
-          <div className="mt-6 rounded-2xl border border-border bg-white px-6 md:px-8">
-            {faqs.map((f) => (
-              <FAQItem key={f.question} question={f.question} answer={f.answer} />
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <p className="mb-6 text-lg text-body">Klar til at få din beregning?</p>
-            <Link
-              to="/kontakt"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-primary-hover hover:shadow-md"
-            >
-              Send dine tegninger
-            </Link>
+      <section className="bg-mist py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <h2 className="text-3xl font-bold leading-tight md:text-4xl lg:sticky lg:top-28">
+                Ofte stillede spørgsmål
+              </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <FAQList items={faqs} />
+              <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-lg text-ink">Klar til at få din beregning?</p>
+                <Button to="/kontakt">Send dine tegninger</Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

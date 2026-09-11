@@ -1,41 +1,87 @@
 @import "tailwindcss";
-@import "@fontsource/inter/latin-400.css";
-@import "@fontsource/inter/latin-500.css";
-@import "@fontsource/inter/latin-600.css";
-@import "@fontsource/inter/latin-700.css";
-@import "@fontsource/inter/latin-ext-400.css";
-@import "@fontsource/inter/latin-ext-500.css";
-@import "@fontsource/inter/latin-ext-600.css";
-@import "@fontsource/inter/latin-ext-700.css";
+/* Scan these explicitly so the utility set does not depend on the process working directory. */
+@source "../index.html";
+@source "../src";
+/* The typeface is imported in main.tsx so Vite bundles the font files itself. */
 
+/*
+  Design tokens.
+  The three brand values come from the approved logo system
+  (01_Projects/Din-LCA-Hjaelper/marketing/brand/dlh-logo-system-v2/brand-tokens.css).
+  Everything else is derived from them so the whole palette shares one hue family.
+*/
 @theme {
-  --color-primary: #0D7C6E;
-  --color-primary-hover: #0A5F55;
-  --color-navy: #0F2B3C;
-  --color-body: #374151;
-  --color-muted: #6B7280;
-  --color-bg: #FAFAF7;
-  --color-bg-alt: #F3F1EC;
-  --color-primary-light: #E8F4F2;
-  --color-border: #E5E7EB;
-  --color-status-green: #16a34a;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  /* Brand */
+  --color-green: #2c5f30;
+  --color-mist: #f3fde0;
+  --color-white: #ffffff;
+
+  /* Derived greens */
+  --color-green-deep: #214a26;
+  --color-green-soft: #e6efe3;
+
+  /* Neutrals, tinted toward the brand green */
+  --color-paper: #fafbf6;
+  --color-ink: #182b1b;
+  --color-body: #3b4a3e;
+  --color-muted: #66735f;
+  --color-line: #dde4da;
+
+  /* Status colours, kept muted so they never compete with the brand green */
+  --color-brick: #a8432d;
+  --color-ochre: #8f6410;
+
+  --font-sans: "Schibsted Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+
+  --radius-sheet: 1rem;
+  --shadow-sheet: 0 24px 48px -28px rgb(44 95 48 / 0.35);
+  --shadow-nav: 0 1px 0 rgb(24 43 27 / 0.06), 0 8px 24px -16px rgb(44 95 48 / 0.25);
 }
 
-html {
-  scroll-behavior: smooth;
-  background: var(--color-bg);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-paper);
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-body);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--color-ink);
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+
+  h1 {
+    letter-spacing: -0.028em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-mist);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+  }
 }
 
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: var(--color-body);
-  background: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Smooth accordion and menu transitions honour the user's motion preference. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

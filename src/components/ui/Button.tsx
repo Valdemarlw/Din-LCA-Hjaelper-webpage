@@ -1,15 +1,36 @@
-import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+
+type Variant = "primary" | "secondary" | "ghost" | "light";
+type Size = "md" | "sm";
 
 type ButtonProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   to?: string;
   href?: string;
-  variant?: "primary" | "secondary" | "inverted";
+  variant?: Variant;
+  size?: Size;
   className?: string;
   type?: "button" | "submit";
   onClick?: () => void;
+  disabled?: boolean;
+  target?: string;
+  rel?: string;
+};
+
+const base =
+  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold leading-none transition-[background-color,color,border-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green";
+
+const sizes: Record<Size, string> = {
+  md: "px-6 py-3.5 text-[15px]",
+  sm: "px-4 py-2.5 text-sm",
+};
+
+const variants: Record<Variant, string> = {
+  primary: "bg-green text-white hover:bg-green-deep hover:shadow-[0_10px_24px_-12px_rgb(44_95_48/0.7)]",
+  secondary: "border border-green/40 bg-transparent text-green hover:border-green hover:bg-green-soft",
+  ghost: "text-green hover:bg-green-soft",
+  light: "bg-mist text-green hover:bg-white hover:shadow-[0_10px_24px_-12px_rgb(0_0_0/0.35)] focus-visible:outline-mist",
 };
 
 export function Button({
@@ -17,66 +38,33 @@ export function Button({
   to,
   href,
   variant = "primary",
+  size = "md",
   className = "",
   type = "button",
   onClick,
+  disabled,
+  target,
+  rel,
 }: ButtonProps) {
-  const base =
-    "inline-flex items-center justify-center rounded-[10px] px-6 py-3 text-base font-medium tracking-[-0.01em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
-
-  const variants = {
-    primary:
-      "bg-primary text-white shadow-[0_1px_2px_rgba(13,124,110,0.25),0_4px_12px_rgba(13,124,110,0.15)] hover:bg-[#0B6B5F] hover:shadow-[0_2px_4px_rgba(13,124,110,0.3),0_8px_20px_rgba(13,124,110,0.2)]",
-    secondary:
-      "bg-transparent text-primary border-[1.5px] border-primary/50 hover:bg-primary hover:text-white hover:border-primary hover:shadow-[0_2px_8px_rgba(13,124,110,0.2)]",
-    inverted:
-      "bg-white text-navy shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:bg-primary-light hover:shadow-[0_2px_8px_rgba(255,255,255,0.12)]",
-  };
-
-  const classes = `${base} ${variants[variant]} ${className}`;
-  const isPrimary = variant === "primary";
-
-  const motionProps = {
-    whileHover: { y: isPrimary ? -2 : -1 },
-    whileTap: { scale: 0.97 },
-    transition: { type: "spring" as const, stiffness: 500, damping: 30 },
-  };
-
-  const content = (
-    <>
-      {children}
-      {isPrimary && (
-        <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-      )}
-    </>
-  );
+  const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
 
   if (to) {
     return (
-      <motion.div {...motionProps} className="group inline-block">
-        <Link to={to} className={classes}>
-          {content}
-        </Link>
-      </motion.div>
+      <Link to={to} className={classes} onClick={onClick}>
+        {children}
+      </Link>
     );
   }
-
   if (href) {
     return (
-      <motion.a href={href} className={`group ${classes}`} {...motionProps}>
-        {content}
-      </motion.a>
+      <a href={href} className={classes} onClick={onClick} target={target} rel={rel}>
+        {children}
+      </a>
     );
   }
-
   return (
-    <motion.button
-      type={type}
-      className={`group ${classes}`}
-      onClick={onClick}
-      {...motionProps}
-    >
-      {content}
-    </motion.button>
+    <button type={type} className={classes} onClick={onClick} disabled={disabled}>
+      {children}
+    </button>
   );
 }

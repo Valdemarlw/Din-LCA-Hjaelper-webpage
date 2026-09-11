@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import "@fontsource-variable/schibsted-grotesk";
 import "./index.css";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/HomePage";

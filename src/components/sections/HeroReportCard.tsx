@@ -1,11 +1,14 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { Measure } from "../ui/Measure";
+import { Tag } from "../ui/Tag";
+import { CountUp } from "../motion/CountUp";
+import { EASE } from "../motion/constants";
+import { kommatal } from "../../lib/format";
 
-/** Illustrativt eksempel-rapportkort til hero'en (ikke interaktivt). */
+/** Illustrative example of the report sheet a client receives (not interactive). */
 
 const GWP = 4.8;
 const GRAENSE = 6.7;
-const fillPct = Math.round((GWP / GRAENSE) * 100); // 72
-const marginPct = 100 - fillPct; // 28
 
 const breakdown = [
   { label: "Ydervægge", value: 1.6 },
@@ -15,83 +18,80 @@ const breakdown = [
 ];
 const maxVal = Math.max(...breakdown.map((b) => b.value));
 
-function kommatal(n: number): string {
-  return n.toLocaleString("da-DK", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-}
+/* One choreography: sheet lands, the total counts up while the measure fills, then the breakdown grows. */
+const T = { sheet: 0.5, number: 0.95, bars: 1.7, tags: 2.3 };
 
 export function HeroReportCard() {
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      className="rounded-2xl border border-border bg-white p-6 shadow-[0_24px_60px_-24px_rgba(15,43,60,0.30)] md:p-7"
-      initial={{ opacity: 0, y: 28 }}
+      className="rounded-sheet bg-white p-6 text-body shadow-sheet md:p-7"
+      initial={reduce ? false : { opacity: 0, y: 48 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ delay: T.sheet, duration: 0.9, ease: EASE }}
     >
-      {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-            Myndighedsklar rapport
-          </p>
-          <h3 className="mt-1 text-lg font-bold text-navy">Enfamiliehus · 184 m²</h3>
+          <p className="text-[13px] text-muted">Myndighedsklar rapport</p>
+          <h3 className="mt-0.5 text-lg font-bold text-ink">Enfamiliehus, 184 m²</h3>
         </div>
-        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-status-green/10 px-2.5 py-1 text-xs font-medium text-status-green">
-          <span className="h-1.5 w-1.5 rounded-full bg-status-green" /> Godkendt
+        <motion.div
+          initial={reduce ? false : { opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: T.tags, duration: 0.4, ease: EASE }}
+        >
+          <Tag tone="soft" className="shrink-0">
+            <span className="h-1.5 w-1.5 rounded-full bg-green" aria-hidden="true" />
+            Godkendt
+          </Tag>
+        </motion.div>
+      </div>
+
+      <div className="my-5 h-px bg-line" />
+
+      <p className="text-[13px] text-muted">Samlet GWP</p>
+      <p className="mt-1 flex items-baseline gap-2">
+        <span className="text-[2.75rem] font-extrabold leading-none tracking-tight text-ink">
+          <CountUp to={GWP} decimals={1} start delay={T.number} duration={1.2} />
         </span>
-      </div>
-
-      <div className="my-5 h-px bg-border" />
-
-      {/* Samlet GWP */}
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-muted">Samlet GWP</span>
-        <span className="text-muted">Grænse {kommatal(GRAENSE)}</span>
-      </div>
-      <p className="mt-1 flex items-baseline gap-1.5">
-        <span className="text-4xl font-bold tracking-tight text-navy">{kommatal(GWP)}</span>
         <span className="text-sm text-muted">kg CO₂-eq/m²/år</span>
       </p>
-      <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-bg-alt">
-        <motion.div
-          className="h-full rounded-full bg-primary"
-          initial={{ width: 0 }}
-          animate={{ width: `${fillPct}%` }}
-          transition={{ delay: 0.85, duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-        />
-      </div>
-      <p className="mt-1.5 text-center text-xs text-muted">{marginPct}% margin</p>
 
-      <div className="my-5 h-px bg-border" />
+      <Measure value={GWP} limit={GRAENSE} unit="kg CO₂-eq/m²/år" animate delay={T.number} className="mt-4" />
 
-      {/* Nedbrydning */}
-      <div className="space-y-3">
-        {breakdown.map((b) => (
+      <div className="my-5 h-px bg-line" />
+
+      <div className="space-y-2.5">
+        {breakdown.map((b, i) => (
           <div key={b.label} className="flex items-center gap-3 text-sm">
             <span className="w-32 shrink-0 text-body">{b.label}</span>
-            <div className="h-2 flex-1 overflow-hidden rounded-full bg-bg-alt">
-              <div
-                className="h-full rounded-full bg-status-green/70"
-                style={{ width: `${(b.value / maxVal) * 100}%` }}
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-green-soft">
+              <motion.div
+                className="h-full rounded-full bg-green/70"
+                initial={reduce ? false : { width: 0 }}
+                animate={{ width: `${(b.value / maxVal) * 100}%` }}
+                transition={{ delay: T.bars + i * 0.12, duration: 0.8, ease: EASE }}
               />
             </div>
-            <span className="w-8 shrink-0 text-right font-medium text-navy">{kommatal(b.value)}</span>
+            <span className="w-8 shrink-0 text-right font-semibold text-ink">{kommatal(b.value)}</span>
           </div>
         ))}
       </div>
 
-      <div className="my-5 h-px bg-border" />
+      <div className="my-5 h-px bg-line" />
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2">
+      <motion.div
+        className="flex flex-wrap gap-2"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: T.tags, duration: 0.6 }}
+      >
         {["BR18", "A1–A3", "A4+A5", "EN 15804"].map((t) => (
-          <span
-            key={t}
-            className="rounded-md bg-bg-alt px-2.5 py-1 text-xs font-medium text-muted"
-          >
+          <Tag key={t} tone="outline">
             {t}
-          </span>
+          </Tag>
         ))}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

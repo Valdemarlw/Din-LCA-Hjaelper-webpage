@@ -1,0 +1,13 @@
+{
+  "name": "Din LCA Hjælper",
+  "short_name": "Din LCA Hjælper",
+  "description": "LCA-beregning til byggeri efter BR18, fra tidlig fase til myndighedsklar rapport.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f3fde0",
+  "theme_color": "#2c5f30",
+  "icons": [
+    { "src": "/android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

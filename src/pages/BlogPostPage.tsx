@@ -1,12 +1,14 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { pageTransition, fadeUp } from "../lib/animations";
+import { pageTransition } from "../lib/animations";
 import { getBlogPost } from "../data/blogPosts";
-import { Button } from "../components/ui/Button";
-import { RenderSection, FAQItem } from "../components/content/RenderSection";
-import { Calendar, Clock } from "lucide-react";
+import { RenderSection } from "../components/content/RenderSection";
+import { FAQList } from "../components/ui/FAQList";
+import { CtaPanel } from "../components/ui/CtaPanel";
+import { PageHero } from "../components/ui/PageHero";
 import { buildSeoTitle } from "../lib/seoTitles";
+import { formatDanishDate } from "../lib/format";
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -120,120 +122,44 @@ export function BlogPostPage() {
         )}
       </Helmet>
 
-      <article className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30">
-        {/* Hero */}
-        <div className="py-16 md:py-24 lg:py-28">
-          <div className="absolute left-0 top-1/3 -translate-x-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="mx-auto max-w-3xl px-5 md:px-8 relative">
-            {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-muted">
-                <li>
-                  <Link
-                    to="/"
-                    className="hover:text-primary transition-colors"
-                  >
-                    Forside
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li>
-                  <Link
-                    to="/viden"
-                    className="hover:text-primary transition-colors"
-                  >
-                    Viden
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li>
-                  <Link
-                    to="/blog"
-                    className="hover:text-primary transition-colors"
-                  >
-                    Artikler
-                  </Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li className="text-navy font-medium truncate max-w-[200px]">
-                  {post.title}
-                </li>
-              </ol>
-            </nav>
+      <article>
+        <PageHero
+          width="narrow"
+          crumbs={[
+            { label: "Forside", to: "/" },
+            { label: "Viden", to: "/viden" },
+            { label: "Artikler", to: "/blog" },
+            { label: post.title },
+          ]}
+          title={post.title}
+        >
+          <p className="mt-6 text-sm text-muted">
+            <time dateTime={post.date}>{formatDanishDate(post.date)}</time>, {post.readingTime} læsning
+          </p>
+        </PageHero>
 
-            <motion.h1
-              className="text-3xl md:text-4xl lg:text-[44px] font-bold text-navy leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {post.title}
-            </motion.h1>
-
-            <motion.div
-              className="mt-4 flex items-center gap-4 text-sm text-muted"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <span className="flex items-center gap-1.5">
-                <Calendar size={14} />
-                {post.date}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock size={14} />
-                {post.readingTime}
-              </span>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="bg-bg pb-20 md:pb-28">
-          <motion.div
-            className="mx-auto max-w-3xl px-5 md:px-8"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-          >
+        <div className="bg-paper pb-20 md:pb-28">
+          <div className="mx-auto max-w-[46rem] px-5 md:px-8">
             <div>
               {post.content.map((section, i) => (
                 <RenderSection key={i} section={section} />
               ))}
             </div>
 
-            {/* FAQ Section */}
             {post.faqs.length > 0 && (
-              <div className="mt-16">
-                <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-6">
-                  Ofte stillede spørgsmål
-                </h2>
-                <div className="rounded-2xl border border-border bg-white px-6 md:px-8">
-                  {post.faqs.map((faq) => (
-                    <FAQItem
-                      key={faq.question}
-                      question={faq.question}
-                      answer={faq.answer}
-                    />
-                  ))}
-                </div>
-              </div>
+              <section className="mt-16">
+                <h2 className="mb-6 text-2xl font-bold md:text-3xl">Ofte stillede spørgsmål</h2>
+                <FAQList items={post.faqs} />
+              </section>
             )}
 
-            {/* CTA */}
-            <div className="mt-16 rounded-2xl bg-primary-light p-8 md:p-10 text-center">
-              <h2 className="text-2xl font-semibold text-navy">
-                Har du brug for en LCA-beregning?
-              </h2>
-              <p className="mt-3 text-body max-w-lg mx-auto">
-                Vi håndterer hele processen, fra tidlig fase til myndighedsklar
-                rapport. Et typisk enfamiliehus koster 5.000-7.000 kr ekskl. moms.
-              </p>
-              <div className="mt-6">
-                <Button to="/kontakt">Få et tilbud</Button>
-              </div>
-            </div>
-          </motion.div>
+            <CtaPanel
+              className="mt-16"
+              title="Har du brug for en LCA-beregning?"
+              text="Vi håndterer hele processen, fra tidlig fase til myndighedsklar rapport. Et typisk enfamiliehus koster 5.000-7.000 kr ekskl. moms."
+              cta="Få et tilbud"
+            />
+          </div>
         </div>
       </article>
     </motion.div>
