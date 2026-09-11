@@ -68,7 +68,8 @@ const ORDER = [
 const DRAW_SECONDS = 3;
 /** How far outside the grid a row-change turn swings, clear of the column's text. */
 const LANE_OFFSET = 18;
-const SAMPLES = 32;
+/** Corner radius of a row-change turn: soft, but a turn rather than a balloon. */
+const TURN_RADIUS = 48;
 const FLOW_PERIOD = 18; // dash + gap of the drifting "current" overlay
 
 /*
@@ -87,7 +88,7 @@ type Pt = { x: number; y: number };
 type Geometry = { width: number; height: number; points: Pt[] };
 type Leg = (
   | { kind: "line"; from: Pt; to: Pt }
-  | { kind: "turn"; from: Pt; to: Pt; c1: Pt; c2: Pt }
+  | { kind: "turn"; from: Pt; to: Pt; laneX: number; r: number }
   | { kind: "loop"; from: Pt; to: Pt; far: Pt; sweep: 0 | 1; dir: Pt }
 ) & { endsAtDisc: boolean; arrow: boolean };
 type Arrow = { x: number; y: number; angle: number; at: number };
@@ -101,37 +102,36 @@ type PathModel = { d: string; arrows: Arrow[]; stepAt: number[]; loop: LoopModel
 
 const f = (n: number) => n.toFixed(1);
 
-function bezierAt(leg: Extract<Leg, { kind: "turn" }>, t: number): Pt {
-  const u = 1 - t;
-  const a = u * u * u;
-  const b = 3 * u * u * t;
-  const c = 3 * u * t * t;
-  const d = t * t * t;
+/** The straight runs and quarter-circle corners that make up a row-change turn. */
+function turnGeometry(leg: Extract<Leg, { kind: "turn" }>) {
+  const s = Math.sign(leg.laneX - leg.from.x) || 1;
+  const r = leg.r;
+  const cornerIn = { x: leg.laneX - s * r, y: leg.from.y };
+  const downStart = { x: leg.laneX, y: leg.from.y + r };
+  const downEnd = { x: leg.laneX, y: leg.to.y - r };
+  const cornerOut = { x: leg.laneX - s * r, y: leg.to.y };
+  const quarter = (Math.PI * r) / 2;
+  const h1 = Math.abs(cornerIn.x - leg.from.x);
+  const v = Math.max(0, downEnd.y - downStart.y);
+  const h2 = Math.abs(leg.to.x - cornerOut.x);
   return {
-    x: a * leg.from.x + b * leg.c1.x + c * leg.c2.x + d * leg.to.x,
-    y: a * leg.from.y + b * leg.c1.y + c * leg.c2.y + d * leg.to.y,
-  };
-}
-
-function bezierTangent(leg: Extract<Leg, { kind: "turn" }>, t: number): Pt {
-  const u = 1 - t;
-  return {
-    x: 3 * u * u * (leg.c1.x - leg.from.x) + 6 * u * t * (leg.c2.x - leg.c1.x) + 3 * t * t * (leg.to.x - leg.c2.x),
-    y: 3 * u * u * (leg.c1.y - leg.from.y) + 6 * u * t * (leg.c2.y - leg.c1.y) + 3 * t * t * (leg.to.y - leg.c2.y),
+    sweep: s > 0 ? 1 : 0,
+    cornerIn,
+    downStart,
+    downEnd,
+    cornerOut,
+    quarter,
+    h1,
+    v,
+    h2,
+    length: h1 + quarter + v + quarter + h2,
   };
 }
 
 function legLength(leg: Leg): number {
   if (leg.kind === "line") return Math.hypot(leg.to.x - leg.from.x, leg.to.y - leg.from.y);
   if (leg.kind === "loop") return 2 * Math.PI * LOOP_RADIUS;
-  let len = 0;
-  let prev = leg.from;
-  for (let i = 1; i <= SAMPLES; i++) {
-    const p = bezierAt(leg, i / SAMPLES);
-    len += Math.hypot(p.x - prev.x, p.y - prev.y);
-    prev = p;
-  }
-  return len;
+  return turnGeometry(leg).length;
 }
 
 function loopPath(leg: Extract<Leg, { kind: "loop" }>): string {
@@ -140,10 +140,9 @@ function loopPath(leg: Extract<Leg, { kind: "loop" }>): string {
 }
 
 /**
- * Discs in the same row are joined by straight runs. A change of row becomes
- * one continuous S-curve that swings out past the column's text and lands on
- * the next disc tangent to the incoming line, so the whole route reads as one
- * flowing stroke rather than a wiring diagram.
+ * Discs in the same row are joined by straight runs. A change of row runs out
+ * past the column's text, turns down through a soft quarter-circle corner, and
+ * comes back the same way, so the stroke stays continuous without ballooning.
  */
 function buildLegs(points: Pt[], width: number): Leg[] {
   const multiColumn = new Set(points.map((p) => Math.round(p.x))).size > 1;
@@ -173,17 +172,8 @@ function buildLegs(points: Pt[], width: number): Leg[] {
     }
 
     if (drops) {
-      // A cubic with both handles at the same x peaks at 0.75 of the handle reach.
-      const reach = (laneX - from.x) / 0.75;
-      legs.push({
-        kind: "turn",
-        from,
-        to,
-        c1: { x: from.x + reach, y: from.y },
-        c2: { x: to.x + reach, y: to.y },
-        endsAtDisc: true,
-        arrow: true,
-      });
+      const r = Math.max(8, Math.min(TURN_RADIUS, (to.y - from.y) / 2 - 1, Math.abs(laneX - from.x) - 8));
+      legs.push({ kind: "turn", from, to, laneX, r, endsAtDisc: true, arrow: true });
     } else {
       legs.push({ kind: "line", from, to, endsAtDisc: true, arrow: true });
     }
@@ -238,15 +228,21 @@ function buildPath(points: Pt[], width: number): PathModel {
           : { x: centre.x, y: centre.y, side: "none" },
       };
     } else {
-      d += ` C ${f(leg.c1.x)} ${f(leg.c1.y)} ${f(leg.c2.x)} ${f(leg.c2.y)} ${f(leg.to.x)} ${f(leg.to.y)}`;
+      const t = turnGeometry(leg);
+      const r = leg.r;
+      d +=
+        ` L ${f(t.cornerIn.x)} ${f(t.cornerIn.y)}` +
+        ` A ${r} ${r} 0 0 ${t.sweep} ${f(t.downStart.x)} ${f(t.downStart.y)}` +
+        ` L ${f(t.downEnd.x)} ${f(t.downEnd.y)}` +
+        ` A ${r} ${r} 0 0 ${t.sweep} ${f(t.cornerOut.x)} ${f(t.cornerOut.y)}` +
+        ` L ${f(leg.to.x)} ${f(leg.to.y)}`;
       if (leg.arrow) {
-        const apex = bezierAt(leg, 0.5);
-        const tangent = bezierTangent(leg, 0.5);
+        // Midway down the lane, pointing down.
         arrows.push({
-          x: apex.x,
-          y: apex.y,
-          angle: (Math.atan2(tangent.y, tangent.x) * 180) / Math.PI,
-          at: (cum + lengths[i] / 2) / total,
+          x: leg.laneX,
+          y: (t.downStart.y + t.downEnd.y) / 2,
+          angle: 90,
+          at: (cum + t.h1 + t.quarter + t.v / 2) / total,
         });
       }
     }
