@@ -19,10 +19,10 @@ export function PrisEstimat({
   if (res.type === "individuelt") {
     const erRaekkehus = prisType === "raekkehus";
     return (
-      <div className="mt-6 rounded-xl border border-border bg-white p-5">
+      <div className="mt-6 rounded-xl bg-white p-5 ring-1 ring-line">
         <p className="text-sm font-medium text-muted">Vejledende pris</p>
-        <p className="mt-1 text-2xl font-bold text-navy">Individuelt tilbud</p>
-        <p className="mt-2 text-sm text-body leading-relaxed">
+        <p className="mt-1 text-2xl font-bold text-ink">Individuelt tilbud</p>
+        <p className="mt-2 text-sm leading-relaxed text-body">
           {erRaekkehus
             ? "Rækkehuse og projekter med flere boliger starter ved 8.000 kr. Vi ser på antal boliger, variationer og projektmaterialet, før vi giver en fast pris."
             : "Dit projekt ligger uden for vores faste prisinterval. Send os tegningerne, så får du et konkret tilbud inden for 24 timer."}
@@ -34,27 +34,27 @@ export function PrisEstimat({
   const rabat = res.komplet - res.direkte;
 
   return (
-    <div className="mt-6 rounded-xl border border-border bg-white p-5">
+    <div className="mt-6 rounded-xl bg-white p-5 ring-1 ring-line">
       <p className="text-sm font-medium text-muted">
         {frivillig ? "Frivillig beregning, vejledende pris" : "Vejledende pris"}
       </p>
-      <p className="mt-1 flex items-baseline gap-1.5">
+      <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5">
         <span className="text-sm text-muted">ca.</span>
-        <span className="text-3xl md:text-4xl font-bold text-navy tracking-tight">
+        <span className="text-3xl font-extrabold tracking-tight text-ink md:text-4xl">
           {formatKr(res.komplet)}
         </span>
-        <span className="text-lg text-navy font-medium">kr</span>
+        <span className="text-lg font-medium text-ink">kr</span>
         <span className="text-sm text-muted">ekskl. moms</span>
       </p>
 
       {rabat > 0 && (
-        <p className="mt-4 text-sm text-body leading-relaxed">
+        <p className="mt-4 text-sm leading-relaxed text-body">
           Et struktureret mængdeudtræk kan give op til {formatKr(rabat)} kr i afslag, når vi har
           gennemgået og bekræftet, at det kan bruges direkte.
         </p>
       )}
 
-      <p className="mt-4 text-xs text-muted leading-relaxed">
+      <p className="mt-4 text-xs leading-relaxed text-muted">
         Estimatet viser LCA Komplet og inkluderer vores mængdeudtræk. Den endelige pris fastsættes
         i et tilbud, når vi har gennemgået projektmaterialet, antallet af konstruktioner og
         projektets kompleksitet.

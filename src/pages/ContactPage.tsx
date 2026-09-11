@@ -1,13 +1,26 @@
 import { useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { pageTransition, fadeUp, staggerContainer } from "../lib/animations";
-import { Phone, Mail, Send } from "lucide-react";
+import { pageTransition } from "../lib/animations";
 import { Button } from "../components/ui/Button";
+import { PageHero } from "../components/ui/PageHero";
 import { trackAnalyticsEvent } from "../lib/analytics";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "80bd8607-2b37-4bfd-9ad3-184e93658aed";
+
+const inputCls =
+  "mt-1.5 w-full rounded-lg border border-line bg-white px-4 py-3 text-ink transition-colors placeholder:text-muted/70 focus:border-green focus:outline-none focus:ring-2 focus:ring-green/20";
+const labelCls = "block text-sm font-medium text-ink";
+
+function Required() {
+  return (
+    <span className="text-brick" aria-hidden="true">
+      {" "}
+      *
+    </span>
+  );
+}
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -57,72 +70,51 @@ export function ContactPage() {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="da_DK" />
       </Helmet>
-      <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/20 py-20 md:py-28 lg:py-32">
-        <div className="absolute right-0 top-1/4 translate-x-1/3 w-[350px] h-[350px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16"
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Left, Intro + contact */}
-            <motion.div variants={fadeUp}>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
-                Kontakt os
-              </h1>
-              <p className="mt-6 text-lg text-body leading-relaxed">
-                Send os information om dit projekt, så vender vi tilbage med et
-                tilbud. Du kan også ringe eller skrive direkte.
-              </p>
 
-              <div className="mt-8 space-y-4">
+      <PageHero
+        title="Kontakt os"
+        lede="Send os information om dit projekt, så vender vi tilbage med et tilbud. Du kan også ringe eller skrive direkte."
+      />
+
+      <section className="bg-paper pb-20 md:pb-28">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* Direct contact */}
+            <div className="lg:col-span-5">
+              <div className="space-y-4">
                 <a
                   href="tel:+4529899999"
-                  className="flex items-center gap-3 text-lg text-navy hover:text-primary transition-colors"
+                  className="block text-2xl font-bold text-ink transition-colors hover:text-green md:text-3xl"
                 >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
-                    <Phone size={20} />
-                  </div>
                   +45 29 89 99 99
                 </a>
                 <a
                   href="mailto:valdemar.wernblad@dinlcahjælper.dk"
-                  className="flex items-center gap-3 text-lg text-navy hover:text-primary transition-colors"
+                  className="block break-all text-lg text-ink transition-colors hover:text-green"
                 >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
-                    <Mail size={20} />
-                  </div>
                   valdemar.wernblad@dinlcahjælper.dk
                 </a>
               </div>
 
-              <div className="mt-8 p-4 rounded-lg bg-bg-alt border border-border">
-                <p className="text-sm text-muted">
-                  <strong className="text-navy">Tegninger?</strong> Send dem gerne direkte til{" "}
+              <div className="mt-10 rounded-sheet bg-mist p-5 text-[15px] leading-relaxed text-body md:p-6">
+                <p>
+                  <strong className="font-semibold text-ink">Tegninger?</strong> Send dem gerne direkte til{" "}
                   <a
                     href="mailto:valdemar.wernblad@dinlcahjælper.dk"
-                    className="text-primary hover:underline"
+                    className="break-all text-green underline decoration-green/40 underline-offset-2 hover:decoration-green"
                   >
                     valdemar.wernblad@dinlcahjælper.dk
                   </a>
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Right, Form */}
-            <motion.div variants={fadeUp}>
+            {/* Form */}
+            <div className="lg:col-span-7">
               {submitted ? (
-                <div className="rounded-2xl border border-border bg-bg-alt p-8 md:p-10 text-center">
-                  <div className="mx-auto mb-4 flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary">
-                    <Send size={24} />
-                  </div>
-                  <h2 className="text-2xl font-semibold text-navy">
-                    Tak for din henvendelse
-                  </h2>
-                  <p className="mt-3 text-body">
-                    Vi vender tilbage inden for 24 timer.
-                  </p>
+                <div className="rounded-sheet bg-mist p-8 md:p-10" role="status">
+                  <h2 className="text-2xl font-bold text-ink">Tak for din henvendelse</h2>
+                  <p className="mt-3 text-lg text-body">Vi vender tilbage inden for 24 timer.</p>
                 </div>
               ) : (
                 <form
@@ -133,126 +125,88 @@ export function ContactPage() {
                       trackAnalyticsEvent("kontakt_formular_startet");
                     }
                   }}
-                  className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-sm space-y-5"
+                  className="rounded-sheet bg-white p-6 ring-1 ring-line md:p-8"
                 >
                   {/* Honeypot spam protection */}
                   <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
-                  {/* Navn */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-navy mb-1.5">
-                      Navn <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="name" className={labelCls}>
+                        Navn
+                        <Required />
+                      </label>
+                      <input id="name" name="name" type="text" required autoComplete="name" className={inputCls} />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className={labelCls}>
+                        Email
+                        <Required />
+                      </label>
+                      <input id="email" name="email" type="email" required autoComplete="email" className={inputCls} />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className={labelCls}>
+                        Telefon
+                      </label>
+                      <input id="phone" name="phone" type="tel" autoComplete="tel" className={`${inputCls}`} />
+                    </div>
+
+                    <div>
+                      <label htmlFor="project-type" className={labelCls}>
+                        Projekttype
+                      </label>
+                      <select id="project-type" name="project-type" className={inputCls}>
+                        <option value="">Vælg type...</option>
+                        <option value="bolig">Bolig</option>
+                        <option value="erhverv">Erhverv</option>
+                        <option value="industri">Industri</option>
+                        <option value="andet">Andet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="area" className={labelCls}>
+                        Estimeret areal m²
+                      </label>
+                      <input id="area" name="area" type="number" min="0" inputMode="numeric" className={`${inputCls}`} />
+                    </div>
+
+                    <div>
+                      <label htmlFor="timeline" className={labelCls}>
+                        Tidshorisont / Forventet byggestart
+                      </label>
+                      <input id="timeline" name="timeline" type="text" className={inputCls} />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label htmlFor="message" className={labelCls}>
+                        Besked
+                      </label>
+                      <textarea id="message" name="message" rows={5} className={`${inputCls} resize-y`} />
+                    </div>
                   </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-navy mb-1.5">
-                      Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
+                  <div className="mt-7">
+                    <Button type="submit" className="w-full sm:w-auto" disabled={submitting}>
+                      {submitting ? "Sender..." : "Send forespørgsel"}
+                    </Button>
                   </div>
-
-                  {/* Telefon */}
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-navy mb-1.5">
-                      Telefon
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
-                  </div>
-
-                  {/* Projekttype */}
-                  <div>
-                    <label htmlFor="project-type" className="block text-sm font-medium text-navy mb-1.5">
-                      Projekttype
-                    </label>
-                    <select
-                      id="project-type"
-                      name="project-type"
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    >
-                      <option value="">Vælg type...</option>
-                      <option value="bolig">Bolig</option>
-                      <option value="erhverv">Erhverv</option>
-                      <option value="industri">Industri</option>
-                      <option value="andet">Andet</option>
-                    </select>
-                  </div>
-
-                  {/* Areal */}
-                  <div>
-                    <label htmlFor="area" className="block text-sm font-medium text-navy mb-1.5">
-                      Estimeret areal m²
-                    </label>
-                    <input
-                      id="area"
-                      name="area"
-                      type="number"
-                      min="0"
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
-                  </div>
-
-                  {/* Tidshorisont */}
-                  <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-navy mb-1.5">
-                      Tidshorisont / Forventet byggestart
-                    </label>
-                    <input
-                      id="timeline"
-                      name="timeline"
-                      type="text"
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
-                  </div>
-
-                  {/* Besked */}
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-navy mb-1.5">
-                      Besked
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="w-full rounded-lg border border-border px-4 py-2.5 text-body focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-y"
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full">
-                    {submitting ? "Sender..." : "Send forespørgsel"}
-                  </Button>
 
                   {error && (
-                    <p className="text-sm text-red-600 text-center">
+                    <p className="mt-4 text-sm text-brick" role="alert">
                       Noget gik galt. Prøv igen, eller skriv direkte til{" "}
-                      <a href="mailto:valdemar.wernblad@dinlcahjælper.dk" className="underline">
+                      <a href="mailto:valdemar.wernblad@dinlcahjælper.dk" className="underline underline-offset-2">
                         valdemar.wernblad@dinlcahjælper.dk
                       </a>
                     </p>
                   )}
                 </form>
               )}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
     </motion.div>

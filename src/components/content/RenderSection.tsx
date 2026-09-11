@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import type { BlogSection } from "../../data/blogPosts";
+
+const linkCls =
+  "text-green underline decoration-green/40 underline-offset-2 transition-colors hover:decoration-green";
 
 export function InlineLinks({ text }: { text: string }) {
   const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
@@ -14,23 +14,13 @@ export function InlineLinks({ text }: { text: string }) {
           const [, linkText, url] = match;
           if (url.startsWith("/")) {
             return (
-              <Link
-                key={i}
-                to={url}
-                className="text-primary hover:text-primary-hover underline underline-offset-2"
-              >
+              <Link key={i} to={url} className={linkCls}>
                 {linkText}
               </Link>
             );
           }
           return (
-            <a
-              key={i}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary-hover underline underline-offset-2"
-            >
+            <a key={i} href={url} target="_blank" rel="noopener noreferrer" className={linkCls}>
               {linkText}
             </a>
           );
@@ -41,29 +31,24 @@ export function InlineLinks({ text }: { text: string }) {
   );
 }
 
+/** Renders one block of structured article content with the site's editorial styles. */
 export function RenderSection({ section }: { section: BlogSection }) {
   switch (section.type) {
     case "heading2":
       return (
-        <h2 className="text-2xl md:text-3xl font-semibold text-navy mt-10 mb-4">
-          {section.text}
-        </h2>
+        <h2 className="mb-4 mt-12 text-2xl font-bold leading-tight md:text-3xl">{section.text}</h2>
       );
     case "heading3":
-      return (
-        <h3 className="text-xl md:text-2xl font-semibold text-navy mt-8 mb-3">
-          {section.text}
-        </h3>
-      );
+      return <h3 className="mb-3 mt-8 text-xl font-semibold md:text-2xl">{section.text}</h3>;
     case "paragraph":
       return (
-        <p className="text-body leading-relaxed mb-4">
+        <p className="mb-5 leading-[1.7] text-body">
           <InlineLinks text={section.text || ""} />
         </p>
       );
     case "list":
       return (
-        <ul className="list-disc list-inside space-y-2 mb-4 text-body">
+        <ul className="mb-5 list-disc space-y-2 pl-5 leading-relaxed text-body marker:text-green">
           {section.items?.map((item, i) => (
             <li key={i}>
               <InlineLinks text={item} />
@@ -73,16 +58,13 @@ export function RenderSection({ section }: { section: BlogSection }) {
       );
     case "table":
       return (
-        <div className="overflow-x-auto mb-6">
-          <table className="w-full border-collapse rounded-lg overflow-hidden">
+        <div className="mb-8 overflow-x-auto rounded-xl ring-1 ring-line">
+          <table className="w-full border-collapse text-[15px]">
             {section.headers && (
               <thead>
-                <tr className="bg-navy text-white">
+                <tr className="bg-green text-left text-white">
                   {section.headers.map((header, i) => (
-                    <th
-                      key={i}
-                      className="px-4 py-3 text-left text-sm font-semibold"
-                    >
+                    <th key={i} className="px-4 py-3 font-semibold">
                       {header}
                     </th>
                   ))}
@@ -91,15 +73,9 @@ export function RenderSection({ section }: { section: BlogSection }) {
             )}
             <tbody>
               {section.rows?.map((row, i) => (
-                <tr
-                  key={i}
-                  className={i % 2 === 0 ? "bg-white" : "bg-bg-alt"}
-                >
+                <tr key={i} className="border-t border-line even:bg-paper">
                   {row.map((cell, j) => (
-                    <td
-                      key={j}
-                      className="px-4 py-3 text-sm text-body border-t border-border"
-                    >
+                    <td key={j} className="px-4 py-3 align-top text-body">
                       <InlineLinks text={cell} />
                     </td>
                   ))}
@@ -112,31 +88,4 @@ export function RenderSection({ section }: { section: BlogSection }) {
     default:
       return null;
   }
-}
-
-export function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border-b border-border last:border-b-0">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-5 text-left gap-4"
-        aria-expanded={open}
-      >
-        <h3 className="text-lg font-semibold text-navy">{question}</h3>
-        <ChevronDown
-          size={20}
-          className={`shrink-0 text-muted transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-        className="overflow-hidden"
-      >
-        <p className="pb-5 text-body leading-relaxed">{answer}</p>
-      </motion.div>
-    </div>
-  );
 }

@@ -1,70 +1,71 @@
-import { motion } from "framer-motion";
-import { wordReveal, wordChild } from "../../lib/animations";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "../ui/Button";
-import { Badge } from "../ui/Badge";
+import { Tag } from "../ui/Tag";
 import { HeroReportCard } from "./HeroReportCard";
 
-function RevealText({ text, className = "" }: { text: string; className?: string }) {
-  const words = text.split(" ");
-  return (
-    <motion.span variants={wordReveal} className={className}>
-      {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
-          <motion.span variants={wordChild} className="inline-block">
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </motion.span>
-  );
-}
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
+  const reduce = useReducedMotion();
+  const enter = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 14 },
+          animate: { opacity: 1, y: 0 },
+          transition: { delay, duration: 0.55, ease },
+        };
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30 py-20 md:py-28 lg:py-32">
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Venstre: tekst + CTA */}
-          <motion.div initial="hidden" animate="visible" variants={wordReveal}>
-            <h1 className="text-4xl md:text-5xl lg:text-[52px] font-bold text-navy leading-[1.1] tracking-tight">
-              <RevealText text="LCA-beregning der bare virker" />
-            </h1>
+    <section className="bg-paper pb-16 pt-3 md:pb-24 md:pt-4">
+      <div className="mx-auto max-w-6xl px-3 md:px-6 lg:px-8">
+        {/* The brand green as an object on the page, not a wallpaper. */}
+        <div className="rounded-[20px] bg-green px-6 pb-16 pt-14 text-mist md:rounded-[28px] md:px-12 md:pb-20 md:pt-20 lg:px-16 lg:pb-24 lg:pt-24">
+          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-7">
+              <motion.h1
+                {...enter(0)}
+                className="max-w-[12ch] text-[2.6rem] font-extrabold leading-[1.02] text-white md:text-6xl lg:text-[4.25rem]"
+              >
+                LCA-beregning der bare virker
+              </motion.h1>
 
-            <motion.p
-              className="mt-6 text-lg md:text-xl text-body leading-relaxed max-w-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, så du kan fokusere på projektet.
-            </motion.p>
+              <motion.p
+                {...enter(0.12)}
+                className="mt-6 max-w-xl text-lg leading-relaxed text-mist/90 md:text-xl"
+              >
+                Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, så
+                du kan fokusere på projektet.
+              </motion.p>
 
-            <motion.p
-              className="mt-3 text-sm text-muted max-w-xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-            >
-              Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed der leverer myndighedsklar LCA-beregning for byggeri efter BR18. Vi betjener arkitekter og rådgivere i hele Danmark med beregninger for bolig, erhverv og industri, fra 80 til 3.000 m².
-            </motion.p>
+              <motion.div
+                {...enter(0.24)}
+                className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4"
+              >
+                <Button to="/kontakt" variant="light">
+                  Få et tilbud
+                </Button>
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xl font-bold text-white">Typisk 5.000-7.000 kr</span>
+                  <Tag tone="light">A4+A5 inkluderet</Tag>
+                </div>
+              </motion.div>
 
-            <motion.div
-              className="mt-8 flex flex-wrap items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-            >
-              <Button to="/kontakt">Få et tilbud</Button>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold text-navy">Typisk 5.000-7.000 kr</span>
-                <Badge>A4+A5 inkluderet</Badge>
-              </div>
-            </motion.div>
-          </motion.div>
+              <motion.p
+                {...enter(0.34)}
+                className="mt-10 max-w-xl text-[15px] leading-relaxed text-mist/70"
+              >
+                Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed der leverer myndighedsklar
+                LCA-beregning for byggeri efter BR18. Vi betjener arkitekter og rådgivere i hele
+                Danmark med beregninger for bolig, erhverv og industri, fra 80 til 3.000 m².
+              </motion.p>
+            </div>
 
-          {/* Højre: eksempel-rapportkort */}
-          <HeroReportCard />
+            {/* The report sheet breaches the bottom edge of the panel on large screens. */}
+            <div className="lg:col-span-5 lg:-mb-36 lg:self-end">
+              <HeroReportCard />
+            </div>
+          </div>
         </div>
       </div>
     </section>

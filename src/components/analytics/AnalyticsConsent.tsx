@@ -6,6 +6,7 @@ import {
   setAnalyticsConsent,
   type AnalyticsConsent as Consent,
 } from "../../lib/analytics";
+import { Button } from "../ui/Button";
 
 export function AnalyticsConsent() {
   const [choice, setChoice] = useState<Consent | null>(() => readAnalyticsConsent());
@@ -27,34 +28,24 @@ export function AnalyticsConsent() {
 
   return (
     <aside
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-3xl rounded-2xl border border-border bg-white p-5 shadow-xl md:p-6"
+      className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-2xl rounded-sheet bg-white p-5 shadow-sheet ring-1 ring-line md:p-6"
       aria-label="Indstillinger for anonym statistik"
       data-nosnippet
     >
-      <h2 className="text-lg font-semibold text-navy">Hjælp os med at gøre hjemmesiden bedre</h2>
-      <p className="mt-2 text-sm leading-relaxed text-body">
+      <h2 className="text-lg font-bold text-ink">Hjælp os med at gøre hjemmesiden bedre</h2>
+      <p className="mt-2 text-[15px] leading-relaxed text-body">
         Må vi bruge anonym besøgsstatistik til at forstå, hvordan hjemmesiden bliver brugt? Læs mere
         under{" "}
-        <Link className="text-primary underline" to="/privatliv">
+        <Link className="text-green underline underline-offset-2" to="/privatliv">
           privatliv og statistik
         </Link>
         .
       </p>
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <button
-          type="button"
-          className="rounded-[10px] border border-border px-5 py-3 font-medium text-navy transition-colors hover:border-primary"
-          onClick={() => choose("denied")}
-        >
+      <div className="mt-5 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+        <Button variant="secondary" onClick={() => choose("denied")}>
           Nej tak
-        </button>
-        <button
-          type="button"
-          className="rounded-[10px] bg-primary px-5 py-3 font-medium text-white transition-colors hover:bg-primary-hover"
-          onClick={() => choose("granted")}
-        >
-          Ja tak
-        </button>
+        </Button>
+        <Button onClick={() => choose("granted")}>Ja tak</Button>
       </div>
     </aside>
   );

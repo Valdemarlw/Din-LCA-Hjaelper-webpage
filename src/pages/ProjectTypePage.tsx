@@ -1,12 +1,15 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { pageTransition, fadeUp } from "../lib/animations";
+import { pageTransition } from "../lib/animations";
 import { getProjectType, type ProjectType } from "../data/projectTypes";
 import { referenceProjects } from "../data/referenceProjects";
-import { Button } from "../components/ui/Button";
-import { RenderSection, FAQItem } from "../components/content/RenderSection";
-import { ArrowRight, CheckCircle, Info } from "lucide-react";
+import { RenderSection } from "../components/content/RenderSection";
+import { FAQList } from "../components/ui/FAQList";
+import { CtaPanel } from "../components/ui/CtaPanel";
+import { PageHero } from "../components/ui/PageHero";
+import { Tag } from "../components/ui/Tag";
+import { statusTagTone, statusToneOf } from "../lib/statusTone";
 
 function buildSchema(pt: ProjectType) {
   const serviceSchema = {
@@ -76,49 +79,25 @@ export function ProjectTypePage() {
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
       </Helmet>
 
-      <article className="relative overflow-hidden bg-gradient-to-br from-bg via-bg to-primary-light/30">
-        <div className="py-16 md:py-24 lg:py-28">
-          <div className="absolute right-0 top-1/3 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="mx-auto max-w-3xl px-5 md:px-8 relative">
-            <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-muted">
-                <li><Link to="/" className="hover:text-primary transition-colors">Forside</Link></li>
-                <li aria-hidden="true">/</li>
-                <li><Link to="/viden" className="hover:text-primary transition-colors">Viden</Link></li>
-                <li aria-hidden="true">/</li>
-                <li><Link to="/lca-beregning" className="hover:text-primary transition-colors">Bygningstyper</Link></li>
-                <li aria-hidden="true">/</li>
-                <li className="text-navy font-medium">{pt.title.replace("LCA-beregning for ", "")}</li>
-              </ol>
-            </nav>
-
-            <motion.h1
-              className="text-3xl md:text-4xl lg:text-[44px] font-bold text-navy leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {pt.title}
-            </motion.h1>
-
-            <motion.div
-              className="mt-4 flex items-center gap-3"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-light px-3 py-1 text-sm font-medium text-navy">
-                Grænseværdi: {pt.grensevaerdi} kg CO₂e/m²/år
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-bg-alt px-3 py-1 text-sm font-medium text-muted">
-                A4+A5: {pt.a4a5Grense}
-              </span>
-            </motion.div>
+      <article>
+        <PageHero
+          width="narrow"
+          crumbs={[
+            { label: "Forside", to: "/" },
+            { label: "Viden", to: "/viden" },
+            { label: "Bygningstyper", to: "/lca-beregning" },
+            { label: pt.title.replace("LCA-beregning for ", "") },
+          ]}
+          title={pt.title}
+        >
+          <div className="mt-6 flex flex-wrap gap-2">
+            <Tag tone="mist">Grænseværdi: {pt.grensevaerdi} kg CO₂e/m²/år</Tag>
+            <Tag tone="outline">A4+A5: {pt.a4a5Grense}</Tag>
           </div>
-        </div>
+        </PageHero>
 
-        <div className="bg-bg pb-20 md:pb-28">
-          <motion.div className="mx-auto max-w-3xl px-5 md:px-8" variants={fadeUp} initial="hidden" animate="visible">
+        <div className="bg-paper pb-20 md:pb-28">
+          <div className="mx-auto max-w-[46rem] px-5 md:px-8">
             <div>
               {pt.content.map((section, i) => (
                 <RenderSection key={i} section={section} />
@@ -126,70 +105,59 @@ export function ProjectTypePage() {
             </div>
 
             {relatedProjects.length > 0 && (
-              <div className="mt-16">
-                <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-6">
-                  Se et referenceprojekt
-                </h2>
-                <div className="space-y-4">
-                  {relatedProjects.map((rp) => (
-                    <Link
-                      key={rp.slug}
-                      to={`/referenceprojekter/${rp.slug}`}
-                      className="group block rounded-xl border border-border bg-white p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${rp.statusTone === "info" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}`}>
-                              {rp.statusTone === "info" ? <Info size={12} /> : <CheckCircle size={12} />}
-                              {rp.status}
-                            </span>
-                            <span className="text-sm text-muted">{rp.location}</span>
-                          </div>
-                          <h3 className="text-lg font-semibold text-navy group-hover:text-primary transition-colors">
-                            {rp.title}
-                          </h3>
-                          <p className="mt-1 text-sm text-body line-clamp-2">
-                            {rp.description}
-                          </p>
-                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
-                            {(rp.metrics?.slice(0, 2) ?? []).map((metric) => (
-                              <span key={metric.label}>{metric.label}: <span className="font-semibold text-navy">{metric.value}</span></span>
-                            ))}
-                            {!rp.metrics && rp.resultat && (
-                              <span>Resultat: <span className="font-semibold text-green-600">{rp.resultat}</span>{rp.graensevaerdi && ` vs. grænse ${rp.graensevaerdi}`}</span>
-                            )}
-                          </div>
+              <section className="mt-14">
+                <h2 className="text-xl font-bold md:text-2xl">Se et referenceprojekt</h2>
+                <div className="mt-5 space-y-4">
+                  {relatedProjects.map((rp) => {
+                    const tone = statusToneOf(rp);
+                    return (
+                      <Link
+                        key={rp.slug}
+                        to={`/referenceprojekter/${rp.slug}`}
+                        className="group block rounded-sheet bg-white p-6 transition-colors hover:bg-green-soft"
+                      >
+                        <div className="flex flex-wrap items-center gap-2">
+                          <Tag tone={statusTagTone[tone]}>{rp.status}</Tag>
+                          <span className="text-sm text-muted">{rp.location}</span>
                         </div>
-                        <ArrowRight size={20} className="shrink-0 text-muted mt-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />
-                      </div>
-                    </Link>
-                  ))}
+                        <h3 className="mt-3 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                          {rp.title}
+                        </h3>
+                        <p className="mt-1.5 line-clamp-2 text-[15px] leading-relaxed text-body">{rp.description}</p>
+                        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted">
+                          {(rp.metrics?.slice(0, 2) ?? []).map((metric) => (
+                            <span key={metric.label}>
+                              {metric.label}: <span className="font-semibold text-ink">{metric.value}</span>
+                            </span>
+                          ))}
+                          {!rp.metrics && rp.resultat && (
+                            <span>
+                              Resultat: <span className="font-semibold text-green">{rp.resultat}</span>
+                              {rp.graensevaerdi && ` vs. grænse ${rp.graensevaerdi}`}
+                            </span>
+                          )}
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
-              </div>
+              </section>
             )}
 
             {pt.faqs.length > 0 && (
-              <div className="mt-16">
-                <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-6">Ofte stillede spørgsmål</h2>
-                <div className="rounded-2xl border border-border bg-white px-6 md:px-8">
-                  {pt.faqs.map((faq) => (
-                    <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
-                  ))}
-                </div>
-              </div>
+              <section className="mt-16">
+                <h2 className="mb-6 text-2xl font-bold md:text-3xl">Ofte stillede spørgsmål</h2>
+                <FAQList items={pt.faqs} />
+              </section>
             )}
 
-            <div className="mt-16 rounded-2xl bg-primary-light p-8 md:p-10 text-center">
-              <h2 className="text-2xl font-semibold text-navy">Klar til at komme i gang?</h2>
-              <p className="mt-3 text-body max-w-lg mx-auto">
-                Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. A4/A5 er inkluderet.
-              </p>
-              <div className="mt-6">
-                <Button to="/kontakt">Få et tilbud</Button>
-              </div>
-            </div>
-          </motion.div>
+            <CtaPanel
+              className="mt-16"
+              title="Klar til at komme i gang?"
+              text="Send os dine tegninger, så giver vi et fast tilbud inden 24 timer. A4/A5 er inkluderet."
+              cta="Få et tilbud"
+            />
+          </div>
         </div>
       </article>
     </motion.div>
