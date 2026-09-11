@@ -5,6 +5,7 @@ import { pageTransition } from "../lib/animations";
 import { projectTypes } from "../data/projectTypes";
 import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
+import { RevealGroup, RevealItem } from "../components/motion/Reveal";
 
 export function ProjectTypesPage() {
   return (
@@ -31,28 +32,29 @@ export function ProjectTypesPage() {
 
       <section className="bg-paper pb-20 md:pb-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid gap-5 md:grid-cols-3">
+          <RevealGroup className="grid gap-5 md:grid-cols-3" stagger={0.12} delay={0.2}>
             {projectTypes.map((pt) => (
-              <Link
-                key={pt.slug}
-                to={`/lca-beregning/${pt.slug}`}
-                className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-colors hover:bg-green-soft md:p-7"
-              >
-                <Tag tone="mist" className="self-start">
-                  {pt.grensevaerdi} kg CO₂e/m²/år
-                </Tag>
-                <h2 className="mt-5 text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
-                  {pt.title.replace("LCA-beregning for ", "")}
-                </h2>
-                <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-relaxed text-body">
-                  {pt.content[0]?.text || pt.description}
-                </p>
-                <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
-                  Læs mere
-                </span>
-              </Link>
+              <RevealItem key={pt.slug} className="h-full" y={36}>
+                <Link
+                  to={`/lca-beregning/${pt.slug}`}
+                  className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet md:p-7"
+                >
+                  <Tag tone="mist" className="self-start">
+                    {pt.grensevaerdi} kg CO₂e/m²/år
+                  </Tag>
+                  <h2 className="mt-5 text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                    {pt.title.replace("LCA-beregning for ", "")}
+                  </h2>
+                  <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-relaxed text-body">
+                    {pt.content[0]?.text || pt.description}
+                  </p>
+                  <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
+                    Læs mere
+                  </span>
+                </Link>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
     </motion.div>

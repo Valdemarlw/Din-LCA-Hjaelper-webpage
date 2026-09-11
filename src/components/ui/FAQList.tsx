@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { RevealGroup, RevealItem } from "../motion/Reveal";
 
 export type FAQEntry = { question: string; answer: string };
 
@@ -18,13 +19,13 @@ function FAQRow({ question, answer }: FAQEntry) {
         <ChevronDown
           size={20}
           aria-hidden="true"
-          className={`mt-0.5 shrink-0 text-muted transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`mt-0.5 shrink-0 text-muted transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="overflow-hidden"
       >
         <p className="max-w-[68ch] pb-6 leading-relaxed text-body">{answer}</p>
@@ -33,12 +34,30 @@ function FAQRow({ question, answer }: FAQEntry) {
   );
 }
 
-export function FAQList({ items, className = "" }: { items: FAQEntry[]; className?: string }) {
+type FAQListProps = {
+  items: FAQEntry[];
+  className?: string;
+  /** Stagger the rows in as the list scrolls into view. */
+  animate?: boolean;
+};
+
+export function FAQList({ items, className = "", animate = false }: FAQListProps) {
+  if (!animate) {
+    return (
+      <div className={className}>
+        {items.map((item) => (
+          <FAQRow key={item.question} question={item.question} answer={item.answer} />
+        ))}
+      </div>
+    );
+  }
   return (
-    <div className={className}>
+    <RevealGroup className={className} stagger={0.07}>
       {items.map((item) => (
-        <FAQRow key={item.question} question={item.question} answer={item.answer} />
+        <RevealItem key={item.question} y={16}>
+          <FAQRow question={item.question} answer={item.answer} />
+        </RevealItem>
       ))}
-    </div>
+    </RevealGroup>
   );
 }

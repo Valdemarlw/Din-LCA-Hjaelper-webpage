@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+import { RevealWords } from "../motion/Reveal";
+import { EASE } from "../motion/constants";
 
 export type Crumb = { label: string; to?: string };
 
@@ -33,21 +36,43 @@ type PageHeroProps = {
   size?: "default" | "compact";
 };
 
-/** Top band of every subpage: a soft mist wash fading into the paper ground. */
+const titleCls = "max-w-3xl text-4xl font-extrabold leading-[1.05] md:text-5xl lg:text-[3.5rem]";
+
+/** Top band of every subpage: a soft mist wash fading into the paper ground, with a short entrance. */
 export function PageHero({ title, lede, crumbs, children, width = "wide", size = "default" }: PageHeroProps) {
+  const reduce = useReducedMotion();
   const maxW = width === "narrow" ? "max-w-[46rem]" : "max-w-6xl";
   const pad = size === "compact" ? "pt-10 pb-10 md:pt-14 md:pb-12" : "pt-12 pb-14 md:pt-20 md:pb-20";
+  const enter = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 16 },
+          animate: { opacity: 1, y: 0 },
+          transition: { delay, duration: 0.7, ease: EASE },
+        };
+
   return (
     <section className="bg-linear-to-b from-mist/70 to-paper">
       <div className={`mx-auto ${maxW} px-5 md:px-8 ${pad}`}>
-        {crumbs && <Breadcrumb items={crumbs} className="mb-6" />}
-        <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.05] md:text-5xl lg:text-[3.5rem]">
-          {title}
-        </h1>
-        {lede && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-body md:text-xl">{lede}</p>
+        {crumbs && (
+          <motion.div {...enter(0)} className="mb-6">
+            <Breadcrumb items={crumbs} />
+          </motion.div>
         )}
-        {children}
+        {typeof title === "string" ? (
+          <RevealWords as="h1" onMount delay={0.1} stagger={0.05} text={title} className={titleCls} />
+        ) : (
+          <motion.h1 {...enter(0.1)} className={titleCls}>
+            {title}
+          </motion.h1>
+        )}
+        {lede && (
+          <motion.p {...enter(0.45)} className="mt-5 max-w-2xl text-lg leading-relaxed text-body md:text-xl">
+            {lede}
+          </motion.p>
+        )}
+        {children && <motion.div {...enter(0.6)}>{children}</motion.div>}
       </div>
     </section>
   );

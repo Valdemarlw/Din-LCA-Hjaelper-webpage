@@ -21,7 +21,7 @@ type NavLink = (typeof links)[number];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const scrolled = useNavbarScroll();
+  const { scrolled, hidden } = useNavbarScroll();
   const { pathname } = useLocation();
 
   function isActive(link: NavLink) {
@@ -34,9 +34,9 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,translate] duration-300 ${
         solid ? "bg-paper/90 shadow-nav backdrop-blur-md" : "bg-transparent"
-      }`}
+      } ${hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0"}`}
     >
       <nav
         aria-label="Hovedmenu"

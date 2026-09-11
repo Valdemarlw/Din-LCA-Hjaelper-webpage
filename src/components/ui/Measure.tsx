@@ -10,20 +10,28 @@ type MeasureProps = {
   limit: number;
   unit?: string;
   animate?: boolean;
+  delay?: number;
   className?: string;
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export function Measure({ value, limit, unit = "kg CO₂e/m²/år", animate = false, className = "" }: MeasureProps) {
+export function Measure({
+  value,
+  limit,
+  unit = "kg CO₂e/m²/år",
+  animate = false,
+  delay = 0.55,
+  className = "",
+}: MeasureProps) {
   const pct = Math.max(0, Math.min(100, (value / limit) * 100));
   const margin = Math.round(100 - pct);
   const reduce = useReducedMotion();
   const anim = animate && !reduce;
-  const transition = { duration: 1.1, ease, delay: 0.55 };
+  const transition = { duration: 1.2, ease, delay };
 
   return (
-    <div className={`${className}`}>
+    <div className={className}>
       <div className="flex items-baseline justify-between text-[13px] text-muted">
         <span>0</span>
         <span>Grænseværdi {kommatal(limit)}</span>

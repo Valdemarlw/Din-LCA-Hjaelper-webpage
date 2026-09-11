@@ -1,4 +1,5 @@
 import { SectionWrapper } from "../ui/SectionWrapper";
+import { RevealGroup, RevealItem, RevealWords } from "../motion/Reveal";
 
 const painPoints = [
   {
@@ -23,13 +24,15 @@ export function Problem() {
     <SectionWrapper bg="paper">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <h2 className="max-w-[16ch] text-3xl font-bold leading-tight md:text-4xl lg:sticky lg:top-28">
-            Hvorfor LCA-beregning ikke er til at komme udenom
-          </h2>
+          <RevealWords
+            as="h2"
+            text="Hvorfor LCA-beregning ikke er til at komme udenom"
+            className="max-w-[16ch] text-3xl font-bold leading-tight md:text-4xl lg:sticky lg:top-28"
+          />
         </div>
-        <div className="lg:col-span-7">
+        <RevealGroup className="lg:col-span-7" stagger={0.14}>
           {painPoints.map((point, i) => (
-            <div
+            <RevealItem
               key={point.title}
               className={`grid gap-2 border-b border-line py-7 sm:grid-cols-[minmax(0,13rem)_1fr] sm:gap-8 ${
                 i === 0 ? "border-t" : ""
@@ -37,9 +40,9 @@ export function Problem() {
             >
               <h3 className="text-xl font-semibold text-ink">{point.title}</h3>
               <p className="max-w-[58ch] leading-relaxed text-body">{point.description}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </SectionWrapper>
   );

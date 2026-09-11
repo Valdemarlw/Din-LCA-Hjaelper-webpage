@@ -10,6 +10,7 @@ import { referenceProjects } from "../data/referenceProjects";
 import { PreferredSourcePrompt } from "../components/content/PreferredSourcePrompt";
 import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
+import { Reveal, RevealGroup, RevealItem } from "../components/motion/Reveal";
 import { formatDanishDate } from "../lib/format";
 import { statusTagTone, statusToneOf } from "../lib/statusTone";
 
@@ -17,6 +18,8 @@ const textLink =
   "shrink-0 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 transition-colors hover:decoration-green";
 const readMore =
   "mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green";
+const linkSheet =
+  "group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet";
 
 function SectionHeader({
   title,
@@ -30,7 +33,7 @@ function SectionHeader({
   linkLabel?: string;
 }) {
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div className="max-w-2xl">
         <h2 className="text-2xl font-bold leading-tight md:text-3xl">{title}</h2>
         {text && <p className="mt-2 text-body">{text}</p>}
@@ -40,7 +43,7 @@ function SectionHeader({
           {linkLabel}
         </Link>
       )}
-    </div>
+    </Reveal>
   );
 }
 
@@ -102,26 +105,27 @@ export function VidenPage() {
       {/* Artikler */}
       <Band>
         <SectionHeader title="Artikler" to="/blog" linkLabel="Se alle artikler" />
-        <div className="mt-8 border-t border-line">
+        <RevealGroup className="mt-8 border-t border-line" stagger={0.12}>
           {recentPosts.map((post) => (
-            <Link
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="group grid gap-3 border-b border-line py-7 transition-colors hover:bg-white md:grid-cols-12 md:gap-8 md:px-4"
-            >
-              <p className="text-sm text-muted md:col-span-3">
-                <time dateTime={post.date}>{formatDanishDate(post.date)}</time>
-                <span className="block">{post.readingTime}</span>
-              </p>
-              <div className="md:col-span-9">
-                <h3 className="text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
-                  {post.title}
-                </h3>
-                <p className="mt-2 max-w-[62ch] text-[15px] leading-relaxed text-body">{post.description}</p>
-              </div>
-            </Link>
+            <RevealItem key={post.slug}>
+              <Link
+                to={`/blog/${post.slug}`}
+                className="group grid gap-3 border-b border-line py-7 transition-colors hover:bg-white md:grid-cols-12 md:gap-8 md:px-4"
+              >
+                <p className="text-sm text-muted md:col-span-3">
+                  <time dateTime={post.date}>{formatDanishDate(post.date)}</time>
+                  <span className="block">{post.readingTime}</span>
+                </p>
+                <div className="md:col-span-9">
+                  <h3 className="text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 max-w-[62ch] text-[15px] leading-relaxed text-body">{post.description}</p>
+                </div>
+              </Link>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </Band>
 
       {/* LCA-ordbog */}
@@ -132,16 +136,18 @@ export function VidenPage() {
           to="/ordbog"
           linkLabel="Se alle begreber"
         />
-        <div className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
           {glossaryTerms.slice(0, 6).map((term) => (
-            <Link key={term.slug} to={`/ordbog/${term.slug}`} className="group block border-t border-green/25 pt-4">
-              <h3 className="text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
-                {term.term}
-              </h3>
-              <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-body">{term.shortDefinition}</p>
-            </Link>
+            <RevealItem key={term.slug}>
+              <Link to={`/ordbog/${term.slug}`} className="group block border-t border-green/25 pt-4">
+                <h3 className="text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                  {term.term}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-body">{term.shortDefinition}</p>
+              </Link>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </Band>
 
       {/* Bygningstyper */}
@@ -152,24 +158,22 @@ export function VidenPage() {
           to="/lca-beregning"
           linkLabel="Se alle bygningstyper"
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3" stagger={0.12}>
           {projectTypes.map((pt) => (
-            <Link
-              key={pt.slug}
-              to={`/lca-beregning/${pt.slug}`}
-              className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-colors hover:bg-green-soft"
-            >
-              <Tag tone="mist" className="self-start">
-                {pt.grensevaerdi} kg CO₂e/m²/år
-              </Tag>
-              <h3 className="mt-5 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
-                {pt.title.replace("LCA-beregning for ", "")}
-              </h3>
-              <p className="mt-2 line-clamp-3 flex-1 text-[15px] leading-relaxed text-body">{pt.description}</p>
-              <span className={readMore}>Læs mere</span>
-            </Link>
+            <RevealItem key={pt.slug} className="h-full" y={36}>
+              <Link to={`/lca-beregning/${pt.slug}`} className={linkSheet}>
+                <Tag tone="mist" className="self-start">
+                  {pt.grensevaerdi} kg CO₂e/m²/år
+                </Tag>
+                <h3 className="mt-5 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                  {pt.title.replace("LCA-beregning for ", "")}
+                </h3>
+                <p className="mt-2 line-clamp-3 flex-1 text-[15px] leading-relaxed text-body">{pt.description}</p>
+                <span className={readMore}>Læs mere</span>
+              </Link>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </Band>
 
       {/* Referenceprojekter */}
@@ -180,60 +184,60 @@ export function VidenPage() {
           to="/referenceprojekter"
           linkLabel="Se alle referenceprojekter"
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
           {referenceProjects.map((project) => {
             const tone = statusToneOf(project);
             return (
-              <Link
-                key={project.slug}
-                to={`/referenceprojekter/${project.slug}`}
-                className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-colors hover:bg-green-soft"
-              >
-                <p className="text-[13px] text-muted">
-                  {project.type}, {project.location}
-                </p>
-                <div className="mt-3">
-                  <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
-                </div>
-                <h3 className="mt-4 flex-1 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
-                  {project.title}
-                </h3>
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1 border-t border-line pt-4 text-sm text-muted">
-                  {(project.metrics?.slice(0, 2) ?? []).map((metric) => (
-                    <span key={metric.label}>
-                      {metric.label}: <span className="font-semibold text-ink">{metric.value}</span>
-                    </span>
-                  ))}
-                  {!project.metrics && project.resultat && (
-                    <span>
-                      Resultat: <span className="font-semibold text-green">{project.resultat}</span>
-                      {project.graensevaerdi && ` vs. grænse ${project.graensevaerdi}`}
-                    </span>
-                  )}
-                </div>
-                <span className={readMore}>Læs hele casen</span>
-              </Link>
+              <RevealItem key={project.slug} className="h-full" y={36}>
+                <Link to={`/referenceprojekter/${project.slug}`} className={linkSheet}>
+                  <p className="text-[13px] text-muted">
+                    {project.type}, {project.location}
+                  </p>
+                  <div className="mt-3">
+                    <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
+                  </div>
+                  <h3 className="mt-4 flex-1 text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                    {project.title}
+                  </h3>
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1 border-t border-line pt-4 text-sm text-muted">
+                    {(project.metrics?.slice(0, 2) ?? []).map((metric) => (
+                      <span key={metric.label}>
+                        {metric.label}: <span className="font-semibold text-ink">{metric.value}</span>
+                      </span>
+                    ))}
+                    {!project.metrics && project.resultat && (
+                      <span>
+                        Resultat: <span className="font-semibold text-green">{project.resultat}</span>
+                        {project.graensevaerdi && ` vs. grænse ${project.graensevaerdi}`}
+                      </span>
+                    )}
+                  </div>
+                  <span className={readMore}>Læs hele casen</span>
+                </Link>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealGroup>
       </Band>
 
       {/* Sammenligninger */}
       <Band id="sammenligninger">
         <SectionHeader title="Sammenligninger" text="Hvordan Din LCA Hjælper står sig over for andre løsninger." />
-        <Link
-          to="/sammenligninger/din-lca-hjaelper-vs-lcabyg"
-          className="group mt-8 block max-w-2xl rounded-sheet bg-white p-6 transition-colors hover:bg-green-soft md:p-8"
-        >
-          <h3 className="text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
-            Din LCA Hjælper vs. LCAbyg: Hvornår bør du få hjælp?
-          </h3>
-          <p className="mt-3 leading-relaxed text-body">
-            LCAbyg er gratis og dækker BR18, men har en stejl læringskurve.
-            Sammenlign pris, tid og hvornår hver løsning passer.
-          </p>
-          <span className={`${readMore} inline-block`}>Læs sammenligningen</span>
-        </Link>
+        <Reveal delay={0.1} className="mt-8 max-w-2xl">
+          <Link
+            to="/sammenligninger/din-lca-hjaelper-vs-lcabyg"
+            className={`${linkSheet} md:p-8`}
+          >
+            <h3 className="text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+              Din LCA Hjælper vs. LCAbyg: Hvornår bør du få hjælp?
+            </h3>
+            <p className="mt-3 leading-relaxed text-body">
+              LCAbyg er gratis og dækker BR18, men har en stejl læringskurve.
+              Sammenlign pris, tid og hvornår hver løsning passer.
+            </p>
+            <span className={`${readMore} inline-block`}>Læs sammenligningen</span>
+          </Link>
+        </Reveal>
       </Band>
 
       <PreferredSourcePrompt />

@@ -19,7 +19,7 @@ type ButtonProps = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold leading-none transition-[background-color,color,border-color,transform] duration-150 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold leading-none transition-[background-color,color,border-color,translate,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green";
 
 const sizes: Record<Size, string> = {
   md: "px-6 py-3.5 text-[15px]",
@@ -27,10 +27,10 @@ const sizes: Record<Size, string> = {
 };
 
 const variants: Record<Variant, string> = {
-  primary: "bg-green text-white hover:bg-green-deep",
+  primary: "bg-green text-white hover:bg-green-deep hover:shadow-[0_10px_24px_-12px_rgb(44_95_48/0.7)]",
   secondary: "border border-green/40 bg-transparent text-green hover:border-green hover:bg-green-soft",
   ghost: "text-green hover:bg-green-soft",
-  light: "bg-mist text-green hover:bg-white focus-visible:outline-mist",
+  light: "bg-mist text-green hover:bg-white hover:shadow-[0_10px_24px_-12px_rgb(0_0_0/0.35)] focus-visible:outline-mist",
 };
 
 export function Button({

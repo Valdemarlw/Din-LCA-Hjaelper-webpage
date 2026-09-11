@@ -1,4 +1,5 @@
 import { Button } from "./Button";
+import { Reveal } from "../motion/Reveal";
 
 type CtaPanelProps = {
   title: string;
@@ -12,7 +13,7 @@ type CtaPanelProps = {
 export function CtaPanel({ title, text, cta, to = "/kontakt", tone = "mist", className = "" }: CtaPanelProps) {
   const green = tone === "green";
   return (
-    <div className={`rounded-sheet p-8 md:p-10 ${green ? "bg-green" : "bg-mist"} ${className}`}>
+    <Reveal y={36} className={`rounded-sheet p-8 md:p-10 ${green ? "bg-green" : "bg-mist"} ${className}`}>
       <div className="md:flex md:items-end md:justify-between md:gap-10">
         <div className="max-w-xl">
           <h2 className={`text-2xl font-bold md:text-[28px] ${green ? "text-white" : "text-ink"}`}>{title}</h2>
@@ -24,6 +25,6 @@ export function CtaPanel({ title, text, cta, to = "/kontakt", tone = "mist", cla
           </Button>
         </div>
       </div>
-    </div>
+    </Reveal>
   );
 }

@@ -5,6 +5,7 @@ import { pageTransition } from "../lib/animations";
 import { referenceProjects } from "../data/referenceProjects";
 import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
+import { RevealGroup, RevealItem } from "../components/motion/Reveal";
 import { statusTagTone, statusToneOf } from "../lib/statusTone";
 
 export function ReferenceProjectsPage() {
@@ -43,7 +44,7 @@ export function ReferenceProjectsPage() {
 
       <section className="bg-paper pb-20 md:pb-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <RevealGroup className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1} delay={0.2}>
             {referenceProjects.map((project) => {
               const tone = statusToneOf(project);
               const cardMetrics = project.metrics?.slice(0, 3) ?? [
@@ -52,39 +53,40 @@ export function ReferenceProjectsPage() {
                 ...(project.graensevaerdi ? [{ label: "Grænse", value: project.graensevaerdi }] : []),
               ];
               return (
-                <Link
-                  key={project.slug}
-                  to={`/referenceprojekter/${project.slug}`}
-                  className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-colors hover:bg-green-soft md:p-7"
-                >
-                  <p className="text-[13px] text-muted">
-                    {project.type}, {project.location}
-                    {project.etageareal && `, ${project.etageareal}`}
-                  </p>
-                  <div className="mt-3">
-                    <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
-                  </div>
+                <RevealItem key={project.slug} className="h-full" y={36}>
+                  <Link
+                    to={`/referenceprojekter/${project.slug}`}
+                    className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet md:p-7"
+                  >
+                    <p className="text-[13px] text-muted">
+                      {project.type}, {project.location}
+                      {project.etageareal && `, ${project.etageareal}`}
+                    </p>
+                    <div className="mt-3">
+                      <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
+                    </div>
 
-                  <h2 className="mt-4 flex-1 text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
-                    {project.title}
-                  </h2>
+                    <h2 className="mt-4 flex-1 text-xl font-bold leading-snug text-ink transition-colors group-hover:text-green">
+                      {project.title}
+                    </h2>
 
-                  <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-line pt-5">
-                    {cardMetrics.map((metric) => (
-                      <div key={metric.label}>
-                        <dt className="text-xs text-muted">{metric.label}</dt>
-                        <dd className="mt-0.5 text-base font-bold text-ink">{metric.value}</dd>
-                      </div>
-                    ))}
-                  </dl>
+                    <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-line pt-5">
+                      {cardMetrics.map((metric) => (
+                        <div key={metric.label}>
+                          <dt className="text-xs text-muted">{metric.label}</dt>
+                          <dd className="mt-0.5 text-base font-bold text-ink">{metric.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
 
-                  <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
-                    Læs hele casen
-                  </span>
-                </Link>
+                    <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
+                      Læs hele casen
+                    </span>
+                  </Link>
+                </RevealItem>
               );
             })}
-          </div>
+          </RevealGroup>
         </div>
       </section>
     </motion.div>
