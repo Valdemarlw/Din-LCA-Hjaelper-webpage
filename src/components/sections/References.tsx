@@ -87,7 +87,7 @@ export function References() {
               <p className="mt-2 text-sm text-muted">{c.statLabel}</p>
               <p className="mt-5 flex-1 text-[15px] leading-relaxed text-body">{c.description}</p>
               <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
-                Læs mere
+                Læs casen
               </span>
             </Link>
           </RevealItem>

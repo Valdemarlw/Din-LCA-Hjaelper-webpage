@@ -17,7 +17,7 @@ export function FinalCTA() {
             </Reveal>
             <Reveal delay={0.3} className="mt-8">
               <Button to="/kontakt" variant="light">
-                Send tegninger, få pris
+                Få et tilbud
               </Button>
             </Reveal>
           </div>

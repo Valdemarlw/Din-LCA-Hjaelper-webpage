@@ -53,7 +53,7 @@ export function BlogPage() {
                       </h2>
                       <p className="mt-3 max-w-[62ch] leading-relaxed text-body">{post.description}</p>
                       <span className="mt-4 inline-block text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
-                        Læs mere
+                        Læs artiklen
                       </span>
                     </div>
                   </Link>

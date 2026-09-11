@@ -70,7 +70,7 @@ export function Navbar() {
             );
           })}
           <Button to="/kontakt" variant="secondary" size="sm" className="ml-4">
-            Start din LCA
+            Få et tilbud
           </Button>
         </div>
 
@@ -110,7 +110,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Button to="/kontakt" className="mt-5 w-full" onClick={() => setMobileOpen(false)}>
-                Start din LCA
+                Få et tilbud
               </Button>
             </div>
           </motion.div>
