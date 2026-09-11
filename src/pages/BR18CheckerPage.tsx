@@ -125,7 +125,7 @@ export function BR18CheckerPage() {
               <FAQList items={faqs} />
               <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-lg text-ink">Klar til at få din beregning?</p>
-                <Button to="/kontakt">Send dine tegninger</Button>
+                <Button to="/kontakt">Få et tilbud</Button>
               </div>
             </div>
           </div>

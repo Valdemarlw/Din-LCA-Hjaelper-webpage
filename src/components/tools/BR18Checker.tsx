@@ -242,7 +242,7 @@ export function BR18Checker() {
                 )}
 
                 <div className="mt-6">
-                  <Button to="/kontakt">Få et fast tilbud</Button>
+                  <Button to="/kontakt">Få et tilbud</Button>
                 </div>
               </div>
             );

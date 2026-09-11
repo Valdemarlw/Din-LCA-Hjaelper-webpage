@@ -80,7 +80,7 @@ export function ReferenceProjectsPage() {
                     </dl>
 
                     <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
-                      Læs hele casen
+                      Læs casen
                     </span>
                   </Link>
                 </RevealItem>

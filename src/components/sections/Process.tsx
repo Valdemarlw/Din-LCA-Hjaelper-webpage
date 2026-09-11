@@ -1,6 +1,15 @@
 import { useEffect, useMemo, useRef, useState, type ComponentType } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { Send, FileCheck, BarChart3, Truck, RefreshCw, FileOutput, type LucideProps } from "lucide-react";
+import {
+  Send,
+  FileCheck,
+  BarChart3,
+  Truck,
+  RefreshCw,
+  FileOutput,
+  RotateCcw,
+  type LucideProps,
+} from "lucide-react";
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { Reveal, RevealWords } from "../motion/Reveal";
 import { EASE } from "../motion/constants";
@@ -56,107 +65,170 @@ const ORDER = [
   "md:order-6 lg:order-4",
 ];
 
-const DRAW_SECONDS = 2.8;
+const DRAW_SECONDS = 3;
+/** How far outside the grid a row-change turn swings, clear of the column's text. */
+const LANE_OFFSET = 18;
+const SAMPLES = 32;
+const FLOW_PERIOD = 18; // dash + gap of the drifting "current" overlay
+
+/*
+ * The early calculation can come back over the limit. Then materials are
+ * optimised and the calculation runs again before the process moves on. That
+ * iteration is drawn as a small loop in the stroke right after step 03.
+ */
+const LOOP_STEP = 2;
+const LOOP_AT = 64; // distance from the disc centre to the loop, along the travel direction
+const LOOP_RADIUS = 15;
+const LOOP_NOTE = "Over grænsen? Vi optimerer materialer og regner igen.";
 
 type Pt = { x: number; y: number };
 type Geometry = { width: number; height: number; points: Pt[] };
+type Leg = (
+  | { kind: "line"; from: Pt; to: Pt }
+  | { kind: "turn"; from: Pt; to: Pt; c1: Pt; c2: Pt }
+  | { kind: "loop"; from: Pt; to: Pt; far: Pt; sweep: 0 | 1 }
+) & { endsAtDisc: boolean; arrow: boolean };
+type Arrow = { x: number; y: number; angle: number; at: number };
+type PathModel = { d: string; arrows: Arrow[]; stepAt: number[] };
 
-type PathModel = {
-  d: string;
-  /** Arrowhead per segment: position, rotation and how far along the path it sits (0..1). */
-  arrows: { x: number; y: number; angle: number; at: number }[];
-  /** How far along the path each step's disc sits (0..1). */
-  stepAt: number[];
-};
+const f = (n: number) => n.toFixed(1);
 
-/** How far outside the grid the side lanes run when a row change has to pass a column of text. */
-const LANE_OFFSET = 14;
-
-/**
- * Turns disc centres into the polyline the connector follows. A straight drop
- * from one row to the next would cut through the upper step's text, so those
- * transitions detour along a lane just outside the grid (right lane for the
- * right half, left lane for the left half) and carry a single arrow there.
- */
-function routePoints(points: Pt[], width: number) {
-  const multiColumn = new Set(points.map((p) => Math.round(p.x))).size > 1;
-  const pts: Pt[] = [];
-  const arrowOn: boolean[] = []; // per segment pts[i] -> pts[i + 1]
-  const stepIndex: number[] = []; // index in pts of each original disc
-
-  const push = (p: Pt, arrow: boolean) => {
-    if (pts.length) arrowOn.push(arrow);
-    pts.push(p);
+function bezierAt(leg: Extract<Leg, { kind: "turn" }>, t: number): Pt {
+  const u = 1 - t;
+  const a = u * u * u;
+  const b = 3 * u * u * t;
+  const c = 3 * u * t * t;
+  const d = t * t * t;
+  return {
+    x: a * leg.from.x + b * leg.c1.x + c * leg.c2.x + d * leg.to.x,
+    y: a * leg.from.y + b * leg.c1.y + c * leg.c2.y + d * leg.to.y,
   };
-
-  points.forEach((p, i) => {
-    const prev = points[i - 1];
-    const drops = prev && Math.abs(p.x - prev.x) < 1 && p.y > prev.y;
-    if (multiColumn && drops) {
-      const laneX = prev.x > width / 2 ? width + LANE_OFFSET : -LANE_OFFSET;
-      push({ x: laneX, y: prev.y }, false);
-      push({ x: laneX, y: p.y }, true);
-      push(p, false);
-    } else {
-      push(p, true);
-    }
-    stepIndex.push(pts.length - 1);
-  });
-  return { pts, arrowOn, stepIndex };
 }
 
-function buildPath(points: Pt[], width: number, radius = 26): PathModel {
-  if (points.length < 2) return { d: "", arrows: [], stepAt: points.map(() => 0) };
-  const { pts, arrowOn, stepIndex } = routePoints(points, width);
+function bezierTangent(leg: Extract<Leg, { kind: "turn" }>, t: number): Pt {
+  const u = 1 - t;
+  return {
+    x: 3 * u * u * (leg.c1.x - leg.from.x) + 6 * u * t * (leg.c2.x - leg.c1.x) + 3 * t * t * (leg.to.x - leg.c2.x),
+    y: 3 * u * u * (leg.c1.y - leg.from.y) + 6 * u * t * (leg.c2.y - leg.c1.y) + 3 * t * t * (leg.to.y - leg.c2.y),
+  };
+}
 
-  const lengths: number[] = [];
-  for (let i = 1; i < pts.length; i++) {
-    lengths.push(Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
+function legLength(leg: Leg): number {
+  if (leg.kind === "line") return Math.hypot(leg.to.x - leg.from.x, leg.to.y - leg.from.y);
+  if (leg.kind === "loop") return 2 * Math.PI * LOOP_RADIUS;
+  let len = 0;
+  let prev = leg.from;
+  for (let i = 1; i <= SAMPLES; i++) {
+    const p = bezierAt(leg, i / SAMPLES);
+    len += Math.hypot(p.x - prev.x, p.y - prev.y);
+    prev = p;
   }
+  return len;
+}
+
+/**
+ * Discs in the same row are joined by straight runs. A change of row becomes
+ * one continuous S-curve that swings out past the column's text and lands on
+ * the next disc tangent to the incoming line, so the whole route reads as one
+ * flowing stroke rather than a wiring diagram.
+ */
+function buildLegs(points: Pt[], width: number): Leg[] {
+  const multiColumn = new Set(points.map((p) => Math.round(p.x))).size > 1;
+  const legs: Leg[] = [];
+  for (let i = 1; i < points.length; i++) {
+    let from = points[i - 1];
+    const to = points[i];
+    const drops = multiColumn && Math.abs(to.x - from.x) < 1 && to.y > from.y;
+    const laneX = from.x > width / 2 ? width + LANE_OFFSET : -LANE_OFFSET;
+
+    if (i - 1 === LOOP_STEP) {
+      // Travel direction leaving the disc: a turn departs horizontally toward its lane.
+      const dir = drops
+        ? { x: Math.sign(laneX - from.x), y: 0 }
+        : (() => {
+            const len = Math.hypot(to.x - from.x, to.y - from.y) || 1;
+            return { x: (to.x - from.x) / len, y: (to.y - from.y) / len };
+          })();
+      const at = { x: from.x + dir.x * LOOP_AT, y: from.y + dir.y * LOOP_AT };
+      // Loop away from the step text: upward on a horizontal run, leftward on a vertical one.
+      const normal = Math.abs(dir.x) > 0.5 ? { x: 0, y: -1 } : { x: -1, y: 0 };
+      const sweep: 0 | 1 = dir.x * normal.y - dir.y * normal.x > 0 ? 1 : 0;
+      const far = { x: at.x + 2 * LOOP_RADIUS * normal.x, y: at.y + 2 * LOOP_RADIUS * normal.y };
+      legs.push({ kind: "line", from, to: at, endsAtDisc: false, arrow: false });
+      legs.push({ kind: "loop", from: at, to: at, far, sweep, endsAtDisc: false, arrow: false });
+      from = at;
+    }
+
+    if (drops) {
+      // A cubic with both handles at the same x peaks at 0.75 of the handle reach.
+      const reach = (laneX - from.x) / 0.75;
+      legs.push({
+        kind: "turn",
+        from,
+        to,
+        c1: { x: from.x + reach, y: from.y },
+        c2: { x: to.x + reach, y: to.y },
+        endsAtDisc: true,
+        arrow: true,
+      });
+    } else {
+      legs.push({ kind: "line", from, to, endsAtDisc: true, arrow: true });
+    }
+  }
+  return legs;
+}
+
+function buildPath(points: Pt[], width: number): PathModel {
+  if (points.length < 2) return { d: "", arrows: [], stepAt: points.map(() => 0) };
+  const legs = buildLegs(points, width);
+  const lengths = legs.map(legLength);
   const total = lengths.reduce((a, b) => a + b, 0) || 1;
 
-  let d = `M ${pts[0].x} ${pts[0].y}`;
-  for (let i = 1; i < pts.length - 1; i++) {
-    const prev = pts[i - 1];
-    const p = pts[i];
-    const next = pts[i + 1];
-    const inLen = lengths[i - 1];
-    const outLen = lengths[i];
-    const r = Math.min(radius, inLen / 2, outLen / 2);
-    const inDir = { x: (p.x - prev.x) / inLen, y: (p.y - prev.y) / inLen };
-    const outDir = { x: (next.x - p.x) / outLen, y: (next.y - p.y) / outLen };
-    const a = { x: p.x - inDir.x * r, y: p.y - inDir.y * r };
-    const b = { x: p.x + outDir.x * r, y: p.y + outDir.y * r };
-    d += ` L ${a.x} ${a.y} Q ${p.x} ${p.y} ${b.x} ${b.y}`;
-  }
-  const last = pts[pts.length - 1];
-  d += ` L ${last.x} ${last.y}`;
-
-  const arrows: PathModel["arrows"] = [];
-  const cumAt: number[] = [0];
+  let d = `M ${f(points[0].x)} ${f(points[0].y)}`;
+  const arrows: Arrow[] = [];
+  const stepAt = [0];
   let cum = 0;
-  for (let i = 0; i < lengths.length; i++) {
-    const from = pts[i];
-    const to = pts[i + 1];
-    if (arrowOn[i]) {
-      arrows.push({
-        x: (from.x + to.x) / 2,
-        y: (from.y + to.y) / 2,
-        angle: (Math.atan2(to.y - from.y, to.x - from.x) * 180) / Math.PI,
-        at: (cum + lengths[i] / 2) / total,
-      });
+
+  legs.forEach((leg, i) => {
+    if (leg.kind === "line") {
+      d += ` L ${f(leg.to.x)} ${f(leg.to.y)}`;
+      if (leg.arrow) {
+        arrows.push({
+          x: (leg.from.x + leg.to.x) / 2,
+          y: (leg.from.y + leg.to.y) / 2,
+          angle: (Math.atan2(leg.to.y - leg.from.y, leg.to.x - leg.from.x) * 180) / Math.PI,
+          at: (cum + lengths[i] / 2) / total,
+        });
+      }
+    } else if (leg.kind === "loop") {
+      const r = LOOP_RADIUS;
+      d += ` A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.far.x)} ${f(leg.far.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.to.x)} ${f(leg.to.y)}`;
+    } else {
+      d += ` C ${f(leg.c1.x)} ${f(leg.c1.y)} ${f(leg.c2.x)} ${f(leg.c2.y)} ${f(leg.to.x)} ${f(leg.to.y)}`;
+      if (leg.arrow) {
+        const apex = bezierAt(leg, 0.5);
+        const tangent = bezierTangent(leg, 0.5);
+        arrows.push({
+          x: apex.x,
+          y: apex.y,
+          angle: (Math.atan2(tangent.y, tangent.x) * 180) / Math.PI,
+          at: (cum + lengths[i] / 2) / total,
+        });
+      }
     }
     cum += lengths[i];
-    cumAt.push(cum / total);
-  }
-  return { d, arrows, stepAt: stepIndex.map((idx) => cumAt[idx]) };
+    if (leg.endsAtDisc) stepAt.push(cum / total);
+  });
+
+  return { d, arrows, stepAt };
 }
 
 /**
  * The six steps sit along a connector that draws itself when the section
- * scrolls into view: arrowheads show direction, each disc springs in as the
- * line reaches it. Geometry is measured from the rendered grid, so the path
- * follows the discs exactly at every breakpoint.
+ * scrolls into view: soft chevrons show direction, a faint current keeps
+ * drifting along the stroke afterwards, and each disc springs in as the line
+ * reaches it. Geometry is measured from the rendered grid, so the path follows
+ * the discs exactly at every breakpoint.
  */
 export function Process() {
   const reduce = useReducedMotion();
@@ -183,7 +255,10 @@ export function Process() {
     return () => observer.disconnect();
   }, []);
 
-  const path = useMemo(() => buildPath(geometry?.points ?? [], geometry?.width ?? 0), [geometry]);
+  const path = useMemo(
+    () => buildPath(geometry?.points ?? [], geometry?.width ?? 0),
+    [geometry]
+  );
 
   return (
     <SectionWrapper bg="paper">
@@ -210,23 +285,43 @@ export function Process() {
               d={path.d}
               fill="none"
               stroke="currentColor"
-              strokeWidth={1.5}
+              strokeWidth={1.75}
               strokeLinecap="round"
-              className="text-green/45"
+              className="text-green/40"
               initial={reduce ? false : { pathLength: 0 }}
               animate={play ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: DRAW_SECONDS, ease: "easeInOut" }}
+              transition={{ duration: DRAW_SECONDS, ease: [0.65, 0, 0.35, 1] }}
             />
+            {!reduce && (
+              <motion.path
+                d={path.d}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.75}
+                strokeLinecap="round"
+                strokeDasharray={`3 ${FLOW_PERIOD - 3}`}
+                className="text-green"
+                initial={{ opacity: 0, strokeDashoffset: 0 }}
+                animate={play ? { opacity: 0.4, strokeDashoffset: -FLOW_PERIOD } : {}}
+                transition={{
+                  opacity: { delay: DRAW_SECONDS, duration: 1 },
+                  strokeDashoffset: { delay: DRAW_SECONDS, duration: 1.4, ease: "linear", repeat: Infinity },
+                }}
+              />
+            )}
             {path.arrows.map((arrow, i) => (
-              <g key={i} transform={`translate(${arrow.x} ${arrow.y}) rotate(${arrow.angle})`}>
+              <g key={i} transform={`translate(${f(arrow.x)} ${f(arrow.y)}) rotate(${f(arrow.angle)})`}>
                 <motion.path
-                  d="M -6 -5 L 5 0 L -6 5 Z"
-                  fill="currentColor"
+                  d="M -6 -5.5 L 0 0 L -6 5.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.75}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="text-green"
-                  initial={reduce ? false : { opacity: 0, scale: 0.4 }}
-                  animate={play ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: arrow.at * DRAW_SECONDS, duration: 0.35, ease: EASE }}
-                  style={{ transformBox: "fill-box", transformOrigin: "center" }}
+                  initial={reduce ? false : { opacity: 0, x: -10 }}
+                  animate={play ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: arrow.at * DRAW_SECONDS, duration: 0.6, ease: EASE }}
                 />
               </g>
             ))}
@@ -245,7 +340,7 @@ export function Process() {
                 className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-green shadow-[0_10px_24px_-14px_rgb(44_95_48/0.55)] ring-1 ring-green/30"
                 initial={reduce ? false : { opacity: 0, scale: 0.4 }}
                 animate={play ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay, type: "spring", stiffness: 320, damping: 18 }}
+                transition={{ delay, type: "spring", stiffness: 210, damping: 19 }}
               >
                 <Icon size={22} strokeWidth={1.75} aria-hidden="true" />
                 <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-green text-[11px] font-bold text-white ring-2 ring-paper">
@@ -256,10 +351,16 @@ export function Process() {
                 className="pt-1 md:pt-5"
                 initial={reduce ? false : { opacity: 0, y: 14 }}
                 animate={play ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: delay + 0.12, duration: 0.6, ease: EASE }}
+                transition={{ delay: delay + 0.12, duration: 0.7, ease: EASE }}
               >
                 <h3 className="text-lg font-semibold leading-snug text-ink">{step.title}</h3>
                 <p className="mt-2 max-w-[30ch] text-[15px] leading-relaxed text-body">{step.description}</p>
+                {i === LOOP_STEP && (
+                  <p className="mt-3 flex max-w-[30ch] items-start gap-2 text-[13px] font-medium leading-snug text-green">
+                    <RotateCcw size={14} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0" />
+                    <span>{LOOP_NOTE}</span>
+                  </p>
+                )}
               </motion.div>
             </li>
           );

@@ -212,7 +212,7 @@ export function VidenPage() {
                       </span>
                     )}
                   </div>
-                  <span className={readMore}>Læs hele casen</span>
+                  <span className={readMore}>Læs casen</span>
                 </Link>
               </RevealItem>
             );

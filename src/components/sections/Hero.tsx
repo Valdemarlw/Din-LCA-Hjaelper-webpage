@@ -68,9 +68,8 @@ export function Hero() {
                 {...enter(1.0)}
                 className="mt-10 max-w-xl text-[15px] leading-relaxed text-mist/70"
               >
-                Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed der leverer myndighedsklar
-                LCA-beregning for byggeri efter BR18. Vi betjener arkitekter og rådgivere i hele
-                Danmark med beregninger for bolig, erhverv og industri, fra 80 til 3.000 m².
+                Dansk LCA-rådgivning for arkitekter og rådgivere. Bolig, erhverv og industri, fra 80
+                til 3.000 m².
               </motion.p>
             </motion.div>
 
