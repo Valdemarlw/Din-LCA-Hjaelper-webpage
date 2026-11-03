@@ -8,6 +8,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.xn--dinlcahjlper-edb.dk" }],
+      "destination": "https://xn--dinlcahjlper-edb.dk/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.xn--dinlcahjlper-edb.dk" }],
       "destination": "https://xn--dinlcahjlper-edb.dk/:path*",
