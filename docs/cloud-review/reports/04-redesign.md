@@ -89,6 +89,37 @@ Other pages: they get the new hero field, type, cards and links. On project-type
 
 Content and SEO: titles, meta descriptions, canonicals, JSON-LD, routes and the sitemap are unchanged. `llms.txt` and `llms-full.txt` gained the EPD line.
 
+## Follow-up: hero picker and demo loop (Valdemar's feedback after the first build)
+
+- **Picker.** The native selects are replaced by a custom listbox (`src/components/ui/Picker.tsx`):
+  - The menu renders in a portal under its trigger and flips to the right edge when there is no room.
+  - Building types are grouped (Bolig, Erhverv, Andet). Each has a line icon and a short hint, and the current one carries a check mark.
+  - Keyboard: arrows, Home, End, Enter, Space, Escape and Tab. It closes on an outside click and opens in 160 ms from its trigger.
+  - Screenshots: `after/hero-menu-1280.jpg`, `hero-menu-375.jpg` and `hero-menu2-375.jpg`.
+- **Demo loop.** Until the visitor interacts, the sentence cycles through six example projects:
+  - enfamiliehus 160 m²
+  - sommerhus 94 m²
+  - kontorbygning 1.200 m²
+  - række- eller dobbelthus 480 m²
+  - tilbygning 40 m²
+  - lager 600 m²
+
+  The m² figure types itself in, and the seal and the result row update. A pulsing spark dot with "Eksempel. Tryk og skriv dit eget projekt." invites the takeover.
+
+  The first pointer press, focus or change anywhere in the check stops the loop for good. The line then reads "Dit projekt", and focusing the area selects the number so typing replaces it.
+
+  The loop pauses while the check is off screen or the tab is hidden, and stops by itself after two rounds. It never runs under `prefers-reduced-motion`, which also keeps the prerendered HTML static. The results are not announced to screen readers while it runs.
+
+  During the demo, "Få et fast tilbud" links to a plain `/kontakt`, so an example is never sent as the visitor's project. Analytics only counts real use.
+- **Verified in Playwright at 1280 and 375:**
+  - The loop advances through the examples.
+  - The menu opens on the first tap; a layout shift on takeover was fixed by fixing the cue line's height.
+  - Arrow and Enter pick the right option, and the loop stays stopped afterwards.
+  - The prefill link carries the visitor's own values.
+  - No overflow and no JS errors.
+  - Reduced motion shows a static sentence.
+  - Lint, tests and prerender pass, and the full route sweep is clean.
+
 ## Home-page copy changes
 
 The headline and lede are unchanged ("LCA-beregning der bare virker", "Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, så du kan fokusere på projektet."). New or changed lines, all restating claims the site already makes:
@@ -101,7 +132,7 @@ The headline and lede are unchanged ("LCA-beregning der bare virker", "Vi håndt
 | Person section | (none) | "Du får én rådgiver, hele vejen" / "Bag Din LCA Hjælper står Valdemar Løvschal Wernblad. Han gennemgår dine tegninger, laver beregningen og står for rapporten til kommunen." / "Ring +45 29 89 99 99" / "Eller skriv direkte" |
 | Det får du | (four services) | Adds "Produktspecifikke EPD'er: Vi anbefaler produkter med egen EPD, der kan bringe beregningen ned." (Valdemar's request) |
 | Pricing list | (six items) | Adds "Anbefaling af produkter med produktspecifik EPD" |
-| Check states | (none) | "Lovpligtig", "Lovpligtig, uden grænseværdi", "Undtaget", "Ikke omfattet", "Skriv det opvarmede etageareal for at se krav og pris." |
+| Check states | (none) | "Lovpligtig", "Lovpligtig, uden grænseværdi", "Undtaget", "Ikke omfattet", "Skriv det opvarmede etageareal for at se krav og pris.", "Eksempel. Tryk og skriv dit eget projekt.", "Dit projekt"; menu hints "Parcelhus og stuehus", "Også kædehuse", "Fritidshus", "Skole, daginstitution", "En ny bygning", "Til en eksisterende bygning" |
 
 The new lines were checked against the `dansk-humanizer` patterns: no puffery, no stacked clauses, plain verbs.
 

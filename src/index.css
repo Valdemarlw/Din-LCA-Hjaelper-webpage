@@ -154,6 +154,39 @@
   animation: process-draw 0.8s var(--ease-out-strong) both;
 }
 
+/* Hero picker: the menu opens from its trigger. */
+@keyframes picker-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+}
+.picker-menu {
+  animation: picker-in 160ms var(--ease-out-strong);
+}
+
+/* Hero demo: each example's text swaps with a short blur, and a spark dot pings while it runs. */
+@keyframes demo-swap {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+.demo-swap {
+  display: inline-block;
+  animation: demo-swap 220ms var(--ease-out-strong);
+}
+@keyframes demo-ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.demo-ping {
+  animation: demo-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
