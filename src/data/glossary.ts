@@ -414,13 +414,7 @@ export const glossaryTerms: GlossaryTerm[] = [
         text: "A5 kræver oplysninger om brændstof, elforbrug og affaldsmængder fra byggepladsen. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de faktiske projektdata, der foreligger. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation).",
       },
     ],
-    faqs: [
-      {
-        question: "Hvad fylder typisk mest i A5?",
-        answer:
-          "Byggeaffald fylder typisk mest og udgør ca. 38% af den samlede byggeproces (A4+A5), efterfulgt af energiforbrug på pladsen (27%) og bortkørsel af affald (8%). De resterende 27% er transport ind til pladsen, som hører under modul A4.",
-      },
-    ],
+    faqs: [],
     relatedTerms: [
       "modul-a4",
       "graensevaerdi",

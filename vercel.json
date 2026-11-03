@@ -7,6 +7,12 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.xn--dinlcahjlper-edb.dk" }],
+      "destination": "https://xn--dinlcahjlper-edb.dk/:path*",
+      "permanent": true
+    },
     { "source": "/om", "destination": "/om-os", "permanent": true },
     { "source": "/ydelser-og-priser", "destination": "/lca-beregning", "permanent": true },
     { "source": "/prof-kunde", "destination": "/lca-beregning", "permanent": true },

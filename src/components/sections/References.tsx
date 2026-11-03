@@ -16,8 +16,8 @@ const cases: {
     slug: "ternedalen-42",
     type: "Sommerhus",
     location: "Ternedalen",
-    // The number falls from the first QA to the current result: 6,88 → 3,839.
-    stat: { from: 6.88, to: 3.839, decimals: 3, prefix: "6,88 → " },
+    // The number falls from the first QA to the current result, rounded on the card: 6,88 → 3,84.
+    stat: { from: 6.88, to: 3.84, decimals: 2, prefix: "6,88 → " },
     statLabel: "kg CO₂e/m²/år",
     description:
       "En dokumenteret beregnings- og optimeringsrejse med rettelser, EPD'er og tydelige forbehold.",
