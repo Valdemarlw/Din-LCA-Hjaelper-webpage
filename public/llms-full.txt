@@ -14,7 +14,7 @@ Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, 
 
 ### Hvorfor LCA-beregning ikke er til at komme udenom
 
-**Det er lovpligtigt.** Alle nye opvarmede byggerier kræver en LCA-beregning efter BR18, uanset størrelse. For uopvarmede bygninger over 50 m² og tilbygninger over 250 m² gælder kravet også. Uden den, ingen ibrugtagningstilladelse.
+**Det er lovpligtigt.** Alle nye opvarmede byggerier kræver en LCA-beregning efter BR18, uanset størrelse. Kravet gælder også uopvarmede bygninger over 50 m², alle tilbygninger til erhverv og etageboliger, og tilbygninger til enfamiliehuse, rækkehuse og sommerhuse fra 250 m². Uden den, ingen ibrugtagningstilladelse.
 
 **Det kræver specialviden.** En korrekt LCA kræver faglig indsigt i materialer, konstruktioner og lovkrav, samt kendskab til de rette beregningsværktøjer og hvordan de bruges. Det er ikke noget man bare lige gør.
 
@@ -65,7 +65,7 @@ Send os dine tegninger, så giver vi en pris.
 En LCA-beregning (livscyklusvurdering) opgør et byggeris samlede miljøpåvirkning over hele dets levetid, fra materialeproduktion til nedrivning. Beregningen er lovpligtig efter BR18 og dokumenterer bl.a. CO₂-udledning pr. m² pr. år. Resultatet afleveres som en rapport til kommunen sammen med færdigmeldingen.
 
 **Hvornår er LCA-beregning lovpligtigt?**
-Alle nye opvarmede byggerier skal have en LCA-beregning uanset størrelse. For uopvarmede bygninger gælder kravet ved arealer over 50 m², og for tilbygninger over 250 m². Kravet følger af BR18 og skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse.
+Alle nye opvarmede byggerier skal have en LCA-beregning uanset størrelse. For uopvarmede bygninger gælder kravet ved arealer over 50 m². Tilbygninger til erhverv og etageboliger er omfattet uanset størrelse, tilbygninger til enfamiliehuse, rækkehuse og sommerhuse fra 250 m². Kravet følger af BR18 og skal dokumenteres ved færdigmelding for at opnå ibrugtagningstilladelse.
 
 **Hvad koster en LCA-beregning?**
 Et komplet enfamiliehus eller sommerhus koster typisk 5.000-7.000 kr. ekskl. moms. Rækkehuse og flerboligbyggeri starter ved 8.000 kr. ekskl. moms og prissættes manuelt. A4 og A5 er inkluderet. Send os dine tegninger, så giver vi et fast tilbud inden for 24 timer.
@@ -126,7 +126,7 @@ Kontaktformular tilgængelig med felter: Navn, Email, Telefon, Projekttype (Boli
 En LCA-beregning (livscyklusvurdering) opgør et byggeris CO₂-udledning over en 50-årig betragtningsperiode. Hovedgrænseværdien dækker modulerne A1-A3, B4, B6 og C3-C4, mens byggeprocessen (A4+A5) har sin egen grænse. Beregningen er lovpligtig for alt nybyggeri i Danmark efter BR18. Artiklen dækker hvad en LCA indeholder, hvornår det er lovpligtigt, processen fra tegninger til myndighedsklar rapport, priser og hvornår man bør starte.
 
 ### Nye klimakrav 2025: Hvad betyder det for dit byggeri?
-Fra 1. juli 2025 gælder nye differentierede grænseværdier: sommerhuse <150 m² = 4,0 kg CO₂e/m²/år, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0. Derudover en separat A4+A5-grænse på 1,5. Stramning fra tidligere ensartet grænse på 12,0. Artiklen gennemgår ændringerne og konsekvenserne for hvert bygningstype.
+Fra 1. juli 2025 gælder nye differentierede grænseværdier: sommerhuse <150 m² = 4,0 kg CO₂e/m²/år, enfamiliehuse = 6,7, etageboliger/kontor = 7,5, øvrigt = 8,0. Derudover en separat A4+A5-grænse på 1,5. Før 1. juli 2025 gjaldt 12,0 kun for nybyggeri over 1.000 m² omfattet af energirammen. Artiklen gennemgår ændringerne og konsekvenserne for hvert bygningstype.
 
 ### A4 og A5: Dokumentation af byggeprocessens CO₂
 A4 dækker transport af materialer til byggepladsen, og A5 dækker spild, affald og energiforbrug under opførelsen. Fra juli 2025 er der en separat grænse på 1,5 kg CO₂e/m²/år. Tidligt i projektet bruger vi de oplysninger, der findes, og dokumenterede standardforudsætninger for resten. Før den endelige rapport opdaterer vi med de projektdata, vi har fået fra kunden og entreprenøren.

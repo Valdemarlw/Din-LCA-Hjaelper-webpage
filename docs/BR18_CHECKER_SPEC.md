@@ -37,7 +37,7 @@ Rækkefølge i `evaluateBR18`:
 4. ellers → `lovpligtig` + grænseværdi.
 
 **Grænseværdier (standard / lavemission), kg CO₂e/m²/år:** sommerhus <150: 4,0/3,2 · sommerhus ≥150 + enfamilie/række/kæde/dobbelt: 6,7/5,4 · etagebolig/kontor/handel/lager: 7,5/6,1 · institution/øvrigt: 8,0/6,4. **A4+A5:** 1,5/1,1 (alle typer).
-**B6:** uopvarmet→0 · tilbygning→Tabel 13 · sommerhus→Tabel 12 · ellers→energiramme (BE18 / EPBD-metode fra 29/5 2026).
+**B6:** uopvarmet→0 · tilbygning→Tabel 13 · sommerhus→Tabel 12 · ellers→energiramme (§§ 250-256; EPBD-metodens ikrafttræden ikke bekræftet i gældende BR18 pr. 2026-11-03).
 
 ## Pris (knæk-model, ekskl. moms)
 

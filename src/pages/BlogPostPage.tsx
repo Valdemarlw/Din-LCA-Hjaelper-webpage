@@ -26,7 +26,7 @@ export function BlogPostPage() {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     author: {
       "@type": "Person",
       name: "Valdemar Løvschal Wernblad",
@@ -108,6 +108,7 @@ export function BlogPostPage() {
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="da_DK" />
         <meta property="article:published_time" content={post.date} />
+        {post.updated && <meta property="article:modified_time" content={post.updated} />}
         <meta property="article:author" content="Valdemar Løvschal Wernblad" />
         <script type="application/ld+json">
           {JSON.stringify(articleSchema)}

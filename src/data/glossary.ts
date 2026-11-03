@@ -776,7 +776,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       {
         type: "list",
         items: [
-          "Materialer med levetid over 50 år tæller kun for 50 års brug",
+          "Materialer, der holder længere end 50 år, regnes med én gang",
           "Materialer med kortere levetid (fx 25 år) indregnes som udskiftet undervejs i [modul B4](/ordbog/modul-b4)",
           "Driftsenergi ([modul B6](/ordbog/modul-b6)) beregnes for de fulde 50 år",
           "Resultatet divideres med 50 for at få den årlige enhed: kg CO₂e/m²/år",
@@ -877,7 +877,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "En bygning med et samlet [GWP](/ordbog/gwp)-resultat på 500.000 kg CO₂e, et etageareal på 200 m² og en [betragtningsperiode](/ordbog/betragtningsperiode) på 50 år giver: 500.000 / (200 × 50) = 50 kg CO₂e/m²/år. Denne værdi sammenlignes med grænseværdien for bygningstypen.",
+        text: "En bygning med et samlet [GWP](/ordbog/gwp)-resultat på 60.000 kg CO₂e, et etageareal på 200 m² og en [betragtningsperiode](/ordbog/betragtningsperiode) på 50 år giver: 60.000 / (200 × 50) = 6,0 kg CO₂e/m²/år. Denne værdi sammenlignes med grænseværdien for bygningstypen.",
       },
     ],
     faqs: [
@@ -901,7 +901,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "etageareal",
     term: "Etageareal (LCA-referenceareal)",
     shortDefinition:
-      "Etagearealet i LCA er et modificeret referenceareal baseret på BBR, hvor fx kældre tæller 100%, udestuer 50% og carporte 25%.",
+      "Etagearealet i LCA er et modificeret referenceareal baseret på etagearealet efter BR18 § 455, hvor fx kældre tæller 100%, udestuer 50% og integrerede carporte 25%.",
     content: [
       {
         type: "heading2",
@@ -909,7 +909,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "I LCA-sammenhæng tages der udgangspunkt i det opvarmede etageareal jf. BBR, men der anvendes et modificeret LCA-referenceareal. De forskellige arealtyper vægtes forskelligt, fordi de har forskelligt materialebehov.",
+        text: "I LCA-sammenhæng tages der udgangspunkt i etagearealet efter BR18 § 455, både opvarmet og uopvarmet, og det justeres til et LCA-referenceareal (§ 297, stk. 5). De forskellige arealtyper vægtes forskelligt, fordi de har forskelligt materialebehov.",
       },
       {
         type: "heading2",
@@ -919,8 +919,8 @@ export const glossaryTerms: GlossaryTerm[] = [
         type: "table",
         headers: ["Arealtype", "Medregnes med"],
         rows: [
-          ["Opvarmet etageareal", "100%"],
-          ["Kældre", "100%"],
+          ["Etageareal efter § 455 (opvarmet og uopvarmet)", "100%"],
+          ["Kældre, affaldsrum i terrænniveau og sikringsrum", "100%"],
           ["Udestuer og integrerede garager", "50%"],
           ["Integrerede carporte og overdækninger, udvendige trapper, ramper, altangange", "25%"],
         ],

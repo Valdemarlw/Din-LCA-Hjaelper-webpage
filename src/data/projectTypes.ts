@@ -191,7 +191,7 @@ export const projectTypes: ProjectType[] = [
       },
       {
         type: "paragraph",
-        text: "Tilbygninger til sommerhuse og ferieboliger under 250 m² opvarmet etageareal er fritaget for LCA-kravet. Ved 250 m² eller derover gælder samme grænseværdi som hovedbygningen. Ombygninger og renoveringer er ikke omfattet.",
+        text: "Tilbygninger til sommerhuse og ferieboliger under 250 m² opvarmet etageareal er fritaget for LCA-kravet. Ved 250 m² eller derover skal tilbygningen overholde den grænseværdi, der gælder for dens anvendelse. Ombygninger og renoveringer er ikke omfattet.",
       },
       {
         type: "heading2",
@@ -243,7 +243,7 @@ export const projectTypes: ProjectType[] = [
     content: [
       {
         type: "paragraph",
-        text: "Kontorer, handel, lager og lignende erhvervsbyggeri skal overholde en [grænseværdi](/ordbog/graensevaerdi) på 7,5 kg CO₂e/m²/år efter [BR18](/ordbog/br18). Byggeprocessen (A4+A5) har en separat grænse på 1,5. Kravet gælder for alt nybyggeri, og uopvarmede lagerbygninger og haller over 50 m² opvarmet etageareal er også omfattet.",
+        text: "Kontorer, handel, lager og lignende erhvervsbyggeri skal overholde en [grænseværdi](/ordbog/graensevaerdi) på 7,5 kg CO₂e/m²/år efter [BR18](/ordbog/br18). Byggeprocessen (A4+A5) har en separat grænse på 1,5. Kravet gælder for alt nybyggeri, og uopvarmede lagerbygninger og haller over 50 m² etageareal er også omfattet.",
       },
       {
         type: "paragraph",

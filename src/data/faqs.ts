@@ -32,7 +32,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Hvad er en betragtningsperiode?",
         answer:
-          "Betragtningsperioden er den tidsramme, bygningens livscyklus vurderes over i LCA-beregningen. I Danmark er den fastsat til præcis 50 år i bygningsreglementet, uanset bygningens forventede levetid. Det betyder, at materialer med levetid over 50 år kun tæller for 50 års brug, mens materialer med kortere levetid indregnes som udskiftet undervejs.",
+          "Betragtningsperioden er den tidsramme, bygningens livscyklus vurderes over i LCA-beregningen. I Danmark er den fastsat til præcis 50 år i bygningsreglementet, uanset bygningens forventede levetid. Materialer, der holder længere end 50 år, regnes med én gang, mens materialer med kortere levetid regnes som udskiftet undervejs (modul B4).",
       },
       {
         question: "Hvad er CO₂-ækvivalenter?",
@@ -215,7 +215,7 @@ export const faqCategories: FAQCategory[] = [
         question:
           "Hvad er reglerne for tilbygninger?",
         answer:
-          "For boliger (enfamiliehuse, rækkehuse, sommerhuse) gælder en bagatelgrænse: kun tilbygninger på 250 m² eller derover er omfattet af LCA-kravet. For erhverv og etageboliger (kontor, institutioner, handel) gælder der ingen bagatelgrænse, alle tilbygninger er omfattet og skal overholde samme grænseværdi som den bygningstype, de knytter sig til.",
+          "For boliger (enfamiliehuse, rækkehuse, sommerhuse) gælder en bagatelgrænse: kun tilbygninger på 250 m² eller derover er omfattet af LCA-kravet. For erhverv og etageboliger (kontor, institutioner, handel) gælder der ingen bagatelgrænse, alle tilbygninger er omfattet og skal overholde den grænseværdi, der gælder for tilbygningens egen anvendelse.",
       },
       {
         question: "Gælder LCA-krav for uopvarmede bygninger?",

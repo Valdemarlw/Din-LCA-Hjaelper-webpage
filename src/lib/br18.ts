@@ -151,7 +151,7 @@ function b6MetodeFor(input: BR18Input): string {
     return "Driftsenergi (B6) beregnes med standardværdier (BR18 Tabel 13) — du behøver ikke en energirammeberegning.";
   if (input.bygningstype === "sommerhus")
     return "Driftsenergi (B6) beregnes med standardværdier (BR18 Tabel 12) — du behøver ikke en energirammeberegning.";
-  return "Driftsenergi (B6) kræver en energirammeberegning (BE18 / fra 29. maj 2026 den nye EPBD-metode).";
+  return "Driftsenergi (B6) beregnes ud fra bygningens energirammeberegning (BR18 §§ 250-256).";
 }
 
 /**
