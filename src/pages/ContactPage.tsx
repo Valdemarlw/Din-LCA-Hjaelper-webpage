@@ -109,6 +109,18 @@ export function ContactPage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-16 lg:gap-y-10">
             {/* Direct contact */}
             <div className="lg:col-span-5 lg:row-start-1">
+              <div className="mb-6 flex items-center gap-4">
+                <img
+                  src="/images/valdemar-wernblad.webp"
+                  width={364}
+                  height={476}
+                  alt=""
+                  className="h-16 w-16 rounded-full bg-mist object-cover object-top"
+                />
+                <p className="text-body">
+                  Du får svar fra <span className="font-bold text-ink">Valdemar Løvschal Wernblad</span>, LCA-rådgiver.
+                </p>
+              </div>
               <div className="space-y-4">
                 <a
                   href="tel:+4529899999"
