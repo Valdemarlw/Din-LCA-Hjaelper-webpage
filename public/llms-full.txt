@@ -30,6 +30,8 @@ Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, 
 
 **Materialeoptimering.** Forslag til alternative materialer hvis grænseværdien er i fare, inden det bliver et problem.
 
+**Produktspecifikke EPD'er.** Vi anbefaler produkter med egen EPD, der kan bringe beregningen ned.
+
 **Opdatering ved færdigmelding.** Vi opdaterer beregningen med faktiske mængder, så rapporten matcher det byggede.
 
 **A4/A5-beregning (inkluderet).** Vi beregner transport og byggeprocessen som en del af LCA'en. Mangler der faktiske data i den tidlige fase, dokumenterer vi forudsætningerne. Vi opdaterer den endelige rapport, når vi har de projektspecifikke oplysninger:

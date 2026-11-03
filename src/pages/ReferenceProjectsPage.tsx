@@ -1,11 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { referenceProjects } from "../data/referenceProjects";
 import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
-import { RevealGroup, RevealItem } from "../components/motion/Reveal";
 import { statusTagTone, statusToneOf } from "../lib/statusTone";
 
 export function ReferenceProjectsPage() {
@@ -20,7 +17,7 @@ export function ReferenceProjectsPage() {
   };
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>Referenceprojekter | Din LCA Hjælper</title>
         <meta
@@ -44,7 +41,7 @@ export function ReferenceProjectsPage() {
 
       <section className="bg-paper pb-20 md:pb-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <RevealGroup className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1} delay={0.2}>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {referenceProjects.map((project) => {
               const tone = statusToneOf(project);
               const cardMetrics = project.metrics?.slice(0, 3) ?? [
@@ -53,10 +50,10 @@ export function ReferenceProjectsPage() {
                 ...(project.graensevaerdi ? [{ label: "Grænse", value: project.graensevaerdi }] : []),
               ];
               return (
-                <RevealItem key={project.slug} className="h-full" y={36}>
+                <div key={project.slug} className="h-full">
                   <Link
                     to={`/referenceprojekter/${project.slug}`}
-                    className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet md:p-7"
+                    className="group flex h-full flex-col rounded-sheet bg-white p-6 ring-1 ring-line transition-[box-shadow] duration-150 hover:ring-green/40 md:p-7"
                   >
                     <p className="text-[13px] text-muted">
                       {project.type}, {project.location}
@@ -79,16 +76,16 @@ export function ReferenceProjectsPage() {
                       ))}
                     </dl>
 
-                    <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
+                    <span className="mt-6 text-sm font-semibold text-green underline decoration-spark/70 underline-offset-4 group-hover:decoration-spark">
                       Læs casen
                     </span>
                   </Link>
-                </RevealItem>
+                </div>
               );
             })}
-          </RevealGroup>
+          </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

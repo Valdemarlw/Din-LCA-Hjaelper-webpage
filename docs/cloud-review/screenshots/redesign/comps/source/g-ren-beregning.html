@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comp G Ren beregning</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&display=swap">
+<style>
+:root{--ground:#fbfbfa;--ink:#1c2023;--ink-2:#62686d;--line:#e3e4e2;--soft:#f1f2f0;--accent:#2f5b46}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Albert Sans",sans-serif;background:var(--ground);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+header{display:flex;justify-content:space-between;align-items:center;height:84px}
+header img{height:26px}
+nav{display:flex;gap:32px;font-size:15px;align-items:center}nav a{color:var(--ink);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff!important;padding:14px 24px;border-radius:999px;font-weight:500;font-size:15px;text-decoration:none}
+.hero{padding:72px 0 88px;display:grid;grid-template-columns:7fr 5fr;gap:72px;align-items:start}
+h1{font-weight:300;font-size:76px;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+.lede{margin-top:28px;font-size:20px;color:var(--ink-2);max-width:42ch;line-height:1.5}
+.trust{margin-top:36px;display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink-2)}
+.trust img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top}
+.trust b{color:var(--ink);font-weight:500}
+/* working check */
+.check{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 30px 60px -40px rgb(28 32 35/.35)}
+.check h2{font-size:15px;font-weight:500}
+.f{margin-top:18px}
+.f label{display:block;font-size:13px;color:var(--ink-2)}
+.f .in{margin-top:6px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;font-size:16px}
+.seg{margin-top:6px;display:grid;grid-template-columns:1fr 1fr;background:var(--soft);border-radius:10px;padding:3px}
+.seg span{text-align:center;padding:9px;font-size:15px;border-radius:8px}
+.seg span.on{background:#fff;box-shadow:0 1px 2px rgb(0 0 0/.08)}
+.out{margin-top:22px;border-top:1px solid var(--line);padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.out p{font-size:13px;color:var(--ink-2)}
+.out b{display:block;font-weight:300;font-size:30px;letter-spacing:-.02em;color:var(--ink);line-height:1.15}
+.out small{font-size:13px;color:var(--ink-2)}
+.ok{grid-column:1/-1;display:flex;gap:10px;align-items:center;font-size:15px;background:var(--soft);border-radius:10px;padding:10px 12px}
+.ok svg{flex-shrink:0}
+.check .btn{margin-top:20px;width:100%;justify-content:center}
+/* explainer */
+.ex{border-top:1px solid var(--line);padding:80px 0}
+.ex h2{font-weight:300;font-size:42px;line-height:1.12;letter-spacing:-.025em;max-width:20ch}
+.icons{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:32px}
+.ic svg{width:40px;height:40px;stroke:var(--ink);fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
+.ic h3{margin-top:18px;font-size:17px;font-weight:500}
+.ic p{margin-top:4px;font-size:15px;color:var(--ink-2)}
+@media(max-width:700px){.wrap{padding:0 20px}nav a:not(.btn){display:none}.hero{grid-template-columns:1fr;gap:40px;padding:32px 0 56px}h1{font-size:44px}.lede{font-size:18px}.icons{grid-template-columns:1fr 1fr;gap:28px}.ex h2{font-size:30px}.ex{padding:56px 0}}
+</style></head><body><div class="wrap">
+<header><img src="../../../../../../public/brand/logo-wordmark-dark-1600.png" alt="Din LCA Hjælper"><nav><a href="#">Viden</a><a href="#">Bygningstyper</a><a href="#">Om os</a><a class="btn" href="#">Få et tilbud</a></nav></header>
+<section class="hero">
+ <div>
+  <h1>LCA-beregning til BR18, uden at du skal regne selv</h1>
+  <p class="lede">Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, så du kan fokusere på projektet.</p>
+  <div class="trust"><img src="../../../../../../public/images/valdemar-wernblad.webp" alt=""><span>Du får svar fra <b>Valdemar Løvschal Wernblad</b> inden for 24 timer.</span></div>
+ </div>
+ <div class="check">
+  <h2>Skal dit projekt have en LCA?</h2>
+  <div class="f"><label>Bygningstype</label><div class="in"><span>Enfamiliehus</span><span>⌄</span></div></div>
+  <div class="f"><label>Byggeri</label><div class="seg"><span class="on">Nybyggeri</span><span>Tilbygning</span></div></div>
+  <div class="f"><label>Opvarmet etageareal</label><div class="in"><span>160</span><span style="color:var(--ink-2)">m²</span></div></div>
+  <div class="out">
+   <div class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Ja, LCA-beregning er lovpligtig</div>
+   <div><p>Grænseværdi</p><b>6,7</b><small>kg CO₂e/m²/år</small></div>
+   <div><p>Vejledende pris</p><b>ca. 6.000 kr</b><small>ekskl. moms</small></div>
+  </div>
+  <a class="btn" href="#">Få et fast tilbud</a>
+ </div>
+</section>
+<section class="ex">
+ <h2>Det regner vi med i din LCA</h2>
+ <div class="icons">
+  <div class="ic"><svg viewBox="0 0 40 40"><path d="M5 20 20 7l15 13"/><path d="M9 17v16h22V17"/></svg><h3>Materialer</h3><p>Alle bygningsdele fra tag til fundament, med mængder og EPD'er.</p></div>
+  <div class="ic"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 7v13l9 6"/></svg><h3>Levetid</h3><p>Udskiftning over bygningens 50 år.</p></div>
+  <div class="ic"><svg viewBox="0 0 40 40"><path d="M4 26h20V12H4zM24 17h7l5 5v4H24"/><circle cx="11" cy="29" r="3"/><circle cx="30" cy="29" r="3"/></svg><h3>Transport, A4</h3><p>Fra fabrik til byggeplads.</p></div>
+  <div class="ic"><svg viewBox="0 0 40 40"><path d="M10 34V6h18M10 10l14 0M28 6v10"/><path d="M24 16h8v5h-8z"/><path d="M4 34h32"/></svg><h3>Byggeplads, A5</h3><p>El, varme, brændstof og spild.</p></div>
+  <div class="ic"><svg viewBox="0 0 40 40"><path d="M8 32 32 8"/><path d="M8 8h10M8 8v10M32 32H22M32 32V22"/></svg><h3>Driftsenergi</h3><p>Energiforbruget i drift, med i beregningen.</p></div>
+ </div>
+</section>
+</div></body></html>

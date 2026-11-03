@@ -131,7 +131,7 @@ export function BR18Checker() {
             {resultat && (
               <a
                 href="#resultat"
-                className="mt-2 inline-block text-sm font-semibold text-green underline decoration-green/40 underline-offset-2 hover:decoration-green lg:hidden"
+                className="mt-2 inline-block text-sm font-semibold text-green underline decoration-spark/70 underline-offset-2 hover:decoration-spark lg:hidden"
               >
                 Se resultatet
               </a>

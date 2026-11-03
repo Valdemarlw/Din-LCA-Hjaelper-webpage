@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comp H Klimablå</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..700&display=swap">
+<style>
+:root{--blue:#2b34c8;--blue-d:#1d2496;--ice:#eef0ff;--lilac:#cdd1ff;--peach:#ffa07a;--paper:#f7f6fc;--ink:#14163a;--ink-2:#55587a}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Bricolage Grotesque",sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;font-variation-settings:"opsz" 14}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.hero{background:var(--blue);color:var(--ice);padding-bottom:84px;position:relative;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:center;height:84px}
+header img{height:26px}
+nav{display:flex;gap:28px;font-size:16px;align-items:center}nav a{color:var(--ice);text-decoration:none}
+.pill{background:var(--ice);color:var(--blue)!important;padding:11px 20px;border-radius:999px;font-weight:600}
+h1{margin-top:64px;font-weight:500;font-size:84px;line-height:.98;letter-spacing:-.02em;font-variation-settings:"opsz" 96,"wdth" 90;max-width:11ch}
+h1 span{color:var(--peach)}
+.lede{margin-top:24px;font-size:20px;max-width:44ch;color:var(--lilac)}
+/* sentence check */
+.sent{margin-top:44px;background:var(--ice);color:var(--ink);border-radius:22px;padding:26px 28px;font-size:23px;line-height:1.7;font-variation-settings:"opsz" 30;max-width:760px}
+.sent .f{display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid var(--blue);color:var(--blue);font-weight:600;padding:0 4px;margin:0 2px}
+.sent .f svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2}
+.res{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:16px;line-height:1.3}
+.chip{background:#fff;border-radius:999px;padding:10px 16px;border:1px solid var(--lilac)}
+.chip b{font-weight:600}
+.chip.hot{background:var(--peach);border-color:var(--peach)}
+.go{background:var(--blue);color:#fff;border-radius:999px;padding:13px 22px;font-weight:600;text-decoration:none}
+.me{position:absolute;right:max(28px,calc((100vw - 1080px)/2 + 28px));top:170px;width:210px;transform:rotate(3deg);background:#fff;color:var(--ink);padding:10px 10px 14px;border-radius:6px;box-shadow:0 24px 40px -20px rgb(10 12 60/.6)}
+.me img{width:100%;height:230px;object-fit:cover;object-position:top;border-radius:3px}
+.me p{font-size:14px;margin-top:10px;line-height:1.35}
+.me b{display:block;font-size:16px}
+/* explainer */
+.ex{padding:84px 0}
+.ex h2{font-weight:500;font-size:46px;line-height:1.05;letter-spacing:-.03em;font-variation-settings:"opsz" 72,"wdth" 90;max-width:16ch}
+.icons{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ic{background:#fff;border-radius:20px;padding:24px;border:1px solid #e6e5f2}
+.ic .i{width:56px;height:56px;border-radius:16px;background:var(--lilac);display:grid;place-items:center}
+.ic:nth-child(2) .i{background:#ffd6c4}.ic:nth-child(3) .i{background:#d8f0e4}
+.ic svg{width:30px;height:30px;stroke:var(--blue-d);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic h3{margin-top:18px;font-size:21px;font-weight:600;font-variation-settings:"opsz" 30}
+.ic p{margin-top:4px;color:var(--ink-2);font-size:16px}
+@media(max-width:760px){.wrap{padding:0 18px}nav a:not(.pill){display:none}h1{font-size:50px;margin-top:28px}.me{position:static;width:auto;transform:none;display:flex;gap:12px;align-items:center;margin-top:24px;background:var(--blue-d);color:var(--ice);box-shadow:none;padding:10px}.me img{width:64px;height:64px;border-radius:50%}.me p{margin:0}.sent{font-size:20px;padding:20px}.go{margin-left:0}.icons{grid-template-columns:1fr}.ex h2{font-size:34px}}
+</style></head><body>
+<section class="hero"><div class="wrap">
+<header><img src="../../../../../../public/brand/logo-wordmark-light-1600.png" alt="Din LCA Hjælper"><nav><a href="#">Viden</a><a href="#">Bygningstyper</a><a href="#">Om os</a><a class="pill" href="#">Få et tilbud</a></nav></header>
+<h1>LCA-beregning der bare virker</h1>
+<p class="lede">Vi håndterer hele LCA-beregningen, fra tidlig fase til myndighedsklar rapport, så du kan fokusere på projektet.</p>
+<div class="me"><img src="../../../../../../public/images/valdemar-wernblad.webp" alt=""><p><b>Valdemar Løvschal Wernblad</b>Laver din beregning og svarer inden for 24 timer.</p></div>
+<div class="sent">Jeg bygger et <span class="f">enfamiliehus<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span> på <span class="f">160 m²</span> som <span class="f">nybyggeri<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+ <div class="res"><span class="chip"><b>LCA er lovpligtig</b></span><span class="chip">Grænse <b>6,7</b> kg CO₂e/m²/år</span><span class="chip hot">ca. <b>6.000 kr</b> ekskl. moms</span><a class="go" href="#">Få et fast tilbud</a></div></div>
+</div></section>
+<section class="ex"><div class="wrap">
+<h2>Det regner vi med, så du ikke skal</h2>
+<div class="icons">
+ <div class="ic"><div class="i"><svg viewBox="0 0 32 32"><path d="M4 15 16 5l12 10"/><path d="M7 13v14h18V13"/><path d="M13 27v-7h6v7"/></svg></div><h3>Alle materialer</h3><p>Fra tag til fundament, med mængder, levetider og EPD'er.</p></div>
+ <div class="ic"><div class="i"><svg viewBox="0 0 32 32"><path d="M3 21h16V9H3zM19 13h6l4 4v4H19"/><circle cx="9" cy="23.5" r="2.5"/><circle cx="24" cy="23.5" r="2.5"/></svg></div><h3>Transport og byggeplads</h3><p>A4 og A5 er med, og opdateres med det faktiske forbrug.</p></div>
+ <div class="ic"><div class="i"><svg viewBox="0 0 32 32"><path d="M6 26V6M6 26h20"/><path d="M10 20l5-6 4 3 6-8"/></svg></div><h3>Hotspots og forslag</h3><p>Hvor CO₂'en sidder, og hvad der kan ændres, hvis grænsen er i fare.</p></div>
+</div></div></section>
+</body></html>

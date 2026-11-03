@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comp E Lag for lag</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
+<style>
+:root{--ground:#f6f6f4;--ink:#202326;--ink-2:#666b70;--line:#dcddda}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Hanken Grotesk",sans-serif;background:var(--ground);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+header{display:flex;justify-content:space-between;align-items:center;height:84px}
+header img{height:26px}
+nav{display:flex;gap:32px;font-size:15px;align-items:center}nav a{color:var(--ink);text-decoration:none}
+.btn{display:inline-block;background:var(--ink);color:#fff!important;padding:14px 24px;border-radius:6px;font-weight:500;font-size:15px;text-decoration:none}
+.top{padding:56px 0 40px;max-width:780px}
+h1{font-weight:300;font-size:72px;line-height:1.02;letter-spacing:-.035em}
+.lede{margin-top:24px;font-size:20px;color:var(--ink-2);max-width:46ch;line-height:1.5}
+.row{margin-top:32px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.row span{color:var(--ink-2);font-size:15px}.row span b{color:var(--ink);font-weight:500}
+.section{display:grid;grid-template-columns:1fr 420px;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.layer{display:contents}
+.strip{height:var(--h);background-size:cover;background-position:center;position:relative}
+.label{border-bottom:1px solid var(--line);display:flex;align-items:center;gap:20px;padding:0 0 0 28px;position:relative}
+.label:before{content:"";position:absolute;left:0;top:50%;width:18px;border-top:1px solid var(--ink)}
+.label b{font-weight:500;width:130px;flex-shrink:0}
+.label span{font-size:14px;color:var(--ink-2);line-height:1.4}
+.label em{font-style:normal;white-space:nowrap;padding-right:4px;margin-left:auto;font-size:22px;font-weight:300}
+.foot{display:flex;justify-content:space-between;padding:14px 0 64px;font-size:14px;color:var(--ink-2)}
+@media(max-width:700px){.wrap{padding:0 20px}nav a:not(.btn){display:none}h1{font-size:42px}.lede{font-size:18px}.section{grid-template-columns:96px 1fr}.label{padding-left:16px}.label:before{width:10px}.label b{width:auto}.label span{display:none}}
+</style></head><body><div class="wrap">
+<header><img src="../../../../../../public/brand/logo-wordmark-dark-1600.png" alt="Din LCA Hjælper"><nav><a href="#">Viden</a><a href="#">BR18-tjekker</a><a href="#">Om os</a><a class="btn" href="#">Få et tilbud</a></nav></header>
+<section class="top">
+ <h1>Et hus vejer også i CO₂. Vi regner det ud, lag for lag.</h1>
+ <p class="lede">Komplet LCA-beregning efter BR18, fra tidlig fase til myndighedsklar rapport. Du ser, hvilke bygningsdele der fylder, og hvad der kan ændres.</p>
+ <div class="row"><a class="btn" href="#">Få et tilbud</a><span><b>Typisk 5.000-7.000 kr</b> ekskl. moms for et enfamiliehus</span></div>
+</section>
+<div class="section">
+ <div class="layer"><div class="strip" style="--h:92px;background-image:url(../mat/metal.jpg)"></div><div class="label"><b>Tag</b><span>Tagdækning, undertag og isolering</span><em>7,7 %</em></div></div>
+ <div class="layer"><div class="strip" style="--h:92px;background-image:url(../mat/trae.jpg)"></div><div class="label"><b>Vinduer</b><span>Glas, karme og rammer</span><em>7,9 %</em></div></div>
+ <div class="layer"><div class="strip" style="--h:122px;background-image:url(../mat/gulv.jpg)"></div><div class="label"><b>Fundament</b><span>Beton og armering under huset</span><em>11,6 %</em></div></div>
+ <div class="layer"><div class="strip" style="--h:180px;background-image:url(../mat/beton.jpg)"></div><div class="label"><b>Terrændæk</b><span>Den største post i det aktuelle scenarie</span><em>23,7 %</em></div></div>
+</div>
+<p class="foot"><span>Hotspots fra Ternedalen, sommerhus 94 m². Resultat 3,839 kg CO₂e/m²/år, grænsen er 4,0.</span><a href="#" style="color:var(--ink)">Læs casen</a></p>
+</div></body></html>

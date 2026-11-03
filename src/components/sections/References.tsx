@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { SectionWrapper } from "../ui/SectionWrapper";
-import { CountUp } from "../motion/CountUp";
-import { Reveal, RevealGroup, RevealItem, RevealWords } from "../motion/Reveal";
+import { kommatal } from "../../lib/format";
 
 type Stat = { to: number; from?: number; decimals?: number; prefix?: string; suffix?: string };
 
@@ -45,54 +44,48 @@ const cases: {
 
 export function References() {
   return (
-    <SectionWrapper bg="mist">
+    <SectionWrapper bg="paper">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <RevealWords as="h2" text="Referenceprojekter" className="text-3xl font-bold leading-tight md:text-4xl" />
-          <Reveal as="p" delay={0.1} className="mt-4 text-lg text-body">
+          <h2 className="text-[2.25rem] leading-[1.05] md:text-[3rem]">Referenceprojekter</h2>
+          <p className="mt-4 text-lg text-body">
             Se hvordan vi har hjulpet arkitekter og bygherrer med at overholde BR18's klimakrav.
-          </Reveal>
+          </p>
         </div>
-        <Reveal delay={0.2}>
+        <div>
           <Link
             to="/referenceprojekter"
-            className="shrink-0 font-semibold text-green underline decoration-green/40 underline-offset-4 transition-colors hover:decoration-green"
+            className="shrink-0 font-semibold text-green underline decoration-spark decoration-2 underline-offset-4 transition-colors hover:text-green-deep"
           >
             Se alle referenceprojekter
           </Link>
-        </Reveal>
+        </div>
       </div>
 
-      <RevealGroup className="mt-12 grid gap-5 md:grid-cols-3 md:mt-16" stagger={0.12} delay={0.1}>
-        {cases.map((c, i) => (
-          <RevealItem key={c.slug} className="h-full" y={36}>
+      <div className="mt-12 grid gap-5 md:grid-cols-3 md:mt-16">
+        {cases.map((c) => (
+          <div key={c.slug} className="h-full">
             <Link
               to={`/referenceprojekter/${c.slug}`}
-              className="group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green md:p-7"
+              className="group flex h-full flex-col rounded-sheet bg-white p-6 ring-1 ring-line transition-[box-shadow] duration-150 hover:ring-green/40 md:p-7"
             >
               <p className="text-[13px] text-muted">
                 {c.type}, {c.location}
               </p>
-              <p className="mt-6 text-[2rem] font-extrabold leading-none tracking-tight text-ink md:text-4xl">
-                <CountUp
-                  to={c.stat.to}
-                  from={c.stat.from}
-                  decimals={c.stat.decimals}
-                  prefix={c.stat.prefix}
-                  suffix={c.stat.suffix}
-                  duration={1.6}
-                  delay={0.3 + i * 0.12}
-                />
+              <p className="mt-6 font-display text-[2.25rem] leading-none text-ink md:text-[2.6rem]">
+                {c.stat.prefix}
+                {kommatal(c.stat.to, c.stat.decimals ?? 0)}
+                {c.stat.suffix}
               </p>
               <p className="mt-2 text-sm text-muted">{c.statLabel}</p>
               <p className="mt-5 flex-1 text-[15px] leading-relaxed text-body">{c.description}</p>
-              <span className="mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green">
+              <span className="mt-6 text-sm font-semibold text-green underline decoration-spark decoration-2 underline-offset-4">
                 Læs casen
               </span>
             </Link>
-          </RevealItem>
+          </div>
         ))}
-      </RevealGroup>
+      </div>
     </SectionWrapper>
   );
 }

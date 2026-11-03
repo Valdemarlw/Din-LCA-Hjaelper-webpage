@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comp C Klimaskala</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800;900&display=swap">
+<style>
+:root{--ground:#f5f5f2;--ink:#111214;--ink-2:#4c4e52;--sig:#f2c200;--line:#cfd0cc}
+*{box-sizing:border-box;margin:0}
+body{font-family:Overpass,sans-serif;background:var(--ground);color:var(--ink);font-size:17px;line-height:1.5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;height:74px}
+header img{height:28px}
+nav{display:flex;gap:26px;font-weight:600;font-size:15px;align-items:center}
+nav a{color:var(--ink);text-decoration:none}
+.btn{background:var(--sig);color:var(--ink)!important;padding:14px 20px;font-weight:800;text-decoration:none;display:inline-block}
+.btn.dark{background:var(--ink);color:var(--ground)!important}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:48px 0 64px;align-items:start}
+h1{font-size:64px;line-height:1;font-weight:900;letter-spacing:-.025em;text-wrap:balance}
+.lede{margin-top:22px;font-size:20px;max-width:38ch;color:var(--ink-2)}
+.cta{margin-top:30px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.cta a.l{color:var(--ink);font-weight:600;text-underline-offset:5px}
+.label{background:#fff;border:2px solid var(--ink);padding:20px}
+.label h2{font-size:15px;font-weight:800;display:flex;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.steps{margin-top:14px;display:grid;gap:7px}
+.st{display:grid;grid-template-columns:1fr 92px;align-items:center;gap:12px}
+.st .b{height:38px;white-space:nowrap;overflow:hidden;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-weight:800;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%)}
+.st .b small{font-weight:400;opacity:.8;font-size:13px}
+.st .v{font-weight:900;font-size:20px;text-align:right}
+.st.cur .b{background:var(--sig);color:var(--ink)}
+.st.lim{border-top:2px dashed var(--ink);padding-top:7px}
+.foot{margin-top:16px;font-size:13px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:10px}
+.strip{background:var(--ink);color:var(--ground);padding:40px 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.strip b{display:block;font-size:40px;font-weight:900;color:var(--sig);line-height:1}
+.strip span{font-size:15px}
+@media(max-width:700px){nav a:not(.btn){display:none}.hero{grid-template-columns:1fr;gap:32px;padding:24px 0 40px}h1{font-size:42px}.lede{font-size:18px}.st{grid-template-columns:1fr 64px}.strip .wrap{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="wrap"><header><img src="../../../../../../public/brand/logo-wordmark-dark-1600.png" alt="Din LCA Hjælper"><nav><a href="#">Viden</a><a href="#">BR18-tjekker</a><a href="#">Om Valdemar</a><a class="btn dark" href="#">Få et tilbud</a></nav></header>
+<section class="hero">
+ <div>
+  <h1>Hvor lander dit byggeri på BR18-skalaen?</h1>
+  <p class="lede">Grænseværdien afhænger af bygningstypen. Vi regner dit projekt igennem fra tidlig fase til myndighedsklar rapport og viser, hvor du ligger.</p>
+  <div class="cta"><a class="btn" href="#">Tjek dit projekt</a><a class="l" href="#">Typisk 5.000-7.000 kr ekskl. moms</a></div>
+ </div>
+ <div class="label">
+  <h2>Grænseværdier, kg CO₂e/m²/år <span>BR18 § 298</span></h2>
+  <div class="steps">
+   <div class="st"><div class="b" style="width:100%">Øvrigt byggeri <small>skoler, institutioner</small></div><span class="v">8,0</span></div>
+   <div class="st"><div class="b" style="width:92%">Etageboliger, kontor, handel, lager</div><span class="v">7,5</span></div>
+   <div class="st"><div class="b" style="width:84%">Enfamiliehuse, rækkehuse</div><span class="v">6,7</span></div>
+   <div class="st"><div class="b" style="width:56%">Sommerhuse Sommerhuse under 150 m²lt; 150 m²</div><span class="v">4,0</span></div>
+   <div class="st cur"><div class="b" style="width:52%">Ternedalen, 94 m²</div><span class="v">3,839</span></div>
+  </div>
+  <p class="foot">Plus en separat grænse på 1,5 for byggeprocessen (A4+A5). Tjekket mod bygningsreglementet.dk.</p>
+ </div>
+</section></div>
+<section class="strip"><div class="wrap"><div><b>24 t</b><span>til du har et tilbud</span></div><div><b>A4+A5</b><span>er med i prisen</span></div><div><b>80-3.000 m²</b><span>bolig, erhverv og industri</span></div><div><b>1</b><span>rådgiver hele vejen</span></div></div></section>
+</body></html>

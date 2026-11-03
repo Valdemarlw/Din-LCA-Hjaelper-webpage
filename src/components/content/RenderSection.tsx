@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { BlogSection } from "../../data/blogPosts";
 
 const linkCls =
-  "text-green underline decoration-green/40 underline-offset-2 transition-colors hover:decoration-green";
+  "text-green underline decoration-spark/70 underline-offset-2 transition-colors hover:decoration-spark";
 
 export function InlineLinks({ text }: { text: string }) {
   const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);

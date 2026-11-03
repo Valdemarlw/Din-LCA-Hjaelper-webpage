@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { BR18Checker } from "../components/tools/BR18Checker";
 import { BR18_CHECKER_SEO_TITLE } from "../lib/seoTitles";
 import { PageHero } from "../components/ui/PageHero";
@@ -73,7 +71,7 @@ const howToSchema = {
 
 export function BR18CheckerPage() {
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>{BR18_CHECKER_SEO_TITLE}</title>
         <meta
@@ -117,7 +115,7 @@ export function BR18CheckerPage() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
-              <h2 className="text-3xl font-bold leading-tight md:text-4xl lg:sticky lg:top-28">
+              <h2 className="text-[2.25rem] leading-[1.05] md:text-[3rem] lg:sticky lg:top-28">
                 Ofte stillede spørgsmål
               </h2>
             </div>
@@ -131,6 +129,6 @@ export function BR18CheckerPage() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

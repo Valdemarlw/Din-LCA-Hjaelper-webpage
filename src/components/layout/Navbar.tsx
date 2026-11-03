@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useNavbarScroll } from "../../hooks/useNavbarScroll";
 import { Button } from "../ui/Button";
@@ -48,8 +47,8 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,translate] duration-300 ${
-        solid ? "bg-paper/90 shadow-nav backdrop-blur-md" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,translate] duration-200 ease-out ${
+        solid ? "bg-paper/95 shadow-nav backdrop-blur-sm" : "bg-paper"
       } ${hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0"}`}
     >
       <nav
@@ -58,11 +57,10 @@ export function Navbar() {
       >
         <Link
           to="/"
-          className="flex shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
+          className="flex shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-spark"
           aria-label="Din LCA Hjælper, til forsiden"
         >
-          <Logo kind="wordmark" className="hidden h-8 w-auto md:block lg:h-9" decorative />
-          <Logo kind="mark" className="h-10 w-auto md:hidden" decorative />
+          <Logo kind="wordmark" className="h-6 w-auto sm:h-7 lg:h-8" decorative />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -73,10 +71,8 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 aria-current={active ? "page" : undefined}
-                className={`relative rounded-md px-3 py-2 text-[15px] font-medium transition-colors hover:text-green ${
-                  active
-                    ? "text-green after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-green"
-                    : "text-ink/80"
+                className={`rounded-full px-3.5 py-2 text-[15px] font-medium transition-colors hover:bg-green-soft hover:text-green ${
+                  active ? "bg-green-soft text-green" : "text-ink/80"
                 }`}
               >
                 {link.label}
@@ -97,27 +93,19 @@ export function Navbar() {
           <button
             ref={menuButton}
             type="button"
-            className="-mr-2 rounded-md p-2.5 text-ink"
+            className="-mr-1 grid h-11 w-11 place-items-center rounded-full text-ink hover:bg-green-soft"
             onClick={() => setMobileOpen((open) => !open)}
             aria-expanded={mobileOpen}
             aria-controls="mobil-menu"
             aria-label={mobileOpen ? "Luk menu" : "Åbn menu"}
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </nav>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            id="mobil-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-line bg-paper md:hidden"
-          >
+      {mobileOpen && (
+          <div id="mobil-menu" className="border-t border-line bg-paper md:hidden">
             <div className="px-5 pb-6 pt-2">
               {links.map((link) => (
                 <Link
@@ -135,9 +123,8 @@ export function Navbar() {
                 Få et tilbud
               </Button>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </header>
   );
 }

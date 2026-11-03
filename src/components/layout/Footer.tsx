@@ -15,13 +15,13 @@ const videnLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-green-deep text-mist/80">
+    <footer className="grain mt-8 bg-green-deep text-mist/80">
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <Link
               to="/"
-              className="inline-block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mist"
+              className="inline-block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-spark"
               aria-label="Din LCA Hjælper, til forsiden"
             >
               <Logo variant="light" className="h-9 w-auto" decorative />
@@ -39,7 +39,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3 md:col-start-6">
-            <h3 className="text-sm font-semibold text-white">Viden</h3>
+            <h3 className="text-sm font-semibold text-spark">Viden</h3>
             <ul className="mt-4 space-y-2.5">
               {videnLinks.map((link) => (
                 <li key={link.to}>
@@ -52,7 +52,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-4 md:col-start-9">
-            <h3 className="text-sm font-semibold text-white">Kontakt</h3>
+            <h3 className="text-sm font-semibold text-spark">Kontakt</h3>
             <ul className="mt-4 space-y-2.5 text-[15px]">
               <li>
                 <a href="tel:+4529899999" className="transition-colors hover:text-white">
