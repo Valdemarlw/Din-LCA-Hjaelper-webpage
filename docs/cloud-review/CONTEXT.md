@@ -20,7 +20,7 @@ Existing material worth reading before you judge anything: `design-brief.md`, `c
 
 ## Tools in this environment
 
-- Repo skills in `.claude/skills/`: impeccable (design, v4.8.0), redesign-existing-projects, firecrawl suite (search, scrape, map, crawl, deep-research, interact, read-docs), Corey Haines marketing skills (ai-seo, copywriting, copy-editing, cro, site-architecture, content-strategy, competitors, product-marketing), dansk-humanizer.
+- Repo skills in `.claude/skills/`: impeccable (design, v4.8.0), redesign-existing-projects, firecrawl suite (search, scrape, map, crawl, deep-research, interact, read-docs), Mobbin skills (search, redesign-screen, best-practices, plain-writing; official mobbin/skills), Corey Haines marketing skills (ai-seo, copywriting, copy-editing, cro, site-architecture, content-strategy, competitors, product-marketing), dansk-humanizer.
 - claude-seo v2.5.0 is installed by the environment setup script into `~/.claude/skills/seo*` (technical SEO, schema, GEO, local, sitemap, content). If `/seo` is not listed as a skill, read `~/.claude/skills/seo/SKILL.md` directly and follow it.
 - Mobbin is a claude.ai connector (tools named like `search_screens`, `search_flows`). If no Mobbin tools are present, say so in the report and use Firecrawl on named reference sites instead.
 - `firecrawl` CLI, authenticated through `FIRECRAWL_API_KEY`.
