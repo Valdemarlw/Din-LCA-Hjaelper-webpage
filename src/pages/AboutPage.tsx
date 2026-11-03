@@ -17,6 +17,18 @@ export function AboutPage() {
         <meta property="og:url" content="https://dinlcahjælper.dk/om-os" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="da_DK" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": "https://dinlcahjælper.dk/om-os",
+            url: "https://dinlcahjælper.dk/om-os",
+            name: "Om Din LCA Hjælper",
+            inLanguage: "da",
+            about: { "@id": "https://dinlcahjælper.dk/#business" },
+            mainEntity: { "@id": "https://dinlcahjælper.dk/#person" },
+          })}
+        </script>
       </Helmet>
 
       <PageHero title="Om Din LCA Hjælper" />

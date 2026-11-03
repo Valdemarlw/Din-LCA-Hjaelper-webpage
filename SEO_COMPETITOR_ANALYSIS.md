@@ -1,5 +1,32 @@
 # SEO Competitor Analysis — Din LCA Hjælper
 
+## Update, 3 November 2026 (cloud review 03, SEO/AEO)
+
+Source: 14 Danish queries via Firecrawl search (country DK, top 10), Firecrawl map of six competitor sites and three scraped pages. Full query table and content plan: `docs/cloud-review/reports/03-seo-aeo.md`.
+
+**Superseded in the April analysis below:** every "Fra 3.500 DKK" / "cheapest at 3,500" statement (sections 2, 6, 7) and every recommendation to promote the A45 platform (sections 6, 7). `HANDOFF.md` sets the price at typically 5.000-7.000 kr ekskl. moms for a detached house or summer house and forbids mentioning the deferred software brand. Read the rest of the April text as history.
+
+### Who competes in the SERPs now
+
+| Competitor | Seen in top 10 (of 14 queries) | Model | Public price | Notes |
+|---|---|---|---|---|
+| nordiclca.dk | 5 | LCA/EPD consultancy, broad (food, CSRD) | "Kontakt os for pris" | Ranks on authority and `/viden` articles, thin building page (~320 words) |
+| lcapartner.dk | 1 (#2 on "LCA beregning pris") | LCA consultancy, same niche as DLH | "Fast pris fra 4.500 kr." ekskl. moms (enfamiliehus) | Near-identical site plan to DLH: `/lca-beregning-pris`, `/br18-lca-beregner`, `/graensevaerdier`, `/lca-beregning-{enfamiliehus,raekkehus-dobbelthus,tilbygning,sommerhus,erhverv}`, `/lca-rapport`, `/lcabyg-eller-professionel-lca`, `/materialer-co2-byggeri`. The most direct competitor. |
+| lca-beregninger.dk | 1 (#1 on "LCA beregning pris") | Lead-gen style, 5 pages | Parcelhuse fra 5.000 kr, rækkehuse fra 15.000, boksbutikker fra 20.000, etage fra 25.000 | Wins the price query with a price table on the homepage |
+| calca.dk | 3 | DGNB + LCA + energy, Aalborg | None | Local landing pages (`/lca-beregninger-aalborg`) |
+| energiberegner.dk | 2 | Energy first, LCA second | Bundle prices | ~90 glossary pages, project-type pages incl. `tilbygning`, `ombygning`, `aendret-anvendelse` |
+| vaerdibyg.dk (6), bygogbaeredygtighed.dk (5), dhv.dk (4), rfbb.dk (4), bolius.dk, molio.dk | 2-6 each | Industry, trade and consumer sites | - | Own the informational queries together with sbst.dk (11 of 14) and bygningsreglementet.dk (8 of 14) |
+
+House builders (lykkeskovhuse.dk, hjhuse.dk, huscompagniet.dk, planet-huse.dk, hybelhuse.dk) take half the top 10 for "LCA sommerhus" and "LCA beregning enfamiliehus". These pages are not competitors for the service, but they push DLH out of those SERPs.
+
+### Gaps vs. lcapartner.dk (the closest match)
+
+DLH has no dedicated page for: rækkehus/dobbelthus, tilbygning, a top-level price page (DLH's price content sits in a blog post), "LCA-rapport" (what the municipality receives) and materials/CO₂ (which materials drive the number). DLH is ahead on: reference projects with real numbers, glossary depth, a regulation-checked FAQ, the comparison page and structured data.
+
+---
+
+# Original analysis, 2 April 2026
+
 **Date:** 2 April 2026  
 **Search queries analyzed:**
 - "LCA beregning Danmark"

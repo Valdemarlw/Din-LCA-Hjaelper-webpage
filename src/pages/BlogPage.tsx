@@ -11,13 +11,13 @@ export function BlogPage() {
   return (
     <motion.div {...pageTransition}>
       <Helmet>
-        <title>Viden om LCA-beregning | Din LCA Hjælper</title>
+        <title>Artikler om LCA-beregning og BR18 | Din LCA Hjælper</title>
         <meta
           name="description"
           content="Artikler og guides om LCA-beregning for byggeri i Danmark. Lær om klimakrav, grænseværdier, A4/A5-dokumentation og meget mere."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/blog" />
-        <meta property="og:title" content="Viden om LCA-beregning | Din LCA Hjælper" />
+        <meta property="og:title" content="Artikler om LCA-beregning og BR18 | Din LCA Hjælper" />
         <meta
           property="og:description"
           content="Artikler og guides om LCA-beregning for byggeri i Danmark."
