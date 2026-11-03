@@ -31,7 +31,7 @@ Date: 3 November 2026. Branch `review/design`, stacked on `review/regulation` (P
 | 7 | Contact form errors were the browser's English defaults ("Please fill out this field"). | Reviewer A test | **Fixed**: "Udfyld feltet." / "Skriv en gyldig mailadresse." |
 | 8 | Escape did not close the mobile menu. The mobile header CTA was 34 px high; the menu button was 40 px. | Reviewer B | **Fixed**: Escape closes and returns focus; both are now 44 px |
 | 9 | The hero footnote `text-mist/70` was 4.47:1 at 15 px, just under AA. | Reviewer B | **Fixed**: `mist/80`, about 5.3:1 |
-| 10 | User-visible em dashes in the checker results ("Ja — der skal laves..."). | `src/lib/br18.ts` | **Fixed**: punctuation only, wording unchanged |
+| 10 | User-visible em dashes in the checker results (for example after "Ja" in "Ja - der skal laves..."). | `src/lib/br18.ts` | **Fixed**: punctuation only, wording unchanged |
 | 11 | In the process diagram the loop note covers the 03-to-04 connector at 768, and at 1280 its background hides the line from the loop to the turn. The row turn also runs to x=1202, past the 1184 px content edge. | Reviewer B bounding boxes; `Process.tsx` | Not changed: the loop was redesigned in the last commits, so it is Valdemar's call |
 | 12 | The reference card "6,88 → 3,839" mixes 2 and 3 decimals and reads like a typo. | `References.tsx:21` | Not changed: a data question |
 | 13 | Heading skips h1 to h3 on `/` (the hero card h3 comes before the first h2), `/kontakt` and `/om-os`. | Reviewer B | Not changed: low impact |
