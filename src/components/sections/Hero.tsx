@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { evaluateBR18, prisTypeFor, type Bygningstype, type Byggeri, type LovpligtStatus } from "../../lib/br18";
 import { beregnPris, formatKr } from "../../lib/pris";
@@ -59,8 +59,7 @@ const EXAMPLES: { type: Bygningstype; m2: string; byggeri: Byggeri }[] = [
   { type: "enfamiliehus", m2: "40", byggeri: "tilbygning" },
   { type: "lager", m2: "600", byggeri: "nybyggeri" },
 ];
-const HOLD_MS = 2600;
-const TYPE_MS = 110;
+const HOLD_MS = 3200;
 const ROUNDS = 2;
 
 const STATUS: Record<LovpligtStatus, string> = {
@@ -75,6 +74,52 @@ function Chevron() {
     <svg viewBox="0 0 24 24" className="pointer-events-none h-3.5 w-3.5 shrink-0 translate-y-px" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="m6 9 6 6 6-6" />
     </svg>
+  );
+}
+
+/**
+ * Holds its width while the text inside changes and eases to the new width,
+ * so the sentence reflows smoothly instead of snapping. The new text fades in
+ * from a light blur while the demo runs.
+ */
+function Glide({ k, swap, children }: { k: string; swap: boolean; children: ReactNode }) {
+  const inner = useRef<HTMLSpanElement>(null);
+  const [width, setWidth] = useState<number | null>(null);
+  useLayoutEffect(() => {
+    const el = inner.current;
+    if (!el) return;
+    // Re-measure when the text changes and when the web font finishes loading.
+    const ro = new ResizeObserver(() => setWidth(el.offsetWidth));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [k]);
+  return (
+    <span
+      className="glide inline-block overflow-hidden whitespace-nowrap align-bottom"
+      style={width === null ? undefined : { width }}
+    >
+      <span ref={inner} key={k} className={`inline-block ${swap ? "demo-swap" : ""}`}>
+        {children}
+      </span>
+    </span>
+  );
+}
+
+/** Eases its height when the sentence re-wraps to a different number of lines. */
+function GlideHeight({ children }: { children: ReactNode }) {
+  const inner = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number | null>(null);
+  useLayoutEffect(() => {
+    const el = inner.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setHeight(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return (
+    <div className="glide-h overflow-hidden" style={height === null ? undefined : { height }}>
+      <div ref={inner}>{children}</div>
+    </div>
   );
 }
 
@@ -152,7 +197,6 @@ export function Hero() {
     let visible = true;
     let timer = 0;
     let step = 0;
-    let digits = 0;
     const seen = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
     if (form.current) seen.observe(form.current);
     const total = EXAMPLES.length * ROUNDS;
@@ -163,20 +207,12 @@ export function Hero() {
         timer = window.setTimeout(tick, 600);
         return;
       }
+      // One example at a time, all three fields together, so the result row never empties.
       const ex = EXAMPLES[step % EXAMPLES.length];
-      if (digits === 0) {
-        setType(ex.type);
-        setByggeri(ex.byggeri);
-        setAreal("");
-      }
-      if (digits < ex.m2.length) {
-        digits += 1;
-        setAreal(ex.m2.slice(0, digits));
-        timer = window.setTimeout(tick, TYPE_MS);
-        return;
-      }
+      setType(ex.type);
+      setByggeri(ex.byggeri);
+      setAreal(ex.m2);
       step += 1;
-      digits = 0;
       if (step >= total) {
         // Rest on the first example and hand the sentence to the visitor.
         timer = window.setTimeout(() => {
@@ -245,6 +281,7 @@ export function Hero() {
               "Dit projekt"
             )}
           </p>
+          <GlideHeight>
           <p className="font-display text-[1.3rem] leading-[1.9] md:text-[1.65rem]">
             Jeg bygger{" "}
             <Picker
@@ -255,9 +292,9 @@ export function Hero() {
               onInteract={takeOver}
               className={`${fieldCls} inline-flex items-center gap-1.5 py-0.5 pl-2 pr-2 font-sans text-[0.9em]`}
             >
-              <span key={type} className={demo ? "demo-swap" : ""}>
+              <Glide k={type} swap={demo}>
                 {TYPER.find((t) => t.value === type)?.sentence}
-              </span>
+              </Glide>
               <Chevron />
             </Picker>{" "}
             på{" "}
@@ -272,7 +309,8 @@ export function Hero() {
                 onChange={(e) => setAreal(e.target.value.slice(0, 6))}
                 onFocus={(e) => e.currentTarget.select()}
                 style={{ width: `${Math.max(2, areal.length) + 0.4}ch` }}
-                className="bg-transparent text-right font-semibold text-green caret-spark outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none"
+                key={demo ? `demo-${areal}` : "input"}
+                className={`bg-transparent text-right font-semibold text-green caret-spark outline-none transition-[width] duration-300 ease-out [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none ${demo ? "demo-swap" : ""}`}
               />
               <span className="ml-1">m²</span>
             </label>{" "}
@@ -285,18 +323,19 @@ export function Hero() {
               onInteract={takeOver}
               className={`${fieldCls} inline-flex items-center gap-1.5 py-0.5 pl-2 pr-2 font-sans text-[0.9em]`}
             >
-              <span key={byggeri} className={demo ? "demo-swap" : ""}>
+              <Glide k={byggeri} swap={demo}>
                 {byggeri}
-              </span>
+              </Glide>
               <Chevron />
             </Picker>
           </p>
+          </GlideHeight>
 
-          <div aria-live={demo ? "off" : "polite"} className="mt-5 grid grid-cols-2 gap-y-4 border-t border-line pt-5 lg:grid-cols-[auto_auto_auto_1fr] lg:items-center lg:gap-y-0">
+          <div aria-live={demo ? "off" : "polite"} className="mt-5 grid grid-cols-2 gap-y-4 border-t border-line pt-5 lg:grid-cols-[minmax(10.5rem,auto)_minmax(13rem,auto)_minmax(14.5rem,auto)_1fr] lg:items-center lg:gap-y-0">
             {res ? (
               <>
                 <Out label="LCA-krav">
-                  <span className="inline-flex items-center gap-2">
+                  <span key={demo ? res.status : "s"} className={`inline-flex items-center gap-2 ${demo ? "demo-swap" : ""}`}>
                     <span className={`grid h-[18px] w-[18px] place-items-center rounded-full ${res.status === "undtaget_helt" ? "bg-muted" : "bg-green"}`} aria-hidden="true">
                       <svg viewBox="0 0 12 12" className="h-[11px] w-[11px]" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round">
                         {res.status === "undtaget_helt" ? <path d="M3 6h6" /> : <path d="M2.5 6.2 5 8.5l4.5-5" />}
@@ -306,17 +345,21 @@ export function Hero() {
                   </span>
                 </Out>
                 <Out label="Grænseværdi" divider>
-                  {res.graensevaerdi === null ? (
-                    "Ingen"
-                  ) : (
-                    <>
-                      {kommatal(res.graensevaerdi)} <span className="font-sans text-[13px] text-muted">kg CO₂e/m²/år</span>
-                    </>
-                  )}
+                  <span key={demo ? String(res.graensevaerdi) : "g"} className={demo ? "demo-swap" : ""}>
+                    {res.graensevaerdi === null ? (
+                      "Ingen"
+                    ) : (
+                      <>
+                        {kommatal(res.graensevaerdi)} <span className="font-sans text-[13px] text-muted">kg CO₂e/m²/år</span>
+                      </>
+                    )}
+                  </span>
                 </Out>
                 {visPris && (
                   <Out label="Vejledende pris" divider className="col-span-2 border-l-0 pl-0 lg:col-span-1 lg:border-l lg:pl-6">
-                    <span className="whitespace-nowrap shadow-[inset_0_-9px_0_rgb(255_122_61/0.4)]">{prisTekst}</span>
+                    <span key={demo ? prisTekst : "p"} className={`whitespace-nowrap shadow-[inset_0_-9px_0_rgb(255_122_61/0.4)] ${demo ? "demo-swap" : ""}`}>
+                      {prisTekst}
+                    </span>
                     {prisTekst !== "Individuelt tilbud" && (
                       <>
                         {" "}

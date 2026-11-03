@@ -104,7 +104,15 @@ Content and SEO: titles, meta descriptions, canonicals, JSON-LD, routes and the 
   - tilbygning 40 m²
   - lager 600 m²
 
-  The m² figure types itself in, and the seal and the result row update. A pulsing spark dot with "Eksempel. Tryk og skriv dit eget projekt." invites the takeover.
+  The seal and the result row update with each example. A pulsing spark dot with "Eksempel. Tryk og skriv dit eget projekt." invites the takeover.
+
+  A second pass smoothed the loop after Valdemar found it choppy:
+  - Each example now changes in one step, without typing digits, so the result row never flashes its empty message.
+  - The fields ease to their new width (420 ms), and the sentence eases its height when it re-wraps on phones.
+  - New text and results fade in from a light blur.
+  - The desktop result columns have fixed minimum widths, so the dividers stay put.
+  - Each example holds for 3.2 s.
+  - Sampled every 50 ms in Playwright, the desktop card height stayed constant. On mobile it eased from 407 to 447 px.
 
   The first pointer press, focus or change anywhere in the check stops the loop for good. The line then reads "Dit projekt", and focusing the area selects the number so typing replaces it.
 

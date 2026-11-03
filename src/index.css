@@ -169,12 +169,20 @@
 @keyframes demo-swap {
   from {
     opacity: 0;
-    filter: blur(3px);
+    filter: blur(4px);
+    transform: translateY(0.18em);
   }
 }
 .demo-swap {
   display: inline-block;
-  animation: demo-swap 220ms var(--ease-out-strong);
+  animation: demo-swap 420ms var(--ease-out-strong);
+}
+/* Sentence fields ease to the width of their new text. */
+.glide {
+  transition: width 420ms var(--ease-out-strong);
+}
+.glide-h {
+  transition: height 420ms var(--ease-out-strong);
 }
 @keyframes demo-ping {
   75%,
