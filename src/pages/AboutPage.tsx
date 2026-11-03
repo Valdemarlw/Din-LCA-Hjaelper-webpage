@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { pageTransition } from "../lib/animations";
 import { Button } from "../components/ui/Button";
 import { PageHero } from "../components/ui/PageHero";
-import { Logo } from "../components/ui/Logo";
 
 export function AboutPage() {
   return (
@@ -17,6 +16,18 @@ export function AboutPage() {
         <meta property="og:url" content="https://dinlcahjælper.dk/om-os" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="da_DK" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": "https://dinlcahjælper.dk/om-os",
+            url: "https://dinlcahjælper.dk/om-os",
+            name: "Om Din LCA Hjælper",
+            inLanguage: "da",
+            about: { "@id": "https://dinlcahjælper.dk/#business" },
+            mainEntity: { "@id": "https://dinlcahjælper.dk/#person" },
+          })}
+        </script>
       </Helmet>
 
       <PageHero title="Om Din LCA Hjælper" />
@@ -51,10 +62,14 @@ export function AboutPage() {
 
             <aside className="lg:col-span-4 lg:col-start-9">
               <div className="overflow-hidden rounded-sheet bg-white">
-                {/* Portrait slot. Until a photo is chosen the brand mark holds the space. */}
-                <div className="flex aspect-[4/3] items-center justify-center bg-mist">
-                  <Logo kind="mark" className="h-24 w-auto" decorative />
-                </div>
+                {/* Same portrait as the VW Projects site. */}
+                <img
+                  src="/images/valdemar-wernblad.webp"
+                  width={364}
+                  height={476}
+                  alt="Valdemar Løvschal Wernblad"
+                  className="aspect-[4/5] w-full bg-mist object-cover object-top"
+                />
                 <div className="p-6">
                   <p className="text-lg font-bold text-ink">Valdemar Løvschal Wernblad</p>
                   <p className="mt-0.5 text-[15px] text-muted">LCA-rådgiver</p>

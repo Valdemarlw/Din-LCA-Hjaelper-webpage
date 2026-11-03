@@ -2,11 +2,16 @@
 
 > Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Et komplet enfamiliehus eller sommerhus koster typisk 5.000-7.000 kr. ekskl. moms. A4 og A5 er inkluderet.
 
+Senest opdateret: 3. november 2026. Grænseværdier og krav er tjekket mod BR18 §§ 297-298 på bygningsreglementet.dk samme dag.
+
 Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, ingeniører og rådgivere i hele Danmark. Tidligt i projektet beregner vi A4 og A5 med dokumenterede generiske forudsætninger. Ved færdigmelding opdaterer vi beregningen med de endelige mængder og byggepladsens registrerede forbrug.
 
 ## Services
 
 - [LCA-beregning, Forside](https://dinlcahjælper.dk/): Komplet LCA-beregning fra tidlig fase til myndighedsklar rapport efter BR18
+- [LCA-beregning efter bygningstype](https://dinlcahjælper.dk/lca-beregning): Oversigt over enfamiliehus, sommerhus og erhverv med grænseværdier og priser
+- [BR18-tjekker](https://dinlcahjælper.dk/vaerktoejer/br18-tjekker): Gratis værktøj der viser, om et projekt skal have en LCA, hvilken grænseværdi der gælder, og et prisestimat
+- [Referenceprojekter](https://dinlcahjælper.dk/referenceprojekter): Dokumenterede LCA-forløb med resultater i kg CO₂e/m²/år
 - [Om os](https://dinlcahjælper.dk/om-os): Om Valdemar Løvschal Wernblad og Din LCA Hjælper
 - [Kontakt og tilbud](https://dinlcahjælper.dk/kontakt): Få tilbud på LCA-beregning inden for 24 timer
 
@@ -65,7 +70,7 @@ Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, i
 Komplet FAQ: [https://dinlcahjælper.dk/faq](https://dinlcahjælper.dk/faq)
 
 - Hvad er en LCA-beregning? En livscyklusvurdering der opgør et byggeris samlede miljøpåvirkning over hele dets levetid. Lovpligtig efter BR18.
-- Hvornår er LCA-beregning lovpligtigt? Fra 1. juli 2025 for stort set alt nybyggeri og større tilbygninger. Undtaget: uopvarmede <50 m², boligtilbygninger <250 m², transportable konstruktioner, landbrugsbygninger, renoveringer.
+- Hvornår er LCA-beregning lovpligtigt? Alle nye opvarmede byggerier uanset størrelse, uopvarmede bygninger over 50 m², alle tilbygninger til erhverv og etageboliger, og tilbygninger til enfamiliehuse, rækkehuse og sommerhuse fra 250 m². Undtaget: uopvarmede <50 m², boligtilbygninger <250 m², transportable konstruktioner, midlertidige pavilloner, landbrugsbygninger, renoveringer.
 - Hvad koster det? Et komplet enfamiliehus eller sommerhus koster typisk 5.000-7.000 kr. ekskl. moms. Rækkehuse starter ved 8.000 kr. og prissættes manuelt. Send tegninger for et fast tilbud inden 24 timer.
 - Hvor lang tid tager det? Typisk 1-2 uger fra modtagelse af projektmateriale.
 - Hvad er A4- og A5-faserne? A4 = transport til byggeplads. A5 = energi, brændstof, spild og affald under opførelse. Separat grænseværdi 1,5 kg CO₂e/m²/år. Tidligt bruger vi dokumenterede generiske forudsætninger. Ved færdigmelding opdaterer vi med endelige mængder og byggepladsens registrerede forbrug.

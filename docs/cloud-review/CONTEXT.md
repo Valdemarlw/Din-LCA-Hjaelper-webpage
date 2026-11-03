@@ -14,13 +14,13 @@ Existing material worth reading before you judge anything: `design-brief.md`, `c
 - Never use the em dash character. Use a plain dash.
 - Danish copy must read like a Danish professional wrote it. Run new or rewritten Danish text through the `dansk-humanizer` skill.
 - Regulatory claims need a primary source (bygningsreglementet.dk, Social- og Boligstyrelsen, BUILD/AAU, LCAbyg, retsinformation.dk) with the date you checked it. No source, no claim.
-- Firecrawl: follow `.claude/skills/firecrawl/rules/credits.md`. Budget for this session: at most 100 credits (Valdemar approved 100 per session, 300 across the three review sessions, on 3 November 2026). Ask before going over. Check `firecrawl credit-usage` before and after, and report usage.
+- Firecrawl: follow `.claude/skills/firecrawl/rules/credits.md`. Budget for this session: at most 100 credits (Valdemar approved 100 per session, 300 across the first three review sessions, on 3 November 2026). Ask before going over. Check `firecrawl credit-usage` before and after, and report usage.
 - Proof is behavioral: run `npm run lint`, `npm test` and `npm run build:prerender` before you push, and check changed pages in a real browser at 375px, 768px and 1280px (Chrome for Testing is at `$CHROME_PATH`; `@playwright/test` is a dev dependency).
 - Work on your own branch, push it, and open a PR with the Create PR button (`gh pr create` is blocked in cloud sessions). Never merge.
 
 ## Tools in this environment
 
-- Repo skills in `.claude/skills/`: impeccable (design, v4.8.0), redesign-existing-projects, firecrawl suite (search, scrape, map, crawl, deep-research, interact, read-docs), Mobbin skills (search, redesign-screen, best-practices, plain-writing; official mobbin/skills), Corey Haines marketing skills (ai-seo, copywriting, copy-editing, cro, site-architecture, content-strategy, competitors, product-marketing), dansk-humanizer.
+- Repo skills in `.claude/skills/`: impeccable (design, v4.8.0), redesign-existing-projects, firecrawl suite (search, scrape, map, crawl, deep-research, interact, read-docs), Mobbin skills (search, redesign-screen, best-practices, plain-writing; official mobbin/skills), Corey Haines marketing skills (ai-seo, copywriting, copy-editing, cro, site-architecture, content-strategy, competitors, product-marketing), dansk-humanizer. Design: frontend-design (Anthropic) and Emil Kowalski's design-engineering skills (emil-design-eng, remove-animations, review-animations, improve-animations, find-animation-opportunities, animation-vocabulary, break-ui).
 - claude-seo v2.5.0 is installed by the environment setup script into `~/.claude/skills/seo*` (technical SEO, schema, GEO, local, sitemap, content). If `/seo` is not listed as a skill, read `~/.claude/skills/seo/SKILL.md` directly and follow it.
 - Mobbin is a claude.ai connector (tools named like `search_screens`, `search_flows`). If no Mobbin tools are present, say so in the report and use Firecrawl on named reference sites instead.
 - `firecrawl` CLI, authenticated through `FIRECRAWL_API_KEY`.
