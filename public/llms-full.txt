@@ -2,6 +2,8 @@
 
 > Din LCA Hjælper er en dansk LCA-rådgivningsvirksomhed specialiseret i livscyklusvurderinger (LCA) for byggeri efter BR18. Vi leverer myndighedsklar LCA-beregning fra tidlig fase til færdigmelding for bolig, erhverv og industri. Et komplet enfamiliehus eller sommerhus koster typisk 5.000-7.000 kr. ekskl. moms. A4 og A5 er inkluderet.
 
+Senest opdateret: 3. november 2026. Grænseværdier og krav er tjekket mod BR18 §§ 297-298 på bygningsreglementet.dk samme dag. Tjek om et konkret projekt er omfattet med [BR18-tjekkeren](https://dinlcahjælper.dk/vaerktoejer/br18-tjekker).
+
 ---
 
 ## Forside (dinlcahjælper.dk)

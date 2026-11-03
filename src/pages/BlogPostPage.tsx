@@ -25,15 +25,19 @@ export function BlogPostPage() {
     "@type": "Article",
     headline: post.title,
     description: post.description,
+    inLanguage: "da",
+    image: "https://xn--dinlcahjlper-edb.dk/brand/og-image-1200x630.png",
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
     author: {
       "@type": "Person",
+      "@id": "https://dinlcahjælper.dk/#person",
       name: "Valdemar Løvschal Wernblad",
       url: "https://dinlcahjælper.dk/om-os",
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://dinlcahjælper.dk/#business",
       name: "Din LCA Hjælper",
       url: "https://dinlcahjælper.dk",
     },
@@ -135,7 +139,13 @@ export function BlogPostPage() {
           title={post.title}
         >
           <p className="mt-6 text-sm text-muted">
-            <time dateTime={post.date}>{formatDanishDate(post.date)}</time>, {post.readingTime} læsning
+            Af Valdemar Løvschal Wernblad. <time dateTime={post.date}>{formatDanishDate(post.date)}</time>
+            {post.updated && (
+              <>
+                , opdateret <time dateTime={post.updated}>{formatDanishDate(post.updated)}</time>
+              </>
+            )}
+            . {post.readingTime} læsning
           </p>
         </PageHero>
 

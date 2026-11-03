@@ -262,7 +262,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Derudover skal byggeprocessen ([A4](/ordbog/modul-a4) + [A5](/ordbog/modul-a5)) overholde en separat grænse på 1,5 kg CO₂e/m²/år for alle bygningstyper. Se den fulde [oversigt over grænseværdier](/blog/graensevaerdier-co2).",
+        text: "Derudover skal byggeprocessen ([A4](/ordbog/modul-a4) + [A5](/ordbog/modul-a5)) overholde en separat grænse på 1,5 kg CO₂e/m²/år for alle bygningstyper. Se den fulde [oversigt over grænseværdier](/blog/graensevaerdier-co2), eller læs om [LCA for enfamiliehuse](/lca-beregning/enfamiliehus), [sommerhuse](/lca-beregning/sommerhus) og [erhverv](/lca-beregning/erhverv).",
       },
       {
         type: "heading2",
@@ -564,7 +564,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Prisen for en LCA-beregning afhænger af projektets omfang og kompleksitet, særligt antallet af konstruktionstyper og hvilket grænseværdikrav der gælder, ikke af arealet alene. For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. A4/A5-beregning og dokumentation er inkluderet. Vi giver fast tilbud inden for 24 timer efter modtagelse af tegninger. Se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) for en fuld gennemgang af priser og hvad der påvirker dem.",
+        text: "Prisen for en LCA-beregning afhænger af projektets omfang og kompleksitet, særligt antallet af konstruktionstyper og hvilket grænseværdikrav der gælder, ikke af arealet alene. For et typisk [enfamiliehus](/lca-beregning/enfamiliehus) ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. A4/A5-beregning og dokumentation er inkluderet. Vi giver fast tilbud inden for 24 timer efter modtagelse af tegninger. Se [hvad en LCA-beregning koster](/blog/lca-beregning-pris) for en fuld gennemgang af priser og hvad der påvirker dem.",
       },
       {
         type: "paragraph",
@@ -687,7 +687,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Grænsen på 6,7 kg CO₂e/m²/år er opnåelig for de fleste projekter med gennemtænkte materialevalg. Men det kræver opmærksomhed, særligt fundamenter, ydervægge og tagkonstruktioner er typiske hotspots. En tidlig [LCA-beregning](/blog/hvad-er-lca-beregning) gør det muligt at optimere inden materialerne er fastlåste.",
+        text: "Grænsen på 6,7 kg CO₂e/m²/år er opnåelig for de fleste projekter med gennemtænkte materialevalg. Men det kræver opmærksomhed, særligt fundamenter, ydervægge og tagkonstruktioner er typiske hotspots. En tidlig [LCA-beregning](/blog/hvad-er-lca-beregning) gør det muligt at optimere inden materialerne er fastlåste. Se også [LCA-beregning for enfamiliehuse](/lca-beregning/enfamiliehus).",
       },
       {
         type: "heading3",
@@ -695,7 +695,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Etageboliger, kontorer, handel og lager skal holde 7,5 kg CO₂e/m²/år, mens øvrigt byggeri som skoler, børnehaver og parkeringshuse har grænsen 8,0. Selv om disse er de mildeste grænser, er de stadig en markant stramning fra de tidligere 12,0. Store betonkonstruktioner, parkeringskældre og facadeløsninger kræver særlig opmærksomhed.",
+        text: "Etageboliger, kontorer, handel og lager skal holde 7,5 kg CO₂e/m²/år, mens øvrigt byggeri som skoler, børnehaver og parkeringshuse har grænsen 8,0. Selv om disse er de mildeste grænser, er de stadig en markant stramning fra de tidligere 12,0. Store betonkonstruktioner, parkeringskældre og facadeløsninger kræver særlig opmærksomhed. Se [LCA-beregning for erhverv og kontor](/lca-beregning/erhverv).",
       },
       {
         type: "heading2",
@@ -895,7 +895,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lca-sommerhuse",
     title: "LCA-beregning for sommerhuse: udfordringer og løsninger",
-    metaTitle: "LCA-beregning for sommerhuse",
+    metaTitle: "Sommerhus-LCA: sådan holder du grænsen",
     description:
       "Sommerhuse har den strengeste CO₂-grænseværdi i BR18 på kun 4,0 kg CO₂e/m²/år. Læs om udfordringerne og hvordan du overholder kravet.",
     date: "2026-04-02",
@@ -1171,7 +1171,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Er du i tvivl om dit projekt overholder grænseværdierne? Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved, hvor projektet står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et fast tilbud. A4/A5-beregning og dokumentation er inkluderet.",
+        text: "Er du i tvivl om, hvilken grænse der gælder for dit projekt? Slå det op i [BR18-tjekkeren](/vaerktoejer/br18-tjekker). Hos Din LCA Hjælper laver vi en tidlig beregning med hotspot-analyse, så du ved, hvor projektet står, inden materialerne er bestilt. [Kontakt os](/kontakt) for et fast tilbud. A4/A5-beregning og dokumentation er inkluderet.",
       },
     ],
     faqs: [
