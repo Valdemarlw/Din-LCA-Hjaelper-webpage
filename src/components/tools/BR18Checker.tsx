@@ -128,6 +128,14 @@ export function BR18Checker() {
               onChange={(e) => setM2input(e.target.value)}
               className={`mt-1.5 ${inputCls}`}
             />
+            {resultat && (
+              <a
+                href="#resultat"
+                className="mt-2 inline-block text-sm font-semibold text-green underline decoration-green/40 underline-offset-2 hover:decoration-green lg:hidden"
+              >
+                Se resultatet
+              </a>
+            )}
             {uopvarmet && (
               <p className="mt-1.5 text-xs text-muted">
                 For uopvarmet byggeri: angiv det samlede etageareal (ikke kun opvarmet areal).
@@ -171,7 +179,7 @@ export function BR18Checker() {
       </div>
 
       {/* Resultat */}
-      <div>
+      <div id="resultat" className="scroll-mt-24">
         {!resultat ? (
           <div className="flex h-full min-h-[280px] items-center justify-center rounded-sheet border border-dashed border-line p-8 text-center">
             <p className="max-w-sm text-muted">
@@ -242,7 +250,11 @@ export function BR18Checker() {
                 )}
 
                 <div className="mt-6">
-                  <Button to="/kontakt">Få et tilbud</Button>
+                  <Button
+                    to={`/kontakt?${new URLSearchParams({ type: bygningstype, m2: String(m2), byggeri }).toString()}`}
+                  >
+                    Få et tilbud
+                  </Button>
                 </div>
               </div>
             );

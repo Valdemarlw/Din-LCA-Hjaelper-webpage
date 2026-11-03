@@ -32,7 +32,7 @@ export function HeroReportCard() {
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-[13px] text-muted">Myndighedsklar rapport</p>
+          <p className="text-[13px] text-muted">Eksempel på rapport</p>
           <h3 className="mt-0.5 text-lg font-bold text-ink">Enfamiliehus, 184 m²</h3>
         </div>
         <motion.div
