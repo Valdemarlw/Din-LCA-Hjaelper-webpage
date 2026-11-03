@@ -1,7 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { getReferenceProject } from "../data/referenceProjects";
 import { RenderSection } from "../components/content/RenderSection";
 import { FAQList } from "../components/ui/FAQList";
@@ -10,7 +8,7 @@ import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
 import { buildSeoTitle } from "../lib/seoTitles";
 import { buildReferenceProjectSchemas } from "../lib/referenceProjectSeo";
-import { statusTagTone, statusToneOf } from "../lib/statusTone";
+import { statusToneOf } from "../lib/statusTone";
 
 const metricTone = {
   positive: "text-green",
@@ -39,7 +37,7 @@ export function ReferenceProjectPage() {
   ];
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={project.description} />
@@ -67,12 +65,12 @@ export function ReferenceProjectPage() {
           title={project.title}
         >
           <div className="mt-5 flex flex-wrap items-center gap-2">
-            <Tag tone="mist">{project.type}</Tag>
-            <Tag tone="outline">{project.location}</Tag>
-            <Tag tone={statusTagTone[tone]}>{project.status}</Tag>
+            <Tag tone="light">{project.type}</Tag>
+            <Tag tone="light">{project.location}</Tag>
+            <Tag tone={tone === "warning" ? "spark" : "soft"}>{project.status}</Tag>
           </div>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-body">{project.description}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist/85">{project.description}</p>
 
           <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {metrics.map((metric) => (
@@ -132,6 +130,6 @@ export function ReferenceProjectPage() {
           </div>
         </div>
       </article>
-    </motion.div>
+    </div>
   );
 }

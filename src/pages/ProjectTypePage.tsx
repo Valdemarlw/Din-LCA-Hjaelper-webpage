@@ -1,7 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { getProjectType, type ProjectType } from "../data/projectTypes";
 import { referenceProjects } from "../data/referenceProjects";
 import { RenderSection } from "../components/content/RenderSection";
@@ -64,7 +62,7 @@ export function ProjectTypePage() {
   const relatedProjects = referenceProjects.filter((rp) => rp.relatedProjectType === pt.slug);
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>{`${pt.title} | Din LCA Hjælper`}</title>
         <meta name="description" content={pt.description} />
@@ -91,8 +89,8 @@ export function ProjectTypePage() {
           title={pt.title}
         >
           <div className="mt-6 flex flex-wrap gap-2">
-            <Tag tone="mist">Grænseværdi: {pt.grensevaerdi} kg CO₂e/m²/år</Tag>
-            <Tag tone="outline">A4+A5: {pt.a4a5Grense}</Tag>
+            <Tag tone="spark">Grænseværdi: {pt.grensevaerdi} kg CO₂e/m²/år</Tag>
+            <Tag tone="light">A4+A5: {pt.a4a5Grense}</Tag>
           </div>
         </PageHero>
 
@@ -160,6 +158,6 @@ export function ProjectTypePage() {
           </div>
         </div>
       </article>
-    </motion.div>
+    </div>
   );
 }

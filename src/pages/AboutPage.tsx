@@ -1,12 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { Button } from "../components/ui/Button";
 import { PageHero } from "../components/ui/PageHero";
 
 export function AboutPage() {
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>Om Din LCA Hjælper, LCA-specialist for byggeri i Danmark</title>
         <meta name="description" content="Bag Din LCA Hjælper står Valdemar Løvschal Wernblad, specialiseret LCA-rådgiver med erfaring fra projekter fra 80 til 3.000 m². Vi gør LCA-beregning nemt og pålideligt." />
@@ -35,7 +33,7 @@ export function AboutPage() {
       <section className="bg-paper pb-20 md:pb-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="space-y-6 text-lg leading-relaxed text-body lg:col-span-7">
+            <div className="space-y-6 text-lg leading-relaxed text-body lg:col-span-7 lg:pt-4">
               <p>
                 Bag Din LCA Hjælper står Valdemar Løvschal Wernblad, specialiseret i
                 LCA-beregning for byggeri. Med erfaring fra projekter i størrelser fra
@@ -60,8 +58,8 @@ export function AboutPage() {
               </div>
             </div>
 
-            <aside className="lg:col-span-4 lg:col-start-9">
-              <div className="overflow-hidden rounded-sheet bg-white">
+            <aside className="lg:col-span-5 lg:-mt-40 lg:relative lg:z-10">
+              <div className="overflow-hidden rounded-sheet bg-white ring-1 ring-line shadow-sheet">
                 {/* Same portrait as the VW Projects site. */}
                 <img
                   src="/images/valdemar-wernblad.webp"
@@ -94,6 +92,6 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

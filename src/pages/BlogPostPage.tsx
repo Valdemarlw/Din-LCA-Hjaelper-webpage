@@ -1,7 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { getBlogPost } from "../data/blogPosts";
 import { RenderSection } from "../components/content/RenderSection";
 import { FAQList } from "../components/ui/FAQList";
@@ -95,7 +93,7 @@ export function BlogPostPage() {
       : null;
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={post.description} />
@@ -138,7 +136,7 @@ export function BlogPostPage() {
           ]}
           title={post.title}
         >
-          <p className="mt-6 text-sm text-muted">
+          <p className="mt-6 text-sm text-mist/75">
             Af Valdemar Løvschal Wernblad. <time dateTime={post.date}>{formatDanishDate(post.date)}</time>
             {post.updated && (
               <>
@@ -173,6 +171,6 @@ export function BlogPostPage() {
           </div>
         </div>
       </article>
-    </motion.div>
+    </div>
   );
 }

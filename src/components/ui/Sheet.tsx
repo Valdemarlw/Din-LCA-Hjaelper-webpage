@@ -1,9 +1,6 @@
 import type { ReactNode } from "react";
 
-/**
- * A surface that sits on the paper background. Sheets have no border or
- * shadow; hierarchy comes from tone and spacing.
- */
+/** A white surface on the paper ground, with a hairline instead of a shadow. */
 type SheetProps = {
   children: ReactNode;
   className?: string;
@@ -12,15 +9,15 @@ type SheetProps = {
 };
 
 const tones = {
-  white: "bg-white",
+  white: "bg-white ring-1 ring-line",
   mist: "bg-mist",
   soft: "bg-green-soft",
-  green: "bg-green text-mist",
+  green: "grain bg-green text-mist",
 };
 
 export function Sheet({ children, className = "", tone = "white", padding = true }: SheetProps) {
   return (
-    <div className={`rounded-sheet ${tones[tone]} ${padding ? "p-6 md:p-8" : ""} ${className}`}>
+    <div className={`overflow-hidden rounded-sheet ${tones[tone]} ${padding ? "p-6 md:p-8" : ""} ${className}`}>
       {children}
     </div>
   );

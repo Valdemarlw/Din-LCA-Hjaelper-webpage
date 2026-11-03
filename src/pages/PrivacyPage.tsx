@@ -1,13 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { ANALYTICS_SETTINGS_EVENT } from "../lib/analytics";
 import { PageHero } from "../components/ui/PageHero";
 import { Button } from "../components/ui/Button";
 
 export function PrivacyPage() {
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>Privatliv og statistik | Din LCA Hjælper</title>
         <meta
@@ -77,7 +75,7 @@ export function PrivacyPage() {
               <p className="mt-2">
                 Har du spørgsmål, kan du skrive til{" "}
                 <a
-                  className="text-green underline decoration-green/40 underline-offset-2 hover:decoration-green"
+                  className="text-green underline decoration-spark/70 underline-offset-2 hover:decoration-spark"
                   href="mailto:valdemar.wernblad@dinlcahjælper.dk"
                 >
                   valdemar.wernblad@dinlcahjælper.dk
@@ -88,6 +86,6 @@ export function PrivacyPage() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

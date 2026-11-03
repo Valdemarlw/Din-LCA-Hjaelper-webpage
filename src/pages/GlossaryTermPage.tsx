@@ -1,7 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { getGlossaryTerm, glossaryTerms } from "../data/glossary";
 import { getBlogPost } from "../data/blogPosts";
 import { buildSeoTitle } from "../lib/seoTitles";
@@ -93,7 +91,7 @@ export function GlossaryTermPage() {
     : `${term.term} | LCA-ordbog | Din LCA Hjælper`;
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={term.shortDefinition} />
@@ -199,6 +197,6 @@ export function GlossaryTermPage() {
           </div>
         </div>
       </article>
-    </motion.div>
+    </div>
   );
 }

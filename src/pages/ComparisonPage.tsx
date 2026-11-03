@@ -1,7 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { getComparison } from "../data/comparisons";
 import { glossaryTerms } from "../data/glossary";
 import { RenderSection } from "../components/content/RenderSection";
@@ -97,7 +95,7 @@ export function ComparisonPage() {
     .filter(Boolean) as typeof glossaryTerms;
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>{`${comparison.metaTitle} | Din LCA Hjælper`}</title>
         <meta name="description" content={comparison.metaDescription} />
@@ -176,6 +174,6 @@ export function ComparisonPage() {
           </div>
         </div>
       </article>
-    </motion.div>
+    </div>
   );
 }

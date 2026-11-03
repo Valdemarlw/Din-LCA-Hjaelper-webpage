@@ -1,6 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { faqCategories, getAllFaqs } from "../data/faqs";
 import { PageHero } from "../components/ui/PageHero";
 import { FAQList } from "../components/ui/FAQList";
@@ -42,7 +40,7 @@ export function FAQPage() {
   };
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>
           Ofte stillede spørgsmål om LCA-beregning | Din LCA Hjælper
@@ -113,6 +111,6 @@ export function FAQPage() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

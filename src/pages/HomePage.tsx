@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { Hero } from "../components/sections/Hero";
+import { Person } from "../components/sections/Person";
 import { Problem } from "../components/sections/Problem";
 import { Services } from "../components/sections/Services";
 import { Process } from "../components/sections/Process";
@@ -32,7 +31,7 @@ const faqSchema = {
 
 export function HomePage() {
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>LCA-beregning til BR18 | Typisk 5.000-7.000 kr</title>
         <meta name="description" content="Komplet LCA-beregning til enfamiliehuse koster typisk 5.000-7.000 kr ekskl. moms. Vi håndterer hele forløbet efter BR18, inklusive A4+A5." />
@@ -45,6 +44,7 @@ export function HomePage() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       <Hero />
+      <Person />
       <Problem />
       <Services />
       <Process />
@@ -52,6 +52,6 @@ export function HomePage() {
       <References />
       <FAQ />
       <FinalCTA />
-    </motion.div>
+    </div>
   );
 }

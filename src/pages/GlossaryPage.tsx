@@ -1,7 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { glossaryTerms } from "../data/glossary";
 import { PageHero } from "../components/ui/PageHero";
 
@@ -61,7 +59,7 @@ export function GlossaryPage() {
   };
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>LCA-ordbog, Begreber i LCA-beregning | Din LCA Hjælper</title>
         <meta
@@ -130,6 +128,6 @@ export function GlossaryPage() {
           ))}
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

@@ -38,6 +38,7 @@ Din LCA Hjælper drives af Valdemar Løvschal Wernblad og betjener arkitekter, i
 - LCA-beregning for bolig, erhverv og industri (projekter fra 80 til 3.000 m²)
 - Hotspot-analyse: identificerer de mest CO₂-tunge bygningsdele
 - Materialeoptimering: forslag til alternative materialer hvis grænseværdien er i fare
+- Produktspecifikke EPD'er: anbefaling af produkter med egen EPD, der kan bringe beregningen ned
 - Opdatering ved færdigmelding med faktiske mængder
 - A4+A5-beregning med dokumenterede forudsætninger og opdatering med faktiske projektdata
 - Rådgivning om BR18 grænseværdier og klimakrav

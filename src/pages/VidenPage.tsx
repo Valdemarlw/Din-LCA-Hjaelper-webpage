@@ -1,8 +1,6 @@
 import type { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { blogPosts } from "../data/blogPosts";
 import { glossaryTerms } from "../data/glossary";
 import { projectTypes } from "../data/projectTypes";
@@ -10,16 +8,15 @@ import { referenceProjects } from "../data/referenceProjects";
 import { PreferredSourcePrompt } from "../components/content/PreferredSourcePrompt";
 import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
-import { Reveal, RevealGroup, RevealItem } from "../components/motion/Reveal";
 import { formatDanishDate } from "../lib/format";
 import { statusTagTone, statusToneOf } from "../lib/statusTone";
 
 const textLink =
-  "shrink-0 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 transition-colors hover:decoration-green";
+  "shrink-0 text-sm font-semibold text-green underline decoration-spark/70 underline-offset-4 transition-colors hover:decoration-spark";
 const readMore =
-  "mt-6 text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 group-hover:decoration-green";
+  "mt-6 text-sm font-semibold text-green underline decoration-spark/70 underline-offset-4 group-hover:decoration-spark";
 const linkSheet =
-  "group flex h-full flex-col rounded-sheet bg-white p-6 transition-[background-color,translate,box-shadow] duration-300 hover:-translate-y-1 hover:bg-green-soft hover:shadow-sheet";
+  "group flex h-full flex-col rounded-sheet bg-white p-6 ring-1 ring-line transition-[box-shadow] duration-150 hover:ring-green/40";
 
 function SectionHeader({
   title,
@@ -33,7 +30,7 @@ function SectionHeader({
   linkLabel?: string;
 }) {
   return (
-    <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div className="max-w-2xl">
         <h2 className="text-2xl font-bold leading-tight md:text-3xl">{title}</h2>
         {text && <p className="mt-2 text-body">{text}</p>}
@@ -43,7 +40,7 @@ function SectionHeader({
           {linkLabel}
         </Link>
       )}
-    </Reveal>
+    </div>
   );
 }
 
@@ -78,7 +75,7 @@ export function VidenPage() {
   };
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>Viden om LCA-beregning | Din LCA Hjælper</title>
         <meta
@@ -105,9 +102,9 @@ export function VidenPage() {
       {/* Artikler */}
       <Band>
         <SectionHeader title="Artikler" to="/blog" linkLabel="Se alle artikler" />
-        <RevealGroup className="mt-8 border-t border-line" stagger={0.12}>
+        <div className="mt-8 border-t border-line">
           {recentPosts.map((post) => (
-            <RevealItem key={post.slug}>
+            <div key={post.slug}>
               <Link
                 to={`/blog/${post.slug}`}
                 className="group grid gap-3 border-b border-line py-7 transition-colors hover:bg-white md:grid-cols-12 md:gap-8 md:px-4"
@@ -123,9 +120,9 @@ export function VidenPage() {
                   <p className="mt-2 max-w-[62ch] text-[15px] leading-relaxed text-body">{post.description}</p>
                 </div>
               </Link>
-            </RevealItem>
+            </div>
           ))}
-        </RevealGroup>
+        </div>
       </Band>
 
       {/* LCA-ordbog */}
@@ -136,18 +133,18 @@ export function VidenPage() {
           to="/ordbog"
           linkLabel="Se alle begreber"
         />
-        <RevealGroup className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+        <div className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
           {glossaryTerms.slice(0, 6).map((term) => (
-            <RevealItem key={term.slug}>
+            <div key={term.slug}>
               <Link to={`/ordbog/${term.slug}`} className="group block border-t border-green/25 pt-4">
                 <h3 className="text-lg font-bold leading-snug text-ink transition-colors group-hover:text-green">
                   {term.term}
                 </h3>
                 <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-body">{term.shortDefinition}</p>
               </Link>
-            </RevealItem>
+            </div>
           ))}
-        </RevealGroup>
+        </div>
       </Band>
 
       {/* Bygningstyper */}
@@ -158,9 +155,9 @@ export function VidenPage() {
           to="/lca-beregning"
           linkLabel="Se alle bygningstyper"
         />
-        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3" stagger={0.12}>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           {projectTypes.map((pt) => (
-            <RevealItem key={pt.slug} className="h-full" y={36}>
+            <div key={pt.slug} className="h-full">
               <Link to={`/lca-beregning/${pt.slug}`} className={linkSheet}>
                 <Tag tone="mist" className="self-start">
                   {pt.grensevaerdi} kg CO₂e/m²/år
@@ -171,9 +168,9 @@ export function VidenPage() {
                 <p className="mt-2 line-clamp-3 flex-1 text-[15px] leading-relaxed text-body">{pt.description}</p>
                 <span className={readMore}>Læs mere</span>
               </Link>
-            </RevealItem>
+            </div>
           ))}
-        </RevealGroup>
+        </div>
       </Band>
 
       {/* Referenceprojekter */}
@@ -184,11 +181,11 @@ export function VidenPage() {
           to="/referenceprojekter"
           linkLabel="Se alle referenceprojekter"
         />
-        <RevealGroup className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {referenceProjects.map((project) => {
             const tone = statusToneOf(project);
             return (
-              <RevealItem key={project.slug} className="h-full" y={36}>
+              <div key={project.slug} className="h-full">
                 <Link to={`/referenceprojekter/${project.slug}`} className={linkSheet}>
                   <p className="text-[13px] text-muted">
                     {project.type}, {project.location}
@@ -214,16 +211,16 @@ export function VidenPage() {
                   </div>
                   <span className={readMore}>Læs casen</span>
                 </Link>
-              </RevealItem>
+              </div>
             );
           })}
-        </RevealGroup>
+        </div>
       </Band>
 
       {/* Sammenligninger */}
       <Band id="sammenligninger">
         <SectionHeader title="Sammenligninger" text="Hvordan Din LCA Hjælper står sig over for andre løsninger." />
-        <Reveal delay={0.1} className="mt-8 max-w-2xl">
+        <div className="mt-8 max-w-2xl">
           <Link
             to="/sammenligninger/din-lca-hjaelper-vs-lcabyg"
             className={`${linkSheet} md:p-8`}
@@ -237,10 +234,10 @@ export function VidenPage() {
             </p>
             <span className={`${readMore} inline-block`}>Læs sammenligningen</span>
           </Link>
-        </Reveal>
+        </div>
       </Band>
 
       <PreferredSourcePrompt />
-    </motion.div>
+    </div>
   );
 }

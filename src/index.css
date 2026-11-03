@@ -2,40 +2,46 @@
 /* Scan these explicitly so the utility set does not depend on the process working directory. */
 @source "../index.html";
 @source "../src";
-/* The typeface is imported in main.tsx so Vite bundles the font files itself. */
+/* The typefaces are imported in main.tsx so Vite bundles the font files itself. */
 
 /*
-  Design tokens.
-  The three brand values come from the approved logo system
-  (01_Projects/Din-LCA-Hjaelper/marketing/brand/dlh-logo-system-v2/brand-tokens.css).
-  Everything else is derived from them so the whole palette shares one hue family.
+  Design tokens, redesign of November 2026 ("Skov og mandarin").
+  Primary: deep forest. Secondary: pale mint. Spark: mandarin, used sparingly
+  (the limit seal, the price, the phone button, selection and small markers).
+  The utility names (green, mist, paper ...) are kept from the previous system
+  so every page maps onto the new palette without renaming classes.
 */
 @theme {
-  /* Brand */
-  --color-green: #2c5f30;
-  --color-mist: #f3fde0;
+  /* Primary */
+  --color-green: #173b33;
+  --color-green-deep: #0f2a24;
+  /* Secondary */
+  --color-green-soft: #e2efe8;
+  --color-mist: #edf4f0;
   --color-white: #ffffff;
 
-  /* Derived greens */
-  --color-green-deep: #214a26;
-  --color-green-soft: #e6efe3;
+  /* Spark */
+  --color-spark: #ff7a3d;
+  --color-spark-ink: #1a0f08;
 
-  /* Neutrals, tinted toward the brand green */
-  --color-paper: #fafbf6;
-  --color-ink: #182b1b;
-  --color-body: #3b4a3e;
-  --color-muted: #66735f;
-  --color-line: #dde4da;
+  /* Neutrals, tinted toward the primary */
+  --color-paper: #f6f7f5;
+  --color-ink: #132320;
+  --color-body: #3c4946;
+  --color-muted: #5b6864;
+  --color-line: #e0e6e3;
 
-  /* Status colours, kept muted so they never compete with the brand green */
-  --color-brick: #a8432d;
-  --color-ochre: #8f6410;
+  /* Status colours */
+  --color-brick: #b2412a;
+  --color-ochre: #8a5f0c;
 
-  --font-sans: "Schibsted Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Hanken Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Hedvig Letters Serif", Georgia, serif;
 
-  --radius-sheet: 1rem;
-  --shadow-sheet: 0 24px 48px -28px rgb(44 95 48 / 0.35);
-  --shadow-nav: 0 1px 0 rgb(24 43 27 / 0.06), 0 8px 24px -16px rgb(44 95 48 / 0.25);
+  --radius-sheet: 1.5rem;
+  --shadow-sheet: 0 24px 48px -32px rgb(19 35 32 / 0.35);
+  --shadow-nav: 0 1px 0 rgb(19 35 32 / 0.06);
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @layer base {
@@ -59,11 +65,20 @@
   h1, h2, h3, h4 {
     color: var(--color-ink);
     text-wrap: balance;
+  }
+
+  /*
+    Hedvig Letters Serif ships one weight. Headings at h1 and h2 always use it
+    at 400, whatever weight utility a page passes, so the browser never fakes a bold.
+  */
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 400 !important;
     letter-spacing: -0.015em;
   }
 
-  h1 {
-    letter-spacing: -0.028em;
+  h3, h4 {
+    letter-spacing: -0.005em;
   }
 
   p {
@@ -71,17 +86,74 @@
   }
 
   ::selection {
-    background: var(--color-mist);
-    color: var(--color-ink);
+    background: var(--color-spark);
+    color: var(--color-spark-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-green);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-spark);
+    outline-offset: 3px;
+  }
+
+  input, select, textarea {
+    caret-color: var(--color-green);
   }
 }
 
-/* Smooth accordion and menu transitions honour the user's motion preference. */
+/* Subtle grain on primary fields, so large areas of colour are not flat. */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* The hero seal: the limit value settles in when the building type changes. */
+@keyframes seal-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.94);
+  }
+}
+.seal-value {
+  animation: seal-in 240ms var(--ease-out-strong);
+}
+
+/*
+  Process connector: drawn once when the section enters the viewport, then the
+  loop in spark. Reduced motion shows both lines fully drawn.
+*/
+@keyframes process-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.process:not(.process-drawn) .process-line,
+.process:not(.process-drawn) .process-loop {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.process-drawn .process-line {
+  stroke-dasharray: 1;
+  animation: process-draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+.process-drawn .process-loop {
+  stroke-dasharray: 1;
+  animation: process-draw 0.8s var(--ease-out-strong) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -90,5 +162,10 @@
   }
   html {
     scroll-behavior: auto;
+  }
+  .process .process-line,
+  .process .process-loop {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }

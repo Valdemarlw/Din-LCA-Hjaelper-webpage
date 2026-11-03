@@ -16,17 +16,11 @@ const bgMap = {
 };
 
 const padMap = {
-  default: "py-20 md:py-28 lg:py-32",
+  default: "py-20 md:py-28",
   tight: "py-12 md:py-16",
 };
 
-export function SectionWrapper({
-  children,
-  className = "",
-  id,
-  bg = "paper",
-  padding = "default",
-}: SectionWrapperProps) {
+export function SectionWrapper({ children, className = "", id, bg = "paper", padding = "default" }: SectionWrapperProps) {
   return (
     <section id={id} className={`${padMap[padding]} ${bgMap[bg]} ${className}`}>
       <div className="mx-auto max-w-6xl px-5 md:px-8">{children}</div>

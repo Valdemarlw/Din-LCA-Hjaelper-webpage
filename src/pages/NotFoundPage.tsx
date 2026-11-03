@@ -1,7 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 
 /**
  * Real 404 page. Prerendered to dist/404.html, which Vercel serves with a
@@ -14,7 +12,7 @@ import { pageTransition } from "../lib/animations";
  */
 export function NotFoundPage() {
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>Siden blev ikke fundet | Din LCA Hjælper</title>
         <meta
@@ -23,13 +21,14 @@ export function NotFoundPage() {
         />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
-      <section className="bg-linear-to-b from-mist/70 to-paper py-24 md:py-32">
-        <div className="mx-auto max-w-2xl px-5 md:px-8">
-          <p className="text-sm font-semibold text-green">404</p>
-          <h1 className="mt-3 text-4xl font-extrabold leading-tight md:text-5xl">
+      <section className="px-3 pb-16 pt-2 md:px-6 md:pb-24">
+        <div className="grain mx-auto max-w-6xl overflow-hidden rounded-[24px] bg-green px-5 py-16 text-mist md:rounded-[32px] md:px-12 md:py-24">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold text-spark">404</p>
+          <h1 className="mt-3 text-[2.5rem] leading-tight text-white md:text-[3.5rem]">
             Siden blev ikke fundet
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-body">
+          <p className="mt-5 text-lg leading-relaxed text-mist/80">
             Siden er måske flyttet eller fjernet. Herunder er de steder folk oftest skal hen.
           </p>
 
@@ -47,7 +46,7 @@ export function NotFoundPage() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="rounded-xl bg-white px-5 py-4 transition-colors hover:bg-green-soft"
+                className="rounded-2xl bg-white px-5 py-4 transition-colors hover:bg-green-soft"
               >
                 <span className="block font-semibold text-ink">{l.label}</span>
                 <span className="mt-0.5 block text-sm text-muted">{l.hint}</span>
@@ -55,15 +54,16 @@ export function NotFoundPage() {
             ))}
           </nav>
 
-          <p className="mt-10 text-body">
+          <p className="mt-10 text-mist/80">
             Eller ring på{" "}
-            <a href="tel:+4529899999" className="font-semibold text-green underline decoration-green/40 underline-offset-4 hover:decoration-green">
+            <a href="tel:+4529899999" className="font-semibold text-white underline decoration-spark decoration-2 underline-offset-4">
               +45 29 89 99 99
             </a>
             .
           </p>
         </div>
+        </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

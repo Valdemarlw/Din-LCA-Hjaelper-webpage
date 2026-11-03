@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { pageTransition } from "../lib/animations";
 import { Button } from "../components/ui/Button";
 import { PageHero } from "../components/ui/PageHero";
 import { trackAnalyticsEvent } from "../lib/analytics";
@@ -86,7 +84,7 @@ export function ContactPage() {
   }
 
   return (
-    <motion.div {...pageTransition}>
+    <div>
       <Helmet>
         <title>Kontakt Din LCA Hjælper, Få tilbud på LCA-beregning</title>
         <meta name="description" content="Bestil LCA-beregning til dit byggeprojekt. Send os dine tegninger og få et tilbud inden for 24 timer. Ring +45 29 89 99 99 eller skriv direkte." />
@@ -288,7 +286,7 @@ export function ContactPage() {
                   <strong className="font-semibold text-ink">Tegninger?</strong> Send dem gerne direkte til{" "}
                   <a
                     href="mailto:valdemar.wernblad@dinlcahjælper.dk"
-                    className="break-all text-green underline decoration-green/40 underline-offset-2 hover:decoration-green"
+                    className="break-all text-green underline decoration-spark/70 underline-offset-2 hover:decoration-spark"
                   >
                     valdemar.wernblad@dinlcahjælper.dk
                   </a>
@@ -298,6 +296,6 @@ export function ContactPage() {
           </div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }
