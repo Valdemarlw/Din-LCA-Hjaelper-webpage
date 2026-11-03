@@ -85,7 +85,7 @@ Home (`/`)
 - The Process loop is kept: same six steps, the same loop after step 03, the same wording. It now draws once when the section enters the viewport. The loop is drawn in the spark colour, and the explanation sits under step 03 at every width, which fixes finding 11 from report 01 (the note covered the connector). The infinite drifting "current" overlay is removed.
 - Pricing, References, FAQ and the final CTA are restyled. Count-ups and drawn check marks are removed. The pricing list gains "Anbefaling af produkter med produktspecifik EPD".
 
-Other pages: they get the new hero field, type, cards and links. On project-type, reference-project and blog-post pages, the hero tags and meta text were recoloured so they stay readable on green. The about portrait is larger and overlaps the hero edge. The 404 uses the green field.
+Other pages: they get the new hero field, type, cards and links. On project-type, reference-project and blog-post pages, the hero tags and meta text were recoloured so they stay readable on green. The about portrait column is wider. The 404 uses the green field.
 
 Content and SEO: titles, meta descriptions, canonicals, JSON-LD, routes and the sitemap are unchanged. `llms.txt` and `llms-full.txt` gained the EPD line.
 
@@ -154,6 +154,21 @@ Kept, and reviewed with `review-animations`:
   - No overflow and no crash anywhere.
   - Fixed: "Individuelt tilbud ekskl. moms" now drops the "ekskl. moms" suffix. The m² field also widens with its content.
 - Firecrawl: 25 credits used in this session (72 before, 97 after) against a budget of 100.
+
+## Adversarial review
+
+- **impeccable finish review.** A fresh reviewer, which never saw the build thread, checked the 34 screenshots, the direction contract and comp J. Disposition: **fix**, with 7 material items, all applied:
+  1. **Process loop on phones:** the ring was cut off by the screen edge. Its radius now shrinks on vertical runs.
+  2. **Field width:** the hero, final CTA, subpage header and 404 fields were 32 px wider than the content column. They now line up with the nav and footer edges (`max-w-[68rem]`, `md:px-8`).
+  3. **404 page:** the "404" label above the h1 was an eyebrow. It is removed.
+  4. **Pricing tag:** "A4+A5 inkluderet" sat above the price like an eyebrow. It now sits inline after "ekskl. moms ...".
+  5. **Problem heading:** it broke "LCA-" at a line end. "LCA-beregning" now stays together, and the heading is a step smaller in its column.
+  6. **Process note:** it carried a second loop icon. That is replaced by a small spark ring that matches the loop.
+  7. **Pricing card:** it had empty space at the bottom, and no longer stretches.
+- **Reviewer's open question.** The About portrait overlapped the header field, close to the "portrait at the top" you rejected. I reverted it to sit beside the text.
+- **My own check at 768 and 1024.** The seal overlapped the headline and the result row was cramped. Below 1024 px the seal now sits above the headline and the row stacks. At 1024 the seal is smaller.
+- **Re-run after the fixes:** lint, tests and prerender pass. All routes at 375, 768 and 1280 are clean, the flows work, and `impeccable detect` returns `[]`. The after screenshots were recaptured.
+- **Left on the table** (the reviewer's ceiling notes, not done): the three home reference cards still follow the big-number template, and the process loop note could sit right beside the ring on desktop.
 
 ## Left for Valdemar
 

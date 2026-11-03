@@ -6,7 +6,6 @@ import {
   Truck,
   RefreshCw,
   FileOutput,
-  RotateCcw,
   type LucideProps,
 } from "lucide-react";
 import { SectionWrapper } from "../ui/SectionWrapper";
@@ -85,7 +84,7 @@ type Geometry = { width: number; height: number; points: Pt[] };
 type Leg = (
   | { kind: "line"; from: Pt; to: Pt }
   | { kind: "turn"; from: Pt; to: Pt; laneX: number; r: number }
-  | { kind: "loop"; from: Pt; to: Pt; far: Pt; sweep: 0 | 1; dir: Pt }
+  | { kind: "loop"; from: Pt; to: Pt; far: Pt; sweep: 0 | 1; dir: Pt; r: number }
 ) & { endsAtDisc: boolean; arrow: boolean };
 type Arrow = { x: number; y: number; angle: number; at: number };
 type LoopModel = {
@@ -126,12 +125,12 @@ function turnGeometry(leg: Extract<Leg, { kind: "turn" }>) {
 
 function legLength(leg: Leg): number {
   if (leg.kind === "line") return Math.hypot(leg.to.x - leg.from.x, leg.to.y - leg.from.y);
-  if (leg.kind === "loop") return 2 * Math.PI * LOOP_RADIUS;
+  if (leg.kind === "loop") return 2 * Math.PI * leg.r;
   return turnGeometry(leg).length;
 }
 
 function loopPath(leg: Extract<Leg, { kind: "loop" }>): string {
-  const r = LOOP_RADIUS;
+  const r = leg.r;
   return `M ${f(leg.from.x)} ${f(leg.from.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.far.x)} ${f(leg.far.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.to.x)} ${f(leg.to.y)}`;
 }
 
@@ -161,9 +160,11 @@ function buildLegs(points: Pt[], width: number): Leg[] {
       // Loop away from the step text: upward on a horizontal run, leftward on a vertical one.
       const normal = Math.abs(dir.x) > 0.5 ? { x: 0, y: -1 } : { x: -1, y: 0 };
       const sweep: 0 | 1 = dir.x * normal.y - dir.y * normal.x > 0 ? 1 : 0;
-      const far = { x: at.x + 2 * LOOP_RADIUS * normal.x, y: at.y + 2 * LOOP_RADIUS * normal.y };
+      // On a vertical run (phones) the loop swings into the left gutter; keep it on screen.
+      const r = Math.abs(dir.x) > 0.5 ? LOOP_RADIUS : Math.max(10, Math.min(LOOP_RADIUS, Math.floor((at.x - 6) / 2)));
+      const far = { x: at.x + 2 * r * normal.x, y: at.y + 2 * r * normal.y };
       legs.push({ kind: "line", from, to: at, endsAtDisc: false, arrow: false });
-      legs.push({ kind: "loop", from: at, to: at, far, sweep, dir, endsAtDisc: false, arrow: false });
+      legs.push({ kind: "loop", from: at, to: at, far, sweep, dir, r, endsAtDisc: false, arrow: false });
       from = at;
     }
 
@@ -201,7 +202,7 @@ function buildPath(points: Pt[], width: number): PathModel {
         });
       }
     } else if (leg.kind === "loop") {
-      const r = LOOP_RADIUS;
+      const r = leg.r;
       d += ` A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.far.x)} ${f(leg.far.y)} A ${r} ${r} 0 0 ${leg.sweep} ${f(leg.to.x)} ${f(leg.to.y)}`;
       // On the far side of the loop the flow runs back toward the step: that chevron is the cue.
       arrows.push({
@@ -370,7 +371,7 @@ export function Process() {
                   <p className="mt-2 max-w-[30ch] text-[15px] leading-relaxed text-body">{step.description}</p>
                   {i === LOOP_STEP && (
                     <p className="mt-3 flex max-w-[30ch] items-start gap-2 text-[14px] font-semibold leading-snug text-ink">
-                      <RotateCcw size={15} strokeWidth={2.25} aria-hidden="true" className="mt-0.5 shrink-0 text-spark" />
+                      <span className="mt-[0.45em] h-2 w-2 shrink-0 rounded-full border-2 border-spark" aria-hidden="true" />
                       <span>{LOOP_NOTE}</span>
                     </p>
                   )}

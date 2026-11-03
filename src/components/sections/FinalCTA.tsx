@@ -2,8 +2,8 @@ import { Button } from "../ui/Button";
 
 export function FinalCTA() {
   return (
-    <section className="px-3 pb-6 md:px-6">
-      <div className="grain mx-auto max-w-6xl overflow-hidden rounded-[24px] bg-green px-6 py-16 md:rounded-[32px] md:px-12 md:py-24">
+    <section className="px-3 pb-6 md:px-8">
+      <div className="grain mx-auto max-w-[68rem] overflow-hidden rounded-[24px] bg-green px-6 py-16 md:rounded-[32px] md:px-12 md:py-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <h2 className="max-w-[18ch] text-[2.25rem] leading-[1.05] text-white md:text-[3.5rem]">

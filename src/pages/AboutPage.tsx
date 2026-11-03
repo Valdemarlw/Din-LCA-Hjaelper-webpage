@@ -58,8 +58,8 @@ export function AboutPage() {
               </div>
             </div>
 
-            <aside className="lg:col-span-5 lg:-mt-40 lg:relative lg:z-10">
-              <div className="overflow-hidden rounded-sheet bg-white ring-1 ring-line shadow-sheet">
+            <aside className="lg:col-span-5">
+              <div className="overflow-hidden rounded-sheet bg-white ring-1 ring-line">
                 {/* Same portrait as the VW Projects site. */}
                 <img
                   src="/images/valdemar-wernblad.webp"

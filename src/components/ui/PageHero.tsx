@@ -45,8 +45,8 @@ export function PageHero({ title, lede, crumbs, children, width = "wide", size =
   const inner = width === "narrow" ? "max-w-[46rem]" : "max-w-4xl";
   const pad = size === "compact" ? "py-10 md:py-14" : "py-12 md:py-20";
   return (
-    <section className="px-3 pb-12 pt-2 md:px-6 md:pb-16">
-      <div className={`grain mx-auto max-w-6xl overflow-hidden rounded-[24px] bg-green px-5 text-mist md:rounded-[32px] md:px-12 ${pad}`}>
+    <section className="px-3 pb-12 pt-2 md:px-8 md:pb-16">
+      <div className={`grain mx-auto max-w-[68rem] overflow-hidden rounded-[24px] bg-green px-5 text-mist md:rounded-[32px] md:px-12 ${pad}`}>
         <div className={inner}>
           {crumbs && <Breadcrumb items={crumbs} className="mb-6" />}
           <h1 className="text-[2.5rem] leading-[1.05] text-white md:text-[3.5rem] lg:text-[4rem]">{title}</h1>

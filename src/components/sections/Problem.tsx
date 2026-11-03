@@ -23,7 +23,7 @@ export function Problem() {
     <SectionWrapper bg="mist">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <h2 className="max-w-[18ch] text-[2.25rem] leading-[1.05] md:text-[3rem] lg:sticky lg:top-28">Hvorfor LCA-beregning ikke er til at komme udenom</h2>
+          <h2 className="max-w-[18ch] text-[2.25rem] leading-[1.05] lg:sticky lg:top-28 lg:text-[2.75rem]">Hvorfor <span className="whitespace-nowrap">LCA-beregning</span> ikke er til at komme udenom</h2>
         </div>
         <div className="lg:col-span-7">
           {painPoints.map((point, i) => (

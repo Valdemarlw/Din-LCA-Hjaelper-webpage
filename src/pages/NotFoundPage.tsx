@@ -21,11 +21,10 @@ export function NotFoundPage() {
         />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
-      <section className="px-3 pb-16 pt-2 md:px-6 md:pb-24">
-        <div className="grain mx-auto max-w-6xl overflow-hidden rounded-[24px] bg-green px-5 py-16 text-mist md:rounded-[32px] md:px-12 md:py-24">
+      <section className="px-3 pb-16 pt-2 md:px-8 md:pb-24">
+        <div className="grain mx-auto max-w-[68rem] overflow-hidden rounded-[24px] bg-green px-5 py-16 text-mist md:rounded-[32px] md:px-12 md:py-24">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-spark">404</p>
-          <h1 className="mt-3 text-[2.5rem] leading-tight text-white md:text-[3.5rem]">
+          <h1 className="text-[2.5rem] leading-tight text-white md:text-[3.5rem]">
             Siden blev ikke fundet
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-mist/80">

@@ -80,10 +80,10 @@ const fieldCls =
 function Seal({ value }: { value: number | null }) {
   return (
     <div
-      className="relative mx-auto mb-6 grid h-24 w-24 -rotate-6 place-items-center rounded-full bg-spark text-green-deep shadow-[0_18px_30px_-18px_rgb(0_0_0/0.55)] md:absolute md:right-10 md:top-10 md:mb-0 md:h-40 md:w-40"
+      className="relative mx-auto mb-6 grid h-24 w-24 -rotate-6 place-items-center rounded-full bg-spark text-green-deep shadow-[0_18px_30px_-18px_rgb(0_0_0/0.55)] lg:absolute lg:right-6 lg:top-6 lg:mb-0 lg:h-32 lg:w-32 xl:right-10 xl:top-10 xl:h-40 xl:w-40"
       aria-hidden="true"
     >
-      <svg viewBox="0 0 164 164" className="absolute inset-0 hidden h-full w-full md:block">
+      <svg viewBox="0 0 164 164" className="absolute inset-0 hidden h-full w-full lg:block">
         <defs>
           <path id="seal-ring" d="M82 82 m-64 0 a64 64 0 1 1 128 0 a64 64 0 1 1 -128 0" />
         </defs>
@@ -94,10 +94,10 @@ function Seal({ value }: { value: number | null }) {
         </text>
       </svg>
       <div className="text-center">
-        <span key={value ?? "ingen"} className="seal-value block font-display text-[1.9rem] leading-none md:text-[2.75rem]">
+        <span key={value ?? "ingen"} className="seal-value block font-display text-[1.9rem] leading-none lg:text-[2.2rem] xl:text-[2.75rem]">
           {value === null ? "Ingen" : kommatal(value)}
         </span>
-        <span className="mt-1 block text-[9px] font-semibold md:text-[11px]">{value === null ? "grænseværdi" : "kg CO₂e/m²/år"}</span>
+        <span className="mt-1 block text-[9px] font-semibold lg:text-[11px]">{value === null ? "grænseværdi" : "kg CO₂e/m²/år"}</span>
       </div>
     </div>
   );
@@ -131,8 +131,8 @@ export function Hero() {
   const kontaktUrl = `/kontakt?${new URLSearchParams({ type, ...(harAreal ? { m2: String(m2) } : {}), byggeri }).toString()}`;
 
   return (
-    <section className="px-3 pt-2 md:px-6">
-      <div className="grain relative mx-auto max-w-6xl overflow-hidden rounded-[24px] bg-green px-4 pt-12 text-center text-mist md:rounded-[32px] md:px-12 md:pt-24">
+    <section className="px-3 pt-2 md:px-8">
+      <div className="grain relative mx-auto max-w-[68rem] overflow-hidden rounded-[24px] bg-green px-4 pt-12 text-center text-mist md:rounded-[32px] md:px-12 md:pt-24">
         <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[-520px] h-[900px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(255_255_255/0.07),transparent)]" />
         <Seal value={res?.graensevaerdi ?? null} />
 
@@ -185,7 +185,7 @@ export function Hero() {
             />
           </p>
 
-          <div aria-live="polite" className="mt-5 grid grid-cols-2 gap-y-4 border-t border-line pt-5 md:grid-cols-[auto_auto_auto_1fr] md:items-center md:gap-y-0">
+          <div aria-live="polite" className="mt-5 grid grid-cols-2 gap-y-4 border-t border-line pt-5 lg:grid-cols-[auto_auto_auto_1fr] lg:items-center lg:gap-y-0">
             {res ? (
               <>
                 <Out label="LCA-krav">
@@ -208,7 +208,7 @@ export function Hero() {
                   )}
                 </Out>
                 {visPris && (
-                  <Out label="Vejledende pris" divider className="col-span-2 border-l-0 pl-0 md:col-span-1 md:border-l md:pl-6">
+                  <Out label="Vejledende pris" divider className="col-span-2 border-l-0 pl-0 lg:col-span-1 lg:border-l lg:pl-6">
                     <span className="whitespace-nowrap shadow-[inset_0_-9px_0_rgb(255_122_61/0.4)]">{prisTekst}</span>
                     {prisTekst !== "Individuelt tilbud" && (
                       <>
@@ -220,11 +220,11 @@ export function Hero() {
                 )}
               </>
             ) : (
-              <p className="col-span-2 text-[15px] text-muted md:col-span-3">Skriv det opvarmede etageareal for at se krav og pris.</p>
+              <p className="col-span-2 text-[15px] text-muted lg:col-span-3">Skriv det opvarmede etageareal for at se krav og pris.</p>
             )}
             <Link
               to={kontaktUrl}
-              className="col-span-2 inline-flex h-12 items-center justify-center gap-2.5 justify-self-stretch rounded-full bg-green px-6 text-[15px] font-semibold text-mist transition-[background-color,scale] duration-150 ease-out hover:bg-green-deep active:scale-[0.97] md:col-span-1 md:justify-self-end"
+              className="col-span-2 inline-flex h-12 items-center justify-center gap-2.5 justify-self-stretch rounded-full bg-green px-6 text-[15px] font-semibold text-mist transition-[background-color,scale] duration-150 ease-out hover:bg-green-deep active:scale-[0.97] lg:col-span-1 lg:justify-self-end"
             >
               Få et fast tilbud
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -256,7 +256,7 @@ export function Hero() {
 
 function Out({ label, children, divider = false, className = "" }: { label: string; children: React.ReactNode; divider?: boolean; className?: string }) {
   return (
-    <div className={`min-w-0 ${divider ? "md:border-l md:border-line md:pl-6" : ""} pr-6 ${className}`}>
+    <div className={`min-w-0 ${divider ? "lg:border-l lg:border-line lg:pl-6" : ""} pr-6 ${className}`}>
       <p className="text-[13px] font-medium text-muted">{label}</p>
       <p className="mt-0.5 font-display text-[1.35rem] leading-tight md:text-[1.5rem]">{children}</p>
     </div>

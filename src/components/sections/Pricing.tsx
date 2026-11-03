@@ -36,11 +36,13 @@ export function Pricing() {
           </p>
 
           <div className="mt-10">
-            <Tag tone="spark">A4+A5 inkluderet</Tag>
-            <p className="mt-4 font-display text-[2.4rem] leading-[1.05] text-ink sm:text-[3rem]">
+            <p className="font-display text-[2.4rem] leading-[1.05] text-ink sm:text-[3rem]">
               Typisk <span className="whitespace-nowrap">5.000-7.000 kr</span>
             </p>
-            <p className="mt-3 text-[15px] text-muted">ekskl. moms for et komplet enfamiliehus</p>
+            <p className="mt-3 flex flex-wrap items-center gap-2 text-[15px] text-muted">
+              ekskl. moms for et komplet enfamiliehus
+              <Tag tone="spark" className="ml-2">A4+A5 inkluderet</Tag>
+            </p>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -56,7 +58,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="lg:col-span-6 lg:col-start-7">
+        <div className="lg:col-span-6 lg:col-start-7 lg:self-start">
           <Sheet className="h-full">
             <ul className="divide-y divide-line">
               {inclusions.map((item) => (
