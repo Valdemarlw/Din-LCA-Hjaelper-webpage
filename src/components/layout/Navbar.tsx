@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -23,6 +23,20 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrolled, hidden } = useNavbarScroll();
   const { pathname } = useLocation();
+  const menuButton = useRef<HTMLButtonElement>(null);
+
+  // Escape closes the open mobile menu and returns focus to its toggle.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        menuButton.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
 
   function isActive(link: NavLink) {
     const matches = (p: string) => pathname === p || pathname.startsWith(p + "/");
@@ -69,21 +83,29 @@ export function Navbar() {
               </Link>
             );
           })}
-          <Button to="/kontakt" variant="secondary" size="sm" className="ml-4">
+          <Button to="/kontakt" size="sm" className="ml-4">
             Få et tilbud
           </Button>
         </div>
 
-        <button
-          type="button"
-          className="-mr-2 rounded-md p-2 text-ink md:hidden"
-          onClick={() => setMobileOpen((open) => !open)}
-          aria-expanded={mobileOpen}
-          aria-controls="mobil-menu"
-          aria-label={mobileOpen ? "Luk menu" : "Åbn menu"}
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          {!mobileOpen && (
+            <Button to="/kontakt" size="sm" className="min-h-11">
+              Få et tilbud
+            </Button>
+          )}
+          <button
+            ref={menuButton}
+            type="button"
+            className="-mr-2 rounded-md p-2.5 text-ink"
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobil-menu"
+            aria-label={mobileOpen ? "Luk menu" : "Åbn menu"}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>

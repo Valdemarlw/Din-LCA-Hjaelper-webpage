@@ -66,7 +66,7 @@ export function Hero() {
 
               <motion.p
                 {...enter(1.0)}
-                className="mt-10 max-w-xl text-[15px] leading-relaxed text-mist/70"
+                className="mt-10 max-w-xl text-[15px] leading-relaxed text-mist/80"
               >
                 Dansk LCA-rådgivning for arkitekter og rådgivere. Bolig, erhverv og industri, fra 80
                 til 3.000 m².

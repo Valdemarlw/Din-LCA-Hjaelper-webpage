@@ -148,9 +148,9 @@ function graenseFor(bygningstype: Bygningstype, m2: number): Graense {
 function b6MetodeFor(input: BR18Input): string {
   if (input.uopvarmet) return "B6 (driftsenergi) sættes til 0 for uopvarmet byggeri.";
   if (input.byggeri === "tilbygning")
-    return "Driftsenergi (B6) beregnes med standardværdier (BR18 Tabel 13) — du behøver ikke en energirammeberegning.";
+    return "Driftsenergi (B6) beregnes med standardværdier (BR18 Tabel 13) - du behøver ikke en energirammeberegning.";
   if (input.bygningstype === "sommerhus")
-    return "Driftsenergi (B6) beregnes med standardværdier (BR18 Tabel 12) — du behøver ikke en energirammeberegning.";
+    return "Driftsenergi (B6) beregnes med standardværdier (BR18 Tabel 12) - du behøver ikke en energirammeberegning.";
   return "Driftsenergi (B6) beregnes ud fra bygningens energirammeberegning (BR18 §§ 250-256).";
 }
 
@@ -175,7 +175,7 @@ export function evaluateBR18(input: BR18Input): BR18Resultat {
       forklaring:
         "Uopvarmede bygninger under 50 m² er undtaget fra LCA-kravet i BR18 (§ 297 stk. 2). Du skal ikke lave en klimaberegning for dette projekt.",
       naesteSkridt:
-        "Du har ikke et lovkrav her. Er du i tvivl om afgrænsningen, så send os projektet — vi kigger på det uforpligtende.",
+        "Du har ikke et lovkrav her. Er du i tvivl om afgrænsningen, så send os projektet - vi kigger på det uforpligtende.",
     };
   }
 
@@ -192,9 +192,9 @@ export function evaluateBR18(input: BR18Input): BR18Resultat {
       a4a5: null,
       a4a5Lavemission: null,
       b6Metode,
-      overskrift: "Undtaget — tilbygning under 250 m²",
+      overskrift: "Undtaget - tilbygning under 250 m²",
       forklaring:
-        "Tilbygninger under 250 m² opvarmet etageareal til enfamiliehuse, række-/kæde-/dobbelthuse og sommerhuse er undtaget fra LCA-kravet (§ 297 stk. 3). Bemærk: dette gælder kun bolig- og ferieboliger — erhverv og etageboliger er omfattet uanset størrelse.",
+        "Tilbygninger under 250 m² opvarmet etageareal til enfamiliehuse, række-/kæde-/dobbelthuse og sommerhuse er undtaget fra LCA-kravet (§ 297 stk. 3). Bemærk: dette gælder kun bolig- og ferieboliger - erhverv og etageboliger er omfattet uanset størrelse.",
       naesteSkridt:
         "Du har ikke et lovkrav. Nogle vælger alligevel en frivillig beregning (fx til en bæredygtighedsambition eller bygherre-krav). Vil du have et estimat, så regn videre nedenfor.",
     };
@@ -210,9 +210,9 @@ export function evaluateBR18(input: BR18Input): BR18Resultat {
       a4a5: null,
       a4a5Lavemission: null,
       b6Metode,
-      overskrift: "LCA skal beregnes og dokumenteres — men der er ingen grænseværdi",
+      overskrift: "LCA skal beregnes og dokumenteres - men der er ingen grænseværdi",
       forklaring:
-        "Bygninger som industriproduktion, energi-/vand-/affaldsforsyning, hospitaler, fængsler og forsvarets operative bygninger er undtaget fra grænseværdien (§ 298 stk. 9-10). Du skal stadig udarbejde og indsende selve LCA-beregningen efter § 297 — der er bare ikke et tal, beregningen skal overholde, og dermed intet optimeringskrav.",
+        "Bygninger som industriproduktion, energi-/vand-/affaldsforsyning, hospitaler, fængsler og forsvarets operative bygninger er undtaget fra grænseværdien (§ 298 stk. 9-10). Du skal stadig udarbejde og indsende selve LCA-beregningen efter § 297 - der er bare ikke et tal, beregningen skal overholde, og dermed intet optimeringskrav.",
       naesteSkridt:
         "Du skal stadig levere en dokumenteret LCA-beregning til byggesagen. Send os projektet, så laver vi den.",
     };
@@ -227,7 +227,7 @@ export function evaluateBR18(input: BR18Input): BR18Resultat {
     a4a5: 1.5,
     a4a5Lavemission: 1.1,
     b6Metode,
-    overskrift: "Ja — der skal laves en LCA-beregning",
+    overskrift: "Ja - der skal laves en LCA-beregning",
     forklaring: `Projektet er omfattet af BR18's klimakrav (§ 297-298). Den samlede klimapåvirkning (A1-A3, B4, B6, C3-C4) skal holdes under grænseværdien på ${g.std
       .toString()
       .replace(".", ",")} kg CO₂-eq/m²/år. Byggeprocessen (A4+A5) har en separat grænse på 1,5 kg CO₂-eq/m²/år.`,
