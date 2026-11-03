@@ -4,6 +4,8 @@ export type BlogPost = {
   metaTitle?: string;
   description: string;
   date: string;
+  /** Last substantive content correction (ISO date). Used for dateModified. */
+  updated?: string;
   readingTime: string;
   content: BlogSection[];
   faqs: FAQ[];
@@ -621,6 +623,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Fra 1. juli 2025 gælder nye, skærpede klimakrav for nybyggeri i Danmark. Læs om de differentierede grænseværdier og hvad de betyder for dit projekt.",
     date: "2026-04-02",
+    updated: "2026-11-03",
     readingTime: "5 min",
     content: [
       {
@@ -644,8 +647,8 @@ export const blogPosts: BlogPost[] = [
         headers: ["Bygningstype", "Grænseværdi (kg CO₂e/m²/år)"],
         rows: [
           ["Sommerhuse under 150 m²", "4,0"],
-          ["Enfamiliehuse og rækkehuse", "6,7"],
-          ["Etageboliger og kontorer", "7,5"],
+          ["Enfamiliehuse, rækkehuse og sommerhuse fra 150 m²", "6,7"],
+          ["Etageboliger, kontor, handel og lager", "7,5"],
           ["Øvrigt nybyggeri", "8,0"],
           ["Byggeproces (A4+A5), alle typer", "1,5"],
         ],
@@ -656,13 +659,13 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Før juli 2025 gjaldt en ensartet grænseværdi på 12,0 kg CO₂e/m²/år for alle bygningstyper. De nye krav indebærer tre vigtige ændringer:",
+        text: "Før juli 2025 gjaldt én fælles grænseværdi på 12,0 kg CO₂e/m²/år, og kun for nybyggeri med over 1.000 m² opvarmet etageareal, der var omfattet af energirammen. Mindre byggeri skulle kun lave beregningen, og sommerhuse, uopvarmede bygninger og tilbygninger var slet ikke omfattet. De nye krav indebærer tre vigtige ændringer:",
       },
       {
         type: "list",
         items: [
           "Differentierede grænser: Forskellige bygningstyper har nu forskellige krav. Sommerhuse har de strengeste, øvrigt nybyggeri de mildeste",
-          "Markant stramning: Selv den højeste nye grænse (8,0) er en tredjedel af den tidligere (12,0). For sommerhuse er stramningen endnu større (4,0 vs. 12,0)",
+          "Markant stramning: Selv den højeste nye grænse (8,0) ligger en tredjedel under den tidligere (12,0). For sommerhuse under 150 m² er grænsen kun en tredjedel af den gamle (4,0 mod 12,0)",
           "Separat A4+A5-grænse: Der er indført en ny, separat grænseværdi på 1,5 kg CO₂e/m²/år specifikt for transport og byggeproces. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation)",
         ],
       },
@@ -692,7 +695,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Etageboliger og kontorer skal holde 7,5 kg CO₂e/m²/år, mens øvrigt erhvervsbyggeri har grænsen 8,0. Selv om disse er de mildeste grænser, er de stadig en markant stramning fra de tidligere 12,0. Store betonkonstruktioner, parkeringskældre og facadeløsninger kræver særlig opmærksomhed.",
+        text: "Etageboliger, kontorer, handel og lager skal holde 7,5 kg CO₂e/m²/år, mens øvrigt byggeri som skoler, børnehaver og parkeringshuse har grænsen 8,0. Selv om disse er de mildeste grænser, er de stadig en markant stramning fra de tidligere 12,0. Store betonkonstruktioner, parkeringskældre og facadeløsninger kræver særlig opmærksomhed.",
       },
       {
         type: "heading2",
@@ -700,7 +703,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "En af de vigtigste nyheder er den separate grænseværdi for byggeprocessen. [A4](/ordbog/modul-a4) dækker transport af materialer til byggepladsen, og [A5](/ordbog/modul-a5) dækker spild og affald under opførelsen. Grænsen er 1,5 kg CO₂e/m²/år for alle bygningstyper.",
+        text: "En af de vigtigste nyheder er den separate grænseværdi for byggeprocessen. [A4](/ordbog/modul-a4) dækker transport af materialer til byggepladsen, og [A5](/ordbog/modul-a5) dækker energiforbrug, spild og affald på byggepladsen. Grænsen er 1,5 kg CO₂e/m²/år for alle bygningstyper.",
       },
       {
         type: "paragraph",
@@ -728,7 +731,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Gælder de nye klimakrav for byggerier ansøgt før juli 2025?",
         answer:
-          "Nej. De nye grænseværdier gælder for byggerier med byggetilladelse ansøgt efter 1. juli 2025. Projekter med tidligere ansøgning følger de hidtidige regler.",
+          "Nej. De nye krav gælder, når ansøgningen om byggetilladelse er indsendt 1. juli 2025 eller senere. Er ansøgningen indsendt før, gælder de hidtidige regler.",
       },
       {
         question: "Hvad sker der hvis mit byggeri overskrider den nye grænse?",
@@ -739,7 +742,7 @@ export const blogPosts: BlogPost[] = [
         question:
           "Er der undtagelser fra de nye klimakrav?",
         answer:
-          "LCA-kravet gælder generelt for alt nybyggeri. Undtaget er bl.a. midlertidige bygninger med kort levetid og visse småbygninger. Kontakt din kommune for specifik vejledning om dit projekt.",
+          "Ja. Uopvarmede bygninger under 50 m², transportable konstruktioner, midlertidige flytbare pavilloner og landbrugets avls- og driftsbygninger er undtaget. Det samme er tilbygninger under 250 m² til enfamiliehuse, rækkehuse og sommerhuse. Samfundskritiske bygninger som hospitaler og vandværker skal stadig lave beregningen, men skal ikke overholde grænseværdierne. Er du i tvivl om dit projekt, så spørg kommunen.",
       },
     ],
   },
@@ -751,6 +754,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "A4 og A5 faserne i LCA dækker transport og byggeproces. Læs om hvad de indeholder, hvorfor de er lovpligtige, og hvordan du dokumenterer dem.",
     date: "2026-04-02",
+    updated: "2026-11-03",
     readingTime: "5 min",
     content: [
       {
@@ -799,7 +803,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Bemærk at vandforbrug på byggepladsen er undtaget fra A5, og maskiner under 1 ton er helt fritaget fra klimaregnskabet. A5-data kræver typisk input fra hovedentreprenøren og underentreprenørerne. Det er her de fleste projekter møder udfordringer, mange entreprenører er ikke vant til at registrere og rapportere disse data systematisk.",
+        text: "Bemærk at vandforbrug på byggepladsen er undtaget fra A5, og at energiforbrug fra maskiner under 1 ton kan udelades. A5-data kræver typisk input fra hovedentreprenøren og underentreprenørerne. Det er her de fleste projekter møder udfordringer, mange entreprenører er ikke vant til at registrere og rapportere disse data systematisk.",
       },
       {
         type: "heading2",
@@ -895,11 +899,12 @@ export const blogPosts: BlogPost[] = [
     description:
       "Sommerhuse har den strengeste CO₂-grænseværdi i BR18 på kun 4,0 kg CO₂e/m²/år. Læs om udfordringerne og hvordan du overholder kravet.",
     date: "2026-04-02",
+    updated: "2026-11-03",
     readingTime: "5 min",
     content: [
       {
         type: "paragraph",
-        text: "Sommerhuse med under 150 m² opvarmet etageareal har den strengeste CO₂-grænseværdi i BR18: kun 4,0 kg CO₂e/m²/år. Det er næsten halvt så meget som enfamiliehuse (6,7). For arkitekter der projekterer sommerhuse er det afgørende at tænke LCA ind fra første streg, så materialevalg kan tilpasses tidligt i processen.",
+        text: "Sommerhuse med under 150 m² opvarmet etageareal har den strengeste CO₂-grænseværdi i BR18: kun 4,0 kg CO₂e/m²/år. Det er 40 % lavere end grænsen for enfamiliehuse (6,7). For arkitekter der projekterer sommerhuse er det afgørende at tænke LCA ind fra første streg, så materialevalg kan tilpasses tidligt i processen.",
       },
       {
         type: "heading2",
@@ -1014,11 +1019,12 @@ export const blogPosts: BlogPost[] = [
     description:
       "Komplet oversigt over grænseværdier for CO₂-udledning i nybyggeri efter BR18. Tabeller med alle bygningstyper og den separate A4+A5-grænse.",
     date: "2026-04-02",
+    updated: "2026-11-03",
     readingTime: "4 min",
     content: [
       {
         type: "paragraph",
-        text: "Grænseværdierne for CO₂ i nybyggeri er fastsat i [Bygningsreglementet 2018 (BR18)](/ordbog/br18) og angiver den maksimalt tilladte CO₂-udledning pr. m² pr. år for en bygnings samlede livscyklus. Fra 1. juli 2025 gælder differentierede grænseværdier afhængigt af bygningstype, samt en separat grænse for byggeprocessen (A4+A5). Alle nybyggerier i Danmark skal overholde disse grænser for at opnå ibrugtagningstilladelse.",
+        text: "Grænseværdierne for CO₂ i nybyggeri er fastsat i [Bygningsreglementet 2018 (BR18)](/ordbog/br18) og angiver den maksimalt tilladte CO₂-udledning pr. m² pr. år for en bygnings samlede livscyklus. Fra 1. juli 2025 gælder differentierede grænseværdier afhængigt af bygningstype, samt en separat grænse for byggeprocessen (A4+A5). Byggeri, der er omfattet af kravet, skal overholde grænserne for at få ibrugtagningstilladelse.",
       },
       {
         type: "heading2",
@@ -1047,11 +1053,11 @@ export const blogPosts: BlogPost[] = [
             "Gælder også ferieboliger på 150 m² eller derover",
           ],
           ["Etageboliger", "7,5", "Inkl. ungdomsboliger og ældreboliger"],
-          ["Kontorer", "7,5", "Samme grænse som etageboliger"],
+          ["Kontor, handel og lager", "7,5", "Samme grænse som etageboliger"],
           [
             "Øvrigt nybyggeri",
             "8,0",
-            "Industri, haller, institutioner m.m.",
+            "Fx skoler, børnehaver og parkeringshuse",
           ],
         ],
       },
@@ -1070,7 +1076,7 @@ export const blogPosts: BlogPost[] = [
           [
             "A4+A5 samlet",
             "1,5 kg CO₂e/m²/år",
-            "Transport til byggeplads + spild og affald under opførelse",
+            "Transport til og fra byggepladsen + energiforbrug, spild og affald under opførelsen",
           ],
         ],
       },
@@ -1088,7 +1094,25 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "BR18 bruger et såkaldt [referenceareal](/ordbog/etageareal) som divisor for materialernes klimaaftryk. Referencearealet tager udgangspunkt i det opvarmede etageareal, men tillægger vægtede andele for andre arealer: udestuer og integrerede garager tæller 50%, mens integrerede carporte og overdækninger tæller 25%. Driftsenergien (modul B6) divideres separat med det opvarmede etageareal alene. Se vores [guide til LCA-beregning](/blog/hvad-er-lca-beregning) for en fuld forklaring af processen.",
+        text: "BR18 bruger et såkaldt [referenceareal](/ordbog/etageareal) som divisor for materialernes klimaaftryk. Referencearealet er etagearealet efter BR18 § 455, både opvarmet og uopvarmet, med nogle justeringer: kældre, affaldsrum i terrænniveau og sikringsrum tæller fuldt med, udestuer og integrerede garager tæller 50 %, og integrerede carporte, overdækninger og udvendige trapper tæller 25 %. Driftsenergien (modul B6) divideres med det opvarmede etageareal alene. Se vores [guide til LCA-beregning](/blog/hvad-er-lca-beregning) for en fuld forklaring af processen.",
+      },
+      {
+        type: "heading2",
+        text: "Kommende skærpelser i 2027 og 2029",
+      },
+      {
+        type: "paragraph",
+        text: "Social- og Boligstyrelsen har sat pejlemærker for strammere grænser i 2027 og 2029. Pejlemærkerne er ikke vedtaget som regler endnu, men de viser retningen. 2029-værdierne svarer til den frivillige lavemissionsklasse i BR18 § 297 i dag.",
+      },
+      {
+        type: "table",
+        headers: ["Bygningstype", "2025", "2027", "2029"],
+        rows: [
+          ["Sommerhuse under 150 m²", "4,0", "3,6", "3,2"],
+          ["Sommerhuse fra 150 m², enfamiliehuse, række-/kæde-/dobbelthuse", "6,7", "6,0", "5,4"],
+          ["Etageboliger, kontor, handel og lager", "7,5", "6,8", "6,1"],
+          ["Øvrigt nybyggeri (skoler, børnehaver, p-huse)", "8,0", "7,2", "6,4"],
+        ],
       },
       {
         type: "heading2",
@@ -1105,12 +1129,12 @@ export const blogPosts: BlogPost[] = [
           [
             "2023-2025 (over 1.000 m²)",
             "12,0 kg CO₂e/m²/år",
-            "Kun bygninger over 1.000 m² skulle overholde grænsen",
+            "Kun nybyggeri omfattet af energirammen og med over 1.000 m² opvarmet etageareal",
           ],
           [
             "2023-2025 (under 1.000 m²)",
             "Kun dokumentationskrav",
-            "LCA-beregning påkrævet, men ingen grænseværdi",
+            "Nybyggeri omfattet af energirammen skulle beregne, men havde ingen grænseværdi",
           ],
           ["Før 2023", "Ingen krav", "Hverken LCA-beregning eller grænseværdi"],
         ],
@@ -1169,7 +1193,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvor finder jeg de officielle grænseværdier?",
         answer:
-          "Grænseværdierne er fastsat i BR18 (Bygningsreglementet) og kan findes på bygningsreglementet.dk. Bolig- og Planstyrelsen opdaterer løbende vejledningen.",
+          "Grænseværdierne står i BR18 § 298 på bygningsreglementet.dk. Social- og Boligstyrelsen udgiver vejledningen til reglerne.",
       },
     ],
   },
