@@ -113,7 +113,7 @@ export function ContactPage() {
                   width={364}
                   height={476}
                   alt=""
-                  className="h-16 w-16 rounded-full bg-mist object-cover object-top"
+                  className="h-16 w-16 rounded-full bg-mist object-cover object-top grayscale"
                 />
                 <p className="text-body">
                   Du får svar fra <span className="font-bold text-ink">Valdemar Løvschal Wernblad</span>, LCA-rådgiver.

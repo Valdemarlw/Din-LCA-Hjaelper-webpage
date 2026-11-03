@@ -66,7 +66,7 @@ export function AboutPage() {
                   width={364}
                   height={476}
                   alt="Valdemar Løvschal Wernblad"
-                  className="aspect-[4/5] w-full bg-mist object-cover object-top"
+                  className="aspect-[4/5] w-full bg-mist object-cover object-top grayscale"
                 />
                 <div className="p-6">
                   <p className="text-lg font-bold text-ink">Valdemar Løvschal Wernblad</p>
