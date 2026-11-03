@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T14:41:16+00:00",
+  "title": "Design System: Din LCA Hjælper",
+  "extensions": {
+    "colorMeta": {
+      "green": {
+        "role": "primary",
+        "displayName": "Deep Forest",
+        "canonical": "#173b33",
+        "tonalRamp": [
+          "#1d302c",
+          "#2e594f",
+          "#3c8575",
+          "#47b49c",
+          "#74c1b0",
+          "#a1cfc5",
+          "#cae0db",
+          "#f0f5f4"
+        ]
+      },
+      "green-deep": {
+        "role": "primary",
+        "displayName": "Night Forest",
+        "canonical": "#0f2a24",
+        "tonalRamp": [
+          "#1c312c",
+          "#2c5a50",
+          "#398876",
+          "#43b99e",
+          "#71c4b2",
+          "#9fd1c6",
+          "#c9e1dc",
+          "#eff5f4"
+        ]
+      },
+      "green-soft": {
+        "role": "secondary",
+        "displayName": "Pale Mint",
+        "canonical": "#e2efe8",
+        "tonalRamp": [
+          "#202d26",
+          "#355142",
+          "#49785f",
+          "#5aa27b",
+          "#82b499",
+          "#a9c7b7",
+          "#cedcd5",
+          "#f1f4f2"
+        ]
+      },
+      "mist": {
+        "role": "secondary",
+        "displayName": "Mist",
+        "canonical": "#edf4f0",
+        "tonalRamp": [
+          "#212c25",
+          "#384f42",
+          "#4d745e",
+          "#609c79",
+          "#86b098",
+          "#abc5b6",
+          "#cfdbd4",
+          "#f1f4f2"
+        ]
+      },
+      "spark": {
+        "role": "tertiary",
+        "displayName": "Mandarin Spark",
+        "canonical": "#ff7a3d",
+        "tonalRamp": [
+          "#3c1e10",
+          "#743113",
+          "#b3420e",
+          "#fa4f01",
+          "#f27a44",
+          "#eca584",
+          "#eeccbc",
+          "#f8f0ec"
+        ]
+      },
+      "spark-ink": {
+        "role": "tertiary",
+        "displayName": "Spark Ink",
+        "canonical": "#1a0f08",
+        "tonalRamp": [
+          "#32241b",
+          "#5d3e2a",
+          "#8c5735",
+          "#c06f3c",
+          "#c9916d",
+          "#d4b29c",
+          "#e2d2c8",
+          "#f5f2ef"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Tinted Paper",
+        "canonical": "#f6f7f5",
+        "tonalRamp": [
+          "#262924",
+          "#43493e",
+          "#616a57",
+          "#7e8c70",
+          "#9ba591",
+          "#b8beb2",
+          "#d5d8d2",
+          "#f2f3f2"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Forest Ink",
+        "canonical": "#132320",
+        "tonalRamp": [
+          "#202d2a",
+          "#35524c",
+          "#487970",
+          "#59a395",
+          "#81b5ab",
+          "#a9c7c2",
+          "#ceddda",
+          "#f1f4f3"
+        ]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Body Slate",
+        "canonical": "#3c4946",
+        "tonalRamp": [
+          "#242827",
+          "#3f4846",
+          "#586965",
+          "#718a84",
+          "#92a39f",
+          "#b3bdbb",
+          "#d3d8d6",
+          "#f2f3f3"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "canonical": "#5b6864",
+        "tonalRamp": [
+          "#252827",
+          "#404745",
+          "#5b6663",
+          "#758681",
+          "#95a19d",
+          "#b4bbb9",
+          "#d3d7d6",
+          "#f2f3f2"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e0e6e3",
+        "tonalRamp": [
+          "#242926",
+          "#3e4943",
+          "#586961",
+          "#708b7e",
+          "#91a49b",
+          "#b2beb8",
+          "#d2d8d5",
+          "#f2f3f2"
+        ]
+      },
+      "brick": {
+        "role": "status",
+        "displayName": "Brick",
+        "canonical": "#b2412a",
+        "tonalRamp": [
+          "#341d19",
+          "#613026",
+          "#943f2e",
+          "#cb4b31",
+          "#d17765",
+          "#d8a398",
+          "#e5cbc6",
+          "#f6f0ef"
+        ]
+      },
+      "ochre": {
+        "role": "status",
+        "displayName": "Ochre",
+        "canonical": "#8a5f0c",
+        "tonalRamp": [
+          "#392c14",
+          "#6c501b",
+          "#a6771b",
+          "#e69f15",
+          "#e4b251",
+          "#e4c68c",
+          "#eadcc0",
+          "#f7f4ed"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero headline only; subpage heroes 2.5-4rem."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2; panels step down to 1.75-2rem."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Limit values, prices, results and the CTA phone number, with 13px muted units."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h3 in lists, steps and FAQ questions."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Paragraph under a headline, 18px mobile to 20px desktop."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; secondary list text 15px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Output labels, units, tags and fine print, sentence case."
+      }
+    },
+    "shadows": [
+      {
+        "name": "nav",
+        "value": "0 1px 0 rgb(19 35 32 / 0.06)",
+        "purpose": "Navbar once scrolled."
+      },
+      {
+        "name": "sheet",
+        "value": "0 24px 48px -32px rgb(19 35 32 / 0.35)",
+        "purpose": "Surfaces floating over content (consent panel)."
+      },
+      {
+        "name": "object-lift",
+        "value": "0 18px 30px -18px rgb(0 0 0 / 0.55)",
+        "purpose": "A physical object resting on a field, e.g. the limit seal. One per composition."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-strong",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Seal value settle (240ms) and the spark loop draw (0.8s)."
+      },
+      {
+        "name": "control-transition",
+        "value": "150ms ease-out",
+        "purpose": "Button and link colour shifts; press scale 0.97."
+      },
+      {
+        "name": "disclosure",
+        "value": "200ms ease-out",
+        "purpose": "FAQ grid-rows expand and plus rotation."
+      },
+      {
+        "name": "process-draw",
+        "value": "2.4s cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Process connector, drawn once on entry."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default action on paper: forest pill, deeper forest on hover.",
+      "html": "<button class=\"ds-btn-primary\">Få et fast tilbud <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-primary { font-family: var(--font-sans); display:inline-flex; align-items:center; justify-content:center; gap:10px; height:48px; padding:0 24px; border-radius:9999px; font-size:15px; font-weight:600; line-height:1; letter-spacing:0.005em; border:0; cursor:pointer; transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out, scale 150ms ease-out; background:var(--color-green); color:var(--color-mist); } .ds-btn-primary:hover { background:var(--color-green-deep); } .ds-btn-primary:active { scale:0.97; } .ds-btn-primary:focus-visible { outline:2px solid var(--color-spark); outline-offset:3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Companion to a primary: forest outline pill that fills mint on hover.",
+      "html": "<button class=\"ds-btn-secondary\">Send dine tegninger</button>",
+      "css": ".ds-btn-secondary { font-family: var(--font-sans); display:inline-flex; align-items:center; justify-content:center; gap:10px; height:48px; padding:0 24px; border-radius:9999px; font-size:15px; font-weight:600; line-height:1; letter-spacing:0.005em; border:0; cursor:pointer; transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out, scale 150ms ease-out; background:transparent; color:var(--color-green); border:1px solid rgb(23 59 51 / 0.3); } .ds-btn-secondary:hover { background:var(--color-green-soft); border-color:var(--color-green); } .ds-btn-secondary:active { scale:0.97; } .ds-btn-secondary:focus-visible { outline:2px solid var(--color-spark); outline-offset:3px; }"
+    },
+    {
+      "name": "Spark Button",
+      "kind": "button",
+      "refersTo": "button-spark",
+      "description": "Mandarin pill for the call on forest fields and the phone button.",
+      "html": "<button class=\"ds-btn-spark\">Ring +45 29 89 99 99</button>",
+      "css": ".ds-btn-spark { font-family: var(--font-sans); display:inline-flex; align-items:center; justify-content:center; gap:10px; height:48px; padding:0 24px; border-radius:9999px; font-size:15px; font-weight:600; line-height:1; letter-spacing:0.005em; border:0; cursor:pointer; transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out, scale 150ms ease-out; background:var(--color-spark); color:var(--color-spark-ink); } .ds-btn-spark:hover { background:#ff6a26; } .ds-btn-spark:active { scale:0.97; } .ds-btn-spark:focus-visible { outline:2px solid var(--color-spark); outline-offset:3px; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag-soft",
+      "description": "Pill facts: soft mint by default, spark for inclusions.",
+      "html": "<span class=\"ds-tag\">Lovpligtig</span> <span class=\"ds-tag ds-tag-spark\">Inkluderet</span>",
+      "css": ".ds-tag { font-family: var(--font-sans); display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:9999px; font-size:13px; font-weight:500; line-height:1; background:var(--color-green-soft); color:var(--color-green); } .ds-tag-spark { background:var(--color-spark); color:var(--color-spark-ink); }"
+    },
+    {
+      "name": "Inline Sentence Field",
+      "kind": "input",
+      "refersTo": "inline-field",
+      "description": "Mint field set inside a serif sentence, with a forest underline.",
+      "html": "<p class=\"ds-sentence\">Jeg bygger <span class=\"ds-field\">et enfamiliehus</span> på <input class=\"ds-field ds-field-num\" value=\"160\" aria-label=\"Areal\"> m²</p>",
+      "css": ".ds-sentence { font-family: var(--font-display); font-size:1.65rem; line-height:1.9; color:var(--color-ink); } .ds-field { font-family: var(--font-sans); font-size:0.9em; font-weight:600; color:var(--color-green); background:var(--color-green-soft); border:0; border-radius:8px; padding:2px 8px; box-shadow: inset 0 -2px 0 var(--color-green); transition: background-color 150ms; } .ds-field:hover { background:#d4e8dd; } .ds-field:focus-visible { outline:2px solid var(--color-spark); outline-offset:2px; } .ds-field-num { width:4ch; text-align:right; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Paper bar with pill links; active and hover fill mint.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-logo\">Din LCA Hjælper</span><div class=\"ds-nav-links\"><a href=\"#\" class=\"ds-nav-link\" aria-current=\"page\">Viden</a><a href=\"#\" class=\"ds-nav-link\">Værktøjer</a><a href=\"#\" class=\"ds-nav-link\">Kontakt</a><a href=\"#\" class=\"ds-nav-cta\">Få et tilbud</a></div></nav>",
+      "css": ".ds-nav { font-family: var(--font-sans); display:flex; align-items:center; justify-content:space-between; height:80px; padding:0 32px; background:var(--color-paper); box-shadow:0 1px 0 rgb(19 35 32 / 0.06); } .ds-nav-logo { font-weight:700; color:var(--color-green); } .ds-nav-links { display:flex; align-items:center; gap:4px; } .ds-nav-link { padding:8px 14px; border-radius:9999px; font-size:15px; font-weight:500; color:rgb(19 35 32 / 0.8); text-decoration:none; transition:background-color 150ms, color 150ms; } .ds-nav-link:hover, .ds-nav-link[aria-current] { background:var(--color-green-soft); color:var(--color-green); } .ds-nav-link:focus-visible, .ds-nav-cta:focus-visible { outline:2px solid var(--color-spark); outline-offset:3px; } .ds-nav-cta { margin-left:16px; display:inline-flex; align-items:center; height:40px; padding:0 16px; border-radius:9999px; font-size:14px; font-weight:600; background:var(--color-green); color:var(--color-mist); text-decoration:none; } .ds-nav-cta:hover { background:var(--color-green-deep); }"
+    },
+    {
+      "name": "White Sheet with Hairline List",
+      "kind": "card",
+      "refersTo": "sheet-white",
+      "description": "In-flow white sheet with a hairline ring and check rows.",
+      "html": "<div class=\"ds-sheet\"><ul class=\"ds-list\"><li><span class=\"ds-check\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12.5l4.5 4.5L19 7\"/></svg></span>Tidlig LCA-beregning med hotspot-analyse</li><li><span class=\"ds-check\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12.5l4.5 4.5L19 7\"/></svg></span>Myndighedsklar rapport klar til kommunen</li></ul></div>",
+      "css": ".ds-sheet { font-family: var(--font-sans); background:var(--color-white); border-radius:24px; box-shadow:0 0 0 1px var(--color-line); padding:32px; color:var(--color-body); font-size:17px; line-height:1.6; } .ds-list { list-style:none; margin:0; padding:0; } .ds-list li { display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-top:1px solid var(--color-line); } .ds-list li:first-child { border-top:0; padding-top:0; } .ds-list li:last-child { padding-bottom:0; } .ds-check { margin-top:2px; display:grid; place-items:center; width:24px; height:24px; flex-shrink:0; border-radius:9999px; background:var(--color-green-soft); color:var(--color-green); }"
+    },
+    {
+      "name": "Forest Field CTA",
+      "kind": "custom",
+      "refersTo": "forest-field",
+      "description": "Rounded, grained forest field with a serif headline and spark call.",
+      "html": "<section class=\"ds-field-cta\"><h2>Klar til at få styr på dit projekts LCA?</h2><p>Send os dine tegninger og få et tilbud inden for 24 timer.</p><button class=\"ds-btn-spark\">Få et tilbud</button></section>",
+      "css": ".ds-field-cta { position:relative; isolation:isolate; overflow:hidden; } .ds-field-cta::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:0.2; mix-blend-mode:overlay; background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\"); } .ds-field-cta { font-family: var(--font-sans); background:var(--color-green); color:rgb(237 244 240 / 0.8); border-radius:32px; padding:64px 48px; } .ds-field-cta h2 { font-family:var(--font-display); font-weight:400; font-size:3rem; line-height:1.05; letter-spacing:-0.015em; color:#fff; margin:0; max-width:18ch; } .ds-field-cta p { font-size:18px; line-height:1.625; margin:20px 0 32px; max-width:36rem; } .ds-btn-spark { font-family: var(--font-sans); display:inline-flex; align-items:center; justify-content:center; gap:10px; height:48px; padding:0 24px; border-radius:9999px; font-size:15px; font-weight:600; line-height:1; letter-spacing:0.005em; border:0; cursor:pointer; transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out, scale 150ms ease-out; background:var(--color-spark); color:var(--color-spark-ink); } .ds-btn-spark:hover { background:#ff6a26; } .ds-btn-spark:focus-visible { outline:2px solid var(--color-spark); outline-offset:3px; }"
+    },
+    {
+      "name": "Limit Seal",
+      "kind": "custom",
+      "refersTo": "forest-field",
+      "description": "Tilted mandarin seal carrying the live BR18 limit value.",
+      "html": "<div class=\"ds-seal-ground\"><div class=\"ds-seal\"><span class=\"ds-seal-v\">6,7</span><span class=\"ds-seal-u\">kg CO₂e/m²/år</span></div></div>",
+      "css": ".ds-seal-ground { background:var(--color-green); padding:32px; border-radius:24px; display:inline-block; } .ds-seal { width:128px; height:128px; border-radius:9999px; background:var(--color-spark); color:var(--color-green-deep); display:grid; place-content:center; text-align:center; rotate:-6deg; box-shadow:0 18px 30px -18px rgb(0 0 0 / 0.55); } .ds-seal-v { display:block; font-family:var(--font-display); font-size:2.2rem; line-height:1; } .ds-seal-u { display:block; margin-top:4px; font-family:var(--font-sans); font-size:11px; font-weight:600; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Skov og mandarin",
+    "overview": "**Creative North Star: \"Skov og mandarin\"**\n\nA deep forest field, softened by fine grain and large rounded corners, carries the serious part: headlines, the hero check, the closing call. Around it the page is pale paper and mint, quiet and orderly, with hairline-ruled lists instead of boxed cards. One mandarin spark sits on the few things a visitor must not miss: the BR18 limit seal, the price, the phone button, selection and small markers.\n\nThe system shows the work the way the visitor's own documents show it. Numbers, limits and units are set in the display serif at reading size, so a limit value or a price reads like a figure in a report rather than a marketing badge. Density is moderate: generous section rhythm, tight internal lists.\n\nMotion is rare and explanatory. The seal value settles in when the building type changes, the process connector draws once when it enters view, and its iteration loop draws last in spark. Everything else is static; sections do not fade in.",
+    "keyCharacteristics": [
+      "Rounded forest fields (24px mobile, 32px desktop) with grain, inset from the page edge.",
+      "Hedvig Letters Serif at one weight (400) for headlines and figures; Hanken Grotesk for everything else.",
+      "Pill buttons in the text face; hover shifts colour only, press scales to 0.97.",
+      "Hairline lists on paper instead of card grids.",
+      "Mandarin used sparingly as the single spark."
+    ],
+    "rules": [
+      {
+        "name": "The One Spark Rule",
+        "body": "Mandarin marks the limit, the price, the call and small markers; nothing else. If a second element on a screen competes with the seal or the price for the eye, it does not get spark.",
+        "section": "colors"
+      },
+      {
+        "name": "The Grain-on-Forest Rule",
+        "body": "Every Deep Forest or Night Forest field larger than a button carries the grain overlay (fractal noise, 20% opacity, overlay blend). Flat forest reads as a placeholder.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Weight Rule",
+        "body": "h1 and h2 are always Hedvig Letters Serif at 400; the base layer forces it so no browser fakes a bold. Hierarchy comes from size, never weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Figures-in-Serif Rule",
+        "body": "A number the visitor came for (limit, price, result) is set in the display serif, with its unit in 13px grotesk Muted Slate beside it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline-Not-Shadow Rule",
+        "body": "A surface that sits in the page flow gets a 1px Hairline ring. Shadows are only for things that float over other content.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put headlines and figures in Hedvig Letters Serif at 400 and let size carry hierarchy.",
+      "**Do** frame the opening and closing of a page in a rounded, grained Deep Forest field inset from the viewport edge.",
+      "**Do** list items with hairline rules on paper; reach for a white sheet with a Hairline ring only when a group needs to read as one object.",
+      "**Do** keep Mandarin to the limit, the price, the call and small markers (dots, bullets, underlines, focus).",
+      "**Do** set units and labels in 13px Muted Slate next to a serif figure.",
+      "**Do** use line icons at 1.6 stroke with round caps, in forest, on Pale Mint tiles or white discs.",
+      "**Do** give every interactive element the 2px Mandarin focus outline."
+    ],
+    "donts": [
+      "**Don't** bold Hedvig Letters Serif or set h1/h2 in the grotesk.",
+      "**Don't** put a small uppercase or tracked label above a headline; tracked capitals live only on the limit seal's ring.",
+      "**Don't** use shadows on in-flow sheets or cards; use the Hairline ring.",
+      "**Don't** fade or slide sections in on scroll; motion is reserved for the seal value and the process connector.",
+      "**Don't** use Brick or Ochre as decoration; they mean status.",
+      "**Don't** leave a large forest area flat without grain."
+    ]
+  }
+}
