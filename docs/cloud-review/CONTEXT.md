@@ -14,7 +14,7 @@ Existing material worth reading before you judge anything: `design-brief.md`, `c
 - Never use the em dash character. Use a plain dash.
 - Danish copy must read like a Danish professional wrote it. Run new or rewritten Danish text through the `dansk-humanizer` skill.
 - Regulatory claims need a primary source (bygningsreglementet.dk, Social- og Boligstyrelsen, BUILD/AAU, LCAbyg, retsinformation.dk) with the date you checked it. No source, no claim.
-- Firecrawl: follow `.claude/skills/firecrawl/rules/credits.md`. Budget for this session: at most 100 credits in total unless Valdemar approves more in this session. Check `firecrawl credit-usage` before and after, and report usage.
+- Firecrawl: follow `.claude/skills/firecrawl/rules/credits.md`. Budget for this session: at most 100 credits (Valdemar approved 100 per session, 300 across the three review sessions, on 3 November 2026). Ask before going over. Check `firecrawl credit-usage` before and after, and report usage.
 - Proof is behavioral: run `npm run lint`, `npm test` and `npm run build:prerender` before you push, and check changed pages in a real browser at 375px, 768px and 1280px (Chrome for Testing is at `$CHROME_PATH`; `@playwright/test` is a dev dependency).
 - Work on your own branch, push it, and open a PR with the Create PR button (`gh pr create` is blocked in cloud sessions). Never merge.
 
