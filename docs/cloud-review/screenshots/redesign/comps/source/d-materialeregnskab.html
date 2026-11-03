@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comp D Materialeregnskab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&display=swap">
+<style>
+:root{--ground:#fafaf9;--ink:#1d2124;--ink-2:#61676c;--line:#e2e3e1;--slate:#2f4858}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Albert Sans",sans-serif;background:var(--ground);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+header{display:flex;justify-content:space-between;align-items:center;height:84px}
+header img{height:26px}
+nav{display:flex;gap:32px;font-size:15px;align-items:center}
+nav a{color:var(--ink);text-decoration:none}
+.btn{display:inline-block;background:var(--ink);color:#fff!important;padding:14px 24px;border-radius:999px;font-weight:500;font-size:15px;text-decoration:none}
+.btn.ghost{background:none;color:var(--ink)!important;box-shadow:inset 0 0 0 1px var(--ink)}
+.hero{display:grid;grid-template-columns:6fr 5fr;gap:64px;padding:56px 0 72px;align-items:end}
+h1{font-weight:300;font-size:64px;line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
+.lede{margin-top:28px;font-size:19px;color:var(--ink-2);max-width:40ch}
+.row{margin-top:36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.price{font-size:15px;color:var(--ink-2)}
+.price b{display:block;color:var(--ink);font-weight:500;font-size:18px}
+.fig{position:relative}
+.fig img{width:100%;height:520px;object-fit:cover;display:block;border-radius:2px}
+.cap{position:absolute;left:24px;right:24px;bottom:24px;background:rgb(250 250 249/.94);padding:18px 20px;border-radius:2px;backdrop-filter:blur(6px)}
+.cap p{font-size:14px;color:var(--ink-2)}
+.cap .n{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.cap .n b{font-size:34px;font-weight:300;letter-spacing:-.02em;color:var(--ink)}
+.cap .bar{margin-top:10px;height:2px;background:var(--line);position:relative}
+.cap .bar i{position:absolute;left:0;top:0;bottom:0;width:96%;background:var(--ink)}
+.cap .bar em{position:absolute;right:0;top:-5px;width:1px;height:12px;background:var(--ink)}
+.explain{border-top:1px solid var(--line);padding:72px 0}
+.explain h2{font-weight:300;font-size:40px;line-height:1.15;letter-spacing:-.02em;max-width:22ch}
+.mats{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.mat img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.mat h3{margin-top:16px;font-weight:500;font-size:17px}
+.mat p{font-size:15px;color:var(--ink-2);margin-top:4px}
+@media(max-width:700px){.wrap{padding:0 20px}nav a:not(.btn){display:none}.hero{grid-template-columns:1fr;gap:36px;padding:28px 0 48px}h1{font-size:40px}.fig img{height:380px}.mats{grid-template-columns:1fr 1fr;gap:16px}.explain h2{font-size:30px}}
+</style></head><body>
+<div class="wrap">
+<header><img src="../../../../../../public/brand/logo-wordmark-dark-1600.png" alt="Din LCA Hjælper"><nav><a href="#">Viden</a><a href="#">BR18-tjekker</a><a href="#">Om os</a><a class="btn" href="#">Få et tilbud</a></nav></header>
+<section class="hero">
+ <div>
+  <h1>Klimaaftrykket af dit byggeri, regnet ud materiale for materiale</h1>
+  <p class="lede">Vi håndterer hele LCA-beregningen efter BR18, fra tidlig fase til myndighedsklar rapport, så du kan fokusere på projektet.</p>
+  <div class="row"><a class="btn" href="#">Få et tilbud</a><p class="price"><b>Typisk 5.000-7.000 kr</b>ekskl. moms for et enfamiliehus, A4+A5 inkluderet</p></div>
+ </div>
+ <figure class="fig"><img src="../mat/gulv.jpg" alt="">
+  <figcaption class="cap"><p>Ternedalen, sommerhus 94 m². Terrændækket er den største post.</p><div class="n"><b>3,839</b><span>kg CO₂e/m²/år, grænsen er 4,0</span></div><div class="bar"><i></i><em></em></div></figcaption>
+ </figure>
+</section>
+<section class="explain">
+ <h2>En LCA tæller CO₂ i hvert materiale, hele vejen fra fabrik til nedrivning</h2>
+ <div class="mats">
+  <div class="mat"><img src="../mat/beton.jpg" alt=""><h3>Terrændæk og fundament</h3><p>Ofte de tungeste poster. På Ternedalen stod de for 35 %.</p></div>
+  <div class="mat"><img src="../mat/metal.jpg" alt=""><h3>Tag</h3><p>Den største hotspot på Agavevej, med 43 % af den tidlige beregning.</p></div>
+  <div class="mat"><img src="../mat/konstruktion.jpg" alt=""><h3>Konstruktion</h3><p>Mængder, levetider og EPD'er for de valgte produkter.</p></div>
+  <div class="mat"><img src="../mat/tegl.jpg" alt=""><h3>Byggeproces</h3><p>A4 og A5: transport og byggeplads, opdateret med det faktiske forbrug.</p></div>
+ </div>
+</section>
+</div>
+</body></html>
