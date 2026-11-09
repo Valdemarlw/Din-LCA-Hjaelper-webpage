@@ -26,8 +26,20 @@ export function BlogPage() {
 
       <PageHero
         crumbs={[{ label: "Forside", to: "/" }, { label: "Viden", to: "/viden" }, { label: "Artikler" }]}
-        title="Viden om LCA-beregning"
-        lede="Artikler og guides om LCA-beregning, klimakrav og bæredygtigt byggeri i Danmark."
+        title="Artikler om LCA-beregning og BR18"
+        lede={
+          <>
+            Artikler og guides om LCA-beregning, klimakrav og bæredygtigt byggeri i Danmark. Skal du have lavet
+            beregningen, så se{" "}
+            <Link
+              to="/lca-beregning"
+              className="font-semibold text-white underline decoration-spark/70 underline-offset-4 transition-colors hover:decoration-spark"
+            >
+              vores LCA-beregning
+            </Link>
+            .
+          </>
+        }
       />
 
       <section className="bg-paper pb-20 md:pb-28">
