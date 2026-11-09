@@ -29,15 +29,16 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lca-beregning-pris",
     title: "Hvad koster en LCA-beregning? Priser i 2026 og hvad der påvirker dem",
-    metaTitle: "Hvad koster en LCA-beregning? Pris 2026",
+    metaTitle: "LCA-beregning pris 2026, fra 4.000 kr.",
     description:
-      "Hvad koster en LCA-beregning efter BR18? Vejledende priser for bolig, sommerhus og erhverv, hvad der driver prisen, og hvordan du får et fast tilbud inden 24 timer.",
+      "Hvad koster en LCA-beregning efter BR18? Fra 4.000 kr. ekskl. moms. Vejledende priser for bolig, sommerhus og erhverv, hvordan prisen beregnes, og hvordan du får et fast tilbud inden 24 timer.",
     date: "2026-06-22",
+    updated: "2026-11-09",
     readingTime: "7 min",
     content: [
       {
         type: "paragraph",
-        text: "Hvad en LCA-beregning koster afhænger af projektets omfang og kompleksitet, ikke af arealet alene. For et typisk enfamiliehus eller sommerhus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. Rækkehuse og projekter med flere boliger starter ved 8.000 kr og får altid et manuelt tilbud. Det samme gælder store eller komplekse erhvervsprojekter.",
+        text: "En LCA-beregning hos Din LCA Hjælper koster fra 4.000 kr ekskl. moms. Prisen følger bygningstype og opvarmet areal. For et typisk enfamiliehus eller sommerhus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. Rækkehuse og projekter med flere boliger starter ved 8.000 kr og får altid et manuelt tilbud. Det samme gælder store eller komplekse erhvervsprojekter.",
       },
       {
         type: "heading2",
@@ -69,20 +70,20 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Prisen følger arbejdsmængden, og arbejdsmængden bestemmes af, hvor sammensat byggeriet er. De vigtigste faktorer er:",
+        text: "Prisen beregnes ud fra to ting, du altid kender: bygningstypen og det opvarmede areal. Sådan hænger det sammen:",
       },
       {
         type: "list",
         items: [
-          "Antal konstruktionstyper: Hver unik ydervæg, tagopbygning, dæk og fundament skal kortlægges, mappes til materialer og beregnes. Et hus med 17 forskellige lagopbygninger kræver mere arbejde end en simpel hal med fire.",
-          "Grænseværdikravet: Et sommerhus under 150 m² skal holde [4,0 kg CO₂e/m²/år](/blog/graensevaerdier-co2), den strammeste grænse i BR18. Det kræver mere optimering og flere [produktspecifikke EPD'er](/ordbog/produktspecifikke-data) end et erhvervsbyggeri med grænsen 7,5.",
-          "Bygningstype: Bolig, sommerhus, lager og kontor har forskellige standardpriser, fordi de typisk rummer forskelligt antal konstruktioner og forskellig kompleksitet.",
-          "Datagrundlag: En beregning udelukkende på [generiske data](/ordbog/generiske-data) er hurtigere end en, hvor vi finder og indlæser produktspecifikke EPD'er for at komme under grænsen.",
+          "Bygningstype: Hver type har en grundpris og en pris pr. m². Enfamiliehuse og sommerhuse har samme pris, lager og hal har deres egen, og kontor og etagebyggeri har deres egen.",
+          "Opvarmet areal: Prisen stiger med arealet, men m²-prisen falder over 100 m² (lager og hal over 150 m²). De første kvadratmeter rummer stort set alle bygningens konstruktionstyper, mens ekstra areal mest er mere af det samme.",
+          "Bundgrænse: Ingen beregning koster under 4.000 kr ekskl. moms.",
+          "Store og sammensatte projekter: Rækkehuse og projekter med flere boliger får altid et manuelt tilbud fra 8.000 kr. Det samme gælder boliger, hvor prisen ville komme over 8.000 kr, og erhverv over 12.500 kr.",
         ],
       },
       {
         type: "paragraph",
-        text: "Bemærk, at arealet i sig selv ikke afgør prisen. Et lille, lagtæt hus kan kræve mere arbejde end en stor, bar lagerhal. Derfor prissætter vi efter omfang og kompleksitet, ikke pr. kvadratmeter.",
+        text: "Sommerhuse koster det samme som enfamiliehuse, selv om et sommerhus under 150 m² skal holde [4,0 kg CO₂e/m²/år](/blog/graensevaerdier-co2), den strammeste grænse i BR18. Det kræver ofte mere optimering og flere [produktspecifikke EPD'er](/ordbog/produktspecifikke-data), og det arbejde er med i prisen. Prøv [prisestimatet i BR18-tjekkeren](/vaerktoejer/br18-tjekker) med dit eget areal.",
       },
       {
         type: "heading2",
@@ -158,7 +159,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Hvad koster en LCA-beregning for et enfamiliehus?",
         answer:
-          "For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. Den endelige pris afhænger af antallet af konstruktionstyper og projektets kompleksitet, ikke af arealet alene. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
+          "For et typisk enfamiliehus ligger en komplet beregning omkring 5.000-7.000 kr ekskl. moms. Prisen følger husets opvarmede areal, og ingen beregning koster under 4.000 kr. Send dine tegninger, så giver vi et fast tilbud inden 24 timer.",
       },
       {
         question: "Er priserne inkl. eller ekskl. moms?",
@@ -176,9 +177,9 @@ export const blogPosts: BlogPost[] = [
           "Ja. Vi opdaterer beregningen med endelige mængder og registreret byggepladsforbrug ved færdigmelding. LCA-rapporten skal afspejle det opførte byggeri, og derfor hører opdateringen med i en komplet løsning.",
       },
       {
-        question: "Hvorfor får jeg ikke en fast pris pr. kvadratmeter?",
+        question: "Hvordan beregner I prisen?",
         answer:
-          "Fordi arealet ikke er det, der bestemmer arbejdet. To huse på samme størrelse kan kræve vidt forskellig indsats afhængigt af antallet af konstruktioner, og hvilken grænseværdi der gælder. Vi prissætter derfor efter projektets omfang og kompleksitet og giver dig altid en fast samlet pris på forhånd.",
+          "Ud fra bygningstypen og det opvarmede areal. Hver type har en grundpris og en pris pr. m², og m²-prisen falder over 100 m² (lager og hal over 150 m²). Ingen beregning koster under 4.000 kr ekskl. moms. Rækkehuse og projekter med flere boliger får et manuelt tilbud fra 8.000 kr. Du får altid en fast samlet pris på forhånd.",
       },
       {
         question: "Hvad hvis mit projekt er meget stort eller komplekst?",
