@@ -4,7 +4,7 @@ import { Logo } from "../ui/Logo";
 
 const videnLinks = [
   { to: "/blog", label: "Artikler" },
-  { to: "/lca-beregning", label: "Bygningstyper" },
+  { to: "/lca-beregning", label: "LCA-beregning" },
   { to: "/referenceprojekter", label: "Referenceprojekter" },
   { to: "/ordbog", label: "LCA-ordbog" },
   { to: "/sammenligninger/din-lca-hjaelper-vs-lcabyg", label: "vs. LCAbyg" },

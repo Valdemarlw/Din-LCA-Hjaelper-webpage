@@ -4,6 +4,7 @@ import { getGlossaryTerm } from "../data/glossary";
 import { getReferenceProject } from "../data/referenceProjects";
 import {
   BR18_CHECKER_SEO_TITLE,
+  LCA_BEREGNING_SEO_TITLE,
   MAX_SEO_TITLE_LENGTH,
   buildSeoTitle,
 } from "./seoTitles";
@@ -35,6 +36,12 @@ describe("Bing title-length fixes", () => {
         MAX_SEO_TITLE_LENGTH,
       );
     }
+  });
+
+  it("keeps the /lca-beregning service title within the limit and on the head search", () => {
+    expect(LCA_BEREGNING_SEO_TITLE.startsWith("LCA-beregning")).toBe(true);
+    expect(LCA_BEREGNING_SEO_TITLE).toContain("4.000 kr.");
+    expect(LCA_BEREGNING_SEO_TITLE.length).toBeLessThanOrEqual(MAX_SEO_TITLE_LENGTH);
   });
 
   it("keeps the BR18 checker title within the limit", () => {

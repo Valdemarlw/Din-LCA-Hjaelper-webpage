@@ -29,9 +29,8 @@ function buildSchema(pt: ProjectType) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Forside", item: "https://dinlcahjælper.dk" },
-      { "@type": "ListItem", position: 2, name: "Viden", item: "https://dinlcahjælper.dk/viden" },
-      { "@type": "ListItem", position: 3, name: "Bygningstyper", item: "https://dinlcahjælper.dk/lca-beregning" },
-      { "@type": "ListItem", position: 4, name: pt.title, item: `https://dinlcahjælper.dk/lca-beregning/${pt.slug}` },
+      { "@type": "ListItem", position: 2, name: "LCA-beregning", item: "https://dinlcahjælper.dk/lca-beregning" },
+      { "@type": "ListItem", position: 3, name: pt.title, item: `https://dinlcahjælper.dk/lca-beregning/${pt.slug}` },
     ],
   };
 
@@ -82,8 +81,7 @@ export function ProjectTypePage() {
           width="narrow"
           crumbs={[
             { label: "Forside", to: "/" },
-            { label: "Viden", to: "/viden" },
-            { label: "Bygningstyper", to: "/lca-beregning" },
+            { label: "LCA-beregning", to: "/lca-beregning" },
             { label: pt.title.replace("LCA-beregning for ", "") },
           ]}
           title={pt.title}
