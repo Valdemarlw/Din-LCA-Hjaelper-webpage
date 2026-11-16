@@ -15,10 +15,11 @@ const BLOG_SLUGS = [
   "lcabyg-hjaelp-outsource",
   "klimakrav-2025",
   "lca-sommerhuse",
+  "a4-a5-dokumentation",
 ];
 
 describe("Bing title-length fixes", () => {
-  it("keeps the five flagged blog titles within the search title limit", () => {
+  it("keeps the flagged blog titles within the search title limit", () => {
     for (const slug of BLOG_SLUGS) {
       const post = getBlogPost(slug);
       expect(post?.metaTitle).toBeTruthy();
