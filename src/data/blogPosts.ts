@@ -619,17 +619,17 @@ export const blogPosts: BlogPost[] = [
   // ─── Post 2: Nye klimakrav 2025 ───
   {
     slug: "klimakrav-2025",
-    title: "Nye klimakrav 2025: Hvad betyder det for dit byggeri?",
-    metaTitle: "Klimakrav 2025 og grænseværdier",
+    title: "LCA-krav 2025: nye grænseværdier i BR18 for dit byggeri",
+    metaTitle: "LCA-krav 2025: grænseværdier i BR18",
     description:
-      "Fra 1. juli 2025 gælder nye, skærpede klimakrav for nybyggeri i Danmark. Læs om de differentierede grænseværdier og hvad de betyder for dit projekt.",
+      "LCA-kravene i BR18 fra 1. juli 2025: grænseværdier fra 4,0 til 8,0 kg CO₂e/m²/år efter bygningstype og 1,5 for byggeprocessen A4+A5. Se hvad der gælder for dit projekt.",
     date: "2026-04-02",
-    updated: "2026-11-03",
+    updated: "2026-11-16",
     readingTime: "5 min",
     content: [
       {
         type: "paragraph",
-        text: "Fra 1. juli 2025 gælder nye, differentierede [grænseværdier](/ordbog/graensevaerdi) for CO₂-udledning i nybyggeri i Danmark. De nye klimakrav erstatter den tidligere ensartede grænseværdi og indfører specifikke krav baseret på bygningstype. For arkitekter og bygherrer betyder det, at grænseværdierne nu varierer fra 4,0 til 8,0 kg CO₂e/m²/år, og at der er indført en separat grænse for byggeprocessen (A4+A5).",
+        text: "LCA-kravene i BR18 fra 1. juli 2025 er to grænser. Bygningen skal holde en [grænseværdi](/ordbog/graensevaerdi) efter bygningstype på 4,0 til 8,0 kg CO₂e/m²/år (§ 298, stk. 1), og byggeprocessen (A4+A5) skal holde 1,5 kg CO₂e/m²/år (§ 298, stk. 5). Kravene gælder, når ansøgningen om byggetilladelse er indsendt 1. juli 2025 eller senere. De erstatter den tidligere ensartede grænse på 12,0, som kun gjaldt nybyggeri over 1.000 m².",
       },
       {
         type: "paragraph",
@@ -637,7 +637,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "heading2",
-        text: "De nye grænseværdier fra juli 2025",
+        text: "LCA-krav og grænseværdier fra 1. juli 2025",
       },
       {
         type: "paragraph",
