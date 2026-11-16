@@ -667,7 +667,7 @@ export const blogPosts: BlogPost[] = [
         items: [
           "Differentierede grænser: Forskellige bygningstyper har nu forskellige krav. Sommerhuse har de strengeste, øvrigt nybyggeri de mildeste",
           "Markant stramning: Selv den højeste nye grænse (8,0) ligger en tredjedel under den tidligere (12,0). For sommerhuse under 150 m² er grænsen kun en tredjedel af den gamle (4,0 mod 12,0)",
-          "Separat A4+A5-grænse: Der er indført en ny, separat grænseværdi på 1,5 kg CO₂e/m²/år specifikt for transport og byggeproces. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation)",
+          "Separat A4+A5-grænse: Der er indført en ny, separat grænseværdi på 1,5 kg CO₂e/m²/år specifikt for transport og byggeproces. Læs mere om [A4 og A5 i LCA](/blog/a4-a5-dokumentation)",
         ],
       },
       {
@@ -751,16 +751,17 @@ export const blogPosts: BlogPost[] = [
   // ─── Post 3: A4 og A5 dokumentation ───
   {
     slug: "a4-a5-dokumentation",
-    title: "A4 og A5: Dokumentation af byggeprocessens CO₂",
+    title: "A4 og A5 i LCA: grænseværdi, indhold og dokumentation",
+    metaTitle: "LCA A4 og A5: grænseværdi og dokumentation",
     description:
-      "A4 og A5 faserne i LCA dækker transport og byggeproces. Læs om hvad de indeholder, hvorfor de er lovpligtige, og hvordan du dokumenterer dem.",
+      "A4 og A5 i LCA er byggeprocessen: transport til pladsen og energi, spild og affald på pladsen. Grænsen er 1,5 kg CO₂e/m²/år samlet. Sådan dokumenterer du dem.",
     date: "2026-04-02",
-    updated: "2026-11-03",
+    updated: "2026-11-16",
     readingTime: "5 min",
     content: [
       {
         type: "paragraph",
-        text: "A4 og A5 er de faser i en LCA-beregning der dækker byggeprocessens miljøpåvirkning: transport af materialer til byggepladsen ([A4](/ordbog/modul-a4)) og spild, affald og energiforbrug under selve opførelsen ([A5](/ordbog/modul-a5)). Fra juli 2025 er der indført en separat [grænseværdi](/ordbog/graensevaerdi) på 1,5 kg CO₂e/m²/år for A4+A5, og dokumentation er nu obligatorisk for alt nybyggeri i Danmark.",
+        text: "A4 og A5 er de to moduler i en LCA-beregning, der dækker byggeprocessen: [A4](/ordbog/modul-a4) er transport af materialer og materiel til og fra byggepladsen, og [A5](/ordbog/modul-a5) er energiforbrug, spild og affald under selve opførelsen. For byggeri, hvor ansøgningen om byggetilladelse er indsendt 1. juli 2025 eller senere, har de en samlet [grænseværdi](/ordbog/graensevaerdi) på 1,5 kg CO₂e/m²/år (BR18 § 298, stk. 5). Grænsen gælder A4 og A5 tilsammen, uden krav til fordelingen mellem dem.",
       },
       {
         type: "paragraph",
@@ -1083,7 +1084,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Denne grænse gælder for alle bygningstyper. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation) og hvordan du indsamler de nødvendige data.",
+        text: "Denne grænse gælder for alle bygningstyper. Læs mere om [A4 og A5 i LCA](/blog/a4-a5-dokumentation) og hvordan du indsamler de nødvendige data.",
       },
       {
         type: "heading2",

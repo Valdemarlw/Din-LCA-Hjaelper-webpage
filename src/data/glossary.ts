@@ -359,7 +359,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "A4-dokumentation kræver oplysninger om transportafstande og transportform. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de projektdata, der foreligger. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation).",
+        text: "A4-dokumentation kræver oplysninger om transportafstande og transportform. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de projektdata, der foreligger. Læs mere om [A4 og A5 i LCA](/blog/a4-a5-dokumentation).",
       },
     ],
     faqs: [
@@ -411,7 +411,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       },
       {
         type: "paragraph",
-        text: "A5 kræver oplysninger om brændstof, elforbrug og affaldsmængder fra byggepladsen. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de faktiske projektdata, der foreligger. Læs mere om [A4 og A5 dokumentation](/blog/a4-a5-dokumentation).",
+        text: "A5 kræver oplysninger om brændstof, elforbrug og affaldsmængder fra byggepladsen. I den tidlige beregning dokumenterer vi de værdier og forudsætninger, der er brugt. Før den endelige rapport opdaterer vi med de faktiske projektdata, der foreligger. Læs mere om [A4 og A5 i LCA](/blog/a4-a5-dokumentation).",
       },
     ],
     faqs: [],
