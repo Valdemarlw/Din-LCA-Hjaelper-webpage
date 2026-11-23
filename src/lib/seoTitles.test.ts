@@ -6,8 +6,16 @@ import {
   BR18_CHECKER_SEO_TITLE,
   LCA_BEREGNING_SEO_TITLE,
   MAX_SEO_TITLE_LENGTH,
+  REFERENCE_PROJECTS_SEO_TITLE,
   buildSeoTitle,
 } from "./seoTitles";
+
+describe("/referenceprojekter answers 'lca beregning eksempel'", () => {
+  it("leads with 'Eksempler på LCA-beregninger' within the title limit", () => {
+    expect(REFERENCE_PROJECTS_SEO_TITLE.startsWith("Eksempler på LCA-beregninger")).toBe(true);
+    expect(REFERENCE_PROJECTS_SEO_TITLE.length).toBeLessThanOrEqual(MAX_SEO_TITLE_LENGTH);
+  });
+});
 
 const BLOG_SLUGS = [
   "lca-beregning-pris",
