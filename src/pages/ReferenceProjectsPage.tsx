@@ -4,6 +4,7 @@ import { referenceProjects } from "../data/referenceProjects";
 import { PageHero } from "../components/ui/PageHero";
 import { Tag } from "../components/ui/Tag";
 import { statusTagTone, statusToneOf } from "../lib/statusTone";
+import { REFERENCE_PROJECTS_SEO_TITLE } from "../lib/seoTitles";
 
 export function ReferenceProjectsPage() {
   const breadcrumbSchema = {
@@ -19,13 +20,13 @@ export function ReferenceProjectsPage() {
   return (
     <div>
       <Helmet>
-        <title>Referenceprojekter | Din LCA Hjælper</title>
+        <title>{REFERENCE_PROJECTS_SEO_TITLE}</title>
         <meta
           name="description"
-          content="Se dokumenterede LCA-cases med beregningsforløb, kvalitetssikring og hotspotanalyser fra konkrete byggeprojekter."
+          content="Eksempler på LCA-beregninger efter BR18 fra konkrete byggeprojekter: resultat, grænseværdi, beregningsforløb og hotspotanalyse for hver case."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/referenceprojekter" />
-        <meta property="og:title" content="Referenceprojekter | Din LCA Hjælper" />
+        <meta property="og:title" content={REFERENCE_PROJECTS_SEO_TITLE} />
         <meta property="og:description" content="Se vores LCA-referenceprojekter med dokumenterede resultater fra rigtige byggeprojekter." />
         <meta property="og:url" content="https://dinlcahjælper.dk/referenceprojekter" />
         <meta property="og:type" content="website" />
@@ -35,8 +36,8 @@ export function ReferenceProjectsPage() {
 
       <PageHero
         crumbs={[{ label: "Forside", to: "/" }, { label: "Viden", to: "/viden" }, { label: "Referenceprojekter" }]}
-        title="Referenceprojekter"
-        lede="Se hvordan beregninger bliver kontrolleret, rettet og optimeret. Hver case viser både resultat, metode og de forbehold, der stadig gælder."
+        title="Eksempler på LCA-beregninger"
+        lede="Her er rigtige LCA-beregninger efter BR18 fra konkrete byggerier. Se hvordan beregningerne bliver kontrolleret, rettet og optimeret. Hver case viser både resultat, metode og de forbehold, der stadig gælder."
       />
 
       <section className="bg-paper pb-20 md:pb-28">

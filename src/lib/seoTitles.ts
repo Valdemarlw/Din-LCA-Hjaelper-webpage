@@ -12,3 +12,8 @@ export const BR18_CHECKER_SEO_TITLE = buildSeoTitle(
 export const LCA_BEREGNING_SEO_TITLE = buildSeoTitle(
   "LCA-beregning efter BR18, fra 4.000 kr.",
 );
+
+/** /referenceprojekter is the page for the search "lca beregning eksempel". */
+export const REFERENCE_PROJECTS_SEO_TITLE = buildSeoTitle(
+  "Eksempler på LCA-beregninger efter BR18",
+);

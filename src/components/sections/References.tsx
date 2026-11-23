@@ -57,7 +57,7 @@ export function References() {
             to="/referenceprojekter"
             className="shrink-0 font-semibold text-green underline decoration-spark decoration-2 underline-offset-4 transition-colors hover:text-green-deep"
           >
-            Se alle referenceprojekter
+            Se alle eksempler på LCA-beregninger
           </Link>
         </div>
       </div>
