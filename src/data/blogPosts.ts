@@ -897,16 +897,16 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lca-sommerhuse",
     title: "LCA-beregning for sommerhuse: udfordringer og løsninger",
-    metaTitle: "Sommerhus-LCA: sådan holder du grænsen",
+    metaTitle: "LCA-beregning for sommerhus og grænsen 4,0",
     description:
-      "Sommerhuse har den strengeste CO₂-grænseværdi i BR18 på kun 4,0 kg CO₂e/m²/år. Læs om udfordringerne og hvordan du overholder kravet.",
+      "En LCA-beregning for sommerhus skal vise, at huset holder BR18's grænse på 4,0 kg CO₂e/m²/år under 150 m². Læs om udfordringerne og hvordan du overholder kravet.",
     date: "2026-04-02",
-    updated: "2026-11-03",
+    updated: "2026-11-23",
     readingTime: "5 min",
     content: [
       {
         type: "paragraph",
-        text: "Sommerhuse med under 150 m² opvarmet etageareal har den strengeste CO₂-grænseværdi i BR18: kun 4,0 kg CO₂e/m²/år. Det er 40 % lavere end grænsen for enfamiliehuse (6,7). For arkitekter der projekterer sommerhuse er det afgørende at tænke LCA ind fra første streg, så materialevalg kan tilpasses tidligt i processen.",
+        text: "En LCA-beregning for et sommerhus skal dokumentere, at huset holder grænseværdien i BR18. Sommerhuse med under 150 m² opvarmet etageareal har den strengeste grænse: kun 4,0 kg CO₂e/m²/år. Det er 40 % lavere end grænsen for enfamiliehuse (6,7). For arkitekter der projekterer sommerhuse er det afgørende at tænke LCA ind fra første streg, så materialevalg kan tilpasses tidligt i processen. Se hvordan vi laver [LCA-beregning for sommerhuse](/lca-beregning/sommerhus).",
       },
       {
         type: "heading2",

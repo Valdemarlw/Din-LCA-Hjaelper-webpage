@@ -29,6 +29,14 @@ describe("Bing title-length fixes", () => {
     }
   });
 
+  it("makes the sommerhus article answer 'lca beregning sommerhus' and link the service page first", () => {
+    const post = getBlogPost("lca-sommerhuse");
+    expect(post?.metaTitle?.startsWith("LCA-beregning for sommerhus")).toBe(true);
+    const first = post!.content[0];
+    expect(first.type).toBe("paragraph");
+    expect("text" in first && first.text).toContain("(/lca-beregning/sommerhus)");
+  });
+
   it("keeps the case titles within the search title limit", () => {
     for (const slug of ["ternedalen-42", "agavevej-4a"]) {
       const project = getReferenceProject(slug);
