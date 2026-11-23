@@ -23,7 +23,7 @@ export function ReferenceProjectsPage() {
         <title>{REFERENCE_PROJECTS_SEO_TITLE}</title>
         <meta
           name="description"
-          content="Eksempler på LCA-beregninger efter BR18 fra konkrete byggeprojekter: resultat, grænseværdi, beregningsforløb og hotspotanalyse for hver case."
+          content="Eksempler på LCA-beregninger efter BR18 fra konkrete byggeprojekter. Se resultat, metode og de forbehold, der stadig gælder for hver case."
         />
         <link rel="canonical" href="https://dinlcahjælper.dk/referenceprojekter" />
         <meta property="og:title" content={REFERENCE_PROJECTS_SEO_TITLE} />
